@@ -1,6 +1,26 @@
 if(ARGOS_BUILD_FOR_SIMULATOR)
   include_directories(${CMAKE_SOURCE_DIR}/plugins/robots/kilobot/control_interface)
 
+###########
+  add_executable(kilobot_v1 kilobot_v1.c)
+  target_link_libraries(kilobot_v1 argos3plugin_simulator_kilolib)
+###########
+  add_executable(kilobot_v2 kilobot_v2.c)
+  target_link_libraries(kilobot_v2 argos3plugin_simulator_kilolib)
+###########
+  add_executable(move_to_position move_to_position.c)  
+  target_link_libraries(move_to_position argos3plugin_simulator_kilolib)
+###########
+  add_executable(kilobot_ALF_client-server_server kilobot_ALF_client-server_server.c)  
+  target_link_libraries(kilobot_ALF_client-server_server argos3plugin_simulator_kilolib)
+###########
+  add_executable(kilobot_ALF_client-server_client kilobot_ALF_client-server_client.c)  
+  target_link_libraries(kilobot_ALF_client-server_client argos3plugin_simulator_kilolib)
+###########
+  add_executable(kilobot_ALF_dhtf kilobot_ALF_dhtf.c)  
+  target_link_libraries(kilobot_ALF_dhtf argos3plugin_simulator_kilolib)
+###########
+
   #
   # Lab0: Blinky
   #
