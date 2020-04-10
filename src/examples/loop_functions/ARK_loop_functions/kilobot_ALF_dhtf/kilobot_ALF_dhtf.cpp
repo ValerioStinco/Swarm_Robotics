@@ -86,7 +86,7 @@ void CALFClientServer::SetupInitialKilobotStates() {
     m_vecLastTimeMessaged.resize(m_tKilobotEntities.size());
     m_fMinTimeBetweenTwoMsg = Max<Real>(1.0, m_tKilobotEntities.size() * m_fTimeForAMessage / 3.0);
     
-    /* Conpute the number of kilobots on the field*/
+    /* Compute the number of kilobots on the field*/
     num_of_kbs=0;
     for(UInt16 it=0;it< m_tKilobotEntities.size();it++){
         SetupInitialKilobotState(*m_tKilobotEntities[it]);
