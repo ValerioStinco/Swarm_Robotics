@@ -101,7 +101,7 @@ void CALFClientServer::SetupInitialKilobotStates() {
 
 void CALFClientServer::SetupInitialKilobotState(CKilobotEntity &c_kilobot_entity){
     UInt16 unKilobotID = GetKilobotId(c_kilobot_entity);
-    m_vecKilobotStates[unKilobotID] = RANDOM_WALKING;
+    m_vecKilobotStates[unKilobotID] = OUTSIDE_AREAS;
     m_vecLastTimeMessaged[unKilobotID] = -1000;
 }
 
@@ -172,7 +172,7 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
     std::string outputBuffer = "";
     for (int k=0; k<num_of_areas; k++){
 
-        /* Use this to send the numner of kilobots in each area */
+        /* Use this to send the number of kilobots in each area */
         //outputBuffer.append(std::to_string(contained[k]));
 
         /* Write 1 if the requirements of the area are satisfied for the sender, else write 0 */
@@ -218,12 +218,12 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
 
     /*State transition*/
     switch (m_vecKilobotStates[unKilobotID]) {
-        case RANDOM_WALKING : {
+        case OUTSIDE_AREAS : {
             /* Check if the kilobot is entered in a task area */
             for (int i=0;i<num_of_areas;i++){ 
                 Real fDistance = Distance(cKilobotPosition, multiArea[i].Center);
                 if((fDistance < (multiArea[i].Radius*1)) && (multiArea[i].Completed == false) && (GetKilobotLedColor(c_kilobot_entity) != argos::CColor::RED)){
-                    m_vecKilobotStates[unKilobotID] = WAITING;
+                    m_vecKilobotStates[unKilobotID] = INSIDE_AREA;
                     /* Check the area color to understand the requirements of the task */
                     if (multiArea[i].Color.GetRed() == 255){
                         request[unKilobotID] = 3;
@@ -237,7 +237,7 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
             }
         break;
         }
-        case WAITING : {
+        case INSIDE_AREA : {
             /* Check if the kilobot has waited too long for colaboratos and it is going away */
             if (GetKilobotLedColor(c_kilobot_entity) == argos::CColor::RED){
                 m_vecKilobotStates[unKilobotID] = LEAVING;
@@ -245,7 +245,7 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
             }
             /* Check if the task has been completed */
             else if (multiArea[whereis[unKilobotID]].Completed == true){
-                m_vecKilobotStates[unKilobotID] = RANDOM_WALKING;
+                m_vecKilobotStates[unKilobotID] = OUTSIDE_AREAS;
                 whereis[unKilobotID] = -1;
                 contained[whereis[unKilobotID]] = 0;
             }
@@ -253,9 +253,9 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
         }
         case LEAVING : {
             Real fDistance = Distance(cKilobotPosition, multiArea[whereis[unKilobotID]].Center);
-            /* Check that the robot is a bit far away from the area before returning to RANDOM_WALKING, if transition done on the edge it would probably enter again*/
+            /* Check that the robot is a bit far away from the area before returning to OUTSIDE_AREAS, if transition done on the edge it would probably enter again*/
             if (fDistance > (multiArea[whereis[unKilobotID]].Radius*1.2)){
-                m_vecKilobotStates[unKilobotID] = RANDOM_WALKING;
+                m_vecKilobotStates[unKilobotID] = OUTSIDE_AREAS;
                 whereis[unKilobotID] = -1;
             }
         break;

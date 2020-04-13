@@ -113,8 +113,8 @@ private:
 
     typedef enum                    //states of the kilobots
     {
-        RANDOM_WALKING=0,
-        WAITING=1,
+        OUTSIDE_AREAS=0,
+        INSIDE_AREA=1,
         LEAVING=2,  
     } SRobotState;
 
