@@ -149,7 +149,7 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
     UInt16 unKilobotID = GetKilobotId(c_kilobot_entity);
     CVector2 cKilobotPosition = GetKilobotPosition(c_kilobot_entity);
 
-    /* Listen for the other ALF communication */
+/* Listen for the other ALF communication */
     memset(inputBuffer, 0, 30);
     if (MODE == "SERVER"){
         bytesReceived = recv(clientSocket, inputBuffer, 30, MSG_DONTWAIT);
@@ -166,9 +166,10 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
         for (int i=0; i<30; i++){
             storeBuffer[i] = inputBuffer[i];
         }
+        std::cout<<storeBuffer<<std::endl;
     }
 
-    /* Build the message for the other ALF */
+/* Build the message for the other ALF */
     std::string outputBuffer = "";
     for (int k=0; k<num_of_areas; k++){
 
@@ -193,6 +194,23 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
             }            
         }
     }
+/////////////////////////////////////////////////////////////////////////////////////////////
+    /*if (MODE == "SERVER"){
+        if (unKilobotID == 0){
+            //std::cout<<outputBuffer<<std::endl;
+            for (int g=0; g<num_of_areas; g++){
+                double r = ((double) rand() / (RAND_MAX));
+                //std::cout<<r<<std::endl;
+                if ((multiArea[g].Completed == true) && (r < 1)){
+                    //std::cout<<"true "<<g<<std::endl;
+                    multiArea[g].Completed = false;
+                    storeBuffer[g]=48;
+                    //outputBuffer.append(std::to_string(g));
+                }
+            }
+        }
+    }*/
+/////////////////////////////////////////////////////////////////////////////////////////////
     
     /* Send the message to the other ALF*/
     if (unKilobotID == 0){
@@ -216,7 +234,7 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
         }
     }
 
-    /*State transition*/
+/*State transition*/
     switch (m_vecKilobotStates[unKilobotID]) {
         case OUTSIDE_AREAS : {
             /* Check if the kilobot is entered in a task area */
