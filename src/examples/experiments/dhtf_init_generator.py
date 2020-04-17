@@ -1,4 +1,12 @@
+'''Generate 2 experiment files .argos for client and server.
+Areas are distributed in the same locations but can have different colors'''
+
 import random
+
+#Parameters setting
+P_gen = 0.75		#higher value -> more probability to have more areas
+P_blue_ser = 0.7	#higher value -> more probability that server areas are blue
+P_blue_cli = 0.7	#higher value -> more probability that client areas are blue
 
 #Possible task locations
 possible_tasks= [' position="0.75,0.75" radius="0.05" color="',
@@ -23,16 +31,16 @@ Sareas=[]
 Careas=[]
 counter=0
 for i in range (16):
-	if (random.uniform(0, 1) < 0.8):
+	if (random.uniform(0, 1) < P_gen):
 		current_area='\t\t\t<Area{}'.format(counter)
 		current_area+=possible_tasks[i]
 
-		if(random.uniform(0, 1) < 0.7):
+		if(random.uniform(0, 1) < P_blue_ser):
 			current_Sarea = current_area + '0,0,255'
 		else:
 			current_Sarea = current_area + '255,0,0'
 
-		if(random.uniform(0, 1) < 0.7):
+		if(random.uniform(0, 1) < P_blue_cli):
 			current_Carea = current_area + '0,0,255'
 		else:
 			current_Carea = current_area + '255,0,0'
