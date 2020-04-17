@@ -58,20 +58,19 @@
         </variables>
 
         <environments>
-			<Area0 position="0.75,0.25" radius="0.05" color="255,0,0,255" ></Area0>
-			<Area1 position="0.75,-0.25" radius="0.05" color="0,0,255,255" ></Area1>
-			<Area2 position="0.75,-0.75" radius="0.05" color="0,0,255,255" ></Area2>
-			<Area3 position="0.25,0.75" radius="0.05" color="0,0,255,255" ></Area3>
-			<Area4 position="0.25,0.25" radius="0.05" color="255,0,0,255" ></Area4>
-			<Area5 position="0.25,-0.25" radius="0.05" color="0,0,255,255" ></Area5>
-			<Area6 position="-0.25,0.75" radius="0.05" color="0,0,255,255" ></Area6>
-			<Area7 position="-0.25,0.25" radius="0.05" color="255,0,0,255" ></Area7>
-			<Area8 position="-0.25,-0.25" radius="0.05" color="0,0,255,255" ></Area8>
-			<Area9 position="-0.25,-0.75" radius="0.05" color="255,0,0,255" ></Area9>
-			<Area10 position="-0.75,0.75" radius="0.05" color="0,0,255,255" ></Area10>
-			<Area11 position="-0.75,0.25" radius="0.05" color="255,0,0,255" ></Area11>
+			<Area0 position="0.75,0.75" radius="0.05" color="0,0,255,255" ></Area0>
+			<Area1 position="0.75,0.25" radius="0.05" color="0,0,255,255" ></Area1>
+			<Area2 position="0.75,-0.25" radius="0.05" color="255,0,0,255" ></Area2>
+			<Area3 position="0.75,-0.75" radius="0.05" color="0,0,255,255" ></Area3>
+			<Area4 position="0.25,0.75" radius="0.05" color="255,0,0,255" ></Area4>
+			<Area5 position="0.25,0.25" radius="0.05" color="0,0,255,255" ></Area5>
+			<Area6 position="0.25,-0.25" radius="0.05" color="0,0,255,255" ></Area6>
+			<Area7 position="-0.25,0.75" radius="0.05" color="0,0,255,255" ></Area7>
+			<Area8 position="-0.25,0.25" radius="0.05" color="0,0,255,255" ></Area8>
+			<Area9 position="-0.25,-0.25" radius="0.05" color="255,0,0,255" ></Area9>
+			<Area10 position="-0.25,-0.75" radius="0.05" color="0,0,255,255" ></Area10>
+			<Area11 position="-0.75,0.25" radius="0.05" color="0,0,255,255" ></Area11>
 			<Area12 position="-0.75,-0.25" radius="0.05" color="0,0,255,255" ></Area12>
-			<Area13 position="-0.75,-0.75" radius="0.05" color="255,0,0,255" ></Area13>
         </environments>
 
     
