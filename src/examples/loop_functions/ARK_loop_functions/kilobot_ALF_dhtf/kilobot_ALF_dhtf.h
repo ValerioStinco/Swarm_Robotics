@@ -127,14 +127,19 @@ private:
     std::vector<FloorColorData> m_vecKilobotData;
 
     std::string MODE;
+    float task_elimination_rate;
+    float reactivation_rate;
     char inputBuffer[30];           //array containing the message received from the socket
-    char outputBuffer[30];          //array  containing the message to send
+    std::string outputBuffer;          //array  containing the message to send
     char storeBuffer[30];           //array where to store input message to keep it available
     int bytesReceived;              //length of received string
     int serverSocket;
     int clientSocket;
     int num_of_areas;               //number of clustering areas
     int num_of_kbs;                 //number of kilobots on the field
+    int arena_update_counter;
+    bool initializing;
+    bool flag;
 
     /*vectors as long as the number of kilobots*/
     std::vector<int> request;       //vector that determines waiting time: 1 for kilobots on blue areas and 3 for the ones on red areas (multiplied times 500 gives the number of cycles before timeout)
