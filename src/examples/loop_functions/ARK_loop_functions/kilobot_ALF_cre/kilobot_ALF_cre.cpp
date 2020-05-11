@@ -1,4 +1,4 @@
-#include "kilobot_ALF_dhtf.h"
+#include "kilobot_ALF_cre.h"
 
 CALFClientServer::CALFClientServer() :
     m_unDataAcquisitionFrequency(10){
@@ -17,10 +17,10 @@ void CALFClientServer::Init(TConfigurationNode& t_node) {
     TConfigurationNode& tModeNode = GetNode(t_node, "extra_parameters");
     GetNodeAttribute(tModeNode,"mode",MODE);
     GetNodeAttribute(tModeNode,"desired_num_of_areas",desired_num_of_areas);
-    GetNodeAttribute(tModeNode,"hard_tasks",hard_tasks);
     GetNodeAttribute(tModeNode,"reactivation_rate",reactivation_rate);
+    GetNodeAttribute(tModeNode,"hard_tasks",hard_tasks);
 
-    /* Randomly select the desired number of tasks between the available ones, set color and communicate them to the client */
+    /* Randomly select some of the available tasks for the experiment, set color and communicate them to the client */
     int t=0;
     if (MODE=="SERVER"){
         outputBuffer="I";
@@ -55,6 +55,8 @@ void CALFClientServer::Init(TConfigurationNode& t_node) {
             }      
         }
     }
+
+
 
     /* Initializations */
     bytesReceived = -1;
@@ -171,7 +173,6 @@ void CALFClientServer::SetupVirtualEnvironments(TConfigurationNode& t_tree){
         GetNodeAttribute(t_VirtualClusteringHubNode, "radius", multiArea[i].Radius);
         //GetNodeAttribute(t_VirtualClusteringHubNode, "color", multiArea[i].Color);    // use this to read areas color from .argos
     }
-    /* Blue set as default color, then some of the areas turn red */
     for (int ai=0; ai<num_of_areas; ai++){
         multiArea[ai].Completed = false;
         multiArea[ai].Color = argos::CColor::BLUE;
@@ -349,7 +350,6 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
                     Real fDistance = Distance(cKilobotPosition, multiArea[i].Center);
                     if((fDistance < (multiArea[i].Radius*1)) && (multiArea[i].Completed == false)){
                         m_vecKilobotStates_transmit[unKilobotID] = INSIDE_AREA;
-                        /* Check LED color to understand if the robot is leaving or it is waiting for the task */
                         if (GetKilobotLedColor(c_kilobot_entity) != argos::CColor::RED){
                             m_vecKilobotStates_ALF[unKilobotID] = INSIDE_AREA;
                             /* Check the area color to understand the requirements of the task */
@@ -383,9 +383,8 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
             break;
             }
             case LEAVING : {
-                /* Case in which the robot is inside an area but it is moving */
                 Real fDistance = Distance(cKilobotPosition, multiArea[whereis[unKilobotID]].Center);
-                /* Check when the robot is back outside  */
+                /* Check that the robot is a bit far away from the area before returning to OUTSIDE_AREAS, if transition done on the edge it would probably enter again */
                 if (fDistance > (multiArea[whereis[unKilobotID]].Radius)){
                     m_vecKilobotStates_transmit[unKilobotID] = OUTSIDE_AREAS;
                     m_vecKilobotStates_ALF[unKilobotID] = OUTSIDE_AREAS;
@@ -459,4 +458,4 @@ CColor CALFClientServer::GetFloorColor(const CVector2 &vec_position_on_plane) {
 }
 
 
-REGISTER_LOOP_FUNCTIONS(CALFClientServer, "kilobot_ALF_dhtf_loop_function")
+REGISTER_LOOP_FUNCTIONS(CALFClientServer, "kilobot_ALF_cre_loop_function")

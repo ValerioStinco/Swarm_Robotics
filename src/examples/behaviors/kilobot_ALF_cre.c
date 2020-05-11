@@ -44,10 +44,10 @@ int sa_payload = 0;
 bool new_sa_msg = false;
 
 int timeout;                                    //Internal counter for task complention wait
-int leaving_timer;                            //Internal counter for the action of leaving a task when timeout expires
+int leaving_timeout;                            //Internal counter for the action of leaving a task when timeout expires
 
-/* PARAMETER: change this value to determine timeout length */
-const int TIMEOUT_CONST = 500;
+/* PARAMETER: change this value to determine timeout lenght */
+int TIMEOUT_CONST = 500;
 
 /*-------------------------------------------------------------------*/
 /* Function for setting the motor speed                              */
@@ -145,16 +145,16 @@ void rx_message(message_t *msg, distance_measurement_t *d) {
             if (timeout == 0) {
                 set_color(RGB(3,0,0));
                 current_state = LEAVING;
-                leaving_timer=50;
+                leaving_timeout=50;
                 set_motion(FORWARD);
             }
             break;
         }
         case LEAVING : {
             set_color(RGB(3,0,0));
-            if (leaving_timer>0){
+            if (leaving_timeout>0){
                 set_motion(FORWARD);
-                leaving_timer--;
+                leaving_timeout--;
             }
             else{
                 if(sa_type == OUTSIDE){
@@ -162,7 +162,7 @@ void rx_message(message_t *msg, distance_measurement_t *d) {
                     set_motion(FORWARD);
                 }
                 else{
-                    leaving_timer=50;
+                    leaving_timeout=50;
                 }
             }
             break;
