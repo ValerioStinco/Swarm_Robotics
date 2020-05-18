@@ -1,4 +1,4 @@
-#include "kilobot_ALF_dhtf.h"
+#include "kilobot_ALF_dhtf-PAR.h"
 
 CALFClientServer::CALFClientServer() :
     m_unDataAcquisitionFrequency(10){
@@ -215,89 +215,64 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
         std::cout<<storeBuffer<<std::endl;
     }
 
-    /* --------- CLIENT --------- */
-    if (MODE=="CLIENT"){
-        /* Initialize the tasks selected by the server */
-        if ((storeBuffer[0]==73)&&(initializing==true)){    //73 is the ASCII binary for "I"
-            for (int a=1; a<30; a++){
-                int n = storeBuffer[a]-97;
-                if (n>=0){
-                    for (int b = n; b < num_of_areas; b++){
-                        multiArea[b] = multiArea[b + 1];
-                    }
-                    num_of_areas--;
+    /* Initialize the tasks selected by the server */
+    if ((MODE=="CLIENT")&&(storeBuffer[0]==73)&&(initializing==true)){    //73 is the ASCII binary for "I"
+        for (int a=1; a<30; a++){
+            int n = storeBuffer[a]-97;
+            if (n>=0){
+                for (int b = n; b < num_of_areas; b++){
+                    multiArea[b] = multiArea[b + 1];
                 }
-            }
-            initializing=false;
-            int t=0;
-            int count_t=0;
-            while(count_t<hard_tasks){
-                double r = ((double) rand() / (RAND_MAX));
-                if (r<0.8){
-                    multiArea[t].Color=argos::CColor::RED;
-                    count_t++;
-                }
-                t++;
-                if(t==num_of_areas){
-                    t=0;
-                }      
+                num_of_areas--;
             }
         }
-
-        /* Align to server arena */
-        if ((storeBuffer[0]==65)&&(initializing==false)){ //65 is the ASCII binary for "A"
-            std::cout<<storeBuffer<<std::endl;
-            for (int a=0; a<num_of_areas; a++){
-                if (storeBuffer[a+1]-48 == 0) {
-                    multiArea[a].Completed = false;
+        initializing=false;
+        int t=0;
+        int count_t=0;
+        while(count_t<hard_tasks){
+            double r = ((double) rand() / (RAND_MAX));
+            if (r<0.8){
+                multiArea[t].Color=argos::CColor::RED;
+                count_t++;
+            }
+            t++;
+            if(t==num_of_areas){
+                t=0;
+            }      
+        }
+    }
+    
+    /* Task completeness check */
+    if (storeBuffer[0]==84){ //84 is the ASCII binary for "T"
+        for (int j=0; j<num_of_areas; j++){
+            if (storeBuffer[j+1]-48 == 1) {
+                if ((multiArea[j].Color.GetBlue() == 255) && (contained[j] >= 1)) {
+                    multiArea[j].Completed = true;
                 }
-                else{
-                    multiArea[a].Completed = true;
+                if ((multiArea[j].Color.GetRed() == 255) && (contained[j] >= 3)) {
+                    multiArea[j].Completed = true;
                 }
             }
         }
     }
 
-
-    /* --------- SERVER --------- */
-    if (MODE=="SERVER"){
-        /* Task completeness check */
-        if (storeBuffer[0]==84){ //84 is the ASCII binary for "T"
-            for (int j=0; j<num_of_areas; j++){
-                if (storeBuffer[j+1]-48 == 1) {
-                    if ((multiArea[j].Color.GetBlue() == 255) && (contained[j] >= 2)) {
-                        multiArea[j].Completed = true;
-                    }
-                    if ((multiArea[j].Color.GetRed() == 255) && (contained[j] >= 6)) {
-                        multiArea[j].Completed = true;
-                    }
-                }
+    /* Reactivate tasks already comlpeted (client routine) */
+    if (storeBuffer[0]==65){ //65 is the ASCII binary for "A"
+        std::cout<<storeBuffer<<std::endl;
+        for (int a=1; a<=num_of_areas; a++){
+            int n = storeBuffer[a]-97;
+            if (n>=0){
+                std::cout<<n<<std::endl;
+                multiArea[n].Completed = false;
+                contained[n] = 0;
             }
-        }
-        /* Reactivate tasks already comlpeted (server routine) */
-        if (arena_update_counter == 0){
-            for (int a=0; a<num_of_areas; a++){
-                if (multiArea[a].Completed == true){
-                    double r = ((double) rand() / (RAND_MAX));
-                    if (r<reactivation_rate){
-                        multiArea[a].Completed = false;
-                        contained[a] = 0;
-                    }
-                }
-            }
-            arena_update_counter=500;
-        }
-        else{
-            arena_update_counter--;
         }
     }
-
 
 /* Speak to the other ALF */
-    if (unKilobotID == 0){
-        /* --------- CLIENT --------- */
-        if (MODE=="CLIENT"){
-            /* Build the message for the other ALF */
+    /* Build the message for the other ALF */
+    if ((unKilobotID == 0) ){
+        if(((MODE=="SERVER") && (initializing == false))||(MODE=="CLIENT")){
             outputBuffer = "T"; //"T" indicates that the message is related to task completeness
             for (int k=0; k<num_of_areas; k++){
 
@@ -322,26 +297,37 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
                     }            
                 }
             }
-            std::cout<<outputBuffer<<std::endl;
-        }
 
-        /* --------- SERVER --------- */
-        if (MODE=="SERVER"){
-            /* Build the message for the other ALF */
-            if (initializing==false){
-                outputBuffer = "A";
-                for (int k=0; k<num_of_areas; k++){
-                    if(multiArea[k].Completed==true){
-                        outputBuffer.append("1");
+            /* Reactivate tasks already comlpeted (server routine) */
+            if (MODE=="SERVER"){
+                if (arena_update_counter == 0){
+                    outputBuffer = "A";
+                    for (int a=0; a<num_of_areas; a++){
+                        if (multiArea[a].Completed == true){
+                            double r = ((double) rand() / (RAND_MAX));
+                            if (r<reactivation_rate){
+                                multiArea[a].Completed = false;
+                                contained[a] = 0;
+                            int n=a+97;    //conversion of int index to a single character string
+                            char A = static_cast<char>(n);
+                            std::string s(1, A);
+                            std::cout<<n<<std::endl;
+                            std::cout<<A<<std::endl;
+                            std::cout<<s<<std::endl;
+                            outputBuffer.append(s);
+                            }
+                        }
                     }
-                    else{
-                        outputBuffer.append("0");
-                    }
+                    std::cout<<"--->"<<outputBuffer<<std::endl;
+                    arena_update_counter=500;
+                }
+                else{
+                    arena_update_counter--;
                 }
             }
-            else{
-                initializing=false;
-            }
+        }
+        else{
+            initializing=false;
         }
 
         /* Send the message to the other ALF*/
@@ -473,4 +459,4 @@ CColor CALFClientServer::GetFloorColor(const CVector2 &vec_position_on_plane) {
 }
 
 
-REGISTER_LOOP_FUNCTIONS(CALFClientServer, "kilobot_ALF_dhtf_loop_function")
+REGISTER_LOOP_FUNCTIONS(CALFClientServer, "kilobot_ALF_dhtf-PAR_loop_function")

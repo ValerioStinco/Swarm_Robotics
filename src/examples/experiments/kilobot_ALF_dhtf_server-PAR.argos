@@ -36,14 +36,14 @@
     <!-- * Loop functions * -->
     <!-- ****************** -->
     <loop_functions 
-        library="build/examples/loop_functions/ARK_loop_functions/kilobot_ALF_dhtf/libkilobot_ALF_dhtf_loop_function"
-        label="kilobot_ALF_dhtf_loop_function" >
+        library="build/examples/loop_functions/ARK_loop_functions/kilobot_ALF_dhtf-PAR/libkilobot_ALF_dhtf-PAR_loop_function"
+        label="kilobot_ALF_dhtf-PAR_loop_function" >
     
         <extra_parameters
             mode="SERVER"
-            desired_num_of_areas="8"
-            hard_tasks="1"
-            reactivation_rate="0.01">
+            desired_num_of_areas="12"
+            hard_tasks="2"
+            reactivation_rate="0.5">
         </extra_parameters>
 
         <tracking

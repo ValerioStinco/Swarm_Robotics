@@ -41,7 +41,7 @@
     
         <extra_parameters
             mode="CLIENT"
-            desired_num_of_areas="12"
+            desired_num_of_areas="8"
             hard_tasks="1"
             reactivation_rate="0.5">
         </extra_parameters>
@@ -62,37 +62,37 @@
         </variables>
 
         <environments>
-            <Area0 position="0.3,0.3" radius="0.03" color="0,0,255,255" >
+            <Area0 position="0.375,0.375" radius="0.08" color="0,0,255,255" >
             </Area0>
-            <Area1 position="0.3,0.1" radius="0.03" color="255,0,0,255" >
+            <Area1 position="0.375,0.125" radius="0.08" color="255,0,0,255" >
             </Area1>
-            <Area2 position="0.3,-0.1" radius="0.03" color="0,0,255,255" >
+            <Area2 position="0.375,-0.125" radius="0.08" color="0,0,255,255" >
             </Area2>
-            <Area3 position="0.3,-0.3" radius="0.03" color="0,0,255,255" >
+            <Area3 position="0.375,-0.375" radius="0.08" color="0,0,255,255" >
             </Area3>
-            <Area4 position="0.1,0.3" radius="0.03" color="255,0,0,255" >
+            <Area4 position="0.125,0.375" radius="0.08" color="255,0,0,255" >
             </Area4>
-            <Area5 position="0.1,0.1" radius="0.03" color="255,0,0,255" >
+            <Area5 position="0.125,0.125" radius="0.08" color="255,0,0,255" >
             </Area5>
-            <Area6 position="0.1,-0.1" radius="0.03" color="0,0,255,255" >
+            <Area6 position="0.125,-0.125" radius="0.08" color="0,0,255,255" >
             </Area6>
-            <Area7 position="0.1,-0.3" radius="0.03" color="0,0,255,255" >
+            <Area7 position="0.125,-0.375" radius="0.08" color="0,0,255,255" >
             </Area7>
-            <Area8 position="-0.1,0.3" radius="0.03" color="0,0,255,255" >
+            <Area8 position="-0.125,0.375" radius="0.08" color="0,0,255,255" >
             </Area8>
-            <Area9 position="-0.1,0.1" radius="0.03" color="255,0,0,255" >
+            <Area9 position="-0.125,0.125" radius="0.08" color="255,0,0,255" >
             </Area9>
-            <Area10 position="-0.1,-0.1" radius="0.03" color="0,0,255,255" >
+            <Area10 position="-0.125,-0.125" radius="0.08" color="0,0,255,255" >
             </Area10>
-            <Area11 position="-0.1,-0.3" radius="0.03" color="255,0,0,255" >
+            <Area11 position="-0.125,-0.375" radius="0.08" color="255,0,0,255" >
             </Area11>
-            <Area12 position="-0.3,0.3" radius="0.03" color="255,0,0,255" >
+            <Area12 position="-0.375,0.375" radius="0.08" color="255,0,0,255" >
             </Area12>
-            <Area13 position="-0.3,0.1" radius="0.03" color="0,0,255,255" >
+            <Area13 position="-0.375,0.125" radius="0.08" color="0,0,255,255" >
             </Area13>
-            <Area14 position="-0.3,-0.1" radius="0.03" color="255,0,0,255" >
+            <Area14 position="-0.375,-0.125" radius="0.08" color="255,0,0,255" >
             </Area14>
-            <Area15 position="-0.3,-0.3" radius="0.03" color="255,0,0,255" >
+            <Area15 position="-0.375,-0.375" radius="0.08" color="255,0,0,255" >
             </Area15>
         </environments>
 
