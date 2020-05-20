@@ -212,7 +212,7 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
         for (int i=0; i<30; i++){
             storeBuffer[i] = inputBuffer[i];
         }
-        std::cout<<storeBuffer<<std::endl;
+        //std::cout<<storeBuffer<<std::endl;
     }
 
     /* --------- CLIENT --------- */
@@ -246,7 +246,7 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
 
         /* Align to server arena */
         if ((storeBuffer[0]==65)&&(initializing==false)){ //65 is the ASCII binary for "A"
-            std::cout<<storeBuffer<<std::endl;
+            //std::cout<<storeBuffer<<std::endl;
             for (int a=0; a<num_of_areas; a++){
                 if (storeBuffer[a+1]-48 == 0) {
                     multiArea[a].Completed = false;
@@ -264,12 +264,24 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
         /* Task completeness check */
         if (storeBuffer[0]==84){ //84 is the ASCII binary for "T"
             for (int j=0; j<num_of_areas; j++){
-                if (storeBuffer[j+1]-48 == 1) {
-                    if ((multiArea[j].Color.GetBlue() == 255) && (contained[j] >= 2)) {
-                        multiArea[j].Completed = true;
-                    }
+                if (storeBuffer[j+1]-48 == 2) {
                     if ((multiArea[j].Color.GetRed() == 255) && (contained[j] >= 6)) {
                         multiArea[j].Completed = true;
+                        std::cout<<"red-red task completed"<<std::endl;
+                    }
+                    if ((multiArea[j].Color.GetBlue() == 255) && (contained[j] >= 2)) {
+                        multiArea[j].Completed = true;
+                        std::cout<<"blue-red task completed"<<std::endl;
+                    }
+                }
+                if (storeBuffer[j+1]-48 == 1) {
+                    if ((multiArea[j].Color.GetRed() == 255) && (contained[j] >= 6)) {
+                        multiArea[j].Completed = true;
+                        std::cout<<"red-blue task completed"<<std::endl;
+                    }
+                    if ((multiArea[j].Color.GetBlue() == 255) && (contained[j] >= 2)) {
+                        multiArea[j].Completed = true;
+                        std::cout<<"blue-blue task completed"<<std::endl;
                     }
                 }
             }
@@ -304,25 +316,25 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
                 /* Use this to send the number of kilobots in each area */
                 //outputBuffer.append(std::to_string(contained[k]));
 
-                /* Write 1 if the requirements of the area are satisfied for the sender, else write 0 */
+                /* Write 1 or 2 if the requirements of the area are satisfied for the sender, else write 0 */
                 if (multiArea[k].Color.GetRed() == 255){
-                    if (contained[k] >= 3) {
-                        outputBuffer.append("1");
+                    if (contained[k] >= 6) {
+                        outputBuffer.append("2");   //hard task completed
                     }
                     else {
                         outputBuffer.append("0");
                     }
                 }
                 else if (multiArea[k].Color.GetBlue() == 255){
-                    if (contained[k] >= 1) {
-                        outputBuffer.append("1");
+                    if (contained[k] >= 2) {
+                        outputBuffer.append("1");   //easy task completed
                     }
                     else {
                         outputBuffer.append("0");
                     }            
                 }
             }
-            std::cout<<outputBuffer<<std::endl;
+            //std::cout<<outputBuffer<<std::endl;
         }
 
         /* --------- SERVER --------- */

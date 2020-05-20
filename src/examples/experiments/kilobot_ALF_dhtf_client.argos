@@ -42,7 +42,7 @@
         <extra_parameters
             mode="CLIENT"
             desired_num_of_areas="8"
-            hard_tasks="1"
+            hard_tasks="4"
             reactivation_rate="0.5">
         </extra_parameters>
 

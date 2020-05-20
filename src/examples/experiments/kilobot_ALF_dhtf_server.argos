@@ -42,7 +42,7 @@
         <extra_parameters
             mode="SERVER"
             desired_num_of_areas="8"
-            hard_tasks="1"
+            hard_tasks="4"
             reactivation_rate="0.01">
         </extra_parameters>
 
