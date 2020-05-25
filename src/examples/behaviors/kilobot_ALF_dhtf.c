@@ -19,6 +19,7 @@ typedef enum {  // Enum for the robot states
     RANDOM_WALKING = 0,
     WAITING = 1,
     LEAVING = 2,
+    ROTATION = 3,
 } action_t;
 
 typedef enum {  // Enum for the robot position wrt to areas
@@ -44,7 +45,8 @@ int sa_payload = 0;
 bool new_sa_msg = false;
 
 int timeout;                                    //Internal counter for task complention wait
-int leaving_timer;                            //Internal counter for the action of leaving a task when timeout expires
+int leaving_timer;                              //Internal counter for the action of leaving a task when timeout expires
+int turn_timer;                                //Avoid the robot to get stuck in Leagving
 
 /* PARAMETER: change this value to determine timeout length */
 const int TIMEOUT_CONST = 500;
@@ -145,7 +147,8 @@ void rx_message(message_t *msg, distance_measurement_t *d) {
             if (timeout == 0) {
                 set_color(RGB(3,0,0));
                 current_state = LEAVING;
-                leaving_timer=50;
+                leaving_timer =50;
+                //break_timer = 10;
                 set_motion(FORWARD);
             }
             break;
@@ -162,9 +165,29 @@ void rx_message(message_t *msg, distance_measurement_t *d) {
                     set_motion(FORWARD);
                 }
                 else{
+                    turn_timer = 5;
+                    current_state = ROTATION;
+                    set_motion (TURN_LEFT);
+                    /*set_motion(TURN_LEFT);
                     leaving_timer=50;
+                    break_timer--;
+                    if (break_timer == 0){
+                        current_state = RANDOM_WALKING;
+                        set_motion(FORWARD);  
+                    }*/
                 }
             }
+            break;
+        }
+        case ROTATION : {
+            set_color(RGB(3,0,0));
+            set_motion (TURN_LEFT);
+            if(turn_timer==0){
+                current_state = LEAVING;
+                set_motion(FORWARD);
+                leaving_timer=50;
+            }
+            turn_timer--;
             break;
         }
     }

@@ -42,7 +42,7 @@
         <extra_parameters
             mode="SERVER"
             desired_num_of_areas="12"
-            hard_tasks="2"
+            hard_tasks="0"
             reactivation_rate="0.5">
         </extra_parameters>
 
@@ -61,38 +61,106 @@
         </variables>
 
         <environments>
-            <Area0 position="0.3,0.3" radius="0.03" color="0,0,255,255" >
-            </Area0>
-            <Area1 position="0.3,0.1" radius="0.03" color="255,0,0,255" >
-            </Area1>
-            <Area2 position="0.3,-0.1" radius="0.03" color="0,0,255,255" >
-            </Area2>
-            <Area3 position="0.3,-0.3" radius="0.03" color="0,0,255,255" >
-            </Area3>
-            <Area4 position="0.1,0.3" radius="0.03" color="255,0,0,255" >
-            </Area4>
-            <Area5 position="0.1,0.1" radius="0.03" color="255,0,0,255" >
-            </Area5>
-            <Area6 position="0.1,-0.1" radius="0.03" color="0,0,255,255" >
-            </Area6>
-            <Area7 position="0.1,-0.3" radius="0.03" color="0,0,255,255" >
-            </Area7>
-            <Area8 position="-0.1,0.3" radius="0.03" color="0,0,255,255" >
-            </Area8>
-            <Area9 position="-0.1,0.1" radius="0.03" color="255,0,0,255" >
-            </Area9>
-            <Area10 position="-0.1,-0.1" radius="0.03" color="0,0,255,255" >
-            </Area10>
-            <Area11 position="-0.1,-0.3" radius="0.03" color="255,0,0,255" >
-            </Area11>
-            <Area12 position="-0.3,0.3" radius="0.03" color="255,0,0,255" >
-            </Area12>
-            <Area13 position="-0.3,0.1" radius="0.03" color="0,0,255,255" >
-            </Area13>
-            <Area14 position="-0.3,-0.1" radius="0.03" color="255,0,0,255" >
-            </Area14>
-            <Area15 position="-0.3,-0.3" radius="0.03" color="255,0,0,255" >
-            </Area15>
+			<Area0 position="0.45,0.45" radius="0.02"></Area0>
+			<Area1 position="0.45,0.35" radius="0.02"></Area1>
+			<Area2 position="0.45,0.25" radius="0.02"></Area2>
+			<Area3 position="0.45,0.15" radius="0.02"></Area3>
+			<Area4 position="0.45,0.05" radius="0.02"></Area4>
+			<Area5 position="0.45,-0.05" radius="0.02"></Area5>
+			<Area6 position="0.45,-0.15" radius="0.02"></Area6>
+			<Area7 position="0.45,-0.25" radius="0.02"></Area7>
+			<Area8 position="0.45,-0.35" radius="0.02"></Area8>
+			<Area9 position="0.45,-0.45" radius="0.02"></Area9>
+			<Area10 position="0.35,0.45" radius="0.02"></Area10>
+			<Area11 position="0.35,0.35" radius="0.02"></Area11>
+			<Area12 position="0.35,0.25" radius="0.02"></Area12>
+			<Area13 position="0.35,0.15" radius="0.02"></Area13>
+			<Area14 position="0.35,0.05" radius="0.02"></Area14>
+			<Area15 position="0.35,-0.05" radius="0.02"></Area15>
+			<Area16 position="0.35,-0.15" radius="0.02"></Area16>
+			<Area17 position="0.35,-0.25" radius="0.02"></Area17>
+			<Area18 position="0.35,-0.35" radius="0.02"></Area18>
+			<Area19 position="0.35,-0.45" radius="0.02"></Area19>
+			<Area20 position="0.25,0.45" radius="0.02"></Area20>
+			<Area21 position="0.25,0.35" radius="0.02"></Area21>
+			<Area22 position="0.25,0.25" radius="0.02"></Area22>
+			<Area23 position="0.25,0.15" radius="0.02"></Area23>
+			<Area24 position="0.25,0.05" radius="0.02"></Area24>
+			<Area25 position="0.25,-0.05" radius="0.02"></Area25>
+			<Area26 position="0.25,-0.15" radius="0.02"></Area26>
+			<Area27 position="0.25,-0.25" radius="0.02"></Area27>
+			<Area28 position="0.25,-0.35" radius="0.02"></Area28>
+			<Area29 position="0.25,-0.45" radius="0.02"></Area29>
+			<Area30 position="0.15,0.45" radius="0.02"></Area30>
+			<Area31 position="0.15,0.35" radius="0.02"></Area31>
+			<Area32 position="0.15,0.25" radius="0.02"></Area32>
+			<Area33 position="0.15,0.15" radius="0.02"></Area33>
+			<Area34 position="0.15,0.05" radius="0.02"></Area34>
+			<Area35 position="0.15,-0.05" radius="0.02"></Area35>
+			<Area36 position="0.15,-0.15" radius="0.02"></Area36>
+			<Area37 position="0.15,-0.25" radius="0.02"></Area37>
+			<Area38 position="0.15,-0.35" radius="0.02"></Area38>
+			<Area39 position="0.15,-0.45" radius="0.02"></Area39>
+			<Area40 position="0.05,0.45" radius="0.02"></Area40>
+			<Area41 position="0.05,0.35" radius="0.02"></Area41>
+			<Area42 position="0.05,0.25" radius="0.02"></Area42>
+			<Area43 position="0.05,0.15" radius="0.02"></Area43>
+			<Area44 position="0.05,0.05" radius="0.02"></Area44>
+			<Area45 position="0.05,-0.05" radius="0.02"></Area45>
+			<Area46 position="0.05,-0.15" radius="0.02"></Area46>
+			<Area47 position="0.05,-0.25" radius="0.02"></Area47>
+			<Area48 position="0.05,-0.35" radius="0.02"></Area48>
+			<Area49 position="0.05,-0.45" radius="0.02"></Area49>
+			<Area50 position="-0.05,0.45" radius="0.02"></Area50>
+			<Area51 position="-0.05,0.35" radius="0.02"></Area51>
+			<Area52 position="-0.05,0.25" radius="0.02"></Area52>
+			<Area53 position="-0.05,0.15" radius="0.02"></Area53>
+			<Area54 position="-0.05,0.05" radius="0.02"></Area54>
+			<Area55 position="-0.05,-0.05" radius="0.02"></Area55>
+			<Area56 position="-0.05,-0.15" radius="0.02"></Area56>
+			<Area57 position="-0.05,-0.25" radius="0.02"></Area57>
+			<Area58 position="-0.05,-0.35" radius="0.02"></Area58>
+			<Area59 position="-0.05,-0.45" radius="0.02"></Area59>
+			<Area60 position="-0.15,0.45" radius="0.02"></Area60>
+			<Area61 position="-0.15,0.35" radius="0.02"></Area61>
+			<Area62 position="-0.15,0.25" radius="0.02"></Area62>
+			<Area63 position="-0.15,0.15" radius="0.02"></Area63>
+			<Area64 position="-0.15,0.05" radius="0.02"></Area64>
+			<Area65 position="-0.15,-0.05" radius="0.02"></Area65>
+			<Area66 position="-0.15,-0.15" radius="0.02"></Area66>
+			<Area67 position="-0.15,-0.25" radius="0.02"></Area67>
+			<Area68 position="-0.15,-0.35" radius="0.02"></Area68>
+			<Area69 position="-0.15,-0.45" radius="0.02"></Area69>
+			<Area70 position="-0.25,0.45" radius="0.02"></Area70>
+			<Area71 position="-0.25,0.35" radius="0.02"></Area71>
+			<Area72 position="-0.25,0.25" radius="0.02"></Area72>
+			<Area73 position="-0.25,0.15" radius="0.02"></Area73>
+			<Area74 position="-0.25,0.05" radius="0.02"></Area74>
+			<Area75 position="-0.25,-0.05" radius="0.02"></Area75>
+			<Area76 position="-0.25,-0.15" radius="0.02"></Area76>
+			<Area77 position="-0.25,-0.25" radius="0.02"></Area77>
+			<Area78 position="-0.25,-0.35" radius="0.02"></Area78>
+			<Area79 position="-0.25,-0.45" radius="0.02"></Area79>
+			<Area80 position="-0.35,0.45" radius="0.02"></Area80>
+			<Area81 position="-0.35,0.35" radius="0.02"></Area81>
+			<Area82 position="-0.35,0.25" radius="0.02"></Area82>
+			<Area83 position="-0.35,0.15" radius="0.02"></Area83>
+			<Area84 position="-0.35,0.05" radius="0.02"></Area84>
+			<Area85 position="-0.35,-0.05" radius="0.02"></Area85>
+			<Area86 position="-0.35,-0.15" radius="0.02"></Area86>
+			<Area87 position="-0.35,-0.25" radius="0.02"></Area87>
+			<Area88 position="-0.35,-0.35" radius="0.02"></Area88>
+			<Area89 position="-0.35,-0.45" radius="0.02"></Area89>
+			<Area90 position="-0.45,0.45" radius="0.02"></Area90>
+			<Area91 position="-0.45,0.35" radius="0.02"></Area91>
+			<Area92 position="-0.45,0.25" radius="0.02"></Area92>
+			<Area93 position="-0.45,0.15" radius="0.02"></Area93>
+			<Area94 position="-0.45,0.05" radius="0.02"></Area94>
+			<Area95 position="-0.45,-0.05" radius="0.02"></Area95>
+			<Area96 position="-0.45,-0.15" radius="0.02"></Area96>
+			<Area97 position="-0.45,-0.25" radius="0.02"></Area97>
+			<Area98 position="-0.45,-0.35" radius="0.02"></Area98>
+			<Area99 position="-0.45,-0.45" radius="0.02"></Area99>
         </environments>
 
     
@@ -119,7 +187,7 @@
         <distribute>
             <position method="uniform" min="-0.15,-0.15,0" max="0.15,0.15,0" />
             <orientation method="uniform" min="0,0,0" max="360,0,0" />
-            <entity quantity="20" max_trials="100">
+            <entity quantity="3" max_trials="100">
                 <kilobot id="kb">
                     <controller config="listener"/> <dynamics2d friction="0.7" />
                 </kilobot>

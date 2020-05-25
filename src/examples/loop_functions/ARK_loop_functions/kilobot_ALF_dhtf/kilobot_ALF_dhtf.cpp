@@ -415,6 +415,7 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
                 if (fDistance > (multiArea[whereis[unKilobotID]].Radius)){
                     m_vecKilobotStates_transmit[unKilobotID] = OUTSIDE_AREAS;
                     m_vecKilobotStates_ALF[unKilobotID] = OUTSIDE_AREAS;
+                    std::cout<<"OUT "<<whereis[unKilobotID]<<std::endl;
                     whereis[unKilobotID] = -1;
                 }
             break;
