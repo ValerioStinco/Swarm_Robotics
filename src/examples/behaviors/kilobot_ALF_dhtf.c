@@ -148,7 +148,6 @@ void rx_message(message_t *msg, distance_measurement_t *d) {
                 set_color(RGB(3,0,0));
                 current_state = LEAVING;
                 leaving_timer =50;
-                //break_timer = 10;
                 set_motion(FORWARD);
             }
             break;
@@ -162,6 +161,7 @@ void rx_message(message_t *msg, distance_measurement_t *d) {
             else{
                 if(sa_type == OUTSIDE){
                     current_state = RANDOM_WALKING;
+                    set_color(RGB(0,0,0));
                     set_motion(FORWARD);
                 }
                 else{
@@ -180,7 +180,7 @@ void rx_message(message_t *msg, distance_measurement_t *d) {
             break;
         }
         case ROTATION : {
-            set_color(RGB(3,0,0));
+            //set_color(RGB(3,3,3));
             set_motion (TURN_LEFT);
             if(turn_timer==0){
                 current_state = LEAVING;
@@ -216,7 +216,7 @@ void random_walk() {
         break;
     case FORWARD:
         if( kilo_ticks > last_motion_ticks + max_straight_ticks ) {
-            /* perform a radnom turn */
+            /* perform a random turn */
             last_motion_ticks = kilo_ticks;
             if( rand()%2 ) {
                 set_motion(TURN_LEFT);
@@ -259,6 +259,7 @@ void setup() {
 /*-------------------------------------------------------------------*/
 void loop() {
         random_walk();
+        //printf("stato %d\n",current_state);
 }
 
 int main() {

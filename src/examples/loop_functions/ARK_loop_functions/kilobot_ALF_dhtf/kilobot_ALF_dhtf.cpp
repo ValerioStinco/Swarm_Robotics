@@ -16,6 +16,7 @@ void CALFClientServer::Init(TConfigurationNode& t_node) {
     /* Read parameters */
     TConfigurationNode& tModeNode = GetNode(t_node, "extra_parameters");
     GetNodeAttribute(tModeNode,"mode",MODE);
+    GetNodeAttribute(tModeNode,"random_seed",random_seed);
     GetNodeAttribute(tModeNode,"desired_num_of_areas",desired_num_of_areas);
     GetNodeAttribute(tModeNode,"hard_tasks",hard_tasks);
     GetNodeAttribute(tModeNode,"reactivation_rate",reactivation_rate);
@@ -25,9 +26,10 @@ void CALFClientServer::Init(TConfigurationNode& t_node) {
     if (MODE=="SERVER"){
         outputBuffer="I";
         t=0;
+        srand (random_seed);
         while(num_of_areas>desired_num_of_areas){
             double r = ((double) rand() / (RAND_MAX));
-            if (r<0.2){
+            if (r<0.4){
                 for (int b = t; b < num_of_areas; b++){
                     multiArea[b] = multiArea[b + 1];
                 }
@@ -45,8 +47,10 @@ void CALFClientServer::Init(TConfigurationNode& t_node) {
         int count_t=0;
         while(count_t<hard_tasks){
             double r = ((double) rand() / (RAND_MAX));
-            if (r<0.8){
+            std::cout<<r<<std::endl;
+            if (r<0.2){
                 multiArea[t].Color=argos::CColor::RED;
+                std::cout<<"RED area "<<t<<std::endl;
                 count_t++;
             }
             t++;
@@ -231,6 +235,7 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
             initializing=false;
             int t=0;
             int count_t=0;
+            srand (random_seed);
             while(count_t<hard_tasks){
                 double r = ((double) rand() / (RAND_MAX));
                 if (r<0.8){
@@ -288,6 +293,7 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
         }
         /* Reactivate tasks already comlpeted (server routine) */
         if (arena_update_counter == 0){
+            srand (random_seed);
             for (int a=0; a<num_of_areas; a++){
                 if (multiArea[a].Completed == true){
                     double r = ((double) rand() / (RAND_MAX));
@@ -375,9 +381,9 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
                     Real fDistance = Distance(cKilobotPosition, multiArea[i].Center);
                     if((fDistance < (multiArea[i].Radius*1)) && (multiArea[i].Completed == false)){
                         m_vecKilobotStates_transmit[unKilobotID] = INSIDE_AREA;
+                        m_vecKilobotStates_ALF[unKilobotID] = INSIDE_AREA;
                         /* Check LED color to understand if the robot is leaving or it is waiting for the task */
                         if (GetKilobotLedColor(c_kilobot_entity) != argos::CColor::RED){
-                            m_vecKilobotStates_ALF[unKilobotID] = INSIDE_AREA;
                             /* Check the area color to understand the requirements of the task */
                             if (multiArea[i].Color.GetRed() == 255){
                                 request[unKilobotID] = 3;
@@ -415,7 +421,6 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
                 if (fDistance > (multiArea[whereis[unKilobotID]].Radius)){
                     m_vecKilobotStates_transmit[unKilobotID] = OUTSIDE_AREAS;
                     m_vecKilobotStates_ALF[unKilobotID] = OUTSIDE_AREAS;
-                    std::cout<<"OUT "<<whereis[unKilobotID]<<std::endl;
                     whereis[unKilobotID] = -1;
                 }
             break;
@@ -462,6 +467,7 @@ void CALFClientServer::UpdateVirtualSensor(CKilobotEntity &c_kilobot_entity){
             m_tMessages[unKilobotID].data[1+i*3] = m_tMessages[unKilobotID].data[1+i*3] | (tMessage.m_sType << 2);
             m_tMessages[unKilobotID].data[1+i*3] = m_tMessages[unKilobotID].data[1+i*3] | (tMessage.m_sData >> 8);
             m_tMessages[unKilobotID].data[2+i*3] = tMessage.m_sData;
+            //std::cout<<" robot "<<tMessage.m_sID<<" "<<tMessage.m_sType<<std::endl;
         }
         GetSimulator().GetMedium<CKilobotCommunicationMedium>("kilocomm").SendOHCMessageTo(c_kilobot_entity,&m_tMessages[unKilobotID]);
     }

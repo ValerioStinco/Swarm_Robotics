@@ -127,6 +127,7 @@ private:
     std::vector<FloorColorData> m_vecKilobotData;
 
     std::string MODE;
+    unsigned int random_seed;
     int desired_num_of_areas;
     float reactivation_rate;
     float hard_tasks;
@@ -141,6 +142,7 @@ private:
     int arena_update_counter;
     bool initializing;
     bool flag;
+
 
     /*vectors as long as the number of kilobots*/
     std::vector<int> request;       //vector that determines waiting time: 1 for kilobots on blue areas and 3 for the ones on red areas (multiplied times 500 gives the number of cycles before timeout)

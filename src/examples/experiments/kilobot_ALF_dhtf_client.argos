@@ -7,8 +7,7 @@
     <framework>
         <system threads="0" />
         <experiment length="0"
-        ticks_per_second="10"
-        random_seed="123" />
+        ticks_per_second="10"/>
     </framework>
     
     <!-- *************** -->
@@ -41,9 +40,10 @@
     
         <extra_parameters
             mode="CLIENT"
-            desired_num_of_areas="16"
-            hard_tasks="0"
-            reactivation_rate="0.5">
+            random_seed="105"
+            desired_num_of_areas="8"
+            hard_tasks="4"
+            reactivation_rate="0.02">
         </extra_parameters>
 
 
@@ -120,7 +120,7 @@
         <distribute>
             <position method="uniform" min="-0.15,-0.15,0" max="0.15,0.15,0" />
             <orientation method="uniform" min="0,0,0" max="360,0,0" />
-            <entity quantity="6" max_trials="100">
+            <entity quantity="20" max_trials="100">
                 <kilobot id="kb">
                     <controller config="listener"/> <dynamics2d friction="0.7" />
                 </kilobot>
