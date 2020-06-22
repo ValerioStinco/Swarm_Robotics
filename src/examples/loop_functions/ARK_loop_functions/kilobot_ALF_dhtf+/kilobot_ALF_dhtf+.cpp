@@ -1,4 +1,4 @@
-#include "kilobot_ALF_dhtf.h"
+#include "kilobot_ALF_dhtf+.h"
 
 CALFClientServer::CALFClientServer() :
     m_unDataAcquisitionFrequency(10){
@@ -16,16 +16,18 @@ void CALFClientServer::Init(TConfigurationNode& t_node) {
     /* Read parameters */
     TConfigurationNode& tModeNode = GetNode(t_node, "extra_parameters");
     GetNodeAttribute(tModeNode,"mode",MODE);
-    GetNodeAttribute(tModeNode,"random_seed",random_seed);
-    GetNodeAttribute(tModeNode,"desired_num_of_areas",desired_num_of_areas);
-    GetNodeAttribute(tModeNode,"hard_tasks",hard_tasks);
-    GetNodeAttribute(tModeNode,"reactivation_rate",reactivation_rate);
+
 
     /* Randomly select the desired number of tasks between the available ones, set color and communicate them to the client */
-    int t=0;
     if (MODE=="SERVER"){
+        GetNodeAttribute(tModeNode,"random_seed",random_seed);
+        GetNodeAttribute(tModeNode,"desired_num_of_areas",desired_num_of_areas);
+        GetNodeAttribute(tModeNode,"hard_tasks",hard_tasks);
+        GetNodeAttribute(tModeNode,"reactivation_rate",reactivation_rate);
         outputBuffer="I";
+        /* Select areas */
         srand (random_seed);
+        int t=0;
         while(num_of_areas>desired_num_of_areas){
             double r = ((double) rand() / (RAND_MAX));
             if (r<0.4){
@@ -43,11 +45,12 @@ void CALFClientServer::Init(TConfigurationNode& t_node) {
                 t=0;
             }
         }
+        /* Choose color for its own areas */
         int count_t=0;
         while(count_t<hard_tasks){
             double r = ((double) rand() / (RAND_MAX));
             //std::cout<<r<<std::endl;
-            if (r<0.2){
+            if (r<0.2 && multiArea[t].Color!=argos::CColor::RED){
                 multiArea[t].Color=argos::CColor::RED;
                 //std::cout<<"RED area "<<t<<std::endl;
                 count_t++;
@@ -56,6 +59,40 @@ void CALFClientServer::Init(TConfigurationNode& t_node) {
             if(t==num_of_areas){
                 t=0;
             }      
+        }
+        /* Send own colors to the client */
+        for (int i=0; i<num_of_areas; i++){
+            if(multiArea[i].Color==argos::CColor::RED){
+                outputBuffer.append("2");
+            }
+            else{
+                outputBuffer.append("1");
+            }    
+        }
+
+        /* Choose color for client areas */
+        count_t=0;
+        while(count_t<hard_tasks){
+            double r = ((double) rand() / (RAND_MAX));
+            //std::cout<<r<<std::endl;
+            if (r<0.1 && multiArea[t].OtherColor!=argos::CColor::RED){
+                multiArea[t].OtherColor=argos::CColor::RED;
+                //std::cout<<"RED area "<<t<<std::endl;
+                count_t++;
+            }
+            t++;
+            if(t==num_of_areas){
+                t=0;
+            }      
+        }
+        /* Send client colors to the client */
+        for (int i=0; i<num_of_areas; i++){
+            if(multiArea[i].OtherColor==argos::CColor::RED){
+                outputBuffer.append("2");
+            }
+            else{
+                outputBuffer.append("1");
+            }    
         }
     }
 
@@ -178,6 +215,7 @@ void CALFClientServer::SetupVirtualEnvironments(TConfigurationNode& t_tree){
     for (int ai=0; ai<num_of_areas; ai++){
         multiArea[ai].Completed = false;
         multiArea[ai].Color = argos::CColor::BLUE;
+        multiArea[ai].OtherColor = argos::CColor::BLUE;
     }
 
     /* Initialization of areas variables */
@@ -222,6 +260,7 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
     if (MODE=="CLIENT"){
         /* Initialize the tasks selected by the server */
         if ((storeBuffer[0]==73)&&(initializing==true)){    //73 is the ASCII binary for "I"
+            /*choice of areas*/
             for (int a=1; a<30; a++){
                 int n = storeBuffer[a]-97;
                 if (n>=0){
@@ -231,21 +270,40 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
                     num_of_areas--;
                 }
             }
-            initializing=false;
-            int t=0;
-            int count_t=0;
-            srand (random_seed);
-            while(count_t<hard_tasks){
-                double r = ((double) rand() / (RAND_MAX));
-                if (r<0.8){
-                    multiArea[t].Color=argos::CColor::RED;
-                    count_t++;
+            /*fill othercolor field*/
+            for (int c=num_of_areas+1; c<(2*num_of_areas)+1; c++){
+                if (storeBuffer[c]==50){
+                    multiArea[c-num_of_areas-1].OtherColor=argos::CColor::RED;
                 }
-                t++;
-                if(t==num_of_areas){
-                    t=0;
-                }      
+                else if (storeBuffer[c]==49){
+                    multiArea[c-num_of_areas-1].OtherColor=argos::CColor::BLUE;
+                }
+                else {
+                    multiArea[c-num_of_areas-1].OtherColor=argos::CColor::GREEN; //errore
+                }
             }
+            /*fill color field*/
+            for (int c=(2*num_of_areas)+1;c<(3*num_of_areas)+1;c++){
+                if (storeBuffer[c]==50){
+                    multiArea[c-(2*num_of_areas)-1].Color=argos::CColor::RED;
+                }
+                else if (storeBuffer[c]==49){
+                    multiArea[c-(2*num_of_areas)-1].Color=argos::CColor::BLUE;
+                }
+                else {
+                    multiArea[c-(2*num_of_areas)-1].Color=argos::CColor::GREEN; //errore
+                }            
+            }
+            initializing=false;
+
+            std::cout<<"color "<<multiArea[0].Color<<" - server_colors "<<multiArea[0].OtherColor<<std::endl;
+            std::cout<<"color "<<multiArea[1].Color<<" - server_colors "<<multiArea[1].OtherColor<<std::endl;
+            std::cout<<"color "<<multiArea[2].Color<<" - server_colors "<<multiArea[2].OtherColor<<std::endl;
+            std::cout<<"color "<<multiArea[3].Color<<" - server_colors "<<multiArea[3].OtherColor<<std::endl;
+            std::cout<<"color "<<multiArea[4].Color<<" - server_colors "<<multiArea[4].OtherColor<<std::endl;
+            std::cout<<"color "<<multiArea[5].Color<<" - server_colors "<<multiArea[5].OtherColor<<std::endl;
+            std::cout<<"color "<<multiArea[6].Color<<" - server_colors "<<multiArea[6].OtherColor<<std::endl;
+            std::cout<<"color "<<multiArea[7].Color<<" - server_colors "<<multiArea[7].OtherColor<<std::endl;
         }
 
         /* Align to server arena */
@@ -357,6 +415,14 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
                 }
             }
             else{
+                std::cout<<"color "<<multiArea[0].Color<<" - server_colors "<<multiArea[0].OtherColor<<std::endl;
+                std::cout<<"color "<<multiArea[1].Color<<" - server_colors "<<multiArea[1].OtherColor<<std::endl;
+                std::cout<<"color "<<multiArea[2].Color<<" - server_colors "<<multiArea[2].OtherColor<<std::endl;
+                std::cout<<"color "<<multiArea[3].Color<<" - server_colors "<<multiArea[3].OtherColor<<std::endl;
+                std::cout<<"color "<<multiArea[4].Color<<" - server_colors "<<multiArea[4].OtherColor<<std::endl;
+                std::cout<<"color "<<multiArea[5].Color<<" - server_colors "<<multiArea[5].OtherColor<<std::endl;
+                std::cout<<"color "<<multiArea[6].Color<<" - server_colors "<<multiArea[6].OtherColor<<std::endl;
+                std::cout<<"color "<<multiArea[7].Color<<" - server_colors "<<multiArea[7].OtherColor<<std::endl;
                 initializing=false;
             }
         }
@@ -491,4 +557,4 @@ CColor CALFClientServer::GetFloorColor(const CVector2 &vec_position_on_plane) {
 }
 
 
-REGISTER_LOOP_FUNCTIONS(CALFClientServer, "kilobot_ALF_dhtf_loop_function")
+REGISTER_LOOP_FUNCTIONS(CALFClientServer, "kilobot_ALF_dhtf+_loop_function")
