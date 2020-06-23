@@ -126,7 +126,16 @@ private:
     };
     std::vector<FloorColorData> m_vecKilobotData;
 
+    struct TransmittingKilobots             //parameters of the circular areas
+    {
+        int xCoord;
+        int yCoord;
+        int command;
+    };
+    std::vector<TransmittingKilobots> multiTransmittingKilobots;
+
     std::string MODE;
+    unsigned int random_seed;
     int desired_num_of_areas;
     float reactivation_rate;
     float hard_tasks;
@@ -137,6 +146,7 @@ private:
     int serverSocket;
     int clientSocket;
     int num_of_areas;               //number of clustering areas
+    int lenMultiArea;
     int num_of_kbs;                 //number of kilobots on the field
     int arena_update_counter;
     bool initializing;

@@ -41,7 +41,8 @@
     
         <extra_parameters
             mode="CLIENT"
-            desired_num_of_areas="15"
+            desired_num_of_areas="20"
+            random_seed="12" 
             hard_tasks="0"
             reactivation_rate="0.6">
         </extra_parameters>

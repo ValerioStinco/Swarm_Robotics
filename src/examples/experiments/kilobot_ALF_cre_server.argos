@@ -42,6 +42,7 @@
         <extra_parameters
             mode="SERVER"
             desired_num_of_areas="12"
+            random_seed="12" 
             hard_tasks="0"
             reactivation_rate="0.5">
         </extra_parameters>
