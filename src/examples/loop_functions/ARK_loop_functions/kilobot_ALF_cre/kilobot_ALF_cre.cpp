@@ -25,13 +25,11 @@ void CALFClientServer::Init(TConfigurationNode& t_node) {
     /* Randomly select the desired number of tasks between the available ones, set color and communicate them to the client */
     if (MODE=="CLIENT"){
         srand (random_seed);
-        std::cout<<"init "<<num_of_areas<<std::endl;
         while(num_of_areas>desired_num_of_areas){
             for (int b=0;b<lenMultiArea;b++){
                 if(multiArea[b].Completed==false){
                     double r = ((double) rand() / (RAND_MAX));
-                    std::cout<<"while "<<num_of_areas<<" turn:"<<b<<" r:"<<r<<std::endl;
-                    if (r<0.1){
+                    if (r<0.5){
                         multiArea[b].Completed=true;
                         num_of_areas--;
                         break;
@@ -144,7 +142,6 @@ void CALFClientServer::SetupVirtualEnvironments(TConfigurationNode& t_tree){
     for (itAct = itAct.begin(&tVirtualEnvironmentsNode); itAct != itAct.end(); ++itAct) {
         num_of_areas += 1;
     }
-    std::cout<<"noa "<<num_of_areas<<std::endl;
 
     /* Build the structure with areas data */
     multiArea.resize(num_of_areas);
@@ -198,7 +195,7 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
         for (int i=0; i<130; i++){
             storeBuffer[i] = inputBuffer[i];
         }
-        std::cout<<storeBuffer<<std::endl;
+        //std::cout<<storeBuffer<<std::endl;
     }
 
     /* --------- SERVER --------- */
@@ -218,13 +215,35 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
     if (MODE=="CLIENT"){
 //************************************************************************************
 //************************************************************************************
-        multiTransmittingKilobots.resize(3);
-        int i=0;
-        for (int j=0;j<15;j+5){
-            multiTransmittingKilobots[i].xCoord=(10*storeBuffer[j])+storeBuffer[j+1];
-            multiTransmittingKilobots[i].yCoord=(10*storeBuffer[j+2])+storeBuffer[j+3];
-            multiTransmittingKilobots[i].command=storeBuffer[j]+4;
-            i++;
+        multiTransmittingKilobot.resize(4);
+        int j=0;
+        for (int i=0;i<4;i++){
+            if(storeBuffer[j]==84){
+                multiTransmittingKilobot[i].xCoord=(10*(storeBuffer[j+1]-48))+storeBuffer[j+2]-48;
+                multiTransmittingKilobot[i].yCoord=(10*(storeBuffer[j+3]-48))+storeBuffer[j+4]-48;
+                multiTransmittingKilobot[i].command=storeBuffer[j+5]-48;
+                float xdisp=multiTransmittingKilobot[i].xCoord-(50*(cKilobotPosition.GetX()+1));    //50* perchè moltiplico per 100 per considerare solo 2 decimali, poi divido per 2 per allineare le arene (una doppia dell'altra)
+                float ydisp=multiTransmittingKilobot[i].yCoord-(50*(cKilobotPosition.GetY()+1));
+                float displacement=sqrt((xdisp*xdisp)+(ydisp*ydisp));
+                // std::cout<<"pos x:"<<multiTransmittingKilobot[i].xCoord<<std::endl;
+                // std::cout<<"pos y:"<<multiTransmittingKilobot[i].yCoord<<std::endl;
+                // std::cout<<"getX:"<<50*(cKilobotPosition.GetX()+1)<<std::endl;
+                // std::cout<<"getY:"<<50*(cKilobotPosition.GetY()+1)<<std::endl;
+                // std::cout<<"dist:"<<displacement<<std::endl;
+                if (displacement<10){
+                    request[unKilobotID]=7; //valore di prova
+                    //std::cout<<"close"<<std::endl;
+                }
+            }
+            else{
+                multiTransmittingKilobot[i].xCoord=666;
+                multiTransmittingKilobot[i].yCoord=666;
+                multiTransmittingKilobot[i].command=666;    //numero per errore
+            }
+            // std::cout<<"pos x:"<<multiTransmittingKilobot[i].xCoord<<std::endl;
+            // std::cout<<"pos y:"<<multiTransmittingKilobot[i].yCoord<<std::endl;
+            // std::cout<<"id:"<<multiTransmittingKilobot[i].command<<std::endl;
+            j=j+6;
         }
     }
 //************************************************************************************
@@ -237,6 +256,7 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
             /* Transformation for expressing coordinates in 4 characters: origin translated to bottom right corner to have only positive values, then get first 2 digit after the comma */
             std::string pos = std::to_string(cKilobotPosition.GetX()+0.5);
             std::string pos2 = pos.substr(2,2);
+            outputBuffer.append("T");
             outputBuffer.append(pos2);
             pos = std::to_string(cKilobotPosition.GetY()+0.5);
             pos2 = pos.substr(2,2);
@@ -258,7 +278,7 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
                     outputBuffer.append("0");
                 }
             }
-            std::cout<<"outbuffer "<<outputBuffer<<std::endl;
+            //std::cout<<"outbuffer "<<outputBuffer<<std::endl;
         }
 
         /* Send the message to the other ALF*/

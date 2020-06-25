@@ -126,13 +126,14 @@ private:
     };
     std::vector<FloorColorData> m_vecKilobotData;
 
-    struct TransmittingKilobots             //parameters of the circular areas
+    struct TransmittingKilobot             //parameters of the circular areas
     {
         int xCoord;
         int yCoord;
+        CVector2 Coord;
         int command;
     };
-    std::vector<TransmittingKilobots> multiTransmittingKilobots;
+    std::vector<TransmittingKilobot> multiTransmittingKilobot;
 
     std::string MODE;
     unsigned int random_seed;

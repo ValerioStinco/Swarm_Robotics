@@ -17,8 +17,7 @@ typedef enum {  // Enum for boolean flags
 
 typedef enum {  // Enum for the robot states
     RANDOM_WALKING = 0,
-    WAITING = 1,
-    LEAVING = 2,
+    RANDOM_WALKING_LEDon = 1,
 } action_t;
 
 typedef enum {  // Enum for the robot position wrt to areas
@@ -127,44 +126,13 @@ void rx_message(message_t *msg, distance_measurement_t *d) {
     switch (current_state) {
         case RANDOM_WALKING : {
             set_color(RGB(0,0,0));
-            if(sa_type == INSIDE){
-                timeout = sa_payload*TIMEOUT_CONST;
-                current_state = WAITING;
-                set_motion(STOP);
+            if(sa_payload == 7){
+                current_state = RANDOM_WALKING_LEDon;
             }
             break;
         }
-        case WAITING : {
-            set_color(RGB(0,3,0));
-            if(sa_type == OUTSIDE){
-                current_state = RANDOM_WALKING;
-                set_motion(FORWARD);
-            }
-            /* Timeout condition */
-            timeout--;
-            if (timeout == 0) {
-                set_color(RGB(3,0,0));
-                current_state = LEAVING;
-                leaving_timeout=50;
-                set_motion(FORWARD);
-            }
-            break;
-        }
-        case LEAVING : {
-            set_color(RGB(3,0,0));
-            if (leaving_timeout>0){
-                set_motion(FORWARD);
-                leaving_timeout--;
-            }
-            else{
-                if(sa_type == OUTSIDE){
-                    current_state = RANDOM_WALKING;
-                    set_motion(FORWARD);
-                }
-                else{
-                    leaving_timeout=50;
-                }
-            }
+        case RANDOM_WALKING_LEDon : {
+            set_color(RGB(3,3,3));
             break;
         }
     }
