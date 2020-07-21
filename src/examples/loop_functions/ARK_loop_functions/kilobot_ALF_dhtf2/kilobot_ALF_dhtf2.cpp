@@ -481,7 +481,7 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
                                     request[unKilobotID] = 5;
                                 }
                                 if (otherColor[i]==1){
-                                    request[unKilobotID] = 4;
+                                    request[unKilobotID] = 3;
                                 }
                             }
                             if (multiArea[i].Color==argos::CColor::BLUE){

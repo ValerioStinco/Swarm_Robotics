@@ -43,7 +43,7 @@
             mode="SERVER"
             desired_num_of_areas="12"
             random_seed="12" 
-            hard_tasks="0"
+            communication_range="10"
             reactivation_rate="0.5">
         </extra_parameters>
 
@@ -188,7 +188,7 @@
         <distribute>
             <position method="uniform" min="-0.15,-0.15,0" max="0.15,0.15,0" />
             <orientation method="uniform" min="0,0,0" max="360,0,0" />
-            <entity quantity="1" max_trials="100">
+            <entity quantity="4" max_trials="100">
                 <kilobot id="kb">
                     <controller config="listener"/> <dynamics2d friction="0.7" />
                 </kilobot>

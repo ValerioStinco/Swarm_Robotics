@@ -384,10 +384,10 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
                         /* Check LED color to understand if the robot is leaving or it is waiting for the task */
                         if (GetKilobotLedColor(c_kilobot_entity) != argos::CColor::RED){
                             /* Check the area color to understand the requirements of the task */
-                            if (multiArea[i].Color.GetRed() == 255){
+                            if (multiArea[i].Color==argos::CColor::RED){
                                 request[unKilobotID] = 3;
                             }
-                            if (multiArea[i].Color.GetBlue() == 255){
+                            if (multiArea[i].Color==argos::CColor::BLUE){
                                 request[unKilobotID] = 1;
                             }
                             whereis[unKilobotID] = i;

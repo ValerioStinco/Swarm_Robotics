@@ -18,7 +18,7 @@ void CALFClientServer::Init(TConfigurationNode& t_node) {
     GetNodeAttribute(tModeNode,"mode",MODE);
     GetNodeAttribute(tModeNode,"random_seed",random_seed);
     GetNodeAttribute(tModeNode,"desired_num_of_areas",desired_num_of_areas);
-    GetNodeAttribute(tModeNode,"hard_tasks",hard_tasks);
+    GetNodeAttribute(tModeNode,"communication_range",communication_range);
     GetNodeAttribute(tModeNode,"reactivation_rate",reactivation_rate);
 
     lenMultiArea=num_of_areas;
@@ -120,8 +120,8 @@ void CALFClientServer::SetupInitialKilobotStates() {
     }
 
     /* Initialization of kilobots variables */
-    request = std::vector<int>(num_of_kbs,0);
-    whereis = std::vector<int>(num_of_kbs,-1);
+    actual_orientation = std::vector<int>(num_of_kbs,0);
+    best_side = std::vector<int>(num_of_kbs,0);
 }
 
 
@@ -177,6 +177,7 @@ void CALFClientServer::GetExperimentVariables(TConfigurationNode& t_tree){
 void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
     UInt16 unKilobotID = GetKilobotId(c_kilobot_entity);
     CVector2 cKilobotPosition = GetKilobotPosition(c_kilobot_entity);
+    CRadians cKilobotOrientation = GetKilobotOrientation(c_kilobot_entity);
 
 /* Listen for the other ALF communication */
     memset(inputBuffer, 0, 130);
@@ -217,33 +218,31 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
 //************************************************************************************
         multiTransmittingKilobot.resize(4);
         int j=0;
-        for (int i=0;i<4;i++){
-            if(storeBuffer[j]==84){
-                multiTransmittingKilobot[i].xCoord=(10*(storeBuffer[j+1]-48))+storeBuffer[j+2]-48;
-                multiTransmittingKilobot[i].yCoord=(10*(storeBuffer[j+3]-48))+storeBuffer[j+4]-48;
-                multiTransmittingKilobot[i].command=storeBuffer[j+5]-48;
-                float xdisp=multiTransmittingKilobot[i].xCoord-(50*(cKilobotPosition.GetX()+1));    //50* perchè moltiplico per 100 per considerare solo 2 decimali, poi divido per 2 per allineare le arene (una doppia dell'altra)
-                float ydisp=multiTransmittingKilobot[i].yCoord-(50*(cKilobotPosition.GetY()+1));
-                float displacement=sqrt((xdisp*xdisp)+(ydisp*ydisp));
-                // std::cout<<"pos x:"<<multiTransmittingKilobot[i].xCoord<<std::endl;
-                // std::cout<<"pos y:"<<multiTransmittingKilobot[i].yCoord<<std::endl;
-                // std::cout<<"getX:"<<50*(cKilobotPosition.GetX()+1)<<std::endl;
-                // std::cout<<"getY:"<<50*(cKilobotPosition.GetY()+1)<<std::endl;
-                // std::cout<<"dist:"<<displacement<<std::endl;
-                if (displacement<10){
-                    request[unKilobotID]=7; //valore di prova
-                    //std::cout<<"close"<<std::endl;
-                }
-            }
-            else{
-                multiTransmittingKilobot[i].xCoord=666;
-                multiTransmittingKilobot[i].yCoord=666;
-                multiTransmittingKilobot[i].command=666;    //numero per errore
+        std::cout<<(int)(cKilobotOrientation.GetValue()*10)<<std::endl;
+        actual_orientation[unKilobotID]=(int)(cKilobotOrientation.GetValue()*10);
+        if(actual_orientation[unKilobotID]<0){
+            actual_orientation[unKilobotID]=(-1*actual_orientation[unKilobotID])+100;
+        }
+        for (int i=0;i<4;i++){          //check if a ground robot is under the cone of transmission of a flying robot ((MAX 4 FLYING))
+            multiTransmittingKilobot[i].xCoord=(10*(storeBuffer[j]-48))+storeBuffer[j+1]-48;
+            multiTransmittingKilobot[i].yCoord=(10*(storeBuffer[j+2]-48))+storeBuffer[j+3]-48;
+            multiTransmittingKilobot[i].command=storeBuffer[j+4]-48;
+            float xdisp=multiTransmittingKilobot[i].xCoord-(50*(cKilobotPosition.GetX()+1));    //50* perchè moltiplico per 100 per considerare solo 2 decimali, poi divido per 2 per allineare le arene (una doppia dell'altra)
+            float ydisp=multiTransmittingKilobot[i].yCoord-(50*(cKilobotPosition.GetY()+1));
+            float displacement=sqrt((xdisp*xdisp)+(ydisp*ydisp));
+            // std::cout<<"pos x:"<<multiTransmittingKilobot[i].xCoord<<std::endl;
+            // std::cout<<"pos y:"<<multiTransmittingKilobot[i].yCoord<<std::endl;
+            // std::cout<<"getX:"<<50*(cKilobotPosition.GetX()+1)<<std::endl;
+            // std::cout<<"getY:"<<50*(cKilobotPosition.GetY()+1)<<std::endl;
+            // std::cout<<"dist:"<<displacement<<std::endl;
+            if (displacement<communication_range){
+                best_side[unKilobotID]=multiTransmittingKilobot[i].command; //valore di prova
+                //std::cout<<"close"<<std::endl;
             }
             // std::cout<<"pos x:"<<multiTransmittingKilobot[i].xCoord<<std::endl;
             // std::cout<<"pos y:"<<multiTransmittingKilobot[i].yCoord<<std::endl;
             // std::cout<<"id:"<<multiTransmittingKilobot[i].command<<std::endl;
-            j=j+6;
+            j=j+5;
         }
     }
 //************************************************************************************
@@ -256,13 +255,12 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
             /* Transformation for expressing coordinates in 4 characters: origin translated to bottom right corner to have only positive values, then get first 2 digit after the comma */
             std::string pos = std::to_string(cKilobotPosition.GetX()+0.5);
             std::string pos2 = pos.substr(2,2);
-            outputBuffer.append("T");
             outputBuffer.append(pos2);
             pos = std::to_string(cKilobotPosition.GetY()+0.5);
             pos2 = pos.substr(2,2);
             outputBuffer.append(pos2);
             /* append 0 for no preferred direction, 1 for left, 2 for right */
-            outputBuffer.append(std::to_string(unKilobotID)); //SOSTITUIRE CON IL BIT DESIDERATO
+            outputBuffer.append(std::to_string(2)); //SOSTITUIRE CON IL BIT DESIDERATO
         }
 
     if (unKilobotID == 0){
@@ -315,6 +313,9 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
 
 
 void CALFClientServer::UpdateVirtualSensor(CKilobotEntity &c_kilobot_entity){
+    //------------
+    if (MODE=="CLIENT"){
+    //-------------
     m_tALFKilobotMessage tKilobotMessage,tEmptyMessage,tMessage;
     bool bMessageToSend = false;
     UInt16 unKilobotID = GetKilobotId(c_kilobot_entity);
@@ -324,9 +325,9 @@ void CALFClientServer::UpdateVirtualSensor(CKilobotEntity &c_kilobot_entity){
     }
     else{
         /* Compose the message for a kilobot */
-        tKilobotMessage.m_sID = unKilobotID;                                //ID of the receiver
-        tKilobotMessage.m_sType = (int)m_vecKilobotStates_transmit[unKilobotID];     //state
-        tKilobotMessage.m_sData = request[unKilobotID];                     //requirement of the area where it is
+        tKilobotMessage.m_sID = unKilobotID;                            //ID of the receiver
+        tKilobotMessage.m_sType = (int)best_side[unKilobotID];          //state
+        tKilobotMessage.m_sData = actual_orientation[unKilobotID];      //orientation of the robot
         bMessageToSend = true;
         m_vecLastTimeMessaged[unKilobotID] = m_fTimeInSeconds;
         
@@ -357,6 +358,9 @@ void CALFClientServer::UpdateVirtualSensor(CKilobotEntity &c_kilobot_entity){
     else{
         GetSimulator().GetMedium<CKilobotCommunicationMedium>("kilocomm").SendOHCMessageTo(c_kilobot_entity,NULL);
     }
+    //------------
+    }
+    //-------------
 }
 
 

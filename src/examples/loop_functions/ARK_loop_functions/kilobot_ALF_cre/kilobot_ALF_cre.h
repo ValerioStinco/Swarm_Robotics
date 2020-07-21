@@ -130,7 +130,6 @@ private:
     {
         int xCoord;
         int yCoord;
-        CVector2 Coord;
         int command;
     };
     std::vector<TransmittingKilobot> multiTransmittingKilobot;
@@ -139,7 +138,7 @@ private:
     unsigned int random_seed;
     int desired_num_of_areas;
     float reactivation_rate;
-    float hard_tasks;
+    float communication_range;
     char inputBuffer[130];           //array containing the message received from the socket
     std::string outputBuffer;          //array  containing the message to send
     char storeBuffer[130];           //array where to store input message to keep it available
@@ -154,8 +153,8 @@ private:
     bool flag;
 
     /*vectors as long as the number of kilobots*/
-    std::vector<int> request;       //vector that determines waiting time: 1 for kilobots on blue areas and 3 for the ones on red areas (multiplied times 500 gives the number of cycles before timeout)
-    std::vector<int> whereis;       // says in which area the KB is: -1 if walking, (index of area) if inside an area
+    std::vector<int> actual_orientation;        //vector containing real time orientations
+    std::vector<int> best_side;                 //direction where the robot tends to go
     
     /*vectors as long as the number of areas*/
     std::vector<int> contained;     //how many KBs the area "i" contains
