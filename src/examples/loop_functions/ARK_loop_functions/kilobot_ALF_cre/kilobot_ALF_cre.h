@@ -154,7 +154,7 @@ private:
 
     /*vectors as long as the number of kilobots*/
     std::vector<int> actual_orientation;        //vector containing real time orientations
-    std::vector<int> best_side;                 //direction where the robot tends to go
+    std::vector<int> side_command;              // contains informations about actual semiplan direction where the robot tends to go
     
     /*vectors as long as the number of areas*/
     std::vector<int> contained;     //how many KBs the area "i" contains

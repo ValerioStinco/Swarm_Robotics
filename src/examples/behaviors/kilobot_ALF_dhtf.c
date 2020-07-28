@@ -165,7 +165,7 @@ void rx_message(message_t *msg, distance_measurement_t *d) {
                     set_motion(FORWARD);
                 }
                 else{
-                    turn_timer = 500;
+                    turn_timer = 5;
                     current_state = ROTATION;
                     set_motion (TURN_LEFT);
                     /*set_motion(TURN_LEFT);

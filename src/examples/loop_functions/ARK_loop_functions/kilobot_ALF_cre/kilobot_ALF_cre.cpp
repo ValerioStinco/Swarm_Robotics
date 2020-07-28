@@ -121,7 +121,7 @@ void CALFClientServer::SetupInitialKilobotStates() {
 
     /* Initialization of kilobots variables */
     actual_orientation = std::vector<int>(num_of_kbs,0);
-    best_side = std::vector<int>(num_of_kbs,0);
+    side_command = std::vector<int>(num_of_kbs,0);
 }
 
 
@@ -218,7 +218,7 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
 //************************************************************************************
         multiTransmittingKilobot.resize(4);
         int j=0;
-        std::cout<<(int)(cKilobotOrientation.GetValue()*10)<<std::endl;
+        //std::cout<<(int)(cKilobotOrientation.GetValue()*10)<<std::endl;
         actual_orientation[unKilobotID]=(int)(cKilobotOrientation.GetValue()*10);
         if(actual_orientation[unKilobotID]<0){
             actual_orientation[unKilobotID]=(-1*actual_orientation[unKilobotID])+100;
@@ -236,8 +236,36 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
             // std::cout<<"getY:"<<50*(cKilobotPosition.GetY()+1)<<std::endl;
             // std::cout<<"dist:"<<displacement<<std::endl;
             if (displacement<communication_range){
-                best_side[unKilobotID]=multiTransmittingKilobot[i].command; //valore di prova
-                //std::cout<<"close"<<std::endl;
+                std::cout<<"x: "<<cKilobotPosition.GetX()<<std::endl;
+                if(cKilobotPosition.GetX()>=0){
+                    if(multiTransmittingKilobot[i].command==1){
+                        side_command[unKilobotID]=1;     //as=1 & bs=1
+                    }
+                    else if(multiTransmittingKilobot[i].command==2){
+                        side_command[unKilobotID]=2;     //as=1 & bs=2
+                    }
+                    else{
+                        side_command[unKilobotID]=0;     //as=1 & bs=0
+                    }
+                }
+                else{
+                    if(multiTransmittingKilobot[i].command==1){
+                        side_command[unKilobotID]=5;     //as=2 & bs=1
+                    }
+                    else if(multiTransmittingKilobot[i].command==2){
+                        side_command[unKilobotID]=6;     //as=2 & bs=2
+                    }
+                    else{
+                        side_command[unKilobotID]=4;     //as=2 & bs=0
+                    }
+                }
+                // if(cKilobotPosition.GetX()>=0){
+                //     side_command[unKilobotID]=10+multiTransmittingKilobot[i].command; //valore di prova
+                // }
+                // else{
+                //     side_command[unKilobotID]=20+multiTransmittingKilobot[i].command;
+                // }
+                // std::cout<<"BESTSIDE: "<<side_command[unKilobotID]<<std::endl;
             }
             // std::cout<<"pos x:"<<multiTransmittingKilobot[i].xCoord<<std::endl;
             // std::cout<<"pos y:"<<multiTransmittingKilobot[i].yCoord<<std::endl;
@@ -326,7 +354,7 @@ void CALFClientServer::UpdateVirtualSensor(CKilobotEntity &c_kilobot_entity){
     else{
         /* Compose the message for a kilobot */
         tKilobotMessage.m_sID = unKilobotID;                            //ID of the receiver
-        tKilobotMessage.m_sType = (int)best_side[unKilobotID];          //state
+        tKilobotMessage.m_sType = (int)side_command[unKilobotID];          //state
         tKilobotMessage.m_sData = actual_orientation[unKilobotID];      //orientation of the robot
         bMessageToSend = true;
         m_vecLastTimeMessaged[unKilobotID] = m_fTimeInSeconds;
