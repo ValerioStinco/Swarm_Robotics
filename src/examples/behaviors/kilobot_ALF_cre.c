@@ -32,16 +32,16 @@ motion_t current_motion_type = STOP;            // Current motion type
 
 action_t current_state = RANDOM_WALKING;        // Current state
 
-/*uint32_t last_turn_ticks = 0;                   // Counters for motion, turning and random_walk
-uint32_t turn_ticks = 60;
-unsigned int turning_ticks = 0;
-const uint8_t max_turning_ticks = 160;          // Constant to allow a maximum rotation of 180 degrees with \omega=\pi/5
-const uint16_t max_straight_ticks = 320;        // Set the \tau_m period to 2.5 s: n_m = \tau_m/\delta_t = 2.5/(1/32)
-uint32_t last_motion_ticks = 0;
-uint32_t turn_into_random_walker_ticks = 160;   // Timestep to wait without any direction message before turning into random_walker
-uint32_t last_direction_msg = 0;
-*/
-/* ---------------------------------------------- */
+/* SALAH---------------------------------------------- */
+// uint32_t last_turn_ticks = 0;                   // Counters for motion, turning and random_walk
+// uint32_t turn_ticks = 60;
+// unsigned int turning_ticks = 0;
+// const uint8_t max_turning_ticks = 160;          // Constant to allow a maximum rotation of 180 degrees with \omega=\pi/5
+// const uint16_t max_straight_ticks = 320;        // Set the \tau_m period to 2.5 s: n_m = \tau_m/\delta_t = 2.5/(1/32)
+// uint32_t last_motion_ticks = 0;
+// uint32_t turn_into_random_walker_ticks = 160;   // Timestep to wait without any direction message before turning into random_walker
+// uint32_t last_direction_msg = 0;
+/* LUIGI---------------------------------------------- */
 const float std_motion_steps = 20*16; // variance of the gaussian used to compute forward motion
 const float levy_exponent = 2; // 2 is brownian like motion (alpha)
 const float  crw_exponent = 0.0; // higher more straight (rho)

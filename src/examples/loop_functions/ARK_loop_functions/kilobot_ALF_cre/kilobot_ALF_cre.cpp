@@ -157,8 +157,14 @@ void CALFClientServer::SetupVirtualEnvironments(TConfigurationNode& t_tree){
     /* Blue set as default color, then some of the areas turn red */
     for (int ai=0; ai<num_of_areas; ai++){
         multiArea[ai].Completed = false;
-        multiArea[ai].Color = argos::CColor::GREEN;
+        if (multiArea[ai].Center.GetX()<0){
+            multiArea[ai].Color = argos::CColor::GREEN;
+        }
+        else{
+            multiArea[ai].Color = argos::CColor::RED;
+        }
     }
+    std::cout<<num_of_areas<<std::endl;
 
     /* Initialization of areas variables */
     contained = std::vector<int>(num_of_areas, 0);
@@ -394,7 +400,7 @@ void CALFClientServer::UpdateVirtualSensor(CKilobotEntity &c_kilobot_entity){
 
 CColor CALFClientServer::GetFloorColor(const CVector2 &vec_position_on_plane) {
     CColor cColor=CColor::WHITE;
-    /* Draw ares until they are needed, once that task is completed the corresponding area disappears */
+    /* Draw areas until they are needed, once that task is completed the corresponding area disappears */
     for (int i=0; i<lenMultiArea; i++){
         if (multiArea[i].Completed == false){
             Real fDistance = Distance(vec_position_on_plane,multiArea[i].Center);
@@ -403,6 +409,7 @@ CColor CALFClientServer::GetFloorColor(const CVector2 &vec_position_on_plane) {
                 }
         }
     }
+    std::cout<<lenMultiArea<<std::endl;
     return cColor;
 }
 
