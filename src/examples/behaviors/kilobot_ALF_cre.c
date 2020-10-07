@@ -1,7 +1,7 @@
 #include "kilolib.h"
 #include <stdlib.h>
-#include<stdio.h>
-#include<math.h>
+#include <stdio.h>
+#include <math.h>
 #include "distribution_functions.c"
 
 
@@ -248,11 +248,10 @@ void random_walk(){
       set_motion(FORWARD);
     }
     break;
+
   case FORWARD:
     /* if moved forward for enough time turn */
     if(kilo_ticks > last_motion_ticks + straight_ticks) {
-      float angle = 0; // rotation angle
-
       /* perform a random turn */
       last_motion_ticks = kilo_ticks;
       if (rand_soft() % 2) {
@@ -260,6 +259,7 @@ void random_walk(){
       } else {
         set_motion(TURN_RIGHT);
       }
+      double angle = 0;
       /* random angle */
       if(crw_exponent == 0) {
         angle = uniform_distribution(0, (M_PI));

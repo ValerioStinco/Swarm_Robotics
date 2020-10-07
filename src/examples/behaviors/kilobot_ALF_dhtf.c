@@ -210,6 +210,8 @@ void rx_message(message_t *msg, distance_measurement_t *d) {
 /*-------------------------------------------------------------------*/
 /* Function implementing the uncorrelated random walk                */
 /*-------------------------------------------------------------------*/
+
+//***Random walk di Salah***
 // void random_walk() {
 //     switch( current_motion_type ) {
 //     case TURN_LEFT:
@@ -245,12 +247,15 @@ void rx_message(message_t *msg, distance_measurement_t *d) {
 //         set_motion(FORWARD);
 //     }
 // }
+
+//***Random walk di Luigi***
 void random_walk()
 {
   switch (current_motion_type) 
   {
   case TURN_LEFT:
   case TURN_RIGHT:
+    /* if turned for enough time move forward */
     if (kilo_ticks > last_motion_ticks + turning_ticks) {
       /* start moving forward */
       last_motion_ticks = kilo_ticks;
