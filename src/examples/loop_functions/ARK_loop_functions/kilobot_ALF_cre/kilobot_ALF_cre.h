@@ -130,7 +130,7 @@ private:
     {
         int xCoord;
         int yCoord;
-        int command;
+        int commit;
     };
     std::vector<TransmittingKilobot> multiTransmittingKilobot;
 
@@ -154,13 +154,13 @@ private:
 
     /*vectors as long as the number of kilobots*/
     std::vector<int> actual_orientation;        //vector containing real time orientations
-    std::vector<int> side_command;              // contains informations about actual semiplan direction where the robot tends to go
+    std::vector<int> command;              // contains informations about actual semiplan direction where the robot tends to go
     
     /*vectors as long as the number of areas*/
     std::vector<int> contained;     //how many KBs the area "i" contains
     
-    std::vector<SRobotState> m_vecKilobotStates_ALF;
-    std::vector<SRobotState> m_vecKilobotStates_transmit;
+    std::vector<SRobotState> m_vecKilobotStates_ALF;        //kb state from ARK poin of view
+    std::vector<SRobotState> m_vecKilobotStates_transmit;   //state to be transmitted to the robot
     std::vector<Real> m_vecLastTimeMessaged;
     Real m_fMinTimeBetweenTwoMsg;
 
