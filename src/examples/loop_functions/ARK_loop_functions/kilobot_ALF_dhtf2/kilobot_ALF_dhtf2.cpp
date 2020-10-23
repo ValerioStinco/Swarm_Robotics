@@ -544,14 +544,14 @@ void CALFClientServer::UpdateVirtualSensor(CKilobotEntity &c_kilobot_entity){
         tKilobotMessage.m_sID = unKilobotID;                                //ID of the receiver
         tKilobotMessage.m_sType = (int)m_vecKilobotStates_transmit[unKilobotID];     //state
         tKilobotMessage.m_sData = request[unKilobotID];                     //requirement of the area where it is
-    if ((GetKilobotLedColor(c_kilobot_entity) == argos::CColor::GREEN) && ((int)m_vecKilobotStates_transmit[unKilobotID] == INSIDE_AREA)){
-        bMessageToSend = false;
-    }
-    else{
-        bMessageToSend = true;
-    }
-        m_vecLastTimeMessaged[unKilobotID] = m_fTimeInSeconds;
-        
+        if (GetKilobotLedColor(c_kilobot_entity) == argos::CColor::RED){
+            bMessageToSend = true;
+        }
+        else if ((GetKilobotLedColor(c_kilobot_entity) != argos::CColor::GREEN) && ((int)m_vecKilobotStates_transmit[unKilobotID] == INSIDE_AREA)){
+            bMessageToSend = true;
+        }    
+
+        m_vecLastTimeMessaged[unKilobotID] = m_fTimeInSeconds;    
     }
 
     if (bMessageToSend){

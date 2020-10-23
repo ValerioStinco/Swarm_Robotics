@@ -22,7 +22,7 @@ void CALFClientServer::Init(TConfigurationNode& t_node) {
     GetNodeAttribute(tModeNode,"reactivation_rate",reactivation_rate);
 
     lenMultiArea=num_of_areas;
-    /* Randomly select the desired number of tasks between the available ones, set color and communicate them to the client */
+    /* Randomly select the desired number of tasks between the available ones, set color and communicate them to the server */
     if (MODE=="CLIENT"){
         srand (random_seed);
         while(num_of_areas>desired_num_of_areas){

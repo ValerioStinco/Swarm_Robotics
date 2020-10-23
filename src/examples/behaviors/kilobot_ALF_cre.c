@@ -57,11 +57,13 @@ int sa_type = 0;                                //Variables for Smart Arena mess
 int sa_payload = 0;
 bool new_sa_msg = false;
 
-int imposed_direction = 0;
-int current_kb_angle=0;
+/*informations received from ARK*/
+int imposed_direction = 0;                      //which direction to point at
+int current_kb_angle=0;                         //current orientation of the robot
+
 int straight_timer;                             //time of straight walk toward target
 int turn_timer;                                 //time of turning toward target
-double directed_motion_freq=0.01;                  //frequency of motion toward target
+double directed_motion_freq=0.01;               //frequency of motion toward target
 
 /* PARAMETER: change this value to determine timeout lenght */
 int TIMEOUT_CONST = 500;
@@ -208,9 +210,11 @@ void setup() {
     last_motion_ticks = rand()%max_straight_ticks;
     set_motion(FORWARD);
 }
-//////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////
-void check_state(){
+
+/*-------------------------------------------------------------------*/
+/* Function implementing kilobot FSM and state transitions           */
+/*-------------------------------------------------------------------*/
+void finite_state_machine(){
     /* State transition */
     switch (current_state) {
         case RANDOM_WALKING : {
@@ -254,14 +258,13 @@ void check_state(){
         }
     }
 }
-//////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////
+
 /*-------------------------------------------------------------------*/
 /* Main loop                                                         */
 /*-------------------------------------------------------------------*/
 void loop() {
         random_walk();
-        check_state();
+        finite_state_machine();
 }
 
 int main() {
