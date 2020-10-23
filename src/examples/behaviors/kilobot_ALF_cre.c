@@ -20,7 +20,8 @@ typedef enum {  // Enum for boolean flags
 
 typedef enum {  // Enum for the robot states
     RANDOM_WALKING = 0,
-    TURN_TO_TARGET = 1,
+    TURNING_TO_TARGET = 1,
+    MOVING_TO_TARGET = 2,
 } action_t;
 
 typedef enum {  // Enum for the robot position wrt to areas
@@ -46,7 +47,7 @@ const float std_motion_steps = 20*16; // variance of the gaussian used to comput
 const float levy_exponent = 2; // 2 is brownian like motion (alpha)
 const float  crw_exponent = 0.0; // higher more straight (rho)
 uint32_t turning_ticks = 0; // keep count of ticks of turning
-const uint8_t max_turning_ticks = 80; /* constant to allow a maximum rotation of 180 degrees with \omega=\pi/5 */
+const uint8_t max_turning_ticks = 120; /* constant to allow a maximum rotation of 180 degrees with \omega=\pi/5 */
 unsigned int straight_ticks = 0; // keep count of ticks of going straight
 const uint16_t max_straight_ticks = 320;
 uint32_t last_motion_ticks = 0;
@@ -56,8 +57,8 @@ int sa_type = 0;                                //Variables for Smart Arena mess
 int sa_payload = 0;
 bool new_sa_msg = false;
 
-int best_side=0;                                //Direction where to direct the robot
-int act_side;                                   //actual half of arena where the robot currently is
+int imposed_direction = 0;
+int current_kb_angle=0;
 int straight_timer;                             //time of straight walk toward target
 int turn_timer;                                 //time of turning toward target
 double directed_motion_freq=0.01;                  //frequency of motion toward target
@@ -138,99 +139,8 @@ void rx_message(message_t *msg, distance_measurement_t *d) {
         }
     }
 
-    /* Best side update */
-    switch(sa_type){
-        case 0:{
-            act_side=1;
-            //best_side=0;       //do not update if it wuold be set to 0
-            break;
-        }
-        case 1:{
-            act_side=1;
-            best_side=1;
-            break;
-        }
-        case 2:{
-            act_side=1;
-            best_side=2;
-            break;
-        }
-        case 4:{
-            act_side=2;
-            //best_side=0;       //do not update if it wuold be set to 0
-            break;
-        }
-        case 5:{
-            act_side=2;
-            best_side=1;
-            break;
-        }
-        case 6:{
-            act_side=2;
-            best_side=2;
-            break;
-        }
-    }
-    // if(sa_type!=0){
-    //     best_side=sa_type;  // 0:no preference;  1:up;  2::down;
-    //     printf("TYPE: %d\n", sa_type);
-    // }
-
-    /* State transition */
-    switch (current_state) {
-        case RANDOM_WALKING : {
-            set_color(RGB(0,0,0));
-            printf("TYPE: %d\n", sa_type);
-            //printf("SA_PAYLOAD: %d\n",sa_payload);
-            if(act_side!=best_side){
-                if((((double) rand() / (RAND_MAX))<directed_motion_freq) && (best_side!=0)){
-                    current_state = TURN_TO_TARGET;
-                    printf("TURN PERCHE BEST_SIDE è %d\n",best_side);
-                    printf("INVECE ACT_SIDE è %d\n",act_side);
-                }
-            }
-            break;
-        }
-        case TURN_TO_TARGET : {
-            set_color(RGB(3,3,3));
-            //printf("BIANCO");
-            //printf("SA_PAYLOAD: %d\n",sa_payload);
-            if((best_side==1)){           //VERSO L'ALTO
-                if(((sa_payload>=0)&&(sa_payload<=10))||((sa_payload>=100)&&(sa_payload<=110))){
-                    current_state = RANDOM_WALKING;
-                    printf("AVVISO USCITA");
-                }
-                else{
-                    if(sa_payload<100){   
-                        set_motion (TURN_RIGHT);
-                        //printf("RIGHT\n");
-                    }
-                    else{
-                        set_motion (TURN_LEFT);
-                        //printf("LEFT\n");
-                    }
-                }
-            }
-            else if((best_side==2)){      //VERSO IL BASSO
-                if(((sa_payload>=20)&&(sa_payload<=31))||((sa_payload>=120)&&(sa_payload<=131))){
-                    current_state = RANDOM_WALKING;
-                    printf("AVVISO USCITA");
-                }
-                else{
-                    if(sa_payload>100){   
-                        set_motion (TURN_RIGHT);
-                        printf("RIGHT\n");
-                    }
-                    else{
-                        set_motion (TURN_LEFT);
-                        printf("LEFT\n");
-                    }
-                }
-            }
-            //set_motion (TURN_RIGHT);
-            break;
-        }
-    }
+    imposed_direction=sa_type;
+    current_kb_angle=sa_payload;
 }
 
 
@@ -298,13 +208,60 @@ void setup() {
     last_motion_ticks = rand()%max_straight_ticks;
     set_motion(FORWARD);
 }
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+void check_state(){
+    /* State transition */
+    switch (current_state) {
+        case RANDOM_WALKING : {
+            set_color(RGB(0,0,0));
+            if(imposed_direction!=0){
+                current_state = TURNING_TO_TARGET;
+                last_motion_ticks = kilo_ticks;
+                turning_ticks = (uint32_t)((current_kb_angle / M_PI) * max_turning_ticks);
+                set_color(RGB(3,0,0));
+                if(imposed_direction==1){
+                    set_motion(TURN_LEFT);
+                }
+                else if (imposed_direction==2){
+                    set_motion(TURN_RIGHT);
+                }
+            }
+            break;
+        }
 
+        case TURNING_TO_TARGET : {
+            if(imposed_direction==1){
+                set_motion(TURN_LEFT);
+            }
+            else if (imposed_direction==2){
+                set_motion(TURN_RIGHT);
+            }
+            if(kilo_ticks > last_motion_ticks + turning_ticks){
+                current_state = MOVING_TO_TARGET;
+                straight_timer=300;
+            }
+            break;
+        }
 
+        case MOVING_TO_TARGET : {
+            set_motion(FORWARD);
+            if(straight_timer<=0){
+                current_state = RANDOM_WALKING;
+                imposed_direction=0;
+            }
+            straight_timer--;
+        }
+    }
+}
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
 /*-------------------------------------------------------------------*/
 /* Main loop                                                         */
 /*-------------------------------------------------------------------*/
 void loop() {
         random_walk();
+        check_state();
 }
 
 int main() {

@@ -43,6 +43,8 @@ action_t current_state = RANDOM_WALKING;        // Current state
 // uint32_t turn_into_random_walker_ticks = 160;   // Timestep to wait without any direction message before turning into random_walker
 // uint32_t last_direction_msg = 0;
 /* LUIGI---------------------------------------------- */
+int location=0;
+int timeout_param=0;
 const float std_motion_steps = 20*16; // variance of the gaussian used to compute forward motion
 const float levy_exponent = 2; // 2 is brownian like motion (alpha)
 const float  crw_exponent = 0.0; // higher more straight (rho)
@@ -138,72 +140,8 @@ void rx_message(message_t *msg, distance_measurement_t *d) {
         }
     }
 
-    /* State transition */
-    switch (current_state) {
-        case RANDOM_WALKING : {
-            set_color(RGB(0,0,0));
-            if(sa_type == INSIDE){
-                timeout = sa_payload*TIMEOUT_CONST;
-                current_state = WAITING;
-                set_motion(STOP);
-            }
-            break;
-        }
-        case WAITING : {
-            set_color(RGB(0,3,0));
-            if(sa_type == OUTSIDE){
-                current_state = RANDOM_WALKING;
-                set_motion(FORWARD);
-            }
-            /* Timeout condition */
-            timeout--;
-            if (timeout == 0) {
-                set_color(RGB(3,0,0));
-                current_state = LEAVING;
-                leaving_timer =50;
-                set_motion(FORWARD);
-            }
-            break;
-        }
-        case LEAVING : {
-            set_color(RGB(3,0,0));
-            if (leaving_timer>0){
-                set_motion(FORWARD);
-                leaving_timer--;
-            }
-            else{
-                if(sa_type == OUTSIDE){
-                    current_state = RANDOM_WALKING;
-                    set_color(RGB(0,0,0));
-                    set_motion(FORWARD);
-                }
-                else{
-                    turn_timer = 5;
-                    current_state = ROTATION;
-                    set_motion (TURN_LEFT);
-                    /*set_motion(TURN_LEFT);
-                    leaving_timer=50;
-                    break_timer--;
-                    if (break_timer == 0){
-                        current_state = RANDOM_WALKING;
-                        set_motion(FORWARD);  
-                    }*/
-                }
-            }
-            break;
-        }
-        case ROTATION : {
-            //set_color(RGB(3,3,3));
-            set_motion (TURN_LEFT);
-            if(turn_timer==0){
-                current_state = LEAVING;
-                set_motion(FORWARD);
-                leaving_timer=50;
-            }
-            turn_timer--;
-            break;
-        }
-    }
+    location=sa_type;
+    timeout_param=sa_payload;
 }
 
 
@@ -317,12 +255,84 @@ void setup() {
     set_motion(FORWARD);
 }
 
-
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+void check_state(){
+    /* State transition */
+    switch (current_state) {
+        case RANDOM_WALKING : {
+            set_color(RGB(0,0,0));
+            if(location == INSIDE){
+                timeout = timeout_param*TIMEOUT_CONST;
+                current_state = WAITING;
+                set_motion(STOP);
+            }
+            break;
+        }
+        case WAITING : {
+            set_color(RGB(0,3,0));
+            if(location == OUTSIDE){
+                current_state = RANDOM_WALKING;
+                set_motion(FORWARD);
+            }
+            /* Timeout condition */
+            timeout--;
+            if (timeout == 0) {
+                set_color(RGB(3,0,0));
+                current_state = LEAVING;
+                leaving_timer =50;
+                set_motion(FORWARD);
+            }
+            break;
+        }
+        case LEAVING : {
+            set_color(RGB(3,0,0));
+            if (leaving_timer>0){
+                set_motion(FORWARD);
+                leaving_timer--;
+            }
+            else{
+                if(location == OUTSIDE){
+                    current_state = RANDOM_WALKING;
+                    set_color(RGB(0,0,0));
+                    set_motion(FORWARD);
+                }
+                else{
+                    turn_timer = 5;
+                    current_state = ROTATION;
+                    set_motion (TURN_LEFT);
+                    /*set_motion(TURN_LEFT);
+                    leaving_timer=50;
+                    break_timer--;
+                    if (break_timer == 0){
+                        current_state = RANDOM_WALKING;
+                        set_motion(FORWARD);  
+                    }*/
+                }
+            }
+            break;
+        }
+        case ROTATION : {
+            //set_color(RGB(3,3,3));
+            set_motion (TURN_LEFT);
+            if(turn_timer==0){
+                current_state = LEAVING;
+                set_motion(FORWARD);
+                leaving_timer=50;
+            }
+            turn_timer--;
+            break;
+        }
+    }
+}
+    ///////////////////////////////////////////////
+    ////////////////////////////////////////////////
 /*-------------------------------------------------------------------*/
 /* Main loop                                                         */
 /*-------------------------------------------------------------------*/
 void loop() {
         random_walk();
+        check_state();
         //printf("stato %d\n",current_state);
 }
 
