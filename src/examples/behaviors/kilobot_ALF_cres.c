@@ -19,9 +19,9 @@ typedef enum {  // Enum for boolean flags
 } bool;
 
 typedef enum {  // Enum for the robot states
-    RANDOM_WALKING = 0,
-    TURNING_TO_TARGET = 1,
-    MOVING_TO_TARGET = 2,
+    UNCOMMITTED = 0,
+    COMMITTED_N = 1,
+    COMMITTED_S = 2,
 } action_t;
 
 typedef enum {  // Enum for the robot position wrt to areas
@@ -31,7 +31,7 @@ typedef enum {  // Enum for the robot position wrt to areas
 
 motion_t current_motion_type = STOP;            // Current motion type
 
-action_t current_state = RANDOM_WALKING;        // Current state
+action_t current_state = UNCOMMITTED;        // Current state
 
 /* SALAH---------------------------------------------- */
 // uint32_t last_turn_ticks = 0;                   // Counters for motion, turning and random_walk
@@ -217,45 +217,11 @@ void setup() {
 void finite_state_machine(){
     /* State transition */
     switch (current_state) {
-        case RANDOM_WALKING : {
-            set_color(RGB(0,0,0));
-            if(imposed_direction!=0){
-                current_state = TURNING_TO_TARGET;
-                last_motion_ticks = kilo_ticks;
-                turning_ticks = (uint32_t)((current_kb_angle / M_PI) * max_turning_ticks);
-                set_color(RGB(3,0,0));
-                if(imposed_direction==1){
-                    set_motion(TURN_LEFT);
-                }
-                else if (imposed_direction==2){
-                    set_motion(TURN_RIGHT);
-                }
-            }
+        case UNCOMMITTED : {
+            set_color(RGB(3,0,0));
             break;
         }
 
-        case TURNING_TO_TARGET : {
-            if(imposed_direction==1){
-                set_motion(TURN_LEFT);
-            }
-            else if (imposed_direction==2){
-                set_motion(TURN_RIGHT);
-            }
-            if(kilo_ticks > last_motion_ticks + turning_ticks){
-                current_state = MOVING_TO_TARGET;
-                straight_timer=300;
-            }
-            break;
-        }
-
-        case MOVING_TO_TARGET : {
-            set_motion(FORWARD);
-            if(straight_timer<=0){
-                current_state = RANDOM_WALKING;
-                imposed_direction=0;
-            }
-            straight_timer--;
-        }
     }
 }
 

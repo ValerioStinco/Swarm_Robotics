@@ -164,7 +164,6 @@ void CALFClientServer::SetupVirtualEnvironments(TConfigurationNode& t_tree){
             multiArea[ai].Color = argos::CColor::RED;
         }
     }
-    std::cout<<num_of_areas<<std::endl;
 
     /* Initialization of areas variables */
     contained = std::vector<int>(num_of_areas, 0);
@@ -225,10 +224,8 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
         multiTransmittingKilobot.resize(4);
         int j=0;
         //std::cout<<(int)(cKilobotOrientation.GetValue()*10)<<std::endl;
-        actual_orientation[unKilobotID]=(int)(cKilobotOrientation.GetValue()*10);
-        if(actual_orientation[unKilobotID]<0){
-            actual_orientation[unKilobotID]=(-1*actual_orientation[unKilobotID])+100;
-        }
+
+        command[unKilobotID]=0;
         for (int i=0;i<4;i++){          
             //acquire data of flying robots
             multiTransmittingKilobot[i].xCoord=(10*(storeBuffer[j]-48))+storeBuffer[j+1]-48;
@@ -237,7 +234,7 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
             //check command from flying robots
             //if zero skip the robot, else chek position
             if (multiTransmittingKilobot[i].commit==0){
-                command[unKilobotID]=0;
+                continue;
             }
             else{
                 //check if a ground robot is under the cone of transmission of a flying robot ((MAX 4 FLYING AT THE MOMENT)
@@ -245,35 +242,19 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
                 float ydisp=multiTransmittingKilobot[i].yCoord-(50*(cKilobotPosition.GetY()+1));
                 float displacement=sqrt((xdisp*xdisp)+(ydisp*ydisp));
                 if (displacement<communication_range){
-                    if(cKilobotPosition.GetX()>=0){
+                    //check if the flying robot is in the semiplane opposit to its commitment
+                    if(multiTransmittingKilobot[i].xCoord<=50){
                         if(multiTransmittingKilobot[i].commit==1){
-                            command[unKilobotID]=1;     //as=1 & bs=1
-                        }
-                        else if(multiTransmittingKilobot[i].commit==2){
-                            command[unKilobotID]=2;     //as=1 & bs=2
-                        }
-                        else{
-                            command[unKilobotID]=0;     //as=1 & bs=0
+                            command[unKilobotID]=1;     //robot at south, committed for north
                         }
                     }
                     else{
-                        if(multiTransmittingKilobot[i].commit==1){
-                            command[unKilobotID]=5;     //as=2 & bs=1
-                        }
-                        else if(multiTransmittingKilobot[i].commit==2){
-                            command[unKilobotID]=6;     //as=2 & bs=2
-                        }
-                        else{
-                            command[unKilobotID]=4;     //as=2 & bs=0
+                        if(multiTransmittingKilobot[i].commit==2){
+                            command[unKilobotID]=2;     //robot at north, committed for south
                         }
                     }
                 }
-                else{
-                    command[unKilobotID]=0;
-                }
-            // std::cout<<"pos x:"<<multiTransmittingKilobot[i].xCoord<<std::endl;
-            // std::cout<<"pos y:"<<multiTransmittingKilobot[i].yCoord<<std::endl;
-            // std::cout<<"id:"<<multiTransmittingKilobot[i].commit<<std::endl;
+            }
             j=j+5;
         }
     }
@@ -291,12 +272,13 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
             pos = std::to_string(cKilobotPosition.GetY()+0.5);
             pos2 = pos.substr(2,2);
             outputBuffer.append(pos2);
-            /*-------*/
-            /*-------*/
             /* append 0 for no preferred direction, 1 for left, 2 for right */
-            outputBuffer.append(std::to_string(2)); //SOSTITUIRE CON IL BIT OTTENUTO CON DECISIONE COLLETTIVA
-            /*-------*/
-            /*-------*/
+            if (GetKilobotLedColor(c_kilobot_entity) == argos::CColor::RED){
+                outputBuffer.append(std::to_string(1)); //kilobot committed for north
+            }
+            if (GetKilobotLedColor(c_kilobot_entity) == argos::CColor::GREEN){
+                outputBuffer.append(std::to_string(2)); //kilobot committed for south
+            }
         }
 
     if (unKilobotID == 0){
@@ -349,56 +331,60 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
 
 
 void CALFClientServer::UpdateVirtualSensor(CKilobotEntity &c_kilobot_entity){
-    //------------
     if (MODE=="CLIENT"){
-    //-------------
-    m_tALFKilobotMessage tKilobotMessage,tEmptyMessage,tMessage;
-    bool bMessageToSend = false;
-    UInt16 unKilobotID = GetKilobotId(c_kilobot_entity);
-    
-    if (m_fTimeInSeconds - m_vecLastTimeMessaged[unKilobotID] < m_fMinTimeBetweenTwoMsg){
-        return;
-    }
-    else{
-        /* Compose the message for a kilobot */
-        tKilobotMessage.m_sID = unKilobotID;                            //ID of the receiver
-        tKilobotMessage.m_sType = (int)command[unKilobotID];          //state
-        tKilobotMessage.m_sData = actual_orientation[unKilobotID];      //orientation of the robot
-        if (command[unKilobotID]!=0){
-            bMessageToSend = true;
-        }
-        m_vecLastTimeMessaged[unKilobotID] = m_fTimeInSeconds;
-        
-    }
+        m_tALFKilobotMessage tKilobotMessage,tEmptyMessage,tMessage;
+        bool bMessageToSend = false;
+        UInt16 unKilobotID = GetKilobotId(c_kilobot_entity);
+        CRadians cKilobotOrientation = GetKilobotOrientation(c_kilobot_entity);
 
-    if (bMessageToSend){
-        for (int i=0; i<9; ++i) {
-            m_tMessages[unKilobotID].data[i] = 0;
+        //determine kilobot orientation
+        // actual_orientation[unKilobotID]=(int)(cKilobotOrientation.GetValue()*10);
+        // if(actual_orientation[unKilobotID]<0){
+        //     actual_orientation[unKilobotID]=(-1*actual_orientation[unKilobotID])+100;
+        // }
+
+        if (m_fTimeInSeconds - m_vecLastTimeMessaged[unKilobotID] < m_fMinTimeBetweenTwoMsg){
+            return;
         }
-        tEmptyMessage.m_sID = 1023;
-        tEmptyMessage.m_sType = 0;
-        tEmptyMessage.m_sData = 0;
-        for (int i=0; i<3; ++i) {
-            if (i == 0){
-                tMessage = tKilobotMessage;
-            } else{
-                tMessage = tEmptyMessage;
+        else{
+            /* Compose the message for a kilobot */
+            tKilobotMessage.m_sID = unKilobotID;                            //ID of the receiver
+            tKilobotMessage.m_sType = (int)command[unKilobotID];          //state
+            tKilobotMessage.m_sData = actual_orientation[unKilobotID];      //orientation of the robot
+            if (command[unKilobotID]!=0){
+                bMessageToSend = true;
+                std::cout<<actual_orientation[unKilobotID]<<std::endl;
             }
-            /* Packing the message */
-            m_tMessages[unKilobotID].data[i*3] = (tMessage.m_sID >> 2);
-            m_tMessages[unKilobotID].data[1+i*3] = (tMessage.m_sID << 6);
-            m_tMessages[unKilobotID].data[1+i*3] = m_tMessages[unKilobotID].data[1+i*3] | (tMessage.m_sType << 2);
-            m_tMessages[unKilobotID].data[1+i*3] = m_tMessages[unKilobotID].data[1+i*3] | (tMessage.m_sData >> 8);
-            m_tMessages[unKilobotID].data[2+i*3] = tMessage.m_sData;
+            m_vecLastTimeMessaged[unKilobotID] = m_fTimeInSeconds;
+            
         }
-        GetSimulator().GetMedium<CKilobotCommunicationMedium>("kilocomm").SendOHCMessageTo(c_kilobot_entity,&m_tMessages[unKilobotID]);
+
+        if (bMessageToSend){
+            for (int i=0; i<9; ++i) {
+                m_tMessages[unKilobotID].data[i] = 0;
+            }
+            tEmptyMessage.m_sID = 1023;
+            tEmptyMessage.m_sType = 0;
+            tEmptyMessage.m_sData = 0;
+            for (int i=0; i<3; ++i) {
+                if (i == 0){
+                    tMessage = tKilobotMessage;
+                } else{
+                    tMessage = tEmptyMessage;
+                }
+                /* Packing the message */
+                m_tMessages[unKilobotID].data[i*3] = (tMessage.m_sID >> 2);
+                m_tMessages[unKilobotID].data[1+i*3] = (tMessage.m_sID << 6);
+                m_tMessages[unKilobotID].data[1+i*3] = m_tMessages[unKilobotID].data[1+i*3] | (tMessage.m_sType << 2);
+                m_tMessages[unKilobotID].data[1+i*3] = m_tMessages[unKilobotID].data[1+i*3] | (tMessage.m_sData >> 8);
+                m_tMessages[unKilobotID].data[2+i*3] = tMessage.m_sData;
+            }
+            GetSimulator().GetMedium<CKilobotCommunicationMedium>("kilocomm").SendOHCMessageTo(c_kilobot_entity,&m_tMessages[unKilobotID]);
+        }
+        else{
+            GetSimulator().GetMedium<CKilobotCommunicationMedium>("kilocomm").SendOHCMessageTo(c_kilobot_entity,NULL);
+        }
     }
-    else{
-        GetSimulator().GetMedium<CKilobotCommunicationMedium>("kilocomm").SendOHCMessageTo(c_kilobot_entity,NULL);
-    }
-    //------------
-    }
-    //-------------
 }
 
 
@@ -413,7 +399,6 @@ CColor CALFClientServer::GetFloorColor(const CVector2 &vec_position_on_plane) {
                 }
         }
     }
-    std::cout<<lenMultiArea<<std::endl;
     return cColor;
 }
 

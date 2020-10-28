@@ -297,17 +297,7 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
                     multiArea[c-(2*num_of_areas)-1].Color=argos::CColor::GREEN; //errore
                 }            
             }
-            std::cout<<"Recv_str "<<storeBuffer<<std::endl;
             initializing=false;
-
-            std::cout<<"color "<<multiArea[0].Color<<" - other_colors "<<otherColor[0]<<std::endl;
-            std::cout<<"color "<<multiArea[1].Color<<" - other_colors "<<otherColor[1]<<std::endl;
-            std::cout<<"color "<<multiArea[2].Color<<" - other_colors "<<otherColor[2]<<std::endl;
-            std::cout<<"color "<<multiArea[3].Color<<" - other_colors "<<otherColor[3]<<std::endl;
-            std::cout<<"color "<<multiArea[4].Color<<" - other_colors "<<otherColor[4]<<std::endl;
-            std::cout<<"color "<<multiArea[5].Color<<" - other_colors "<<otherColor[5]<<std::endl;
-            std::cout<<"color "<<multiArea[6].Color<<" - other_colors "<<otherColor[6]<<std::endl;
-            std::cout<<"color "<<multiArea[7].Color<<" - other_colors "<<otherColor[7]<<std::endl;
         }
 
         /* Align to server arena */

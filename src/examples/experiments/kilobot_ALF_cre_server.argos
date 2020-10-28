@@ -27,7 +27,7 @@
             <sensors>
                 <kilobot_communication implementation="default" medium="kilocomm" show_rays="false" />
             </sensors>
-            <params behavior="build/examples/behaviors/kilobot_ALF_cre" />
+            <params behavior="build/examples/behaviors/kilobot_ALF_cres" />
         </kilobot_controller>
         
     </controllers>
