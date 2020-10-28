@@ -6,7 +6,7 @@
     <!-- ************************* -->
     <framework>
         <system threads="0" />
-        <experiment length="0"
+        <experiment length="600" 
         ticks_per_second="10"/>
     </framework>
     
@@ -40,11 +40,13 @@
     
         <extra_parameters
             mode="SERVER"
-            random_seed="111" 
+            augmented_knowledge="true"
+            random_seed="12" 
             desired_num_of_areas="8"
             hard_tasks="4"
             reactivation_rate="0.1">
         </extra_parameters>
+        <!-- Not used if mode set to CLIENT -->
 
         <tracking
             position="true"
@@ -119,7 +121,7 @@
         <distribute>
             <position method="uniform" min="-0.15,-0.15,0" max="0.15,0.15,0" />
             <orientation method="uniform" min="0,0,0" max="360,0,0" />
-            <entity quantity="20" max_trials="100">
+            <entity quantity="1" max_trials="100">
                 <kilobot id="kb">
                     <controller config="listener"/> <dynamics2d friction="0.7" />
                 </kilobot>

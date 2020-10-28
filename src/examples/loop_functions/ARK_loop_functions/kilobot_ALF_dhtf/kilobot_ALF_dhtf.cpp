@@ -16,24 +16,27 @@ void CALFClientServer::Init(TConfigurationNode& t_node) {
     /* Read parameters */
     TConfigurationNode& tModeNode = GetNode(t_node, "extra_parameters");
     GetNodeAttribute(tModeNode,"mode",MODE);
-    GetNodeAttribute(tModeNode,"random_seed",random_seed);
-    GetNodeAttribute(tModeNode,"desired_num_of_areas",desired_num_of_areas);
-    GetNodeAttribute(tModeNode,"hard_tasks",hard_tasks);
-    GetNodeAttribute(tModeNode,"reactivation_rate",reactivation_rate);
+    GetNodeAttribute(tModeNode,"augmented_knowledge",augmented_knowledge);
+
 
     /* Randomly select the desired number of tasks between the available ones, set color and communicate them to the client */
-    int t=0;
     if (MODE=="SERVER"){
+        GetNodeAttribute(tModeNode,"random_seed",random_seed);
+        GetNodeAttribute(tModeNode,"desired_num_of_areas",desired_num_of_areas);
+        GetNodeAttribute(tModeNode,"hard_tasks",hard_tasks);
+        GetNodeAttribute(tModeNode,"reactivation_rate",reactivation_rate);
         outputBuffer="I";
+        /* Select areas */
         srand (random_seed);
+        int t=0;
         while(num_of_areas>desired_num_of_areas){
-            double r = ((double) rand() / (RAND_MAX));
+            double r = ((double) rand() / (RAND_MAX));  //r : random variable
             if (r<0.4){
                 for (int b = t; b < num_of_areas; b++){
                     multiArea[b] = multiArea[b + 1];
                 }
                 num_of_areas--;
-                int n = t+97;
+                int n = t+97;       //ASCII conversion 97='a', to avoid 2 digits number send alphabetic character (a-z)
                 char A = static_cast<char>(n);
                 std::string s(1, A);
                 outputBuffer.append(s);
@@ -43,11 +46,12 @@ void CALFClientServer::Init(TConfigurationNode& t_node) {
                 t=0;
             }
         }
+        /* Choose color for its own areas */
         int count_t=0;
         while(count_t<hard_tasks){
             double r = ((double) rand() / (RAND_MAX));
             //std::cout<<r<<std::endl;
-            if (r<0.2){
+            if (r<0.2 && multiArea[t].Color!=argos::CColor::RED){
                 multiArea[t].Color=argos::CColor::RED;
                 //std::cout<<"RED area "<<t<<std::endl;
                 count_t++;
@@ -57,16 +61,52 @@ void CALFClientServer::Init(TConfigurationNode& t_node) {
                 t=0;
             }      
         }
+        /* Send own colors to the client */
+        for (int i=0; i<num_of_areas; i++){
+            if(multiArea[i].Color==argos::CColor::RED){
+                outputBuffer.append("2");       //send red as color
+            }
+            else{
+                outputBuffer.append("1");       //send blue as color
+            }    
+        }
+
+        /* Choose color for client areas */
+        count_t=0;
+        while(count_t<hard_tasks){
+            double r = ((double) rand() / (RAND_MAX));
+            //std::cout<<r<<std::endl;
+            if (r<0.1 && otherColor[t]!=2){
+                otherColor[t]=2;
+                //std::cout<<"RED area "<<t<<std::endl;
+                count_t++;
+            }
+            t++;
+            if(t==num_of_areas){
+                t=0;
+            }      
+        }
+        /* Send client colors to the client */
+        for (int i=0; i<num_of_areas; i++){
+            if(otherColor[i]==2){
+                outputBuffer.append("2");
+            }
+            else if(otherColor[i]==1){
+                outputBuffer.append("1");
+            }
+            else{   //è una prova, non serve realmente
+                outputBuffer.append("5");
+            }
+        }
     }
 
     /* Initializations */
     bytesReceived = -1;
-    memset(storeBuffer, 0, 30);
-    arena_update_counter = 500;
-    flag=0;
+    memset(storeBuffer, 0, 30);     //set to 0 the 30 elements in storeBuffer
+    arena_update_counter = 500;     //timer, when espired there is reactivation probability
     initializing = true;
 
-    /* Opening communication port */
+    /* Socket initialization, opening communication port */
     if(MODE=="SERVER"){
         int serverSocket = socket(AF_INET, SOCK_STREAM, 0);
         int port = 54000;
@@ -133,15 +173,13 @@ void CALFClientServer::SetupInitialKilobotStates() {
     m_fMinTimeBetweenTwoMsg = Max<Real>(1.0, m_tKilobotEntities.size() * m_fTimeForAMessage / 3.0);
     
     /* Compute the number of kilobots on the field*/
-    num_of_kbs=0;
     for(UInt16 it=0;it< m_tKilobotEntities.size();it++){
         SetupInitialKilobotState(*m_tKilobotEntities[it]);
-        num_of_kbs = num_of_kbs+1;
     }
 
     /* Initialization of kilobots variables */
-    request = std::vector<int>(num_of_kbs,0);
-    whereis = std::vector<int>(num_of_kbs,-1);
+    request = std::vector<UInt8>(m_tKilobotEntities.size(),0);
+    whereis = std::vector<SInt8>(m_tKilobotEntities.size(),-1);
 }
 
 
@@ -178,10 +216,11 @@ void CALFClientServer::SetupVirtualEnvironments(TConfigurationNode& t_tree){
     for (int ai=0; ai<num_of_areas; ai++){
         multiArea[ai].Completed = false;
         multiArea[ai].Color = argos::CColor::BLUE;
+        otherColor[ai] = 1;
     }
 
     /* Initialization of areas variables */
-    contained = std::vector<int>(num_of_areas, 0);
+    contained = std::vector<UInt8>(num_of_areas, 0);
 }
 
 
@@ -222,6 +261,7 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
     if (MODE=="CLIENT"){
         /* Initialize the tasks selected by the server */
         if ((storeBuffer[0]==73)&&(initializing==true)){    //73 is the ASCII binary for "I"
+            /*choice of areas*/
             for (int a=1; a<30; a++){
                 int n = storeBuffer[a]-97;
                 if (n>=0){
@@ -231,21 +271,41 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
                     num_of_areas--;
                 }
             }
-            initializing=false;
-            int t=0;
-            int count_t=0;
-            srand (random_seed);
-            while(count_t<hard_tasks){
-                double r = ((double) rand() / (RAND_MAX));
-                if (r<0.8){
-                    multiArea[t].Color=argos::CColor::RED;
-                    count_t++;
+            /*fill othercolor field*/
+            for (int c=num_of_areas+1; c<(2*num_of_areas)+1; c++){
+                if (storeBuffer[c]==50){
+                    otherColor[c-num_of_areas-1]=2;
                 }
-                t++;
-                if(t==num_of_areas){
-                    t=0;
-                }      
+                else if (storeBuffer[c]==49){
+                    otherColor[c-num_of_areas-1]=1;
+                }
+                else {
+                    otherColor[c-num_of_areas-1]=5; //errore
+                }
             }
+            /*fill color field*/
+            for (int c=(2*num_of_areas)+1;c<(3*num_of_areas)+1;c++){
+                if (storeBuffer[c]==50){
+                    multiArea[c-(2*num_of_areas)-1].Color=argos::CColor::RED;
+                }
+                else if (storeBuffer[c]==49){
+                    multiArea[c-(2*num_of_areas)-1].Color=argos::CColor::BLUE;
+                }
+                else {
+                    multiArea[c-(2*num_of_areas)-1].Color=argos::CColor::GREEN; //errore
+                }            
+            }
+            // std::cout<<"Recv_str "<<storeBuffer<<std::endl;
+            initializing=false;
+
+            // std::cout<<"color "<<multiArea[0].Color<<" - other_colors "<<otherColor[0]<<std::endl;
+            // std::cout<<"color "<<multiArea[1].Color<<" - other_colors "<<otherColor[1]<<std::endl;
+            // std::cout<<"color "<<multiArea[2].Color<<" - other_colors "<<otherColor[2]<<std::endl;
+            // std::cout<<"color "<<multiArea[3].Color<<" - other_colors "<<otherColor[3]<<std::endl;
+            // std::cout<<"color "<<multiArea[4].Color<<" - other_colors "<<otherColor[4]<<std::endl;
+            // std::cout<<"color "<<multiArea[5].Color<<" - other_colors "<<otherColor[5]<<std::endl;
+            // std::cout<<"color "<<multiArea[6].Color<<" - other_colors "<<otherColor[6]<<std::endl;
+            // std::cout<<"color "<<multiArea[7].Color<<" - other_colors "<<otherColor[7]<<std::endl;
         }
 
         /* Align to server arena */
@@ -268,25 +328,47 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
         /* Task completeness check */
         if (storeBuffer[0]==84){ //84 is the ASCII binary for "T"
             for (int j=0; j<num_of_areas; j++){
-                if (storeBuffer[j+1]-48 == 2) {
-                    if ((multiArea[j].Color.GetRed() == 255) && (contained[j] >= 6)) {
-                        multiArea[j].Completed = true;
-                        std::cout<<"red-red task completed"<<std::endl;
+                // if (storeBuffer[j+1]-48 == 2) {
+                //     if ((multiArea[j].Color.GetRed() == 255) && (contained[j] >= 6)) {
+                //         multiArea[j].Completed = true;
+                //         std::cout<<"red-red task completed"<<std::endl;
+                //     }
+                //     if ((multiArea[j].Color.GetBlue() == 255) && (contained[j] >= 2)) {
+                //         multiArea[j].Completed = true;
+                //         std::cout<<"blue-red task completed"<<std::endl;
+                //     }
+                // }
+                // if (storeBuffer[j+1]-48 == 1) {
+                //     if ((multiArea[j].Color.GetRed() == 255) && (contained[j] >= 6)) {
+                //         multiArea[j].Completed = true;
+                //         std::cout<<"red-blue task completed"<<std::endl;
+                //     }
+                //     if ((multiArea[j].Color.GetBlue() == 255) && (contained[j] >= 2)) {
+                //         multiArea[j].Completed = true;
+                //         std::cout<<"blue-blue task completed"<<std::endl;
+                //     }
+                // }
+                if ((storeBuffer[j+1]-48 == 1)){ //||(storeBuffer[j+1]-48 == 2)
+                    if (otherColor[j]==2){
+                        if ((multiArea[j].Color==argos::CColor::RED)&&(contained[j]>=6)){
+                            multiArea[j].Completed = true;
+                            std::cout<<"red-red task completed"<<std::endl;
+                        }
+                        if ((multiArea[j].Color==argos::CColor::BLUE) && (contained[j] >= 2)) {
+                            multiArea[j].Completed = true;
+                            std::cout<<"blue-red task completed"<<std::endl;
+                        }                        
                     }
-                    if ((multiArea[j].Color.GetBlue() == 255) && (contained[j] >= 2)) {
-                        multiArea[j].Completed = true;
-                        std::cout<<"blue-red task completed"<<std::endl;
-                    }
-                }
-                if (storeBuffer[j+1]-48 == 1) {
-                    if ((multiArea[j].Color.GetRed() == 255) && (contained[j] >= 6)) {
-                        multiArea[j].Completed = true;
-                        std::cout<<"red-blue task completed"<<std::endl;
-                    }
-                    if ((multiArea[j].Color.GetBlue() == 255) && (contained[j] >= 2)) {
-                        multiArea[j].Completed = true;
-                        std::cout<<"blue-blue task completed"<<std::endl;
-                    }
+                    if (otherColor[j]==1){
+                        if ((multiArea[j].Color==argos::CColor::RED)&&(contained[j]>=6)){
+                            multiArea[j].Completed = true;
+                            std::cout<<"red-blue task completed"<<std::endl;
+                        }
+                        if ((multiArea[j].Color==argos::CColor::BLUE) && (contained[j] >= 2)) {
+                            multiArea[j].Completed = true;
+                            std::cout<<"blue-blue task completed"<<std::endl;
+                        }                        
+                    }                    
                 }
             }
         }
@@ -311,7 +393,7 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
 
 
 /* Speak to the other ALF */
-    if (unKilobotID == 0){
+    if (unKilobotID == 0){          // just to speak to the other ARK once for each cycle
         /* --------- CLIENT --------- */
         if (MODE=="CLIENT"){
             /* Build the message for the other ALF */
@@ -322,15 +404,15 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
                 //outputBuffer.append(std::to_string(contained[k]));
 
                 /* Write 1 or 2 if the requirements of the area are satisfied for the sender, else write 0 */
-                if (multiArea[k].Color.GetRed() == 255){
+                if (multiArea[k].Color==argos::CColor::RED){
                     if (contained[k] >= 6) {
-                        outputBuffer.append("2");   //hard task completed
+                        outputBuffer.append("1");   //hard task completed
                     }
                     else {
                         outputBuffer.append("0");
                     }
                 }
-                else if (multiArea[k].Color.GetBlue() == 255){
+                else if (multiArea[k].Color==argos::CColor::BLUE){
                     if (contained[k] >= 2) {
                         outputBuffer.append("1");   //easy task completed
                     }
@@ -357,6 +439,14 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
                 }
             }
             else{
+                // std::cout<<"color "<<multiArea[0].Color<<" - other_colors "<<otherColor[0]<<std::endl;
+                // std::cout<<"color "<<multiArea[1].Color<<" - other_colors "<<otherColor[1]<<std::endl;
+                // std::cout<<"color "<<multiArea[2].Color<<" - other_colors "<<otherColor[2]<<std::endl;
+                // std::cout<<"color "<<multiArea[3].Color<<" - other_colors "<<otherColor[3]<<std::endl;
+                // std::cout<<"color "<<multiArea[4].Color<<" - other_colors "<<otherColor[4]<<std::endl;
+                // std::cout<<"color "<<multiArea[5].Color<<" - other_colors "<<otherColor[5]<<std::endl;
+                // std::cout<<"color "<<multiArea[6].Color<<" - other_colors "<<otherColor[6]<<std::endl;
+                // std::cout<<"color "<<multiArea[7].Color<<" - other_colors "<<otherColor[7]<<std::endl;
                 initializing=false;
             }
         }
@@ -378,17 +468,38 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
                 /* Check if the kilobot is entered in a task area */
                 for (int i=0;i<num_of_areas;i++){ 
                     Real fDistance = Distance(cKilobotPosition, multiArea[i].Center);
-                    if((fDistance < (multiArea[i].Radius*1)) && (multiArea[i].Completed == false)){
+                    if((fDistance < (multiArea[i].Radius*1)) && (multiArea[i].Completed == false)){     //*1 is a threshold, to include the boarder increase it
                         m_vecKilobotStates_transmit[unKilobotID] = INSIDE_AREA;
                         m_vecKilobotStates_ALF[unKilobotID] = INSIDE_AREA;
                         /* Check LED color to understand if the robot is leaving or it is waiting for the task */
                         if (GetKilobotLedColor(c_kilobot_entity) != argos::CColor::RED){
                             /* Check the area color to understand the requirements of the task */
                             if (multiArea[i].Color==argos::CColor::RED){
-                                request[unKilobotID] = 3;
+                                if(augmented_knowledge==true){
+                                    if (otherColor[i]==2){
+                                        request[unKilobotID] = 5;
+                                    }
+                                    if (otherColor[i]==1){
+                                        request[unKilobotID] = 3;
+                                    }
+                                }
+                                else{
+                                    request[unKilobotID] = 3;
+                                }
                             }
                             if (multiArea[i].Color==argos::CColor::BLUE){
-                                request[unKilobotID] = 1;
+                                if(augmented_knowledge==true){
+                                    if (otherColor[i]==2){
+                                        request[unKilobotID] = 2;
+                                    }
+                                    if (otherColor[i]==1){
+                                        request[unKilobotID] = 1;
+                                    }
+                                }
+                                else
+                                {
+                                    request[unKilobotID] = 1;
+                                }
                             }
                             whereis[unKilobotID] = i;
                             contained[i] += 1;
@@ -398,13 +509,13 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
             break;
             }
             case INSIDE_AREA : {
-                /* Check if the kilobot has waited too long for colaboratos and it is going away */
+                /* Check if the kilobot timer for colaboratos is expired */
                 if (GetKilobotLedColor(c_kilobot_entity) == argos::CColor::RED){
                     m_vecKilobotStates_transmit[unKilobotID] = INSIDE_AREA;
                     m_vecKilobotStates_ALF[unKilobotID] = LEAVING;
                     contained[whereis[unKilobotID]] -= 1;
                 }
-                /* Check if the task has been completed */
+                /* Else check if the task has been completed */
                 else if (multiArea[whereis[unKilobotID]].Completed == true){
                     m_vecKilobotStates_transmit[unKilobotID] = OUTSIDE_AREAS;
                     m_vecKilobotStates_ALF[unKilobotID] = OUTSIDE_AREAS;
@@ -441,10 +552,14 @@ void CALFClientServer::UpdateVirtualSensor(CKilobotEntity &c_kilobot_entity){
         /* Compose the message for a kilobot */
         tKilobotMessage.m_sID = unKilobotID;                                //ID of the receiver
         tKilobotMessage.m_sType = (int)m_vecKilobotStates_transmit[unKilobotID];     //state
-        tKilobotMessage.m_sData = request[unKilobotID];                     //requirement of the area where it is
-        bMessageToSend = true;
-        m_vecLastTimeMessaged[unKilobotID] = m_fTimeInSeconds;
-        
+        tKilobotMessage.m_sData = request[unKilobotID];                     //requirement (timer) for the area where it is
+        if (GetKilobotLedColor(c_kilobot_entity) == argos::CColor::RED){
+            bMessageToSend = true;
+        }
+        else if ((GetKilobotLedColor(c_kilobot_entity) != argos::CColor::GREEN) && ((int)m_vecKilobotStates_transmit[unKilobotID] == INSIDE_AREA)){
+            bMessageToSend = true;
+        } 
+        m_vecLastTimeMessaged[unKilobotID] = m_fTimeInSeconds;        
     }
 
     if (bMessageToSend){

@@ -6,7 +6,7 @@
     <!-- ************************* -->
     <framework>
         <system threads="0" />
-        <experiment length="0"
+        <experiment length="600"
         ticks_per_second="10"/>
     </framework>
     
@@ -36,16 +36,13 @@
     <!-- ****************** -->
     <loop_functions 
         library="build/examples/loop_functions/ARK_loop_functions/kilobot_ALF_dhtf/libkilobot_ALF_dhtf_loop_function"
-        label="kilobot_ALF_dhtf_loop_function" >
+        label="kilobot_ALF_dhtf_loop_function">
     
         <extra_parameters
             mode="CLIENT"
-            random_seed="105"
-            desired_num_of_areas="8"
-            hard_tasks="4"
-            reactivation_rate="0.02">
-        </extra_parameters>
-
+            augmented_knowledge="true"
+            random_seed="105">
+        </extra_parameters>    
 
         <tracking
             position="true"
@@ -62,37 +59,37 @@
         </variables>
 
         <environments>
-            <Area0 position="0.375,0.375" radius="0.08" color="0,0,255,255" >
+            <Area0 position="0.375,0.375" radius="0.08">
             </Area0>
-            <Area1 position="0.375,0.125" radius="0.08" color="255,0,0,255" >
+            <Area1 position="0.375,0.125" radius="0.08">
             </Area1>
-            <Area2 position="0.375,-0.125" radius="0.08" color="0,0,255,255" >
+            <Area2 position="0.375,-0.125" radius="0.08">
             </Area2>
-            <Area3 position="0.375,-0.375" radius="0.08" color="0,0,255,255" >
+            <Area3 position="0.375,-0.375" radius="0.08">
             </Area3>
-            <Area4 position="0.125,0.375" radius="0.08" color="255,0,0,255" >
+            <Area4 position="0.125,0.375" radius="0.08">
             </Area4>
-            <Area5 position="0.125,0.125" radius="0.08" color="255,0,0,255" >
+            <Area5 position="0.125,0.125" radius="0.08">
             </Area5>
-            <Area6 position="0.125,-0.125" radius="0.08" color="0,0,255,255" >
+            <Area6 position="0.125,-0.125" radius="0.08">
             </Area6>
-            <Area7 position="0.125,-0.375" radius="0.08" color="0,0,255,255" >
+            <Area7 position="0.125,-0.375" radius="0.08">
             </Area7>
-            <Area8 position="-0.125,0.375" radius="0.08" color="0,0,255,255" >
+            <Area8 position="-0.125,0.375" radius="0.08">
             </Area8>
-            <Area9 position="-0.125,0.125" radius="0.08" color="255,0,0,255" >
+            <Area9 position="-0.125,0.125" radius="0.08">
             </Area9>
-            <Area10 position="-0.125,-0.125" radius="0.08" color="0,0,255,255" >
+            <Area10 position="-0.125,-0.125" radius="0.08">
             </Area10>
-            <Area11 position="-0.125,-0.375" radius="0.08" color="255,0,0,255" >
+            <Area11 position="-0.125,-0.375" radius="0.08">
             </Area11>
-            <Area12 position="-0.375,0.375" radius="0.08" color="255,0,0,255" >
+            <Area12 position="-0.375,0.375" radius="0.08">
             </Area12>
-            <Area13 position="-0.375,0.125" radius="0.08" color="0,0,255,255" >
+            <Area13 position="-0.375,0.125" radius="0.08">
             </Area13>
-            <Area14 position="-0.375,-0.125" radius="0.08" color="255,0,0,255" >
+            <Area14 position="-0.375,-0.125" radius="0.08">
             </Area14>
-            <Area15 position="-0.375,-0.375" radius="0.08" color="255,0,0,255" >
+            <Area15 position="-0.375,-0.375" radius="0.08">
             </Area15>
         </environments>
 
@@ -120,7 +117,7 @@
         <distribute>
             <position method="uniform" min="-0.15,-0.15,0" max="0.15,0.15,0" />
             <orientation method="uniform" min="0,0,0" max="360,0,0" />
-            <entity quantity="20" max_trials="100">
+            <entity quantity="1" max_trials="100">
                 <kilobot id="kb">
                     <controller config="listener"/> <dynamics2d friction="0.7" />
                 </kilobot>

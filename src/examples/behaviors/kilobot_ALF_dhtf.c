@@ -128,6 +128,9 @@ void rx_message(message_t *msg, distance_measurement_t *d) {
             sa_payload = ((msg->data[7]&0b11)  << 8) | (msg->data[8]);
             new_sa_msg = true;
         }
+
+        location = sa_type;
+        timeout_param = sa_payload;
     }
 
     /* For another kind of message */
@@ -139,9 +142,6 @@ void rx_message(message_t *msg, distance_measurement_t *d) {
             set_color(RGB(0,3,0));
         }
     }
-
-    location=sa_type;
-    timeout_param=sa_payload;
 }
 
 
@@ -333,6 +333,7 @@ void finite_state_machine(){
 void loop() {
         random_walk();
         finite_state_machine();
+        //printf("stato %d\n",current_state);
 }
 
 int main() {

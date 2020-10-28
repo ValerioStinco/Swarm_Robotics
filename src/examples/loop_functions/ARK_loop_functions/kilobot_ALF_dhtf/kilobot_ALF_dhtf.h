@@ -120,36 +120,37 @@ private:
 
     struct FloorColorData           //contains components of area color
     {
-        int R;
-        int G;
-        int B;
+        UInt8 R;
+        UInt8 G;
+        UInt8 B;
     };
     std::vector<FloorColorData> m_vecKilobotData;
 
-    std::string MODE;
+    std::string MODE;               //can be SERVER or CLIENT
+    bool augmented_knowledge;       //TRUE: ARK knows the color of areas on the other arena; FALSE: ARK knows color of its own areas only; timeout constant are set consequently
     unsigned int random_seed;
-    int desired_num_of_areas;
-    float reactivation_rate;
-    float hard_tasks;
-    char inputBuffer[30];           //array containing the message received from the socket
+    UInt8 desired_num_of_areas;     //number of areas for the experiment (max 16)
+    float reactivation_rate;        //threshold to decide if one of the same desired_num_of_areas areas will be reactivated
+    float hard_tasks;               //the number of red areas
+    int otherColor[10];             //Color of the areas on the other ARK
+    char inputBuffer[30];           //array containing the message received from the socket e.g. 
     std::string outputBuffer;          //array  containing the message to send
     char storeBuffer[30];           //array where to store input message to keep it available
     int bytesReceived;              //length of received string
     int serverSocket;
     int clientSocket;
-    int num_of_areas;               //number of clustering areas
-    int num_of_kbs;                 //number of kilobots on the field
+    UInt8 num_of_areas;     //number of clustering areas i.e. 16
     int arena_update_counter;
-    bool initializing;
-    bool flag;
+    bool initializing;              // false when client ACK the initial setup
+
 
 
     /*vectors as long as the number of kilobots*/
-    std::vector<int> request;       //vector that determines waiting time: 1 for kilobots on blue areas and 3 for the ones on red areas (multiplied times 500 gives the number of cycles before timeout)
-    std::vector<int> whereis;       // says in which area the KB is: -1 if walking, (index of area) if inside an area
+    std::vector<UInt8> request;       //vector that determines waiting time: 1 for kilobots on blue areas and 3 for the ones on red areas (multiplied times 500 gives the number of cycles before timeout)
+    std::vector<SInt8> whereis;       // says in which area the KB is: -1 if walking, (index of area) if inside an area
     
     /*vectors as long as the number of areas*/
-    std::vector<int> contained;     //how many KBs the area "i" contains
+    std::vector<UInt8> contained;     //how many KBs the area "i" contains
     
     std::vector<SRobotState> m_vecKilobotStates_ALF;
     std::vector<SRobotState> m_vecKilobotStates_transmit;
