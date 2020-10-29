@@ -139,9 +139,9 @@ private:
     int desired_num_of_areas;
     float reactivation_rate;
     float communication_range;
-    char inputBuffer[130];           //array containing the message received from the socket
+    char inputBuffer[2000];           //array containing the message received from the socket
     std::string outputBuffer;          //array  containing the message to send
-    char storeBuffer[130];           //array where to store input message to keep it available
+    char storeBuffer[2000];           //array where to store input message to keep it available
     int bytesReceived;              //length of received string
     int serverSocket;
     int clientSocket;

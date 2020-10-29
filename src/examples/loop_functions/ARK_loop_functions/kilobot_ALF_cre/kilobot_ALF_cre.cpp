@@ -41,7 +41,7 @@ void CALFClientServer::Init(TConfigurationNode& t_node) {
 
     /* Initializations */
     bytesReceived = -1;
-    memset(storeBuffer, 0, 130);
+    memset(storeBuffer, 0, 2000);
     arena_update_counter = 500;
     flag=0;
     outputBuffer = "";
@@ -185,12 +185,12 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
     CRadians cKilobotOrientation = GetKilobotOrientation(c_kilobot_entity);
 
 /* Listen for the other ALF communication */
-    memset(inputBuffer, 0, 130);
+    memset(inputBuffer, 0, 2000);
     if (MODE == "SERVER"){
-        bytesReceived = recv(clientSocket, inputBuffer, 130, MSG_DONTWAIT);
+        bytesReceived = recv(clientSocket, inputBuffer, 2000, MSG_DONTWAIT);
     }
     if (MODE == "CLIENT"){
-        bytesReceived = recv(serverSocket, inputBuffer, 130, MSG_DONTWAIT);
+        bytesReceived = recv(serverSocket, inputBuffer, 2000, MSG_DONTWAIT);
     }
     if ((bytesReceived == -1) || (bytesReceived == 0)){
         //std::cout << "not receiving" << std::endl;
@@ -198,7 +198,7 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
     else 
     {
         /* Save the received string in a vector, for having data available until next message comes */
-        for (int i=0; i<130; i++){
+        for (int i=0; i<2000; i++){
             storeBuffer[i] = inputBuffer[i];
         }
         //std::cout<<storeBuffer<<std::endl;
@@ -221,12 +221,12 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
     if (MODE=="CLIENT"){
 //************************************************************************************
 //************************************************************************************
-        multiTransmittingKilobot.resize(4);
+        multiTransmittingKilobot.resize(20);
         int j=0;
         //std::cout<<(int)(cKilobotOrientation.GetValue()*10)<<std::endl;
 
         command[unKilobotID]=0;
-        for (int i=0;i<4;i++){          
+        for (int i=0;i<20;i++){          
             //acquire data of flying robots
             multiTransmittingKilobot[i].xCoord=(10*(storeBuffer[j]-48))+storeBuffer[j+1]-48;
             multiTransmittingKilobot[i].yCoord=(10*(storeBuffer[j+2]-48))+storeBuffer[j+3]-48;
@@ -237,13 +237,13 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
                 continue;
             }
             else{
-                //check if a ground robot is under the cone of transmission of a flying robot ((MAX 4 FLYING AT THE MOMENT)
-                float xdisp=multiTransmittingKilobot[i].xCoord-(50*(cKilobotPosition.GetX()+1));    //50* perchè moltiplico per 100 per considerare solo 2 decimali, poi divido per 2 per allineare le arene (una doppia dell'altra)
-                float ydisp=multiTransmittingKilobot[i].yCoord-(50*(cKilobotPosition.GetY()+1));
+                //check if a ground robot is under the cone of transmission of a flying robot ((MAX 20 FLYING AT THE MOMENT)
+                float xdisp=multiTransmittingKilobot[i].xCoord-(25*(cKilobotPosition.GetX()+1));    //25* perchè moltiplico per 100 per considerare solo 2 decimali, poi divido per 4 per allineare le arene (una quadrupla dell'altra)
+                float ydisp=multiTransmittingKilobot[i].yCoord-(25*(cKilobotPosition.GetY()+1));
                 float displacement=sqrt((xdisp*xdisp)+(ydisp*ydisp));
                 if (displacement<communication_range){
                     //check if the flying robot is in the semiplane opposit to its commitment
-                    if(multiTransmittingKilobot[i].xCoord<=50){
+                    if(multiTransmittingKilobot[i].xCoord<=25){
                         if(multiTransmittingKilobot[i].commit==1){
                             command[unKilobotID]=1;     //robot at south, committed for north
                         }
@@ -262,25 +262,6 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
 //************************************************************************************
 
 /* Speak to the other ALF */
-        /* --------- SERVER --------- */
-        if (MODE=="SERVER"){
-            /* Send position of each robot and the chosen direction */
-            /* Transformation for expressing coordinates in 4 characters: origin translated to bottom right corner to have only positive values, then get first 2 digit after the comma */
-            std::string pos = std::to_string(cKilobotPosition.GetX()+0.5);
-            std::string pos2 = pos.substr(2,2);
-            outputBuffer.append(pos2);
-            pos = std::to_string(cKilobotPosition.GetY()+0.5);
-            pos2 = pos.substr(2,2);
-            outputBuffer.append(pos2);
-            /* append 0 for no preferred direction, 1 for left, 2 for right */
-            if (GetKilobotLedColor(c_kilobot_entity) == argos::CColor::RED){
-                outputBuffer.append(std::to_string(1)); //kilobot committed for north
-            }
-            if (GetKilobotLedColor(c_kilobot_entity) == argos::CColor::GREEN){
-                outputBuffer.append(std::to_string(2)); //kilobot committed for south
-            }
-        }
-
     if (unKilobotID == 0){
         /* --------- CLIENT --------- */
         if (MODE=="CLIENT"){
@@ -304,8 +285,28 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
         if (MODE == "CLIENT"){
             send(serverSocket, outputBuffer.c_str(), outputBuffer.size() + 1, 0);
         }
-        outputBuffer = "";  
+        std::cout<<"pos and commit:\t"<< outputBuffer << std::endl;
+        outputBuffer = "";
     }
+        /* --------- SERVER --------- */
+    if (MODE=="SERVER"){
+        /* Send position of each robot and the chosen direction */
+        /* Transformation for expressing coordinates in 4 characters: origin translated to bottom right corner to have only positive values, then get first 2 digit after the comma */
+        std::string pos = std::to_string(cKilobotPosition.GetX()+0.25);
+        std::string pos2 = pos.substr(2,2);
+        outputBuffer.append(pos2);
+        pos = std::to_string(cKilobotPosition.GetY()+0.25);
+        pos2 = pos.substr(2,2);
+        outputBuffer.append(pos2);
+        /* append 0 for no preferred direction, 1 for left, 2 for right */
+        if (GetKilobotLedColor(c_kilobot_entity) == argos::CColor::RED){
+            outputBuffer.append(std::to_string(1)); //kilobot committed for north
+        }
+        if (GetKilobotLedColor(c_kilobot_entity) == argos::CColor::GREEN){
+            outputBuffer.append(std::to_string(2)); //kilobot committed for south
+        }
+    }
+
 
 
 /* Task check*/
@@ -337,11 +338,13 @@ void CALFClientServer::UpdateVirtualSensor(CKilobotEntity &c_kilobot_entity){
         UInt16 unKilobotID = GetKilobotId(c_kilobot_entity);
         CRadians cKilobotOrientation = GetKilobotOrientation(c_kilobot_entity);
 
-        //determine kilobot orientation
-        // actual_orientation[unKilobotID]=(int)(cKilobotOrientation.GetValue()*10);
-        // if(actual_orientation[unKilobotID]<0){
-        //     actual_orientation[unKilobotID]=(-1*actual_orientation[unKilobotID])+100;
-        // }
+        /*determine kilobot orientation*/
+        actual_orientation[unKilobotID]=(int)(cKilobotOrientation.GetValue()*10);
+        if(actual_orientation[unKilobotID]<0){
+            actual_orientation[unKilobotID]=(-1*actual_orientation[unKilobotID])+100;
+        }
+        //std::cout<<"act orientation: "<<actual_orientation[unKilobotID]<<std::endl;
+        std::cout<<"command: "<<command[unKilobotID]<<std::endl;
 
         if (m_fTimeInSeconds - m_vecLastTimeMessaged[unKilobotID] < m_fMinTimeBetweenTwoMsg){
             return;
@@ -349,11 +352,11 @@ void CALFClientServer::UpdateVirtualSensor(CKilobotEntity &c_kilobot_entity){
         else{
             /* Compose the message for a kilobot */
             tKilobotMessage.m_sID = unKilobotID;                            //ID of the receiver
-            tKilobotMessage.m_sType = (int)command[unKilobotID];          //state
+            tKilobotMessage.m_sType = (int)command[unKilobotID];            //state
             tKilobotMessage.m_sData = actual_orientation[unKilobotID];      //orientation of the robot
-            if (command[unKilobotID]!=0){
+            if ((command[unKilobotID]!=0)&&(GetKilobotLedColor(c_kilobot_entity)== argos::CColor::BLACK)){
+                std::cout<<"sending command"<<std::endl;
                 bMessageToSend = true;
-                std::cout<<actual_orientation[unKilobotID]<<std::endl;
             }
             m_vecLastTimeMessaged[unKilobotID] = m_fTimeInSeconds;
             

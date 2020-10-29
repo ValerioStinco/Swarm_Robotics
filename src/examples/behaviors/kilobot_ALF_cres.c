@@ -218,7 +218,8 @@ void finite_state_machine(){
     /* State transition */
     switch (current_state) {
         case UNCOMMITTED : {
-            set_color(RGB(3,0,0));
+            set_color(RGB(0,3,0));//VERDE
+            //set_color(RGB(3,0,0));//ROSSO
             break;
         }
 

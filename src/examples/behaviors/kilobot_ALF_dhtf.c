@@ -33,16 +33,6 @@ motion_t current_motion_type = STOP;            // Current motion type
 
 action_t current_state = RANDOM_WALKING;        // Current state
 
-/* SALAH---------------------------------------------- */
-// uint32_t last_turn_ticks = 0;                   // Counters for motion, turning and random_walk
-// uint32_t turn_ticks = 60;
-// unsigned int turning_ticks = 0;
-// const uint8_t max_turning_ticks = 160;          // Constant to allow a maximum rotation of 180 degrees with \omega=\pi/5
-// const uint16_t max_straight_ticks = 320;        // Set the \tau_m period to 2.5 s: n_m = \tau_m/\delta_t = 2.5/(1/32)
-// uint32_t last_motion_ticks = 0;
-// uint32_t turn_into_random_walker_ticks = 160;   // Timestep to wait without any direction message before turning into random_walker
-// uint32_t last_direction_msg = 0;
-/* LUIGI---------------------------------------------- */
 int location=0;
 int timeout_param=0;
 const float std_motion_steps = 20*16; // variance of the gaussian used to compute forward motion
@@ -53,11 +43,9 @@ const uint8_t max_turning_ticks = 80; /* constant to allow a maximum rotation of
 unsigned int straight_ticks = 0; // keep count of ticks of going straight
 const uint16_t max_straight_ticks = 320;
 uint32_t last_motion_ticks = 0;
-/* ---------------------------------------------- */
 
 int sa_type = 3;                                //Variables for Smart Arena messages
 int sa_payload = 0;
-bool new_sa_msg = false;
 
 int timeout;                                    //Internal counter for task complention wait
 int leaving_timer;                              //Internal counter for the action of leaving a task when timeout expires
@@ -116,17 +104,14 @@ void rx_message(message_t *msg, distance_measurement_t *d) {
         if (id1 == kilo_uid) {
             sa_type = msg->data[1] >> 2 & 0x0F;
             sa_payload = ((msg->data[1]&0b11) << 8) | (msg->data[2]);
-            new_sa_msg = true;
         }
         if (id2 == kilo_uid) {
             sa_type = msg->data[4] >> 2 & 0x0F;
             sa_payload = ((msg->data[4]&0b11)  << 8) | (msg->data[5]);
-            new_sa_msg = true;
         }
         if (id3 == kilo_uid) {
             sa_type = msg->data[7] >> 2 & 0x0F;
             sa_payload = ((msg->data[7]&0b11)  << 8) | (msg->data[8]);
-            new_sa_msg = true;
         }
 
         location = sa_type;
@@ -148,45 +133,6 @@ void rx_message(message_t *msg, distance_measurement_t *d) {
 /*-------------------------------------------------------------------*/
 /* Function implementing the uncorrelated random walk                */
 /*-------------------------------------------------------------------*/
-
-//***Random walk di Salah***
-// void random_walk() {
-//     switch( current_motion_type ) {
-//     case TURN_LEFT:
-//         if( kilo_ticks > last_motion_ticks + turning_ticks ) {
-//             /* start moving forward */
-//             last_motion_ticks = kilo_ticks;  // fixed time FORWARD
-//             //last_motion_ticks = rand() % max_straight_ticks + 1;  // random time FORWARD
-//             set_motion(FORWARD);
-//         }
-//     case TURN_RIGHT:
-//         if( kilo_ticks > last_motion_ticks + turning_ticks ) {
-//             /* start moving forward */
-//             last_motion_ticks = kilo_ticks;  // fixed time FORWARD
-//             //last_motion_ticks = rand() % max_straight_ticks + 1;  // random time FORWARD
-//             set_motion(FORWARD);
-//         }
-//         break;
-//     case FORWARD:
-//         if( kilo_ticks > last_motion_ticks + max_straight_ticks ) {
-//             /* perform a random turn */
-//             last_motion_ticks = kilo_ticks;
-//             if( rand()%2 ) {
-//                 set_motion(TURN_LEFT);
-//             }
-//             else {
-//                 set_motion(TURN_RIGHT);
-//             }
-//             turning_ticks = rand()%max_turning_ticks + 1;
-//         }
-//         break;
-//     case STOP:
-//     default:
-//         set_motion(FORWARD);
-//     }
-// }
-
-//***Random walk di Luigi***
 void random_walk()
 {
   switch (current_motion_type) 
@@ -262,7 +208,7 @@ void finite_state_machine(){
     /* State transition */
     switch (current_state) {
         case RANDOM_WALKING : {
-            set_color(RGB(0,0,0));
+            //set_color(RGB(0,0,0));
             if(location == INSIDE){
                 timeout = timeout_param*TIMEOUT_CONST;
                 current_state = WAITING;
@@ -281,49 +227,41 @@ void finite_state_machine(){
             if (timeout == 0) {
                 set_color(RGB(3,0,0));
                 current_state = LEAVING;
-                leaving_timer =50;
+                leaving_timer =150;
                 set_motion(FORWARD);
             }
             break;
         }
-        case LEAVING : {
-            set_color(RGB(3,0,0));
+        case LEAVING : {        /*se vogliamo un solo messaggio: basta togliere il timer, appena arriva un msg OUTSIDE il robot riparte ad esplorare (spegne il led)*/
             if (leaving_timer>0){
-                set_motion(FORWARD);
+                //set_motion(FORWARD);
                 leaving_timer--;
             }
             else{
                 if(location == OUTSIDE){
                     current_state = RANDOM_WALKING;
                     set_color(RGB(0,0,0));
-                    set_motion(FORWARD);
+                    //(FORWARD);
                 }
-                else{
-                    turn_timer = 5;
-                    current_state = ROTATION;
-                    set_motion (TURN_LEFT);
-                    /*set_motion(TURN_LEFT);
-                    leaving_timer=50;
-                    break_timer--;
-                    if (break_timer == 0){
-                        current_state = RANDOM_WALKING;
-                        set_motion(FORWARD);  
-                    }*/
-                }
+            //     else{
+            //         turn_timer = 5;
+            //         current_state = ROTATION;
+            //         set_motion (TURN_LEFT);
+            //     }
             }
             break;
         }
-        case ROTATION : {
-            //set_color(RGB(3,3,3));
-            set_motion (TURN_LEFT);
-            if(turn_timer==0){
-                current_state = LEAVING;
-                set_motion(FORWARD);
-                leaving_timer=50;
-            }
-            turn_timer--;
-            break;
-        }
+        // case ROTATION : {
+        //     //set_color(RGB(3,3,3));
+        //     set_motion (TURN_LEFT);
+        //     if(turn_timer==0){
+        //         current_state = LEAVING;
+        //         set_motion(FORWARD);
+        //         leaving_timer=50;
+        //     }
+        //     turn_timer--;
+        //     break;
+        // }
     }
 }
 

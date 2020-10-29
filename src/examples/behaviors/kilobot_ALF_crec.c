@@ -20,8 +20,9 @@ typedef enum {  // Enum for boolean flags
 
 typedef enum {  // Enum for the robot states
     RANDOM_WALKING = 0,
-    TURNING_TO_TARGET = 1,
-    MOVING_TO_TARGET = 2,
+    TURNING_NORTH = 1,
+    TURNING_SOUTH = 2,
+    MOVING_TO_TARGET = 3,
 } action_t;
 
 typedef enum {  // Enum for the robot position wrt to areas
@@ -68,6 +69,8 @@ double directed_motion_freq=0.01;               //frequency of motion toward tar
 /* PARAMETER: change this value to determine timeout lenght */
 int TIMEOUT_CONST = 500;
 
+//bool conditioned = false;
+
 /*-------------------------------------------------------------------*/
 /* Function for setting the motor speed                              */
 /*-------------------------------------------------------------------*/
@@ -111,7 +114,7 @@ void set_motion( motion_t new_motion_type ) {
 void rx_message(message_t *msg, distance_measurement_t *d) {
 
     /* Unpack the message - extract ID, type and payload */
-    if (msg->type == 0) {
+    if (msg->type == 0 ) {
         int id1 = msg->data[0] << 2 | (msg->data[1] >> 6);
         int id2 = msg->data[3] << 2 | (msg->data[4] >> 6);
         int id3 = msg->data[6] << 2 | (msg->data[7] >> 6);
@@ -130,6 +133,8 @@ void rx_message(message_t *msg, distance_measurement_t *d) {
             sa_payload = ((msg->data[7]&0b11)  << 8) | (msg->data[8]);
             new_sa_msg = true;
         }
+        imposed_direction=sa_type;
+        current_kb_angle=sa_payload;
     }
     /* For another kind of message */
     else if (msg->type == 120) {
@@ -140,9 +145,6 @@ void rx_message(message_t *msg, distance_measurement_t *d) {
             set_color(RGB(0,3,0));
         }
     }
-
-    imposed_direction=sa_type;
-    current_kb_angle=sa_payload;
 }
 
 
@@ -218,32 +220,73 @@ void finite_state_machine(){
     /* State transition */
     switch (current_state) {
         case RANDOM_WALKING : {
-            set_color(RGB(0,0,0));
             if(imposed_direction!=0){
+                printf("\nGIRO: imposed dir=%d   ori=%d", imposed_direction, current_kb_angle);
                 last_motion_ticks = kilo_ticks;
-                // turning_ticks = (uint32_t)((current_kb_angle / M_PI) * max_turning_ticks);
-                turning_ticks = (uint32_t)((M_PI_2 / M_PI) * max_turning_ticks);
-                set_color(RGB(3,0,0));
+                // turning_ticks = (uint32_t)((M_PI_2 / M_PI) * max_turning_ticks); 
+                // straight_ticks = 300;
                 if(imposed_direction==1){
-                    set_motion(TURN_LEFT);
+                    set_color(RGB(3,0,0));
+                    current_state=TURNING_NORTH;
+                    turn_timer=(1.33*(current_kb_angle%100)); //exclude hundred
+
+                    printf("\nangle=%d ---> tmr set to %d",current_kb_angle, turn_timer);
                 }
                 else if (imposed_direction==2){
-                    set_motion(TURN_RIGHT);
+                    set_color(RGB(0,3,0));
+                    current_state=TURNING_SOUTH;
+                    turn_timer=(40-(1.33*(current_kb_angle%100)));
+                    //printf("angle=%d ---> tmr set to %d",current_kb_angle, turn_timer);
                 }
-                current_state = MOVING_TO_TARGET;
-                straight_timer=300;
             }
             break;
         }
 
+        case TURNING_NORTH : {
+            //printf("\nNORD timer:%d",turn_timer);
+            if(turn_timer<=0){
+                current_state=MOVING_TO_TARGET;
+                straight_timer=100;
+                set_color(RGB(3,3,3));
+            }
+            else{
+                if (current_kb_angle>=100){
+                    set_motion(TURN_LEFT);
+                }
+                else{
+                    set_motion(TURN_RIGHT);
+                }
+                turn_timer--;
+            }
+            break;
+        }
+        case TURNING_SOUTH : {
+            if(turn_timer<=0){
+                current_state=MOVING_TO_TARGET;
+                straight_timer=300;
+                set_color(RGB(3,3,3));
+            }
+            else{
+                if (current_kb_angle<=100){
+                    set_motion(TURN_LEFT);
+                }
+                else{
+                    set_motion(TURN_RIGHT);
+                }
+                turn_timer--;
+            }
+            break;
+        }
         // case TURNING_TO_TARGET : {
         //     if(imposed_direction==1){
         //         set_motion(TURN_LEFT);
+        //         printf("turnleft");
         //     }
         //     else if (imposed_direction==2){
+        //         printf("turnright");
         //         set_motion(TURN_RIGHT);
         //     }
-        //     if(kilo_ticks > last_motion_ticks + turning_ticks){
+        //     if(turn_timer<=0){
         //         current_state = MOVING_TO_TARGET;
         //         straight_timer=300;
         //     }
@@ -253,10 +296,13 @@ void finite_state_machine(){
         case MOVING_TO_TARGET : {
             set_motion(FORWARD);
             if(straight_timer<=0){
+                    set_color(RGB(0,0,0));
                 current_state = RANDOM_WALKING;
                 imposed_direction=0;
             }
-            straight_timer--;
+            else{
+                straight_timer--;
+            }
         }
     }
 }
