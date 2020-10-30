@@ -221,23 +221,24 @@ void finite_state_machine(){
             if(location == OUTSIDE){
                 current_state = RANDOM_WALKING;
                 set_motion(FORWARD);
+                set_color(RGB(0,0,0));
             }
             /* Timeout condition */
             timeout--;
             if (timeout == 0) {
                 set_color(RGB(3,0,0));
                 current_state = LEAVING;
-                leaving_timer =150;
+                //leaving_timer =150;
                 set_motion(FORWARD);
             }
             break;
         }
         case LEAVING : {        /*se vogliamo un solo messaggio: basta togliere il timer, appena arriva un msg OUTSIDE il robot riparte ad esplorare (spegne il led)*/
-            if (leaving_timer>0){
-                //set_motion(FORWARD);
-                leaving_timer--;
-            }
-            else{
+            // if (leaving_timer>0){
+            //     //set_motion(FORWARD);
+            //     leaving_timer--;
+            // }
+            // else{
                 if(location == OUTSIDE){
                     current_state = RANDOM_WALKING;
                     set_color(RGB(0,0,0));
@@ -248,7 +249,7 @@ void finite_state_machine(){
             //         current_state = ROTATION;
             //         set_motion (TURN_LEFT);
             //     }
-            }
+            //}
             break;
         }
         // case ROTATION : {

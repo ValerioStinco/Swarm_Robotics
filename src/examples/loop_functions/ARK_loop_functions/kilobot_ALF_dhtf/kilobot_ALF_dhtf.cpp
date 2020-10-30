@@ -138,7 +138,7 @@ void CALFClientServer::Init(TConfigurationNode& t_node) {
     if(MODE=="CLIENT"){
         serverSocket = socket(AF_INET, SOCK_STREAM, 0);
         int port = 54000;
-        std::string ipAddress = "127.0.0.1";
+        std::string ipAddress = "127.0.0.1";        //192.168.67.36 ip luigi //ip locale 127.0.0.1
         sockaddr_in hint;
         hint.sin_family = AF_INET;
         hint.sin_port = htons(port);
@@ -553,12 +553,16 @@ void CALFClientServer::UpdateVirtualSensor(CKilobotEntity &c_kilobot_entity){
         tKilobotMessage.m_sID = unKilobotID;                                //ID of the receiver
         tKilobotMessage.m_sType = (int)m_vecKilobotStates_transmit[unKilobotID];     //state
         tKilobotMessage.m_sData = request[unKilobotID];                     //requirement (timer) for the area where it is
-        if (GetKilobotLedColor(c_kilobot_entity) == argos::CColor::RED){
+        if (GetKilobotLedColor(c_kilobot_entity) == argos::CColor::RED){    //posso aggiungere &&OUTSIDE per la nuova richiesta...
             bMessageToSend = true;
         }
         else if ((GetKilobotLedColor(c_kilobot_entity) != argos::CColor::GREEN) && ((int)m_vecKilobotStates_transmit[unKilobotID] == INSIDE_AREA)){
             bMessageToSend = true;
-        } 
+        }
+        else if ((GetKilobotLedColor(c_kilobot_entity) == argos::CColor::GREEN) && ((int)m_vecKilobotStates_transmit[unKilobotID] == OUTSIDE_AREAS)){
+            bMessageToSend = true;
+        }
+        //bMessageToSend=true;
         m_vecLastTimeMessaged[unKilobotID] = m_fTimeInSeconds;        
     }
 
