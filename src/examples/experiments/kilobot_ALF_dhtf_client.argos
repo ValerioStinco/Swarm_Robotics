@@ -40,6 +40,7 @@
     
         <extra_parameters
             mode="CLIENT"
+            ip_addr="127.0.0.1"
             augmented_knowledge="true"
             random_seed="105">
         </extra_parameters>    

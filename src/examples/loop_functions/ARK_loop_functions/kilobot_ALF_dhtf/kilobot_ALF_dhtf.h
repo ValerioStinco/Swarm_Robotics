@@ -127,21 +127,22 @@ private:
     std::vector<FloorColorData> m_vecKilobotData;
 
     std::string MODE;               //can be SERVER or CLIENT
+    std::string IP_ADDR;            //ip address where to connect
     bool augmented_knowledge;       //TRUE: ARK knows the color of areas on the other arena; FALSE: ARK knows color of its own areas only; timeout constant are set consequently
-    unsigned int random_seed;
+    unsigned int random_seed;       //to reproduce tests
     UInt8 desired_num_of_areas;     //number of areas for the experiment (max 16)
+    UInt8 hard_tasks;               //the number of red areas (the ones that require more robots)
     float reactivation_rate;        //threshold to decide if one of the same desired_num_of_areas areas will be reactivated
-    float hard_tasks;               //the number of red areas
     int otherColor[10];             //Color of the areas on the other ARK
     char inputBuffer[30];           //array containing the message received from the socket e.g. 
-    std::string outputBuffer;          //array  containing the message to send
+    std::string outputBuffer;         //array  containing the message to send
     char storeBuffer[30];           //array where to store input message to keep it available
     int bytesReceived;              //length of received string
-    int serverSocket;
-    int clientSocket;
-    UInt8 num_of_areas;     //number of clustering areas i.e. 16
-    int arena_update_counter;
-    bool initializing;              // false when client ACK the initial setup
+    int serverSocket;               //socket variable
+    int clientSocket;               //socket variable
+    UInt8 num_of_areas;             //initial number of clustering areas i.e. 16, will be reduced to desired_num_of_areas
+    int arena_update_counter;       //number of cicles between a reactivation routine and the next one
+    bool initializing;              //false when client ACK the initial setup
 
 
 
@@ -152,8 +153,8 @@ private:
     /*vectors as long as the number of areas*/
     std::vector<UInt8> contained;     //how many KBs the area "i" contains
     
-    std::vector<SRobotState> m_vecKilobotStates_ALF;
-    std::vector<SRobotState> m_vecKilobotStates_transmit;
+    std::vector<SRobotState> m_vecKilobotStates_ALF;        //state of KB from ARK point of view
+    std::vector<SRobotState> m_vecKilobotStates_transmit;   //state communicated to KB (only IN or OUT)
     std::vector<Real> m_vecLastTimeMessaged;
     Real m_fMinTimeBetweenTwoMsg;
 

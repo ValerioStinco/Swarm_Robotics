@@ -40,13 +40,13 @@
     
         <extra_parameters
             mode="SERVER"
+            ip_addr="0.0.0.0"
             augmented_knowledge="true"
             random_seed="12" 
             desired_num_of_areas="8"
             hard_tasks="4"
             reactivation_rate="0.1">
         </extra_parameters>
-        <!-- Not used if mode set to CLIENT -->
 
         <tracking
             position="true"

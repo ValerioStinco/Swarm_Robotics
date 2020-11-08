@@ -78,7 +78,7 @@ void CALFClientServer::Init(TConfigurationNode& t_node) {
     if(MODE=="CLIENT"){
         serverSocket = socket(AF_INET, SOCK_STREAM, 0);
         int port = 54000;
-        std::string ipAddress = "127.0.0.1";
+        std::string ipAddress = "151.25.195.195";
         sockaddr_in hint;
         hint.sin_family = AF_INET;
         hint.sin_port = htons(port);

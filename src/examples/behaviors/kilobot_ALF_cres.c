@@ -143,6 +143,9 @@ void rx_message(message_t *msg, distance_measurement_t *d) {
 
     imposed_direction=sa_type;
     current_kb_angle=sa_payload;
+//////////////////////////////////////////////////////
+da aggiungere messaggi con altri kb
+/////////////////////////////////////////////////////
 }
 
 
@@ -192,6 +195,132 @@ void random_walk(){
 }
 
 
+
+/*-------------------------------------------------------------------*/
+/* Decision Making Function                                          */
+/* Sets ths current_decision var                                     */
+/*-------------------------------------------------------------------*/
+void take_decision() {
+  // temp variable used all along to account for quorum sensing
+  uint8_t resource_index = 0;
+  /* Start decision process */
+  if(current_decision_state == NOT_COMMITTED) {
+    uint8_t commitment = 0;
+    /****************************************************/
+    /* spontaneous commitment process through discovery */
+    /****************************************************/
+    // if over umin threshold
+    uint8_t random_resource = rand_soft()%RESOURCES_SIZE;
+    // normalized between 0 and 255
+    commitment = (uint8_t)floor(resources_pops[random_resource]*h*tau);
+    /****************************************************/
+    /* recruitment over a random agent                  */
+    /****************************************************/
+    uint8_t recruitment = 0;
+    node_t* recruitment_message = NULL;
+    uint8_t recruiter_state = 255;
+    // if list non empty (computed in the clean right after the call to this)
+    if(list_size > 0) {
+      uint8_t rand = rand_soft()%list_size;
+      recruitment_message = b_head;
+      while(recruitment_message && rand) {
+        // set recruiter state
+        recruitment_message = recruitment_message->next;
+        rand = rand-1;
+      }
+      recruiter_state = recruitment_message->msg.data[1];
+    }
+    // if the recruiter is committed
+    if(recruiter_state != NOT_COMMITTED) {
+      /* get the correct index in case of quorum sensing mechanism */
+      resource_index = recruiter_state;
+      // compute recruitment value for current agent
+      recruitment = (uint8_t)floor(resources_pops[resource_index]*k*tau);
+    }
+    /****************************************************/
+    /* extraction                                       */
+    /****************************************************/
+    /* check if the sum of all processes is below 1 (here 255 since normalize to uint_8) */
+    /*                                  STOP                                              */
+    if((uint16_t)commitment+(uint16_t)recruitment > 255) {
+      internal_error = true;
+      return;
+    }
+    // a random number to extract next decision
+    uint8_t extraction = rand_soft();
+    // if the extracted number is less than commitment, then commit
+    if(extraction < commitment) {
+      current_decision_state = random_resource;
+      return;
+    }
+    // subtract commitments
+    extraction = extraction - commitment;
+    // if the extracted number is less than recruitment, then recruited
+    if(extraction < recruitment) {
+      current_decision_state = recruiter_state;
+      return;
+    }
+  }
+
+  else {
+    /****************************************************/
+    /* cross inhibtion over a random agent              */
+    /****************************************************/
+    uint8_t cross_inhibition = 0;
+    node_t *cross_message = NULL;
+    uint8_t inhibitor_state = 255;
+    // get list size
+    uint16_t list_size = mtl_size(b_head);
+    // if list non empty
+    // if list non empty (computed in the clean right after the call to this)
+    if(list_size > 0) {
+      uint8_t rand = rand_soft()%list_size;
+      cross_message = b_head;
+      while(cross_message && rand) {
+        // set recruiter state
+        cross_message = cross_message->next;
+        rand = rand-1;
+      }
+      inhibitor_state = cross_message->msg.data[1];
+    }
+    // if the inhibitor is committed or in quorum but not same as us
+    if(inhibitor_state != NOT_COMMITTED &&
+       current_decision_state != inhibitor_state){
+      /* get the correct index in case of quorum sensing mechanism */
+      resource_index = inhibitor_state;
+      // compute recruitment value for current agent
+      cross_inhibition = (uint8_t)floor(resources_pops[resource_index]*k*tau);
+    }
+    /****************************************************/
+    /* extraction                                       */
+    /****************************************************/
+    /* check if the sum of all processes is below 1 (here 255 since normalize to uint_8) */
+    /*                                  STOP                                             */
+    if((uint16_t)cross_inhibition > 255) {
+      internal_error = true;
+      return;
+    }
+    // a random number to extract next decision
+    uint8_t extraction = rand_soft();
+    // subtract abandon
+    // subtract cross-inhibition
+    if(extraction < cross_inhibition) {
+      current_decision_state = NOT_COMMITTED;
+      return;
+    }
+  }
+}
+
+/* Set LED color for commitment */
+void update_led_status() {
+    if(current_decision_state==0) 
+      set_color(RGB(0,0,0));
+    else if(current_decision_state==1) 
+      set_color(RGB(3,0,0));
+    else if(current_decision_state==2) 
+      set_color(RGB(0,3,0));
+}
+
 /*-------------------------------------------------------------------*/
 /* Init function                                                     */
 /*-------------------------------------------------------------------*/
@@ -210,33 +339,19 @@ void setup() {
     last_motion_ticks = rand()%max_straight_ticks;
     set_motion(FORWARD);
 }
-
-/*-------------------------------------------------------------------*/
-/* Function implementing kilobot FSM and state transitions           */
-/*-------------------------------------------------------------------*/
-void finite_state_machine(){
-    /* State transition */
-    switch (current_state) {
-        case UNCOMMITTED : {
-            set_color(RGB(0,3,0));//VERDE
-            //set_color(RGB(3,0,0));//ROSSO
-            break;
-        }
-
-    }
-}
-
 /*-------------------------------------------------------------------*/
 /* Main loop                                                         */
 /*-------------------------------------------------------------------*/
 void loop() {
         random_walk();
-        finite_state_machine();
+        send_own_state();
+        take_decision();
+        update_led_status();
 }
-
 int main() {
     kilo_init();
     kilo_message_rx = rx_message;
+    kilo_message_tx = message_tx;
     kilo_start(setup, loop);
     return 0;
 }

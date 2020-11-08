@@ -277,21 +277,6 @@ void finite_state_machine(){
             }
             break;
         }
-        // case TURNING_TO_TARGET : {
-        //     if(imposed_direction==1){
-        //         set_motion(TURN_LEFT);
-        //         printf("turnleft");
-        //     }
-        //     else if (imposed_direction==2){
-        //         printf("turnright");
-        //         set_motion(TURN_RIGHT);
-        //     }
-        //     if(turn_timer<=0){
-        //         current_state = MOVING_TO_TARGET;
-        //         straight_timer=300;
-        //     }
-        //     break;
-        // }
 
         case MOVING_TO_TARGET : {
             set_motion(FORWARD);

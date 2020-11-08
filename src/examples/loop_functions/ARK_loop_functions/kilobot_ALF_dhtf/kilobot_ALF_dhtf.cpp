@@ -16,6 +16,7 @@ void CALFClientServer::Init(TConfigurationNode& t_node) {
     /* Read parameters */
     TConfigurationNode& tModeNode = GetNode(t_node, "extra_parameters");
     GetNodeAttribute(tModeNode,"mode",MODE);
+    GetNodeAttribute(tModeNode,"ip_addr",IP_ADDR);
     GetNodeAttribute(tModeNode,"augmented_knowledge",augmented_knowledge);
 
 
@@ -107,14 +108,15 @@ void CALFClientServer::Init(TConfigurationNode& t_node) {
     initializing = true;
 
     /* Socket initialization, opening communication port */
+    serverSocket = socket(AF_INET, SOCK_STREAM, 0);
+    int port = 54000;
+    std::string ipAddress = IP_ADDR;
+    sockaddr_in hint;
+    hint.sin_family = AF_INET;
+    hint.sin_port = htons(port);
+    inet_pton(AF_INET, ipAddress.c_str(), &hint.sin_addr);
+
     if(MODE=="SERVER"){
-        int serverSocket = socket(AF_INET, SOCK_STREAM, 0);
-        int port = 54000;
-        std::string ipAddress = "0.0.0.0";
-        sockaddr_in hint;
-        hint.sin_family = AF_INET;
-        hint.sin_port = htons(port);
-        inet_pton(AF_INET, ipAddress.c_str(), &hint.sin_addr);
         bind(serverSocket, (sockaddr*)&hint, sizeof(hint));
         listen(serverSocket, SOMAXCONN);
         sockaddr_in client;
@@ -124,25 +126,16 @@ void CALFClientServer::Init(TConfigurationNode& t_node) {
         char service[NI_MAXSERV];
         memset(host, 0, NI_MAXHOST);
         memset(service, 0, NI_MAXSERV);
-        if (getnameinfo((sockaddr*)&client, sizeof(client), host, NI_MAXHOST, service, NI_MAXSERV, 0) == 0)
-        {
+        if (getnameinfo((sockaddr*)&client, sizeof(client), host, NI_MAXHOST, service, NI_MAXSERV, 0) == 0){
             std::cout << host << " connected on port " << service << std::endl;
         }
-        else
-        {
+        else{
             inet_ntop(AF_INET, &client.sin_addr, host, NI_MAXHOST);
             std::cout << host << " connected on port " << ntohs(client.sin_port) << std::endl;
         }
         close(serverSocket);
     }
     if(MODE=="CLIENT"){
-        serverSocket = socket(AF_INET, SOCK_STREAM, 0);
-        int port = 54000;
-        std::string ipAddress = "127.0.0.1";        //192.168.67.36 ip luigi //ip locale 127.0.0.1
-        sockaddr_in hint;
-        hint.sin_family = AF_INET;
-        hint.sin_port = htons(port);
-        inet_pton(AF_INET, ipAddress.c_str(), &hint.sin_addr);
         connect(serverSocket, (sockaddr*)&hint, sizeof(hint));
     }
 }
@@ -297,15 +290,6 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
             }
             // std::cout<<"Recv_str "<<storeBuffer<<std::endl;
             initializing=false;
-
-            // std::cout<<"color "<<multiArea[0].Color<<" - other_colors "<<otherColor[0]<<std::endl;
-            // std::cout<<"color "<<multiArea[1].Color<<" - other_colors "<<otherColor[1]<<std::endl;
-            // std::cout<<"color "<<multiArea[2].Color<<" - other_colors "<<otherColor[2]<<std::endl;
-            // std::cout<<"color "<<multiArea[3].Color<<" - other_colors "<<otherColor[3]<<std::endl;
-            // std::cout<<"color "<<multiArea[4].Color<<" - other_colors "<<otherColor[4]<<std::endl;
-            // std::cout<<"color "<<multiArea[5].Color<<" - other_colors "<<otherColor[5]<<std::endl;
-            // std::cout<<"color "<<multiArea[6].Color<<" - other_colors "<<otherColor[6]<<std::endl;
-            // std::cout<<"color "<<multiArea[7].Color<<" - other_colors "<<otherColor[7]<<std::endl;
         }
 
         /* Align to server arena */
@@ -328,27 +312,7 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
         /* Task completeness check */
         if (storeBuffer[0]==84){ //84 is the ASCII binary for "T"
             for (int j=0; j<num_of_areas; j++){
-                // if (storeBuffer[j+1]-48 == 2) {
-                //     if ((multiArea[j].Color.GetRed() == 255) && (contained[j] >= 6)) {
-                //         multiArea[j].Completed = true;
-                //         std::cout<<"red-red task completed"<<std::endl;
-                //     }
-                //     if ((multiArea[j].Color.GetBlue() == 255) && (contained[j] >= 2)) {
-                //         multiArea[j].Completed = true;
-                //         std::cout<<"blue-red task completed"<<std::endl;
-                //     }
-                // }
-                // if (storeBuffer[j+1]-48 == 1) {
-                //     if ((multiArea[j].Color.GetRed() == 255) && (contained[j] >= 6)) {
-                //         multiArea[j].Completed = true;
-                //         std::cout<<"red-blue task completed"<<std::endl;
-                //     }
-                //     if ((multiArea[j].Color.GetBlue() == 255) && (contained[j] >= 2)) {
-                //         multiArea[j].Completed = true;
-                //         std::cout<<"blue-blue task completed"<<std::endl;
-                //     }
-                // }
-                if ((storeBuffer[j+1]-48 == 1)){ //||(storeBuffer[j+1]-48 == 2)
+                if ((storeBuffer[j+1]-48 == 1)){
                     if (otherColor[j]==2){
                         if ((multiArea[j].Color==argos::CColor::RED)&&(contained[j]>=6)){
                             multiArea[j].Completed = true;
@@ -399,10 +363,6 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
             /* Build the message for the other ALF */
             outputBuffer = "T"; //"T" indicates that the message is related to task completeness
             for (int k=0; k<num_of_areas; k++){
-
-                /* Use this to send the number of kilobots in each area */
-                //outputBuffer.append(std::to_string(contained[k]));
-
                 /* Write 1 or 2 if the requirements of the area are satisfied for the sender, else write 0 */
                 if (multiArea[k].Color==argos::CColor::RED){
                     if (contained[k] >= 6) {
@@ -439,14 +399,6 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
                 }
             }
             else{
-                // std::cout<<"color "<<multiArea[0].Color<<" - other_colors "<<otherColor[0]<<std::endl;
-                // std::cout<<"color "<<multiArea[1].Color<<" - other_colors "<<otherColor[1]<<std::endl;
-                // std::cout<<"color "<<multiArea[2].Color<<" - other_colors "<<otherColor[2]<<std::endl;
-                // std::cout<<"color "<<multiArea[3].Color<<" - other_colors "<<otherColor[3]<<std::endl;
-                // std::cout<<"color "<<multiArea[4].Color<<" - other_colors "<<otherColor[4]<<std::endl;
-                // std::cout<<"color "<<multiArea[5].Color<<" - other_colors "<<otherColor[5]<<std::endl;
-                // std::cout<<"color "<<multiArea[6].Color<<" - other_colors "<<otherColor[6]<<std::endl;
-                // std::cout<<"color "<<multiArea[7].Color<<" - other_colors "<<otherColor[7]<<std::endl;
                 initializing=false;
             }
         }
@@ -462,7 +414,7 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
 
 
 /* State transition*/
-    if (initializing==false){    //(MODE == "SERVER") || ((MODE == "CLIENT")&&
+    if (initializing==false){
         switch (m_vecKilobotStates_ALF[unKilobotID]) {
             case OUTSIDE_AREAS : {
                 /* Check if the kilobot is entered in a task area */
@@ -550,19 +502,19 @@ void CALFClientServer::UpdateVirtualSensor(CKilobotEntity &c_kilobot_entity){
     }
     else{
         /* Compose the message for a kilobot */
-        tKilobotMessage.m_sID = unKilobotID;                                //ID of the receiver
-        tKilobotMessage.m_sType = (int)m_vecKilobotStates_transmit[unKilobotID];     //state
-        tKilobotMessage.m_sData = request[unKilobotID];                     //requirement (timer) for the area where it is
-        if (GetKilobotLedColor(c_kilobot_entity) == argos::CColor::RED){    //posso aggiungere &&OUTSIDE per la nuova richiesta...
+        tKilobotMessage.m_sID = unKilobotID;                                            //ID of the receiver
+        tKilobotMessage.m_sType = (int)m_vecKilobotStates_transmit[unKilobotID];        //state
+        tKilobotMessage.m_sData = request[unKilobotID];                                 //requirement (timer) for the area where it is
+        if ((GetKilobotLedColor(c_kilobot_entity) != argos::CColor::GREEN) && ((int)m_vecKilobotStates_transmit[unKilobotID] == INSIDE_AREA)){          //entry msg when random walking
             bMessageToSend = true;
         }
-        else if ((GetKilobotLedColor(c_kilobot_entity) != argos::CColor::GREEN) && ((int)m_vecKilobotStates_transmit[unKilobotID] == INSIDE_AREA)){
+        else if ((GetKilobotLedColor(c_kilobot_entity) == argos::CColor::RED) && ((int)m_vecKilobotStates_transmit[unKilobotID] == OUTSIDE_AREAS)){     //exit msg when leaving
             bMessageToSend = true;
         }
-        else if ((GetKilobotLedColor(c_kilobot_entity) == argos::CColor::GREEN) && ((int)m_vecKilobotStates_transmit[unKilobotID] == OUTSIDE_AREAS)){
+        else if ((GetKilobotLedColor(c_kilobot_entity) == argos::CColor::GREEN) && ((int)m_vecKilobotStates_transmit[unKilobotID] == OUTSIDE_AREAS)){   //exit msg when task completed
             bMessageToSend = true;
         }
-        //bMessageToSend=true;
+        //bMessageToSend=true;      //use this line to send msgs always
         m_vecLastTimeMessaged[unKilobotID] = m_fTimeInSeconds;        
     }
 
