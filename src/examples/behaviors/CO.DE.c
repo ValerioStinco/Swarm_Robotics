@@ -178,36 +178,6 @@ uint16_t list_size;
 uint8_t messages_count;
 
 /*-------------------------------------------------------------------*/
-/* Function for setting the motor speed                              */
-/*-------------------------------------------------------------------*/
-void set_motion(motion_t new_motion_type) {
-  if(current_motion_type != new_motion_type ) {
-    switch( new_motion_type ) {
-    case FORWARD:
-      spinup_motors();
-      set_motors(kilo_straight_left,kilo_straight_right);
-      rotating = 0;
-      break;
-    case TURN_LEFT:
-      spinup_motors();
-      set_motors(kilo_turn_left,0);
-      rotating = 1;
-      break;
-    case TURN_RIGHT:
-      spinup_motors();
-      set_motors(0,kilo_turn_right);
-      rotating = 1;
-      break;
-    case STOP:
-    default:
-      set_motors(0,0);
-      rotating = 0;
-    }
-    current_motion_type = new_motion_type;
-  }
-}
-
-/*-------------------------------------------------------------------*/
 /* Merge received information about the population of the area on    */
 /* which the kb is on. Kilobots can only perceive locally and try to */
 /* estimate the population of a resource                             */
@@ -412,31 +382,6 @@ void message_rx(message_t *msg, distance_measurement_t *d) {
       set_color(RGB(3,0,0));
     }
   }
-}
-
-
-/*-------------------------------------------------------------------*/
-/* Send current kb status to the swarm                               */
-/*-------------------------------------------------------------------*/
-
-message_t *message_tx() {
-  if(to_send_message) {
-    /* this one is filled in the loop */
-    to_send_message = false;
-
-    return &interactive_message;
-  } else {
-    return NULL;
-  }
-}
-
-
-/*-------------------------------------------------------------------*/
-/* successful transmission callback                                  */
-/*-------------------------------------------------------------------*/
-
-void message_tx_success() {
-  sent_message = 1;
 }
 
 
