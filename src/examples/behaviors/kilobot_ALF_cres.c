@@ -35,13 +35,14 @@ const float levy_exponent = 2; // 2 is brownian like motion (alpha)
 const float  crw_exponent = 0.0; // higher more straight (rho)
 uint32_t turning_ticks = 0; // keep count of ticks of turning
 const uint8_t max_turning_ticks = 120; /* constant to allow a maximum rotation of 180 degrees with \omega=\pi/5 */
-unsigned int straight_ticks = 0; // keep count of ticks of going straight
+uint32_t straight_ticks = 0; // keep count of ticks of going straight
 const uint16_t max_straight_ticks = 320;
 uint32_t last_motion_ticks = 0;
 
 /*Communication*/
-int sa_type = 0;                                //Variables for Smart Arena messages
-int sa_payload = 0;
+uint8_t sa_type = 0;                                //Variables for Smart Arena messages
+uint32_t sa_payload_blue = 0;
+uint32_t sa_payload_red = 0;
 bool new_sa_msg = false;
 uint8_t sent_message = 1;
 uint8_t to_send_message = false;
@@ -52,64 +53,67 @@ message_t to_parse_message;
 const float tau = 1;
 const float h = 0.1111111;
 const float k = 0.8888889;
+const uint16_t max_decision_ticks = 320;  //10 secondi
+uint32_t last_decision_ticks = 0;
 
 uint8_t internal_error = 0;             //computation error
 const float ema_alpha = 0.1;            //exponential moving average
 uint8_t resources_pops[RESOURCES_SIZE]; //keep local knowledge about resources
-uint8_t recruiter_state = 0;          //commitment communicated by another robot
+uint8_t recruiter_state = UNCOMMITTED;  //commitment communicated by another robot
 
 /*-------------------------------------------------------------------*/
 /* Callback function for message reception                           */
 /*-------------------------------------------------------------------*/
 void rx_message(message_t *msg, distance_measurement_t *d) {
-    /* Unpack the message - extract ID, type and payload */
-    /*type 0 is for messages coming from ARK*/
-    if (msg->type == 0) {
-        int id1 = msg->data[0] << 2 | (msg->data[1] >> 6);
-        int id2 = msg->data[3] << 2 | (msg->data[4] >> 6);
-        int id3 = msg->data[6] << 2 | (msg->data[7] >> 6);
-        if (id1 == kilo_uid) {
-            sa_type = msg->data[1] >> 2 & 0x0F;
-            sa_payload = ((msg->data[1]&0b11) << 8) | (msg->data[2]);
-            new_sa_msg = true;
-        }
-        if (id2 == kilo_uid) {
-            sa_type = msg->data[4] >> 2 & 0x0F;
-            sa_payload = ((msg->data[4]&0b11)  << 8) | (msg->data[5]);
-            new_sa_msg = true;
-        }
-        if (id3 == kilo_uid) {
-            sa_type = msg->data[7] >> 2 & 0x0F;
-            sa_payload = ((msg->data[7]&0b11)  << 8) | (msg->data[8]);
-            new_sa_msg = true;
-        }
-        if (sa_type==1){
-          resources_pops[0]= sa_payload;  //red resources
-        }
-        else if (sa_type==2)
-        {
-          resources_pops[1]= sa_payload;  //green resources
-        }
-    }
-    /*type 1 is for messages coming from other kilobots*/
-    else if(msg->type==1) {
-      /* get id (always firt byte when coming from another kb) */
-      uint8_t id = msg->data[0];
-      // check that is a valid crc and another kb
-      if(id!=kilo_uid){
-        // store the message for later parsing to avoid the rx to interfer with the loop
-        recruiter_state = msg->data[1];
+  /* Unpack the message - extract ID, type and payload */
+  /*type 0 is for messages coming from ARK*/
+  if (msg->type == 0) {
+      int id1 = msg->data[0];
+      int id2 = msg->data[3];
+      int id3 = msg->data[6];
+      if (id1 == kilo_uid) {
+          sa_payload_red = msg->data[1];
+          sa_payload_blue = msg->data[2];
+          new_sa_msg = true;
       }
+      else if (id2 == kilo_uid) {
+          sa_payload_red = msg->data[4];
+          sa_payload_blue = msg->data[5];
+          new_sa_msg = true;
+      }
+      else if (id3 == kilo_uid) {
+          sa_payload_red = msg->data[7];
+          sa_payload_blue = msg->data[8];
+          new_sa_msg = true;
+      }
+
+      if (sa_type==1){
+        resources_pops[0]= sa_payload_red;  //red resources
+      }
+      else if (sa_type==2)
+      {
+        resources_pops[1]= sa_payload_blue;  //blue resources
+      }
+  }
+  /*type 1 is for messages coming from other kilobots*/
+  else if(msg->type==1) {
+    /* get id (always firt byte when coming from another kb) */
+    uint8_t id = msg->data[0];
+    // check that is a valid crc and another kb
+    if(id!=kilo_uid){
+      // store the message for later parsing to avoid the rx to interfer with the loop
+      recruiter_state = msg->data[1];
     }
-    /* For another kind of message */
-    else if (msg->type == 120) {
-        int id = (msg->data[0] << 8) | msg->data[1];
-        if (id == kilo_uid) {
-            set_color(RGB(0,0,3));
-        } else {
-            set_color(RGB(0,3,0));
-        }
-    }
+  }
+  // /* For another kind of message */
+  // else if (msg->type == 120) {
+  //     int id = (msg->data[0] << 8) | msg->data[1];
+  //     if (id == kilo_uid) {
+  //         set_color(RGB(0,0,3));
+  //     } else {
+  //         set_color(RGB(0,3,0));
+  //     }
+  // }
 }
 
 /*-------------------------------------------------------------------*/
@@ -152,79 +156,84 @@ void send_own_state() {
 /* Sets ths current_decision var                                     */
 /*-------------------------------------------------------------------*/
 void take_decision() {
-  // temp variable used all along to account for quorum sensing
-  uint8_t resource_index = 0;
-  /* Start decision process */
-  if(current_decision_state == UNCOMMITTED) {
-    uint8_t commitment = 0;
-    /****************************************************/
-    /* spontaneous commitment process through discovery */
-    /****************************************************/
-    uint8_t random_resource = rand_soft()%RESOURCES_SIZE;
-    // normalized between 0 and 255
-    commitment = (uint8_t)floor(resources_pops[random_resource]*h*tau);
-    /****************************************************/
-    /* recruitment over a random agent                  */
-    /****************************************************/
-    uint8_t recruitment = 0;
-    // if the recruiter is committed
-    if(recruiter_state != UNCOMMITTED) {
-      /* get the correct index in case of quorum sensing mechanism */
-      resource_index = recruiter_state-1;
-      // compute recruitment value for current agent
-      recruitment = (uint8_t)floor(resources_pops[resource_index]*k*tau);
+  if (kilo_ticks >= max_decision_ticks + last_decision_ticks){
+    // temp variable used all along to account for quorum sensing
+    uint8_t resource_index = 0;
+    /* Start decision process */
+    if(current_decision_state == UNCOMMITTED) {
+      uint8_t commitment = 0;
+      /****************************************************/
+      /* spontaneous commitment process through discovery */
+      /****************************************************/
+      uint8_t random_resource = rand_soft()%RESOURCES_SIZE;
+      // normalized between 0 and 255
+      commitment = (uint8_t)floor(resources_pops[random_resource]*h*tau);
+      /****************************************************/
+      /* recruitment over a random agent            m_sData      */
+      /****************************************************/
+      uint8_t recruitment = 0;
+      // if the recruiter is committed
+      if(recruiter_state != UNCOMMITTED) {
+        /* get the correct index in case of quorum sensing mechanism */
+        resource_index = recruiter_state-1;
+        // compute recruitment value for current agent
+        recruitment = (uint8_t)floor(resources_pops[resource_index]*k*tau);
+      }
+      /****************************************************/
+      /* extraction                                       */
+      /****************************************************/
+      /* check if the sum of all processes is below 1 (here 255 since normalize to uint_8) */
+      if((uint16_t)commitment+(uint16_t)recruitment > 255) {
+        internal_error = true;
+        return;
+      }
+      // a random number to extract next decision
+      uint8_t extraction = rand_soft();
+      // if the extracted number is less than commitment, then commit
+      if(extraction < commitment) {
+        current_decision_state = random_resource+1;
+        return;
+      }
+      // subtract commitments
+      extraction = extraction - commitment;
+      // if the extracted number is less than recruitment, then recruited
+      if(extraction < recruitment) {
+        current_decision_state = recruiter_state;
+        return;
+      }
     }
-    /****************************************************/
-    /* extraction                                       */
-    /****************************************************/
-    /* check if the sum of all processes is below 1 (here 255 since normalize to uint_8) */
-    if((uint16_t)commitment+(uint16_t)recruitment > 255) {
-      internal_error = true;
-      return;
-    }
-    // a random number to extract next decision
-    uint8_t extraction = rand_soft();
-    // if the extracted number is less than commitment, then commit
-    if(extraction < commitment) {
-      current_decision_state = random_resource;
-      return;
-    }
-    // subtract commitments
-    extraction = extraction - commitment;
-    // if the extracted number is less than recruitment, then recruited
-    if(extraction < recruitment) {
-      current_decision_state = recruiter_state;
-      return;
-    }
-  }
 
-  else {
-    /****************************************************/
-    /* cross inhibtion over a random agent              */
-    /****************************************************/
-    uint8_t cross_inhibition = 0;
-    // if the inhibitor is committed or in quorum but not same as us
-    if(recruiter_state != UNCOMMITTED && current_decision_state != recruiter_state){
-      /* get the correct index in case of quorum sensing mechanism */
-      resource_index = recruiter_state;
-      // compute recruitment value for current agent
-      cross_inhibition = (uint8_t)floor(resources_pops[resource_index]*k*tau);
+    else {
+      /****************************************************/
+      /* cross inhibtion over a random agent              */
+      /****************************************************/
+      uint8_t cross_inhibition = 0;
+      // if the inhibitor is committed or in quorum but not same as us
+      if(recruiter_state != UNCOMMITTED && current_decision_state != recruiter_state){
+        /* get the correct index in case of quorum sensing mechanism */
+        resource_index = recruiter_state-1;
+        // compute recruitment value for current agent
+        cross_inhibition = (uint8_t)floor(resources_pops[resource_index]*k*tau);
+      }
+      /****************************************************/
+      /* extraction                                       */
+      /****************************************************/
+      /* check if the sum of all processes is below 1 (here 255 since normalize to uint_8) */
+      if((uint16_t)cross_inhibition > 255) {
+        internal_error = true;
+        return;
+      }
+      // a random number to extract next decision
+      uint8_t extraction = rand_soft();
+      // subtract cross-inhibition
+      if(extraction < cross_inhibition) {
+        current_decision_state = UNCOMMITTED;
+        return;
+      }
     }
-    /****************************************************/
-    /* extraction                                       */
-    /****************************************************/
-    /* check if the sum of all processes is below 1 (here 255 since normalize to uint_8) */
-    if((uint16_t)cross_inhibition > 255) {
-      internal_error = true;
-      return;
-    }
-    // a random number to extract next decision
-    uint8_t extraction = rand_soft();
-    // subtract cross-inhibition
-    if(extraction < cross_inhibition) {
-      current_decision_state = UNCOMMITTED;
-      return;
-    }
+    /* erase memory of neighbour commitment*/
+    recruiter_state = UNCOMMITTED;
+    last_decision_ticks = kilo_ticks;
   }
 }
 
@@ -237,7 +246,7 @@ void update_led_status() {
     else if(current_decision_state==1) 
       set_color(RGB(3,0,0));
     else if(current_decision_state==2) 
-      set_color(RGB(0,3,0));
+      set_color(RGB(0,0,3));
 }
 
 /*-------------------------------------------------------------------*/
@@ -353,6 +362,7 @@ int main() {
     kilo_init();
     kilo_message_rx = rx_message;
     kilo_message_tx = message_tx;
+    kilo_message_tx_success = message_tx_success;
     kilo_start(setup, loop);
     return 0;
 }

@@ -42,7 +42,8 @@
             mode="CLIENT"
             ip_addr="127.0.0.1"
             augmented_knowledge="true"
-            random_seed="105">
+            random_seed="105"
+            timeout_const="5">
         </extra_parameters>    
 
         <tracking

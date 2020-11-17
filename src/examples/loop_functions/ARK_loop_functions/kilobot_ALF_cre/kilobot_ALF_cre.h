@@ -135,6 +135,7 @@ private:
     std::vector<TransmittingKilobot> multiTransmittingKilobot;
 
     std::string MODE;
+    std::string IP_ADDR;            //ip address where to connect
     unsigned int random_seed;
     int desired_num_of_areas;
     float reactivation_rate;

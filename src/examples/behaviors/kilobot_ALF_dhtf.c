@@ -34,7 +34,7 @@ motion_t current_motion_type = STOP;            // Current motion type
 action_t current_state = RANDOM_WALKING;        // Current state
 
 int location=0;
-int timeout_param=0;
+int wait_seconds=0;
 const float std_motion_steps = 20*16; // variance of the gaussian used to compute forward motion
 const float levy_exponent = 2; // 2 is brownian like motion (alpha)
 const float  crw_exponent = 0.0; // higher more straight (rho)
@@ -52,7 +52,7 @@ int leaving_timer;                              //Internal counter for the actio
 int turn_timer;                                //Avoid the robot to get stuck in Leagving
 
 /* PARAMETER: change this value to determine timeout length */
-const int TIMEOUT_CONST = 500;
+/*const int TIMEOUT_CONST = 500;*/
 
 /*-------------------------------------------------------------------*/
 /* Function for setting the motor speed                              */
@@ -115,17 +115,7 @@ void rx_message(message_t *msg, distance_measurement_t *d) {
         }
 
         location = sa_type;
-        timeout_param = sa_payload;
-    }
-
-    /* For another kind of message */
-    else if (msg->type == 120) {
-        int id = (msg->data[0] << 8) | msg->data[1];
-        if (id == kilo_uid) {
-            set_color(RGB(0,0,3));
-        } else {
-            set_color(RGB(0,3,0));
-        }
+        wait_seconds = sa_payload;
     }
 }
 
@@ -208,16 +198,15 @@ void finite_state_machine(){
     /* State transition */
     switch (current_state) {
         case RANDOM_WALKING : {
-            //set_color(RGB(0,0,0));
             if(location == INSIDE){
-                timeout = timeout_param*TIMEOUT_CONST;
+                timeout = wait_seconds*32;
                 current_state = WAITING;
+                set_color(RGB(0,0,3));
                 set_motion(STOP);
             }
             break;
         }
         case WAITING : {
-            set_color(RGB(0,3,0));
             if(location == OUTSIDE){
                 current_state = RANDOM_WALKING;
                 set_motion(FORWARD);
@@ -228,41 +217,17 @@ void finite_state_machine(){
             if (timeout == 0) {
                 set_color(RGB(3,0,0));
                 current_state = LEAVING;
-                //leaving_timer =150;
                 set_motion(FORWARD);
             }
             break;
         }
-        case LEAVING : {        /*se vogliamo un solo messaggio: basta togliere il timer, appena arriva un msg OUTSIDE il robot riparte ad esplorare (spegne il led)*/
-            // if (leaving_timer>0){
-            //     //set_motion(FORWARD);
-            //     leaving_timer--;
-            // }
-            // else{
-                if(location == OUTSIDE){
-                    current_state = RANDOM_WALKING;
-                    set_color(RGB(0,0,0));
-                    //(FORWARD);
-                }
-            //     else{
-            //         turn_timer = 5;
-            //         current_state = ROTATION;
-            //         set_motion (TURN_LEFT);
-            //     }
-            //}
+        case LEAVING : {
+            if(location == OUTSIDE){
+                current_state = RANDOM_WALKING;
+                set_color(RGB(0,0,0));
+            }
             break;
         }
-        // case ROTATION : {
-        //     //set_color(RGB(3,3,3));
-        //     set_motion (TURN_LEFT);
-        //     if(turn_timer==0){
-        //         current_state = LEAVING;
-        //         set_motion(FORWARD);
-        //         leaving_timer=50;
-        //     }
-        //     turn_timer--;
-        //     break;
-        // }
     }
 }
 

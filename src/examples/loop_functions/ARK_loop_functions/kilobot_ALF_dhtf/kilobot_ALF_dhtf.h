@@ -128,6 +128,7 @@ private:
 
     std::string MODE;               //can be SERVER or CLIENT
     std::string IP_ADDR;            //ip address where to connect
+    UInt16 TIMEOUT_CONST;
     bool augmented_knowledge;       //TRUE: ARK knows the color of areas on the other arena; FALSE: ARK knows color of its own areas only; timeout constant are set consequently
     unsigned int random_seed;       //to reproduce tests
     UInt8 desired_num_of_areas;     //number of areas for the experiment (max 16)

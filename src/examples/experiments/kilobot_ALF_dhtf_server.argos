@@ -45,7 +45,8 @@
             random_seed="12" 
             desired_num_of_areas="8"
             hard_tasks="4"
-            reactivation_rate="0.1">
+            reactivation_rate="0.1"
+            timeout_const="5">
         </extra_parameters>
 
         <tracking
@@ -121,7 +122,7 @@
         <distribute>
             <position method="uniform" min="-0.15,-0.15,0" max="0.15,0.15,0" />
             <orientation method="uniform" min="0,0,0" max="360,0,0" />
-            <entity quantity="20" max_trials="100">
+            <entity quantity="2" max_trials="100">
                 <kilobot id="kb">
                     <controller config="listener"/> <dynamics2d friction="0.7" />
                 </kilobot>

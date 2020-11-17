@@ -16,7 +16,8 @@ void CALFClientServer::Init(TConfigurationNode& t_node) {
     /* Read parameters */
     TConfigurationNode& tModeNode = GetNode(t_node, "extra_parameters");
     GetNodeAttribute(tModeNode,"mode",MODE);
-    GetNodeAttribute(tModeNode,"ip_addr",IP_ADDR);
+    GetNodeAttribute(tModeNode,"ip_addr",IP_ADDR);  
+    GetNodeAttribute(tModeNode,"timeout_const",TIMEOUT_CONST);
     GetNodeAttribute(tModeNode,"augmented_knowledge",augmented_knowledge);
 
 
@@ -65,10 +66,10 @@ void CALFClientServer::Init(TConfigurationNode& t_node) {
         /* Send own colors to the client */
         for (int i=0; i<num_of_areas; i++){
             if(multiArea[i].Color==argos::CColor::RED){
-                outputBuffer.append("2");       //send red as color
+                outputBuffer.append("1");       //send red as color
             }
             else{
-                outputBuffer.append("1");       //send blue as color
+                outputBuffer.append("0");       //send blue as color
             }    
         }
 
@@ -90,13 +91,10 @@ void CALFClientServer::Init(TConfigurationNode& t_node) {
         /* Send client colors to the client */
         for (int i=0; i<num_of_areas; i++){
             if(otherColor[i]==2){
-                outputBuffer.append("2");
-            }
-            else if(otherColor[i]==1){
                 outputBuffer.append("1");
             }
-            else{   //è una prova, non serve realmente
-                outputBuffer.append("5");
+            else if(otherColor[i]==1){
+                outputBuffer.append("0");
             }
         }
     }
@@ -266,27 +264,21 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
             }
             /*fill othercolor field*/
             for (int c=num_of_areas+1; c<(2*num_of_areas)+1; c++){
-                if (storeBuffer[c]==50){
+                if (storeBuffer[c]==49){
                     otherColor[c-num_of_areas-1]=2;
                 }
-                else if (storeBuffer[c]==49){
+                else if (storeBuffer[c]==48){
                     otherColor[c-num_of_areas-1]=1;
-                }
-                else {
-                    otherColor[c-num_of_areas-1]=5; //errore
                 }
             }
             /*fill color field*/
             for (int c=(2*num_of_areas)+1;c<(3*num_of_areas)+1;c++){
-                if (storeBuffer[c]==50){
+                if (storeBuffer[c]==49){
                     multiArea[c-(2*num_of_areas)-1].Color=argos::CColor::RED;
                 }
-                else if (storeBuffer[c]==49){
+                else if (storeBuffer[c]==48){
                     multiArea[c-(2*num_of_areas)-1].Color=argos::CColor::BLUE;
                 }
-                else {
-                    multiArea[c-(2*num_of_areas)-1].Color=argos::CColor::GREEN; //errore
-                }            
             }
             // std::cout<<"Recv_str "<<storeBuffer<<std::endl;
             initializing=false;
@@ -429,28 +421,28 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
                             if (multiArea[i].Color==argos::CColor::RED){
                                 if(augmented_knowledge==true){
                                     if (otherColor[i]==2){
-                                        request[unKilobotID] = 5;
+                                        request[unKilobotID] = 5*TIMEOUT_CONST;
                                     }
                                     if (otherColor[i]==1){
-                                        request[unKilobotID] = 3;
+                                        request[unKilobotID] = 3*TIMEOUT_CONST;
                                     }
                                 }
                                 else{
-                                    request[unKilobotID] = 3;
+                                    request[unKilobotID] = 3*TIMEOUT_CONST;
                                 }
                             }
                             if (multiArea[i].Color==argos::CColor::BLUE){
                                 if(augmented_knowledge==true){
                                     if (otherColor[i]==2){
-                                        request[unKilobotID] = 2;
+                                        request[unKilobotID] = 2*TIMEOUT_CONST;
                                     }
                                     if (otherColor[i]==1){
-                                        request[unKilobotID] = 1;
+                                        request[unKilobotID] = 1*TIMEOUT_CONST;
                                     }
                                 }
                                 else
                                 {
-                                    request[unKilobotID] = 1;
+                                    request[unKilobotID] = 1*TIMEOUT_CONST;
                                 }
                             }
                             whereis[unKilobotID] = i;
@@ -505,13 +497,13 @@ void CALFClientServer::UpdateVirtualSensor(CKilobotEntity &c_kilobot_entity){
         tKilobotMessage.m_sID = unKilobotID;                                            //ID of the receiver
         tKilobotMessage.m_sType = (int)m_vecKilobotStates_transmit[unKilobotID];        //state
         tKilobotMessage.m_sData = request[unKilobotID];                                 //requirement (timer) for the area where it is
-        if ((GetKilobotLedColor(c_kilobot_entity) != argos::CColor::GREEN) && ((int)m_vecKilobotStates_transmit[unKilobotID] == INSIDE_AREA)){          //entry msg when random walking
+        if ((GetKilobotLedColor(c_kilobot_entity) != argos::CColor::BLUE) && (GetKilobotLedColor(c_kilobot_entity) != argos::CColor::RED) && ((int)m_vecKilobotStates_transmit[unKilobotID] == INSIDE_AREA)){          //entry msg when random walking
             bMessageToSend = true;
         }
         else if ((GetKilobotLedColor(c_kilobot_entity) == argos::CColor::RED) && ((int)m_vecKilobotStates_transmit[unKilobotID] == OUTSIDE_AREAS)){     //exit msg when leaving
             bMessageToSend = true;
         }
-        else if ((GetKilobotLedColor(c_kilobot_entity) == argos::CColor::GREEN) && ((int)m_vecKilobotStates_transmit[unKilobotID] == OUTSIDE_AREAS)){   //exit msg when task completed
+        else if ((GetKilobotLedColor(c_kilobot_entity) == argos::CColor::BLUE) && ((int)m_vecKilobotStates_transmit[unKilobotID] == OUTSIDE_AREAS)){   //exit msg when task completed
             bMessageToSend = true;
         }
         //bMessageToSend=true;      //use this line to send msgs always
@@ -539,6 +531,7 @@ void CALFClientServer::UpdateVirtualSensor(CKilobotEntity &c_kilobot_entity){
             m_tMessages[unKilobotID].data[2+i*3] = tMessage.m_sData;
             //std::cout<<" robot "<<tMessage.m_sID<<" "<<tMessage.m_sType<<std::endl;
         }
+        std::cout<<"payload: "<<tKilobotMessage.m_sData<<std::endl;
         GetSimulator().GetMedium<CKilobotCommunicationMedium>("kilocomm").SendOHCMessageTo(c_kilobot_entity,&m_tMessages[unKilobotID]);
     }
     else{

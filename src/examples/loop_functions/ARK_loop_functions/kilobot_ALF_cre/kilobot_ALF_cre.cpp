@@ -16,6 +16,7 @@ void CALFClientServer::Init(TConfigurationNode& t_node) {
     /* Read parameters */
     TConfigurationNode& tModeNode = GetNode(t_node, "extra_parameters");
     GetNodeAttribute(tModeNode,"mode",MODE);
+    GetNodeAttribute(tModeNode,"ip_addr",IP_ADDR);
     GetNodeAttribute(tModeNode,"random_seed",random_seed);
     GetNodeAttribute(tModeNode,"desired_num_of_areas",desired_num_of_areas);
     GetNodeAttribute(tModeNode,"communication_range",communication_range);
@@ -47,14 +48,15 @@ void CALFClientServer::Init(TConfigurationNode& t_node) {
     outputBuffer = "";
 
     /* Opening communication port */
+    serverSocket = socket(AF_INET, SOCK_STREAM, 0);
+    int port = 54000;
+    std::string ipAddress = IP_ADDR;
+    sockaddr_in hint;
+    hint.sin_family = AF_INET;
+    hint.sin_port = htons(port);
+    inet_pton(AF_INET, ipAddress.c_str(), &hint.sin_addr);
+    
     if(MODE=="SERVER"){
-        int serverSocket = socket(AF_INET, SOCK_STREAM, 0);
-        int port = 54000;
-        std::string ipAddress = "0.0.0.0";
-        sockaddr_in hint;
-        hint.sin_family = AF_INET;
-        hint.sin_port = htons(port);
-        inet_pton(AF_INET, ipAddress.c_str(), &hint.sin_addr);
         bind(serverSocket, (sockaddr*)&hint, sizeof(hint));
         listen(serverSocket, SOMAXCONN);
         sockaddr_in client;
@@ -76,13 +78,6 @@ void CALFClientServer::Init(TConfigurationNode& t_node) {
         close(serverSocket);
     }
     if(MODE=="CLIENT"){
-        serverSocket = socket(AF_INET, SOCK_STREAM, 0);
-        int port = 54000;
-        std::string ipAddress = "151.25.195.195";
-        sockaddr_in hint;
-        hint.sin_family = AF_INET;
-        hint.sin_port = htons(port);
-        inet_pton(AF_INET, ipAddress.c_str(), &hint.sin_addr);
         connect(serverSocket, (sockaddr*)&hint, sizeof(hint));
     }
 }
@@ -355,6 +350,7 @@ void CALFClientServer::UpdateVirtualSensor(CKilobotEntity &c_kilobot_entity){
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
     if (MODE=="SERVER"){
+        //CI SONO DA DEFINIRE I NUOVI CAMPI DEL MESSAGGIO
         if (m_fTimeInSeconds - m_vecLastTimeMessaged[unKilobotID] < m_fMinTimeBetweenTwoMsg){
             return;
         }
