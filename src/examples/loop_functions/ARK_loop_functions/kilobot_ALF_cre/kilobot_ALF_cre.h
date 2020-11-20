@@ -134,6 +134,13 @@ private:
     };
     std::vector<TransmittingKilobot> multiTransmittingKilobot;
 
+    struct decisionMessage           //structure for decision-making robot message
+    {
+        UInt8 ID;
+        UInt8 resource_red;
+        UInt8 resource_blue;
+    };
+
     std::string MODE;
     std::string IP_ADDR;            //ip address where to connect
     unsigned int random_seed;
@@ -156,7 +163,7 @@ private:
     /*vectors as long as the number of kilobots*/
     std::vector<int> actual_orientation;   //vector containing real time orientations
     std::vector<int> command;              // contains informations about actual semiplan direction where the robot tends to go
-    std::vector<int> visible_green;
+    std::vector<int> visible_blue;
     std::vector<int> visible_red;
 
     /*vectors as long as the number of areas*/

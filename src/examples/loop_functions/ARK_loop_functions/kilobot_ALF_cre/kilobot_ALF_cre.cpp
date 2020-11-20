@@ -117,7 +117,7 @@ void CALFClientServer::SetupInitialKilobotStates() {
     /* Initialization of kilobots variables */
     actual_orientation = std::vector<int>(num_of_kbs,0);
     command = std::vector<int>(num_of_kbs,0);
-    visible_green = std::vector<int>(num_of_kbs,0);
+    visible_blue = std::vector<int>(num_of_kbs,0);
     visible_red = std::vector<int>(num_of_kbs,0);
 }
 
@@ -155,7 +155,7 @@ void CALFClientServer::SetupVirtualEnvironments(TConfigurationNode& t_tree){
     for (int ai=0; ai<num_of_areas; ai++){
         multiArea[ai].Completed = false;
         if (multiArea[ai].Center.GetX()<0){
-            multiArea[ai].Color = argos::CColor::GREEN;
+            multiArea[ai].Color = argos::CColor::BLUE;
         }
         else{
             multiArea[ai].Color = argos::CColor::RED;
@@ -299,7 +299,7 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
         if (GetKilobotLedColor(c_kilobot_entity) == argos::CColor::RED){
             outputBuffer.append(std::to_string(1)); //kilobot committed for north
         }
-        if (GetKilobotLedColor(c_kilobot_entity) == argos::CColor::GREEN){
+        if (GetKilobotLedColor(c_kilobot_entity) == argos::CColor::BLUE){
             outputBuffer.append(std::to_string(2)); //kilobot committed for south
         }
     }
@@ -326,7 +326,7 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
         }
     }
     if(MODE=="SERVER"){
-        visible_green[unKilobotID]=0;
+        visible_blue[unKilobotID]=0;
         visible_red[unKilobotID]=0;
         for (int i=0;i<lenMultiArea;i++){
             Real fDistance = Distance(cKilobotPosition, multiArea[i].Center);
@@ -334,8 +334,8 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
                 if (multiArea[i].Color == argos::CColor::RED){
                     visible_red[unKilobotID]++;
                 }
-                else if (multiArea[i].Color == argos::CColor::GREEN){
-                    visible_green[unKilobotID]++;
+                else if (multiArea[i].Color == argos::CColor::BLUE){
+                    visible_blue[unKilobotID]++;
                 }
             }          
         }
@@ -345,6 +345,7 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
 
 void CALFClientServer::UpdateVirtualSensor(CKilobotEntity &c_kilobot_entity){
     m_tALFKilobotMessage tKilobotMessage,tEmptyMessage,tMessage;
+    decisionMessage KilobotDecisionMsg, EmptyDecisionMsg, DecisionMsg;
     bool bMessageToSend = false;
     UInt16 unKilobotID = GetKilobotId(c_kilobot_entity);
 
@@ -355,14 +356,9 @@ void CALFClientServer::UpdateVirtualSensor(CKilobotEntity &c_kilobot_entity){
             return;
         }
         else{
-            /* Compose the message for a kilobot */
-            //if (/*TIMER*/){
-                tKilobotMessage.m_sID = unKilobotID;                            //ID of the receiver
-                tKilobotMessage.m_sType = 1;                                    //ARK is talking
-                tKilobotMessage.m_sData = (visible_red[unKilobotID]/(visible_red[unKilobotID]+visible_green[unKilobotID])); //send ratio of red over total of visible resources
-                bMessageToSend = true;
-                std::cout<<unKilobotID<<" - "<<tKilobotMessage.m_sData<<std::endl;
-            //}
+            KilobotDecisionMsg.ID = unKilobotID;
+            KilobotDecisionMsg.resource_red = 0.4;
+            KilobotDecisionMsg.resource_blue = 0.5;
             m_vecLastTimeMessaged[unKilobotID] = m_fTimeInSeconds;
         }
     }
@@ -402,18 +398,34 @@ void CALFClientServer::UpdateVirtualSensor(CKilobotEntity &c_kilobot_entity){
         tEmptyMessage.m_sID = 1023;
         tEmptyMessage.m_sType = 0;
         tEmptyMessage.m_sData = 0;
+
+        EmptyDecisionMsg.ID = 255;
+        EmptyDecisionMsg.resource_red = 0;
+        EmptyDecisionMsg.resource_blue = 0;
         for (int i=0; i<3; ++i) {
-            if (i == 0){
-                tMessage = tKilobotMessage;
-            } else{
-                tMessage = tEmptyMessage;
-            }
             /* Packing the message */
-            m_tMessages[unKilobotID].data[i*3] = (tMessage.m_sID >> 2);
-            m_tMessages[unKilobotID].data[1+i*3] = (tMessage.m_sID << 6);
-            m_tMessages[unKilobotID].data[1+i*3] = m_tMessages[unKilobotID].data[1+i*3] | (tMessage.m_sType << 2);
-            m_tMessages[unKilobotID].data[1+i*3] = m_tMessages[unKilobotID].data[1+i*3] | (tMessage.m_sData >> 8);
-            m_tMessages[unKilobotID].data[2+i*3] = tMessage.m_sData;
+            if (MODE=="CLIENT"){
+                if (i == 0){
+                    tMessage = tKilobotMessage;
+                } else{
+                    tMessage = tEmptyMessage;
+                }
+                m_tMessages[unKilobotID].data[i*3] = (tMessage.m_sID >> 2);
+                m_tMessages[unKilobotID].data[1+i*3] = (tMessage.m_sID << 6);
+                m_tMessages[unKilobotID].data[1+i*3] = m_tMessages[unKilobotID].data[1+i*3] | (tMessage.m_sType << 2);
+                m_tMessages[unKilobotID].data[1+i*3] = m_tMessages[unKilobotID].data[1+i*3] | (tMessage.m_sData >> 8);
+                m_tMessages[unKilobotID].data[2+i*3] = tMessage.m_sData;
+            }
+            else if (MODE=="SERVER"){
+                if (i == 0){
+                    DecisionMsg = KilobotDecisionMsg;
+                } else{
+                    DecisionMsg = EmptyDecisionMsg;
+                }
+                m_tMessages[unKilobotID].data[i*3] = DecisionMsg.ID;
+                m_tMessages[unKilobotID].data[1+i*3] = DecisionMsg.resource_red;
+                m_tMessages[unKilobotID].data[2+i*3] = DecisionMsg.resource_blue;
+            }
         }
         GetSimulator().GetMedium<CKilobotCommunicationMedium>("kilocomm").SendOHCMessageTo(c_kilobot_entity,&m_tMessages[unKilobotID]);
     }

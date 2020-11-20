@@ -53,7 +53,7 @@ message_t to_parse_message;
 const float tau = 1;
 const float h = 0.1111111;
 const float k = 0.8888889;
-const uint16_t max_decision_ticks = 320;  //10 secondi
+const uint16_t max_decision_ticks = 320; //10 secondi
 uint32_t last_decision_ticks = 0;
 
 uint8_t internal_error = 0;             //computation error
@@ -201,6 +201,13 @@ void take_decision() {
         current_decision_state = recruiter_state;
         return;
       }
+      //update led
+      if (current_decision_state = COMMITTED_N) {
+        set_color(RGB(3,0,0));
+      }
+      if (current_decision_state = COMMITTED_S) {
+        set_color(RGB(0,0,3));
+      }
     }
 
     else {
@@ -228,26 +235,28 @@ void take_decision() {
       // subtract cross-inhibition
       if(extraction < cross_inhibition) {
         current_decision_state = UNCOMMITTED;
+        set_color(RGB(0,0,0));
         return;
       }
     }
     /* erase memory of neighbour commitment*/
     recruiter_state = UNCOMMITTED;
     last_decision_ticks = kilo_ticks;
+    printf("deciding\n");
   }
 }
 
 /*-------------------------------------------------------------------*/
 /* Set LED color for commitment */
 /*-------------------------------------------------------------------*/
-void update_led_status() {
+/*void update_led_status() {
     if(current_decision_state==0) 
       set_color(RGB(0,0,0));
     else if(current_decision_state==1) 
       set_color(RGB(3,0,0));
     else if(current_decision_state==2) 
       set_color(RGB(0,0,3));
-}
+}*/
 
 /*-------------------------------------------------------------------*/
 /* Function for setting the motor speed                              */
@@ -356,7 +365,7 @@ void loop() {
         random_walk();
         send_own_state();
         take_decision();
-        update_led_status();
+        //update_led_status();
 }
 int main() {
     kilo_init();
