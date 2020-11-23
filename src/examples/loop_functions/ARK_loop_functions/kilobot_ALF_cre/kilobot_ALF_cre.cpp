@@ -23,6 +23,10 @@ void CALFClientServer::Init(TConfigurationNode& t_node) {
     GetNodeAttribute(tModeNode,"reactivation_rate",reactivation_rate);
 
     lenMultiArea=num_of_areas;
+
+    if (MODE=="SERVER"){
+        GetNodeAttribute(tModeNode,"vision_range",vision_range);
+    }
     /* Randomly select the desired number of tasks between the available ones, set color and communicate them to the server */
     if (MODE=="CLIENT"){
         srand (random_seed);
@@ -345,6 +349,7 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
 
 void CALFClientServer::UpdateVirtualSensor(CKilobotEntity &c_kilobot_entity){
     m_tALFKilobotMessage tKilobotMessage,tEmptyMessage,tMessage;
+    CVector2 cKilobotPosition = GetKilobotPosition(c_kilobot_entity);
     decisionMessage KilobotDecisionMsg, EmptyDecisionMsg, DecisionMsg;
     bool bMessageToSend = false;
     UInt16 unKilobotID = GetKilobotId(c_kilobot_entity);
@@ -352,14 +357,44 @@ void CALFClientServer::UpdateVirtualSensor(CKilobotEntity &c_kilobot_entity){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
     if (MODE=="SERVER"){
         //CI SONO DA DEFINIRE I NUOVI CAMPI DEL MESSAGGIO
+
+
+
+
         if (m_fTimeInSeconds - m_vecLastTimeMessaged[unKilobotID] < m_fMinTimeBetweenTwoMsg){
             return;
         }
         else{
+            float r_on=0, r_off=0, b_on=0, b_off=0;
+            for (int i=0;i<lenMultiArea;i++){ 
+                Real fDistance = Distance(cKilobotPosition, multiArea[i].Center);
+                if(fDistance <= vision_range){
+                    if (multiArea[i].Color==argos::CColor::RED){
+                        if(multiArea[i].Completed==true){
+                            r_off++;
+                        }
+                        else if(multiArea[i].Completed==false){
+                            r_on++;
+                        }
+                    }
+                    else if (multiArea[i].Color==argos::CColor::BLUE){
+                        if(multiArea[i].Completed==true){
+                            b_off++;
+                        }
+                        else if(multiArea[i].Completed==false){
+                            b_on++;
+                        }
+                    }
+                }
+            }
+            std::cout<<"lenMultiArea: "<<lenMultiArea<<std::endl;
+            std::cout<<r_on<<" - "<<r_off<<" ------ "<<b_on<<" - "<<b_off<<std::endl;
             KilobotDecisionMsg.ID = unKilobotID;
-            KilobotDecisionMsg.resource_red = 0.4;
-            KilobotDecisionMsg.resource_blue = 0.5;
+            KilobotDecisionMsg.resource_red = 100*(r_on/(r_on+r_off));
+            KilobotDecisionMsg.resource_blue = 100*(b_on/(b_on+b_off));
+            std::cout<<KilobotDecisionMsg.resource_red<<" - "<<KilobotDecisionMsg.resource_blue<<std::endl;
             m_vecLastTimeMessaged[unKilobotID] = m_fTimeInSeconds;
+            bMessageToSend = true;
         }
     }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////

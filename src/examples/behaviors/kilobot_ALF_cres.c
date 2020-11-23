@@ -47,7 +47,8 @@ bool new_sa_msg = false;
 uint8_t sent_message = 1;
 uint8_t to_send_message = false;
 message_t interactive_message;
-message_t to_parse_message;
+message_t messageN;
+message_t messageS;
 
 /*Decision making*/
 const float tau = 1;
@@ -64,37 +65,55 @@ uint8_t recruiter_state = UNCOMMITTED;  //commitment communicated by another rob
 /*-------------------------------------------------------------------*/
 /* Callback function for message reception                           */
 /*-------------------------------------------------------------------*/
+void exponential_average(uint8_t resource_id, uint8_t resource_pop) {
+  // update by using exponential moving averagae to update estimated population
+  resources_pops[resource_id] = (uint8_t)round(((float)resource_pop*(ema_alpha)) + ((float)resources_pops[resource_id]*(1.0-ema_alpha)));
+}
+
 void rx_message(message_t *msg, distance_measurement_t *d) {
   /* Unpack the message - extract ID, type and payload */
   /*type 0 is for messages coming from ARK*/
   if (msg->type == 0) {
-      int id1 = msg->data[0];
-      int id2 = msg->data[3];
-      int id3 = msg->data[6];
-      if (id1 == kilo_uid) {
-          sa_payload_red = msg->data[1];
-          sa_payload_blue = msg->data[2];
-          new_sa_msg = true;
+    int id1 = msg->data[0];
+    int id2 = msg->data[3];
+    int id3 = msg->data[6];
+    if (id1 == kilo_uid) {
+      if(msg->data[1]!=0){
+        resources_pops[0] = msg->data[1];
       }
-      else if (id2 == kilo_uid) {
-          sa_payload_red = msg->data[4];
-          sa_payload_blue = msg->data[5];
-          new_sa_msg = true;
+      if(msg->data[2]!=0){
+        resources_pops[1] = msg->data[2];
       }
-      else if (id3 == kilo_uid) {
-          sa_payload_red = msg->data[7];
-          sa_payload_blue = msg->data[8];
-          new_sa_msg = true;
+        new_sa_msg = true;
+    }
+    else if (id2 == kilo_uid) {
+      if(msg->data[4]!=0){
+        resources_pops[0] = msg->data[4];
       }
+      if(msg->data[5]!=0){
+        resources_pops[1] = msg->data[5];
+      }
+        new_sa_msg = true;
+    }
+    else if (id3 == kilo_uid) {
+      if(msg->data[7]!=0){
+        resources_pops[0] = msg->data[7];
+      }
+      if(msg->data[8]!=0){
+        resources_pops[1] = msg->data[8];
+      }
+        new_sa_msg = true;
+    }
 
-      if (sa_type==1){
-        resources_pops[0]= sa_payload_red;  //red resources
-      }
-      else if (sa_type==2)
-      {
-        resources_pops[1]= sa_payload_blue;  //blue resources
-      }
+    /*adjust values*/
+    uint8_t ut = ceil(resources_pops[0]*8.2258);
+    exponential_average(0, ut);
+    ut = ceil(resources_pops[1]*8.2258);
+    exponential_average(1, ut);
+    /*resources_pops[0]=resources_pops[0]/100;
+    resources_pops[1]=resources_pops[1]/100;*/
   }
+
   /*type 1 is for messages coming from other kilobots*/
   else if(msg->type==1) {
     /* get id (always firt byte when coming from another kb) */
@@ -105,15 +124,6 @@ void rx_message(message_t *msg, distance_measurement_t *d) {
       recruiter_state = msg->data[1];
     }
   }
-  // /* For another kind of message */
-  // else if (msg->type == 120) {
-  //     int id = (msg->data[0] << 8) | msg->data[1];
-  //     if (id == kilo_uid) {
-  //         set_color(RGB(0,0,3));
-  //     } else {
-  //         set_color(RGB(0,3,0));
-  //     }
-  // }
 }
 
 /*-------------------------------------------------------------------*/
@@ -137,7 +147,13 @@ void message_tx_success() {
 /*-------------------------------------------------------------------*/
 /* Tell the kilobot to send its own state */
 void send_own_state() {
-    // fill my message before resetting the temp resource count
+    if(current_decision_state==COMMITTED_N){
+      interactive_message = messageN;
+    }
+    else if (current_decision_state==COMMITTED_S){
+      interactive_message = messageS;
+    }
+    /*// fill my message before resetting the temp resource count
     // fill up message type. Type 1 used for kbs
     interactive_message.type = 1;
     // fill up the current kb id
@@ -145,11 +161,13 @@ void send_own_state() {
     // fill up the current states
     interactive_message.data[1] = current_decision_state;
     // fill up the crc
-    interactive_message.crc = message_crc(&interactive_message);
-    // tell that we have a msg to send
-    to_send_message = true;
-    // avoid rebroadcast to overwrite prev message
-    sent_message = 0;
+    interactive_message.crc = message_crc(&interactive_message);*/
+    if(current_decision_state!=UNCOMMITTED){
+      // tell that we have a msg to send
+      to_send_message = true;
+      // avoid rebroadcast to overwrite prev message
+      sent_message = 0;
+    }
 }
 /*-------------------------------------------------------------------*/
 /* Decision Making Function                                          */
@@ -201,13 +219,6 @@ void take_decision() {
         current_decision_state = recruiter_state;
         return;
       }
-      //update led
-      if (current_decision_state = COMMITTED_N) {
-        set_color(RGB(3,0,0));
-      }
-      if (current_decision_state = COMMITTED_S) {
-        set_color(RGB(0,0,3));
-      }
     }
 
     else {
@@ -242,21 +253,27 @@ void take_decision() {
     /* erase memory of neighbour commitment*/
     recruiter_state = UNCOMMITTED;
     last_decision_ticks = kilo_ticks;
-    printf("deciding\n");
+    //update led
+    switch(current_decision_state){
+      case (COMMITTED_N):{
+        set_color(RGB(3,0,0));
+        break;
+      }
+      case (COMMITTED_S):{
+        set_color(RGB(0,0,3));
+        break;
+      }
+      case (UNCOMMITTED):{
+        set_color(RGB(0,0,0));
+        break;
+      }
+    }
+    printf("deciding... %d\n", current_decision_state);
+    printf("red res: %d\n", resources_pops[0]);
+    printf("blu res: %d\n", resources_pops[1]);
   }
 }
 
-/*-------------------------------------------------------------------*/
-/* Set LED color for commitment */
-/*-------------------------------------------------------------------*/
-/*void update_led_status() {
-    if(current_decision_state==0) 
-      set_color(RGB(0,0,0));
-    else if(current_decision_state==1) 
-      set_color(RGB(3,0,0));
-    else if(current_decision_state==2) 
-      set_color(RGB(0,0,3));
-}*/
 
 /*-------------------------------------------------------------------*/
 /* Function for setting the motor speed                              */
@@ -356,6 +373,17 @@ void setup() {
     /* Initialise motion variables */
     last_motion_ticks = rand()%max_straight_ticks;
     set_motion(FORWARD);
+
+    /* Precompile possible messages*/
+    messageN.type = 1;
+    messageN.data[0] = kilo_uid;
+    messageN.data[1] = COMMITTED_N;
+    messageN.crc = message_crc(&interactive_message);
+
+    messageS.type = 1;
+    messageS.data[0] = kilo_uid;
+    messageS.data[1] = COMMITTED_S;
+    messageS.crc = message_crc(&interactive_message);    
 }
 
 /*-------------------------------------------------------------------*/
@@ -365,7 +393,6 @@ void loop() {
         random_walk();
         send_own_state();
         take_decision();
-        //update_led_status();
 }
 int main() {
     kilo_init();

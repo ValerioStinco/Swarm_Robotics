@@ -137,13 +137,14 @@ private:
     struct decisionMessage           //structure for decision-making robot message
     {
         UInt8 ID;
-        UInt8 resource_red;
-        UInt8 resource_blue;
+        float resource_red;
+        float resource_blue;
     };
 
     std::string MODE;
     std::string IP_ADDR;            //ip address where to connect
     unsigned int random_seed;
+    float vision_range;
     int desired_num_of_areas;
     float reactivation_rate;
     float communication_range;

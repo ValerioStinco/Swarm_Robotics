@@ -45,6 +45,7 @@
             desired_num_of_areas="80"
             random_seed="12" 
             communication_range="30"
+            vision_range="0.25"
             reactivation_rate="0.5">
         </extra_parameters>
 
