@@ -1,5 +1,11 @@
 #include "kilobot_ALF_dhtf.h"
 
+
+namespace{
+const double kKiloDiameter = 0.033;
+const int max_area_id = 15;
+}
+
 CALFClientServer::CALFClientServer() :
     m_unDataAcquisitionFrequency(10){
 }
@@ -30,6 +36,65 @@ void CALFClientServer::Init(TConfigurationNode& t_node) {
         outputBuffer="I";
         /* Select areas */
         srand (random_seed);
+        
+        // std::default_random_engine re;
+        // re.seed(random_seed);
+        // std::vector<int> activated_areas;
+        // std::vector<int> hard_tasks_vec;
+        // std::vector<int> hard_tasks_client_vec;
+
+        // while (activated_areas.size() < desired_num_of_areas)
+        // {
+        //     if(desired_num_of_areas-1 > max_area_id)
+        //     {
+        //         std::cerr<<"Requested more areas then the available ones, WARNING!";
+        //     }
+        
+        //     std::uniform_int_distribution<int> distr(0, max_area_id);
+        //     int random_number;
+        //     do{
+        //         random_number = distr(re);
+        //     }while (std::find(activated_areas.begin(), activated_areas.end(), random_number) != activated_areas.end());
+        //     activated_areas.push_back(random_number);
+        // }
+        // std::sort(activated_areas.begin(), activated_areas.end());
+
+        // while (hard_tasks_vec.size() < hard_tasks)
+        // {
+        //     std::uniform_int_distribution<int> distr(0, max_area_id);int random_number;
+        //     do{
+        //         random_number = distr(re);
+        //     }while (std::find(activated_areas.begin(), activated_areas.end(), random_number) == activated_areas.end() ||
+        //             std::find(hard_tasks_vec.begin(), hard_tasks_vec.end(), random_number) != hard_tasks_vec.end());
+        //     hard_tasks_vec.push_back(random_number);
+        // }
+        // std::sort(hard_tasks_vec.begin(), hard_tasks_vec.end());
+        
+
+        // while (hard_tasks_client_vec.size() < hard_tasks)
+        // {
+        //     std::uniform_int_distribution<int> distr(0, max_area_id);int random_number;
+        //     do{
+        //         random_number = distr(re);
+        //     }while (std::find(activated_areas.begin(), activated_areas.end(), random_number) == activated_areas.end() ||
+        //             std::find(hard_tasks_client_vec.begin(), hard_tasks_client_vec.end(), random_number) != hard_tasks_client_vec.end());
+        //     hard_tasks_client_vec.push_back(random_number);
+        // }
+        // std::sort(hard_tasks_client_vec.begin(), hard_tasks_client_vec.end());
+        
+        // for(int ac_ar : activated_areas){
+        //     std::cout<<ac_ar<<'\t';
+        // }
+        // std::cout<<std::endl;
+        // for(int h_t : hard_tasks_vec){
+        //     std::cout<<h_t<<'\t';
+        // }
+        // std::cout<<std::endl;
+        // for(int h_t_c : hard_tasks_client_vec){
+        //     std::cout<<h_t_c<<'\t';
+        // }
+        // std::cout<<std::endl;
+        
         int t=0;
         while(num_of_areas>desired_num_of_areas){
             double r = ((double) rand() / (RAND_MAX));  //r : random variable
@@ -107,10 +172,11 @@ void CALFClientServer::Init(TConfigurationNode& t_node) {
 
     /* Socket initialization, opening communication port */
     serverSocket = socket(AF_INET, SOCK_STREAM, 0);
-    int port = 54000;
+    int port = 7001;
     std::string ipAddress = IP_ADDR;
     sockaddr_in hint;
     hint.sin_family = AF_INET;
+	hint.sin_addr.s_addr = INADDR_ANY;
     hint.sin_port = htons(port);
     inet_pton(AF_INET, ipAddress.c_str(), &hint.sin_addr);
 
@@ -126,10 +192,12 @@ void CALFClientServer::Init(TConfigurationNode& t_node) {
         memset(service, 0, NI_MAXSERV);
         if (getnameinfo((sockaddr*)&client, sizeof(client), host, NI_MAXHOST, service, NI_MAXSERV, 0) == 0){
             std::cout << host << " connected on port " << service << std::endl;
+            std::cout << "Somebody has connected on port " << service << std::endl;
         }
         else{
             inet_ntop(AF_INET, &client.sin_addr, host, NI_MAXHOST);
             std::cout << host << " connected on port " << ntohs(client.sin_port) << std::endl;
+            std::cout << "Somebody has connected on port " << service << std::endl;
         }
         close(serverSocket);
     }
@@ -205,6 +273,7 @@ void CALFClientServer::SetupVirtualEnvironments(TConfigurationNode& t_tree){
     }
     /* Blue set as default color, then some of the areas turn red */
     for (int ai=0; ai<num_of_areas; ai++){
+        multiArea[ai].id = ai;
         multiArea[ai].Completed = false;
         multiArea[ai].Color = argos::CColor::BLUE;
         otherColor[ai] = 1;

@@ -21,6 +21,7 @@ class CSimulator;
 #include <unistd.h>
 #include <numeric>
 #include <array>
+#include <random>
 
 
 #include <argos3/core/simulator/loop_functions.h>
@@ -104,6 +105,7 @@ private:
     /* virtual environment struct*/
     struct SVirtualArea             //parameters of the circular areas
     {
+        int id;
         CVector2 Center;
         Real Radius;
         CColor Color;
