@@ -108,6 +108,9 @@ private:
         Real Radius;
         CColor Color;
         bool Completed;             //set to "true" after the task is completed
+        UInt8 Id;
+        Real CreationTime;
+        Real ComplentionTime;
     };
     std::vector<SVirtualArea> multiArea;
 
@@ -133,7 +136,7 @@ private:
     unsigned int random_seed;       //to reproduce tests
     UInt8 desired_num_of_areas;     //number of areas for the experiment (max 16)
     UInt8 hard_tasks;               //the number of red areas (the ones that require more robots)
-    float reactivation_rate;        //threshold to decide if one of the same desired_num_of_areas areas will be reactivated
+    float reactivation_timer;        //threshold to decide if one of the same desired_num_of_areas areas will be reactivated
     int otherColor[10];             //Color of the areas on the other ARK
     char inputBuffer[30];           //array containing the message received from the socket e.g. 
     std::string outputBuffer;         //array  containing the message to send

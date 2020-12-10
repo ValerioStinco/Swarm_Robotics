@@ -11,7 +11,6 @@ CALFClientServer::~CALFClientServer(){
 
 void CALFClientServer::Init(TConfigurationNode& t_node) {
     CALF::Init(t_node);
-    m_cOutput.open(m_strOutputFileName, std::ios_base::trunc | std::ios_base::out);
 
     /* Read parameters */
     TConfigurationNode& tModeNode = GetNode(t_node, "extra_parameters");
@@ -26,7 +25,18 @@ void CALFClientServer::Init(TConfigurationNode& t_node) {
         GetNodeAttribute(tModeNode,"random_seed",random_seed);
         GetNodeAttribute(tModeNode,"desired_num_of_areas",desired_num_of_areas);
         GetNodeAttribute(tModeNode,"hard_tasks",hard_tasks);
-        GetNodeAttribute(tModeNode,"reactivation_rate",reactivation_rate);
+        GetNodeAttribute(tModeNode,"reactivation_timer",reactivation_timer);
+
+        /*log file*/
+        m_cOutput.open(m_strOutputFileName, std::ios_base::trunc | std::ios_base::out);
+        m_cOutput << "time" << '\t'
+                    << "id" << '\t'
+                    << "creation" << '\t'
+                    << "conclusion" << '\t'
+                    <<"type" << '\t'
+                    <<"kilo_on_top" << '\n';
+        m_cOutput.close();
+
         outputBuffer="I";
         /* Select areas */
         srand (random_seed);
@@ -207,6 +217,8 @@ void CALFClientServer::SetupVirtualEnvironments(TConfigurationNode& t_tree){
     for (int ai=0; ai<num_of_areas; ai++){
         multiArea[ai].Completed = false;
         multiArea[ai].Color = argos::CColor::BLUE;
+        multiArea[ai].Id = ai;
+        multiArea[ai].CreationTime = 0;
         otherColor[ai] = 1;
     }
 
@@ -308,42 +320,64 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
                     if (otherColor[j]==2){
                         if ((multiArea[j].Color==argos::CColor::RED)&&(contained[j]>=6)){
                             multiArea[j].Completed = true;
+                            multiArea[j].ComplentionTime = m_fTimeInSeconds;
                             std::cout<<"red-red task completed"<<std::endl;
+                            m_cOutput.open(m_strOutputFileName, std::ios_base::out | std::ios_base::app);
+                            m_cOutput << m_fTimeInSeconds << '\t'
+                                        << multiArea[j].Id << '\t'
+                                        << multiArea[j].CreationTime << '\t'
+                                        << multiArea[j].ComplentionTime << '\t'
+                                        << multiArea[j].Color << '\t';
+                            m_cOutput.close();
                         }
                         if ((multiArea[j].Color==argos::CColor::BLUE) && (contained[j] >= 2)) {
                             multiArea[j].Completed = true;
+                            multiArea[j].ComplentionTime = m_fTimeInSeconds;
                             std::cout<<"blue-red task completed"<<std::endl;
+                            m_cOutput.open(m_strOutputFileName, std::ios_base::out | std::ios_base::app);
+                            m_cOutput << m_fTimeInSeconds << '\t'
+                                        << multiArea[j].Id << '\t'
+                                        << multiArea[j].CreationTime << '\t'
+                                        << multiArea[j].ComplentionTime << '\t'
+                                        << multiArea[j].Color << '\t';
+                            m_cOutput.close();
                         }                        
                     }
                     if (otherColor[j]==1){
                         if ((multiArea[j].Color==argos::CColor::RED)&&(contained[j]>=6)){
                             multiArea[j].Completed = true;
+                            multiArea[j].ComplentionTime = m_fTimeInSeconds;
                             std::cout<<"red-blue task completed"<<std::endl;
+                            m_cOutput.open(m_strOutputFileName, std::ios_base::out | std::ios_base::app);
+                            m_cOutput << m_fTimeInSeconds << '\t'
+                                        << multiArea[j].Id << '\t'
+                                        << multiArea[j].CreationTime << '\t'
+                                        << multiArea[j].ComplentionTime << '\t'
+                                        << multiArea[j].Color << '\t';
+                            m_cOutput.close();
                         }
                         if ((multiArea[j].Color==argos::CColor::BLUE) && (contained[j] >= 2)) {
                             multiArea[j].Completed = true;
+                            multiArea[j].ComplentionTime = m_fTimeInSeconds;
                             std::cout<<"blue-blue task completed"<<std::endl;
+                            m_cOutput.open(m_strOutputFileName, std::ios_base::out | std::ios_base::app);
+                            m_cOutput << m_fTimeInSeconds << '\t'
+                                        << multiArea[j].Id << '\t'
+                                        << multiArea[j].CreationTime << '\t'
+                                        << multiArea[j].ComplentionTime << '\t'
+                                        << multiArea[j].Color << '\t';
+                            m_cOutput.close();
                         }                        
                     }                    
                 }
             }
         }
         /* Reactivate tasks already comlpeted (server routine) */
-        if (arena_update_counter == 0){
-            srand (random_seed);
-            for (int a=0; a<num_of_areas; a++){
-                if (multiArea[a].Completed == true){
-                    double r = ((double) rand() / (RAND_MAX));
-                    if (r<reactivation_rate){
-                        multiArea[a].Completed = false;
-                        contained[a] = 0;
-                    }
-                }
+        for (int a=0; a<num_of_areas; a++){
+            if ((multiArea[a].Completed == true) && ((m_fTimeInSeconds - multiArea[a].ComplentionTime) >= reactivation_timer)){
+                multiArea[a].Completed = false;
+                multiArea[a].CreationTime = m_fTimeInSeconds;
             }
-            arena_update_counter=500;
-        }
-        else{
-            arena_update_counter--;
         }
     }
 
