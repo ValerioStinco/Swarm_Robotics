@@ -2,6 +2,7 @@
 
 
 namespace{
+const int port = 7001;
 const double kKiloDiameter = 0.033;
 const int max_area_id = 15;
 }
@@ -37,131 +38,100 @@ void CALFClientServer::Init(TConfigurationNode& t_node) {
         /* Select areas */
         srand (random_seed);
         
-        // std::default_random_engine re;
-        // re.seed(random_seed);
-        // std::vector<int> activated_areas;
-        // std::vector<int> hard_tasks_vec;
-        // std::vector<int> hard_tasks_client_vec;
+        std::default_random_engine re;
+        re.seed(random_seed);
+        std::vector<int> activated_areas;
+        std::vector<int> hard_tasks_vec;
+        std::vector<int> hard_tasks_client_vec;
 
-        // while (activated_areas.size() < desired_num_of_areas)
-        // {
-        //     if(desired_num_of_areas-1 > max_area_id)
-        //     {
-        //         std::cerr<<"Requested more areas then the available ones, WARNING!";
-        //     }
-        
-        //     std::uniform_int_distribution<int> distr(0, max_area_id);
-        //     int random_number;
-        //     do{
-        //         random_number = distr(re);
-        //     }while (std::find(activated_areas.begin(), activated_areas.end(), random_number) != activated_areas.end());
-        //     activated_areas.push_back(random_number);
-        // }
-        // std::sort(activated_areas.begin(), activated_areas.end());
-
-        // while (hard_tasks_vec.size() < hard_tasks)
-        // {
-        //     std::uniform_int_distribution<int> distr(0, max_area_id);int random_number;
-        //     do{
-        //         random_number = distr(re);
-        //     }while (std::find(activated_areas.begin(), activated_areas.end(), random_number) == activated_areas.end() ||
-        //             std::find(hard_tasks_vec.begin(), hard_tasks_vec.end(), random_number) != hard_tasks_vec.end());
-        //     hard_tasks_vec.push_back(random_number);
-        // }
-        // std::sort(hard_tasks_vec.begin(), hard_tasks_vec.end());
-        
-
-        // while (hard_tasks_client_vec.size() < hard_tasks)
-        // {
-        //     std::uniform_int_distribution<int> distr(0, max_area_id);int random_number;
-        //     do{
-        //         random_number = distr(re);
-        //     }while (std::find(activated_areas.begin(), activated_areas.end(), random_number) == activated_areas.end() ||
-        //             std::find(hard_tasks_client_vec.begin(), hard_tasks_client_vec.end(), random_number) != hard_tasks_client_vec.end());
-        //     hard_tasks_client_vec.push_back(random_number);
-        // }
-        // std::sort(hard_tasks_client_vec.begin(), hard_tasks_client_vec.end());
-        
-        // for(int ac_ar : activated_areas){
-        //     std::cout<<ac_ar<<'\t';
-        // }
-        // std::cout<<std::endl;
-        // for(int h_t : hard_tasks_vec){
-        //     std::cout<<h_t<<'\t';
-        // }
-        // std::cout<<std::endl;
-        // for(int h_t_c : hard_tasks_client_vec){
-        //     std::cout<<h_t_c<<'\t';
-        // }
-        // std::cout<<std::endl;
-        
-        int t=0;
-        while(num_of_areas>desired_num_of_areas){
-            double r = ((double) rand() / (RAND_MAX));  //r : random variable
-            if (r<0.4){
-                for (int b = t; b < num_of_areas; b++){
-                    multiArea[b] = multiArea[b + 1];
-                }
-                num_of_areas--;
-                int n = t+97;       //ASCII conversion 97='a', to avoid 2 digits number send alphabetic character (a-z)
-                char A = static_cast<char>(n);
-                std::string s(1, A);
-                outputBuffer.append(s);
+        while (activated_areas.size() < desired_num_of_areas)
+        {
+            if(desired_num_of_areas-1 > max_area_id)
+            {
+                std::cerr<<"Requested more areas then the available ones, WARNING!";
             }
-            t++;
-            if(t==num_of_areas){
-                t=0;
-            }
+        
+            std::uniform_int_distribution<int> distr(0, max_area_id);
+            int random_number;
+            do{
+                random_number = distr(re);
+            }while (std::find(activated_areas.begin(), activated_areas.end(), random_number) != activated_areas.end());
+            activated_areas.push_back(random_number);
         }
-        /* Choose color for its own areas */
-        int count_t=0;
-        while(count_t<hard_tasks){
-            double r = ((double) rand() / (RAND_MAX));
-            //std::cout<<r<<std::endl;
-            if (r<0.2 && multiArea[t].Color!=argos::CColor::RED){
-                multiArea[t].Color=argos::CColor::RED;
-                //std::cout<<"RED area "<<t<<std::endl;
-                count_t++;
-            }
-            t++;
-            if(t==num_of_areas){
-                t=0;
-            }      
+        std::sort(activated_areas.begin(), activated_areas.end());
+
+        while (hard_tasks_vec.size() < hard_tasks)
+        {
+            std::uniform_int_distribution<int> distr(0, max_area_id);int random_number;
+            do{
+                random_number = distr(re);
+            }while (std::find(activated_areas.begin(), activated_areas.end(), random_number) == activated_areas.end() ||
+                    std::find(hard_tasks_vec.begin(), hard_tasks_vec.end(), random_number) != hard_tasks_vec.end());
+            hard_tasks_vec.push_back(random_number);
         }
-        /* Send own colors to the client */
-        for (int i=0; i<num_of_areas; i++){
-            if(multiArea[i].Color==argos::CColor::RED){
-                outputBuffer.append("1");       //send red as color
-            }
-            else{
-                outputBuffer.append("0");       //send blue as color
-            }    
+        std::sort(hard_tasks_vec.begin(), hard_tasks_vec.end());
+        
+
+        while (hard_tasks_client_vec.size() < hard_tasks)
+        {
+            std::uniform_int_distribution<int> distr(0, max_area_id);int random_number;
+            do{
+                random_number = distr(re);
+            }while (std::find(activated_areas.begin(), activated_areas.end(), random_number) == activated_areas.end() ||
+                    std::find(hard_tasks_client_vec.begin(), hard_tasks_client_vec.end(), random_number) != hard_tasks_client_vec.end());
+            hard_tasks_client_vec.push_back(random_number);
+        }
+        std::sort(hard_tasks_client_vec.begin(), hard_tasks_client_vec.end());
+        
+        for(int ac_ar : activated_areas){
+            std::cout<<ac_ar<<'\t';
+        }
+        std::cout<<std::endl;
+        for(int h_t : hard_tasks_vec){
+            std::cout<<h_t<<'\t';
+        }
+        std::cout<<std::endl;
+        for(int h_t_c : hard_tasks_client_vec){
+            std::cout<<h_t_c<<'\t';
+        }
+        std::cout<<std::endl;
+        
+        // preparint initialise ("I") server message
+        std::vector<int> server_task_type (activated_areas.size(), 0);
+        std::vector<int> client_task_type (activated_areas.size(), 0);
+
+        initialise_buffer = "I";
+
+        for(int i=0; i<activated_areas.size(); i++)
+        {  
+            int char_id = 97+activated_areas[i];    // 97 is a in ASCII table
+            char A = static_cast<char>(char_id);
+            std::string s(1, A);
+            initialise_buffer.append(s);
+
+            if(std::find(hard_tasks_vec.begin(),hard_tasks_vec.end(), activated_areas[i]) != hard_tasks_vec.end())
+                server_task_type[i] = 1;
+
+            if(std::find(hard_tasks_client_vec.begin(),hard_tasks_client_vec.end(), activated_areas[i]) != hard_tasks_client_vec.end())
+                client_task_type[i] = 1;
+
         }
 
-        /* Choose color for client areas */
-        count_t=0;
-        while(count_t<hard_tasks){
-            double r = ((double) rand() / (RAND_MAX));
-            //std::cout<<r<<std::endl;
-            if (r<0.1 && otherColor[t]!=2){
-                otherColor[t]=2;
-                //std::cout<<"RED area "<<t<<std::endl;
-                count_t++;
-            }
-            t++;
-            if(t==num_of_areas){
-                t=0;
-            }      
+        // std::cout << "server " << server_task_type;
+        // std::cout << "client " << client_task_type;
+
+        for(uint s_task : server_task_type)
+        {
+            initialise_buffer.append(std::to_string(s_task));
         }
-        /* Send client colors to the client */
-        for (int i=0; i<num_of_areas; i++){
-            if(otherColor[i]==2){
-                outputBuffer.append("1");
-            }
-            else if(otherColor[i]==1){
-                outputBuffer.append("0");
-            }
+        for(uint c_task : client_task_type)
+        {
+            initialise_buffer.append(std::to_string(c_task));
         }
+
+        std::cout << "initialise_buffer: " << initialise_buffer << std::endl; 
+
+     
     }
 
     /* Initializations */
@@ -172,7 +142,6 @@ void CALFClientServer::Init(TConfigurationNode& t_node) {
 
     /* Socket initialization, opening communication port */
     serverSocket = socket(AF_INET, SOCK_STREAM, 0);
-    int port = 7001;
     std::string ipAddress = IP_ADDR;
     sockaddr_in hint;
     hint.sin_family = AF_INET;
@@ -322,7 +291,8 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
         /* Initialize the tasks selected by the server */
         if ((storeBuffer[0]==73)&&(initializing==true)){    //73 is the ASCII binary for "I"
             /*choice of areas*/
-            for (int a=1; a<30; a++){
+            for (int a=1; a<30; a++)
+            {
                 int n = storeBuffer[a]-97;
                 if (n>=0){
                     for (int b = n; b < num_of_areas; b++){
@@ -331,6 +301,40 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
                     num_of_areas--;
                 }
             }
+
+            std::string storebuffer(storeBuffer);
+            std::cout << "storebuffer "<< storeBuffer << std::endl;
+            std::cout<< "storeBuffer" << std::endl;
+            for(int i=0; i<30; i++)
+            {
+                std::cout<< storeBuffer[i];
+            }
+            std::cout<<std::endl;
+
+            std::cout << "storeBuffer "<< storeBuffer << std::endl;
+            std::cout << "storebuffer "<< storebuffer << std::endl;
+            storebuffer.erase(storebuffer.begin());
+            std::cout << "storebuffer "<< storebuffer << std::endl;
+            std::vector<int> areas_id;
+            for(int j=0; j<storebuffer.size()/3; j++){
+                areas_id.push_back(storebuffer[j]-97);
+            }
+            std::cout<<"Selected areas : ";
+            for(int id : areas_id){
+                std::cout<< id << '\t';
+            }
+            std::cout<<std::endl;
+
+            std::vector<SVirtualArea> multiArea_temp;
+
+            //for(int i=1; i=num_of_areas;i++)
+            
+            
+            
+            
+            
+            
+            
             /*fill othercolor field*/
             for (int c=num_of_areas+1; c<(2*num_of_areas)+1; c++){
                 if (storeBuffer[c]==49){
@@ -600,7 +604,7 @@ void CALFClientServer::UpdateVirtualSensor(CKilobotEntity &c_kilobot_entity){
             m_tMessages[unKilobotID].data[2+i*3] = tMessage.m_sData;
             //std::cout<<" robot "<<tMessage.m_sID<<" "<<tMessage.m_sType<<std::endl;
         }
-        std::cout<<"payload: "<<tKilobotMessage.m_sData<<std::endl;
+        //std::cout<<"payload: "<<tKilobotMessage.m_sData<<std::endl;
         GetSimulator().GetMedium<CKilobotCommunicationMedium>("kilocomm").SendOHCMessageTo(c_kilobot_entity,&m_tMessages[unKilobotID]);
     }
     else{

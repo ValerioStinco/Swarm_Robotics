@@ -138,6 +138,7 @@ private:
     float reactivation_rate;        //threshold to decide if one of the same desired_num_of_areas areas will be reactivated
     int otherColor[10];             //Color of the areas on the other ARK
     char inputBuffer[30];           //array containing the message received from the socket e.g. 
+    std::string initialise_buffer;  // buffer containing setup values (active areas and task type)
     std::string outputBuffer;         //array  containing the message to send
     char storeBuffer[30];           //array where to store input message to keep it available
     int bytesReceived;              //length of received string
