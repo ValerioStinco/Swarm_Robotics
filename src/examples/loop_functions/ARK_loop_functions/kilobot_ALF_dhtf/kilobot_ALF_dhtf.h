@@ -127,6 +127,20 @@ private:
         LEAVING=2,  
     } SRobotState;
 
+    typedef enum
+    {
+        kBLUE = 0,
+        kRED = 1,
+    } colour;
+
+    typedef enum
+    {
+        kBB = 1,
+        kBR = 2,
+        kRB = 3,
+        kRR = 5,
+    } waiting_times;
+
     struct FloorColorData           //contains components of area color
     {
         UInt8 R;
@@ -143,7 +157,8 @@ private:
     UInt8 desired_num_of_areas;     //number of areas for the experiment (max 16)
     UInt8 hard_tasks;               //the number of red areas (the ones that require more robots)
     float reactivation_rate;        //threshold to decide if one of the same desired_num_of_areas areas will be reactivated
-    int otherColor[10];             //Color of the areas on the other ARK
+    // std::vector<int> otherColor;    //Color of the areas on the other ARK
+    int otherColor[10];
     char inputBuffer[30];           //array containing the message received from the socket e.g. 
     std::string initialise_buffer;  // buffer containing setup values (active areas and task type)
     std::string outputBuffer;         //array  containing the message to send
@@ -165,7 +180,6 @@ private:
     std::vector<UInt8> contained;     //how many KBs the area "i" contains
     
     std::vector<SRobotState> m_vecKilobotStates_ALF;        //state of KB from ARK point of view
-    std::vector<SRobotState> m_vecKilobotStates_transmit;   //state communicated to KB (only IN or OUT)
     std::vector<Real> m_vecLastTimeMessaged;
     Real m_fMinTimeBetweenTwoMsg;
 

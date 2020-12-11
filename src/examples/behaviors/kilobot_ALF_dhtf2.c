@@ -130,13 +130,13 @@ void parse_smart_arena_message(uint8_t data[9], uint8_t kb_index)
   switch( sa_type ) {
     case 0:
       location = sa_type;
-      printf("outside\n");
+    //   printf("outside\n");
       if(sa_payload !=0)
       {
         // get rotation toward the center (if far from center)
         // avoid colliding with the wall
         proximity_sensor = sa_payload;
-        printf("out sensor %d\n",proximity_sensor);
+        // printf("out sensor %d\n",proximity_sensor);
         wall_avoidance_start = true;
       }
       break;
@@ -152,7 +152,7 @@ void parse_smart_arena_message(uint8_t data[9], uint8_t kb_index)
         // get rotation toward the center (if far from center)
         // avoid colliding with the wall
         proximity_sensor = sa_payload;
-        printf("leaving sensor %d\n",proximity_sensor);
+        // printf("leaving sensor %d\n",proximity_sensor);
         wall_avoidance_start = true;
         
       }
@@ -387,6 +387,7 @@ void finite_state_machine(){
         }
         case LEAVING : {
             if(location == OUTSIDE){
+                // printf("state transition outside\n");
                 current_state = RANDOM_WALKING;
                 set_color(RGB(0,0,0));
             }
