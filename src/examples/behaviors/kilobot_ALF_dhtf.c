@@ -21,7 +21,7 @@ typedef enum {  // Enum for the robot states
     RANDOM_WALKING = 0,
     WAITING = 1,
     LEAVING = 2,
-    ROTATION = 3,
+    PARTY = 3,
 } action_t;
 
 typedef enum {  // Enum for the robot position wrt to areas
@@ -201,7 +201,7 @@ void finite_state_machine(){
             if(location == INSIDE){
                 timeout = wait_seconds*32;
                 current_state = WAITING;
-                set_color(RGB(0,0,3));
+                set_color(RGB(3,0,0));
                 set_motion(STOP);
             }
             break;
@@ -215,7 +215,7 @@ void finite_state_machine(){
             /* Timeout condition */
             timeout--;
             if (timeout == 0) {
-                set_color(RGB(3,0,0));
+                set_color(RGB(0,0,3));
                 current_state = LEAVING;
                 set_motion(FORWARD);
             }

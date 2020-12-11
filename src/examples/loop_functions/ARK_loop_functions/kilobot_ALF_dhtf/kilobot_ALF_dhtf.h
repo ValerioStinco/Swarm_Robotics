@@ -22,6 +22,7 @@ class CSimulator;
 #include <numeric>
 #include <array>
 #include <random>
+#include <algorithm>
 
 
 #include <argos3/core/simulator/loop_functions.h>
@@ -98,6 +99,12 @@ public:
     /** Used to plot the Virtual environment on the floor */
     virtual CColor GetFloorColor(const CVector2& vec_position_on_plane);
 
+    /** 2D vector rotation */
+    CVector2 VectorRotation2D (Real angle, CVector2 vec);
+
+    /** Simulate proximity sensor*/
+    std::vector<int> Proximity_sensor(CVector2 obstacle_direction, Real kOrientation, int num_sectors);
+
 private:
     /************************************/
     /*  Virtual Environment variables   */
@@ -146,7 +153,7 @@ private:
     int clientSocket;               //socket variable
     UInt8 num_of_areas;             //initial number of clustering areas i.e. 16, will be reduced to desired_num_of_areas
     int arena_update_counter;       //number of cicles between a reactivation routine and the next one
-    bool initializing;              //false when client ACK the initial setup
+    bool initialised;               // true when client ACK the initial setup
 
 
 
