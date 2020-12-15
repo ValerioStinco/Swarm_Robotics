@@ -157,8 +157,8 @@ private:
     UInt8 desired_num_of_areas;     //number of areas for the experiment (max 16)
     UInt8 hard_tasks;               //the number of red areas (the ones that require more robots)
     float reactivation_rate;        //threshold to decide if one of the same desired_num_of_areas areas will be reactivated
-    // std::vector<int> otherColor;    //Color of the areas on the other ARK
-    int otherColor[10];
+    std::vector<int> otherColor;    //Color of the areas on the other ARK
+    //int otherColor[10];
     char inputBuffer[30];           //array containing the message received from the socket e.g. 
     std::string initialise_buffer;  // buffer containing setup values (active areas and task type)
     std::string outputBuffer;         //array  containing the message to send

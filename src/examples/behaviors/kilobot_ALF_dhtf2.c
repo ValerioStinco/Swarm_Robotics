@@ -5,7 +5,7 @@
 #include "distribution_functions.c"
 
 #define COLLISION_BITS 8
-#define SECTORS_IN_COLLISION 4
+#define SECTORS_IN_COLLISION 2
 
 typedef enum {  // Enum for different motion types
     TURN_LEFT = 1,
@@ -57,15 +57,16 @@ const float std_motion_steps = 20*16; // variance of the gaussian used to comput
 const float levy_exponent = 1.4; // 2 is brownian like motion (alpha)
 const float  crw_exponent = 0.9; // higher more straight (rho)
 uint32_t turning_ticks = 0; // keep count of ticks of turning
-const uint8_t max_turning_ticks = 80; /* constant to allow a maximum rotation of 180 degrees with \omega=\pi/5 */
+const uint8_t max_turning_ticks = 120; /* constant to allow a maximum rotation of 180 degrees with \omega=\pi/5 */
 unsigned int straight_ticks = 0; // keep count of ticks of going straight
 const uint16_t max_straight_ticks = 320;
 uint32_t last_motion_ticks = 0;
 
+
 /***********WALL AVOIDANCE***********/
 // the kb is "equipped" with a proximity sensor
 
-const uint8_t sector_base = (pow(2, COLLISION_BITS/2) - 1);  
+const uint8_t sector_base = (pow(2, COLLISION_BITS/2) - 1);  // an int of all ones to retrieve the left and then the right proximity sensor
 uint8_t left_side = 0;
 uint8_t right_side = 0;
 uint8_t proximity_sensor = 0;
@@ -305,46 +306,51 @@ void wall_avoidance_procedure(uint8_t sensor_readings)
   right_side = sensor_readings & sector_base;
   left_side = (sensor_readings >> (COLLISION_BITS/2)) & sector_base;
 
+  // printf("kID %d : ", kilo_uid);
+  // printBits(sensor_readings, 8);
+  
+  // printf("\n");
+  // printf("left: ");
+  // printBits(left_side, 4);
+  // printf("\n");
+  // printf("right: ");
+  // printBits(right_side, 4);
+  
+  // printf("\n");
+  // printf("\n");
+
+
   uint8_t count_ones = countOnes(sensor_readings);
   if(count_ones > SECTORS_IN_COLLISION)
   {
+    last_motion_ticks = kilo_ticks;
+    turning_ticks = (uint32_t)((M_PI/COLLISION_BITS) * max_turning_ticks);
+
     if(right_side < left_side)
     {
-      // set_color(RGB(0,0,3));
+      // printf("**********RIGHT\n");
       set_motion(TURN_RIGHT);
       free_space = RIGHT;
     }
     else if(right_side > left_side)
     {
-      // set_color(RGB(3,0,0));
+      // printf("**********LEFT\n");
       set_motion(TURN_LEFT);
       free_space = LEFT;
     }
     
     else{
-      // set_color(RGB(0,3,0));
-      // random rotation strategy
-      // if (rand_soft() % 2)
-      // {
-      //   set_motion(TURN_LEFT);
-      // }
-      // else
-      // {
-      //   set_motion(TURN_RIGHT);
-      // }
-      //rotate towards the last free space kept in memory
+      // printf("**********RANDOM\n");
       set_motion(free_space);
     }
-    if(kilo_ticks > last_motion_ticks + turning_ticks)
-    {
-      turning_ticks = (uint32_t)((M_PI/COLLISION_BITS) * max_turning_ticks);
-      straight_ticks = (uint32_t)(fabs(levy(std_motion_steps, levy_exponent)));
-    }
   }
-  // else
-  // {
-  //   set_color(RGB(0,0,0));
-  // }
+  else
+  {
+    last_motion_ticks = kilo_ticks;
+    straight_ticks = (uint32_t)(fabs(levy(std_motion_steps, levy_exponent)));
+    set_motion(FORWARD);
+  }
+  
   
 }
 
@@ -416,23 +422,28 @@ void finite_state_machine(){
 void loop() {
 
         if(wall_avoidance_start){
+          // printf("%d ID:%d start wall avoidance\n", (kilo_ticks, kilo_uid));
           wall_avoidance_procedure(proximity_sensor);
           proximity_sensor = 0;
           wall_avoidance_start = false;
+          
         }
         else{
-          // set_color(RGB(0,0,0));
           random_walk();
           finite_state_machine(); 
         }
         
         
+}
 
-        // if( collision_avoidance_test == true && kilo_ticks > last_motion_ticks + turning_ticks )
-        // {
-        //   collision_avoidance_test = false;
-        //   set_color(RGB(0,0,0));
-        // }
+
+void printBits(uint8_t num, int num_bits)
+{
+   for(int bit=0;bit<(sizeof(uint8_t) * num_bits); bit++)
+   {
+      printf("%i ", num & 0x01);
+      num = num >> 1;
+   }
 }
 
 int main() {

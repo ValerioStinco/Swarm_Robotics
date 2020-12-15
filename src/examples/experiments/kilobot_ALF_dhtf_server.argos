@@ -36,15 +36,15 @@
     <!-- ****************** -->
     <loop_functions 
         library="build/examples/loop_functions/ARK_loop_functions/kilobot_ALF_dhtf/libkilobot_ALF_dhtf_loop_function"
-        label="kilobot_ALF_dhtf_loop_function" >
+        label="kilobot_ALF_dhtf_loop_function">
     
         <extra_parameters
             mode="SERVER"
             ip_addr="0.0.0.0"
             augmented_knowledge="true"
             random_seed="12" 
-            desired_num_of_areas="8"
-            hard_tasks="4"
+            desired_num_of_areas="3"
+            hard_tasks="0"
             reactivation_rate="0.1"
             timeout_const="5">
         </extra_parameters>
@@ -122,7 +122,7 @@
         <distribute>
             <position method="uniform" min="-0.15,-0.15,0" max="0.15,0.15,0" />
             <orientation method="uniform" min="0,0,0" max="360,0,0" />
-            <entity quantity="5" max_trials="100">
+            <entity quantity="20" max_trials="100">
                 <kilobot id="kb">
                     <controller config="listener"/> <dynamics2d friction="0.7" />
                 </kilobot>
