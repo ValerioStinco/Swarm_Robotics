@@ -6,7 +6,7 @@
     <!-- ************************* -->
     <framework>
         <system threads="0" />
-        <experiment length="600" 
+        <experiment length="1800" 
         ticks_per_second="10"/>
     </framework>
     
@@ -42,11 +42,11 @@
             mode="SERVER"
             ip_addr="0.0.0.0"
             augmented_knowledge="true"
-            random_seed="12" 
+            random_seed="1" 
             desired_num_of_areas="8"
             hard_tasks="4"
             reactivation_timer="30"
-            timeout_const="5">
+            timeout_const="15">
         </extra_parameters>
 
         <tracking

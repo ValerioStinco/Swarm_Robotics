@@ -33,8 +33,8 @@ void CALFClientServer::Init(TConfigurationNode& t_node) {
                     << "id" << '\t'
                     << "creation" << '\t'
                     << "conclusion" << '\t'
-                    <<"type" << '\t'
-                    <<"kilo_on_top" << '\n';
+                    << "own color" << '\t'
+                    <<"other color" << '\n';
         m_cOutput.close();
 
         outputBuffer="I";
@@ -316,7 +316,7 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
         /* Task completeness check */
         if (storeBuffer[0]==84){ //84 is the ASCII binary for "T"
             for (int j=0; j<num_of_areas; j++){
-                if ((storeBuffer[j+1]-48 == 1)){
+                if ((storeBuffer[j+1]-48 == 1) && (multiArea[j].Completed == false)){
                     if (otherColor[j]==2){
                         if ((multiArea[j].Color==argos::CColor::RED)&&(contained[j]>=6)){
                             multiArea[j].Completed = true;
@@ -327,7 +327,8 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
                                         << multiArea[j].Id << '\t'
                                         << multiArea[j].CreationTime << '\t'
                                         << multiArea[j].ComplentionTime << '\t'
-                                        << multiArea[j].Color << '\t';
+                                        << otherColor[j] << '\t'
+                                        << multiArea[j].Color << '\n';
                             m_cOutput.close();
                         }
                         if ((multiArea[j].Color==argos::CColor::BLUE) && (contained[j] >= 2)) {
@@ -339,7 +340,8 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
                                         << multiArea[j].Id << '\t'
                                         << multiArea[j].CreationTime << '\t'
                                         << multiArea[j].ComplentionTime << '\t'
-                                        << multiArea[j].Color << '\t';
+                                        << otherColor[j] << '\t'
+                                        << multiArea[j].Color << '\n';
                             m_cOutput.close();
                         }                        
                     }
@@ -353,7 +355,8 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
                                         << multiArea[j].Id << '\t'
                                         << multiArea[j].CreationTime << '\t'
                                         << multiArea[j].ComplentionTime << '\t'
-                                        << multiArea[j].Color << '\t';
+                                        << otherColor[j] << '\t'
+                                        << multiArea[j].Color << '\n';
                             m_cOutput.close();
                         }
                         if ((multiArea[j].Color==argos::CColor::BLUE) && (contained[j] >= 2)) {
@@ -365,7 +368,8 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
                                         << multiArea[j].Id << '\t'
                                         << multiArea[j].CreationTime << '\t'
                                         << multiArea[j].ComplentionTime << '\t'
-                                        << multiArea[j].Color << '\t';
+                                        << otherColor[j] << '\t'
+                                        << multiArea[j].Color << '\n';
                             m_cOutput.close();
                         }                        
                     }                    
@@ -565,7 +569,7 @@ void CALFClientServer::UpdateVirtualSensor(CKilobotEntity &c_kilobot_entity){
             m_tMessages[unKilobotID].data[2+i*3] = tMessage.m_sData;
             //std::cout<<" robot "<<tMessage.m_sID<<" "<<tMessage.m_sType<<std::endl;
         }
-        std::cout<<"payload: "<<tKilobotMessage.m_sData<<std::endl;
+        //std::cout<<"payload: "<<tKilobotMessage.m_sData<<std::endl;
         GetSimulator().GetMedium<CKilobotCommunicationMedium>("kilocomm").SendOHCMessageTo(c_kilobot_entity,&m_tMessages[unKilobotID]);
     }
     else{

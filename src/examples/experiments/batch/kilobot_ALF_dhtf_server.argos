@@ -6,7 +6,7 @@
     <!-- ************************* -->
     <framework>
         <system threads="0" />
-        <experiment length="1800"
+        <experiment length="__EXPERIMENT_LENGHT__" 
         ticks_per_second="10"/>
     </framework>
     
@@ -36,14 +36,18 @@
     <!-- ****************** -->
     <loop_functions 
         library="build/examples/loop_functions/ARK_loop_functions/kilobot_ALF_dhtf/libkilobot_ALF_dhtf_loop_function"
-        label="kilobot_ALF_dhtf_loop_function">
+        label="kilobot_ALF_dhtf_loop_function" >
     
         <extra_parameters
-            mode="CLIENT"
-            ip_addr="127.0.0.1"
-            augmented_knowledge="true"
-            timeout_const="5">
-        </extra_parameters>    
+            mode="SERVER"
+            ip_addr="0.0.0.0"
+            augmented_knowledge="__AUGMENTED_KNOWLEDGE__"
+            random_seed="__SEED__" 
+            desired_num_of_areas="8"
+            hard_tasks="4"
+            reactivation_timer="30"
+            timeout_const="__TIMEOUT_CONST__">
+        </extra_parameters>
 
         <tracking
             position="true"
@@ -53,7 +57,7 @@
 
         
         <variables
-            datafilename="data_file.txt"
+            datafilename="data_file.csv"
             dataacquisitionfrequency="100"  
             environmentplotupdatefrequency="10"
             timeforonemessage="0.05">
@@ -118,7 +122,7 @@
         <distribute>
             <position method="uniform" min="-0.15,-0.15,0" max="0.15,0.15,0" />
             <orientation method="uniform" min="0,0,0" max="360,0,0" />
-            <entity quantity="20" max_trials="100">
+            <entity quantity="__ENTITY_QUANTITY__" max_trials="100">
                 <kilobot id="kb">
                     <controller config="listener"/> <dynamics2d friction="0.7" />
                 </kilobot>

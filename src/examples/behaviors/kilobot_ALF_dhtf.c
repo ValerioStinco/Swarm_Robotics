@@ -47,6 +47,7 @@ uint32_t last_motion_ticks = 0;
 int sa_type = 3;                                //Variables for Smart Arena messages
 int sa_payload = 0;
 
+int sec2ticks = 10;                              //conversion factor from seconds to ticks
 int timeout;                                    //Internal counter for task complention wait
 int leaving_timer;                              //Internal counter for the action of leaving a task when timeout expires
 int turn_timer;                                //Avoid the robot to get stuck in Leagving
@@ -104,18 +105,21 @@ void rx_message(message_t *msg, distance_measurement_t *d) {
         if (id1 == kilo_uid) {
             sa_type = msg->data[1] >> 2 & 0x0F;
             sa_payload = ((msg->data[1]&0b11) << 8) | (msg->data[2]);
+            location = sa_type;
+            wait_seconds = sa_payload;
         }
         if (id2 == kilo_uid) {
             sa_type = msg->data[4] >> 2 & 0x0F;
             sa_payload = ((msg->data[4]&0b11)  << 8) | (msg->data[5]);
+            location = sa_type;
+            wait_seconds = sa_payload;
         }
         if (id3 == kilo_uid) {
             sa_type = msg->data[7] >> 2 & 0x0F;
             sa_payload = ((msg->data[7]&0b11)  << 8) | (msg->data[8]);
+            location = sa_type;
+            wait_seconds = sa_payload;            
         }
-
-        location = sa_type;
-        wait_seconds = sa_payload;
     }
 }
 
@@ -199,7 +203,7 @@ void finite_state_machine(){
     switch (current_state) {
         case RANDOM_WALKING : {
             if(location == INSIDE){
-                timeout = wait_seconds*32;
+                timeout = wait_seconds*sec2ticks;
                 current_state = WAITING;
                 set_color(RGB(0,0,3));
                 set_motion(STOP);
