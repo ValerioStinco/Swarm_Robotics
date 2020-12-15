@@ -40,10 +40,10 @@ experiment_length="1800"
 date_time=`date "+%Y-%m-%d"`
 RUNS=20
 
-for num_of_kbs in $entity_quantity; do
-    for timeout in $timeout_const; do
-        for knowlege in $augmented_knowlege; do
-        param_dir=$res_dir/$date_time"_robots#"$num_of_kbs"_timeout_const#"$timeout"_augmmented_knowledge#"$knowlege
+for _K_ in $entity_quantity; do
+    for _T_ in $timeout_const; do
+        for _A_ in $augmented_knowlege; do
+        param_dir=$res_dir/$date_time"_robots#"$_K_"_timeout_const#"$_T_"_augmmented_knowledge#"$_A_
         "_"$experiment_length
         if [[ ! -e $param_dir ]]; then
             mkdir $param_dir
@@ -51,13 +51,14 @@ for num_of_kbs in $entity_quantity; do
 
             for it in $(seq 1 $RUNS); do
 
-                config=`printf 'config_num_of_kbs%d_timeout_const%02d_augmented_knowledge%03d_seed%03d.argos' $num_of_kbs $timeout $knowlege $it`
+                config=`printf 'config_num_of_kbs%d_timeout_const%02d_augmented_knowledge%03d_seed%03d.argos' $_K_ $_T_ $_T_ $it`
                 echo config $config
                 cp $base_config $config
-                sed -i "s|__NUMROBOTS__|$nrob|g" $config
-                sed -i "s|__EXPERIMENT__|$experiment_type|g" $config
+                sed -i "s|__NUMROBOTS__|$_K_|g" $config
+                sed -i "s|__TIMEOUT_CONST__|$_T_|g" $config
+                sed -i "s|__AUGMENTED_KNOWLEDGE__|$_A_|g" $config                
                 sed -i "s|__TIMEEXPERIMENT__|$experiment_length|g" $config
-                sed -i "s|__SEED__|$it|g" $config
+                sed -i "s|__SEED__|$it|g" $config                
                 output_file="seed#${it}_time_results.tsv"
                 sed -i "s|__OUTPUT__|$output_file|g" $config
                 
