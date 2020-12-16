@@ -13,6 +13,8 @@ const CVector2 down_direction (0.0, 1.0);
 const CVector2 left_direction (1.0, 0.0);
 const CVector2 right_direction (-1.0, 0.0);
 const int proximity_bits = 8;
+
+const bool SPEAKING_WITH_ARK = true;
 }
 
 CALFClientServer::CALFClientServer() :
@@ -328,6 +330,7 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
 
 /* Listen for the other ALF communication */
     memset(inputBuffer, 0, 30);
+    
     if (MODE == "SERVER"){
         bytesReceived = recv(clientSocket, inputBuffer, 30, MSG_DONTWAIT);
     }
@@ -338,11 +341,14 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
     if ((bytesReceived != -1) || (bytesReceived != 0))
     {
         /* Save the received string in a vector, for having data available until next message comes */
-        for (int i=0; i<30; i++){
+        for (int i=0; i<bytesReceived; i++){
             storeBuffer[i] = inputBuffer[i];
         }
         // Print received message
         // std::cout<<storeBuffer<<std::endl;
+        std::string my_string (inputBuffer);
+        if(!my_string.empty())
+            std::cout << "Received:" << my_string << std::endl;
     }
     else {
         //std::cout << "not receiving" << std::endl;

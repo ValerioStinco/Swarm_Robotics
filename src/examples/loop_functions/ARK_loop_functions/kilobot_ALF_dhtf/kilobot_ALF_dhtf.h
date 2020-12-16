@@ -23,6 +23,7 @@ class CSimulator;
 #include <array>
 #include <random>
 #include <algorithm>
+#include <vector>
 
 
 #include <argos3/core/simulator/loop_functions.h>

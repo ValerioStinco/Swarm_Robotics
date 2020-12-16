@@ -50,7 +50,8 @@
         "streambuf": "cpp",
         "cinttypes": "cpp",
         "typeinfo": "cpp",
-        "random": "cpp"
+        "random": "cpp",
+        "codecvt": "cpp"
     },
     "cmake.configureOnOpen": false
 }
