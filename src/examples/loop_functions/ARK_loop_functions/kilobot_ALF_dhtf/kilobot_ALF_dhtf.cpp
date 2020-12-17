@@ -526,31 +526,38 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
             }
         }
 
+        std::cout<<"Sending: ";
         /* Send the message to the other ALF*/
         if (MODE == "SERVER"){
             if(initialised == false){
                 // std::cout<<"mando init\n";
+                std::cout<<initialise_buffer<<std::endl;
                 send(clientSocket, initialise_buffer.c_str(), initialise_buffer.size() + 1, 0);
             }
             else{
                 // std::cout<<"mando update\n";
+                std::cout<<outputBuffer<<std::endl;
                 send(clientSocket, outputBuffer.c_str(), outputBuffer.size() + 1, 0);
             }
         }
+
         if (MODE == "CLIENT"){
             std::string client_str;
 
             if(initialised == false){
                 client_str = "Missing parameters";
+                std::cout<<client_str<<std::endl;
                 send(serverSocket, client_str.c_str(), client_str.size() + 1, 0);
             }
             else if(storeBuffer[0]== 73)
             {
                 client_str = "Received parameters";
+                std::cout<<client_str<<std::endl;                
                 send(serverSocket, client_str.c_str(), client_str.size() + 1, 0);
             }
             else
             {
+                std::cout<<outputBuffer<<std::endl;
                 send(serverSocket, outputBuffer.c_str(), outputBuffer.size() + 1, 0);
             }
             

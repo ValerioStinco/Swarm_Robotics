@@ -51,7 +51,13 @@
         "cinttypes": "cpp",
         "typeinfo": "cpp",
         "random": "cpp",
-        "codecvt": "cpp"
+        "codecvt": "cpp",
+        "strstream": "cpp",
+        "bitset": "cpp",
+        "complex": "cpp",
+        "set": "cpp",
+        "thread": "cpp",
+        "cfenv": "cpp"
     },
     "cmake.configureOnOpen": false
 }

@@ -160,6 +160,7 @@ private:
     float reactivation_rate;        //threshold to decide if one of the same desired_num_of_areas areas will be reactivated
     std::vector<int> otherColor;    //Color of the areas on the other ARK
     //int otherColor[10];
+    bool IsNotZero (int i) {return (i!=0); } //to count how non 0 emelent there are in sendind/receiving buffer
     char inputBuffer[30];           //array containing the message received from the socket e.g. 
     std::string initialise_buffer;  // buffer containing setup values (active areas and task type)
     std::string outputBuffer;         //array  containing the message to send
@@ -170,7 +171,6 @@ private:
     UInt8 num_of_areas;             //initial number of clustering areas i.e. 16, will be reduced to desired_num_of_areas
     int arena_update_counter;       //number of cicles between a reactivation routine and the next one
     bool initialised;               // true when client ACK the initial setup
-
 
 
     /*vectors as long as the number of kilobots*/
