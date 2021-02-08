@@ -354,8 +354,8 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
         // Print received message
         // std::cout<<storeBuffer<<std::endl;
         std::string my_string (inputBuffer);
-        // if(!my_string.empty())
-        //     std::cout << "Received:" << my_string << std::endl;
+        if(!my_string.empty())
+            std::cout << "Received:" << my_string << std::endl;
     }
     else {
         //std::cout << "not receiving" << std::endl;
@@ -529,16 +529,16 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
             }
         }
 
-        //std::cout<<"Sending: ";
+        std::cout<<"Sending: ";
         /* Send the message to the other ALF*/
         if (MODE == "SERVER"){
             if(initialised == false){
-                // std::cout<<initialise_buffer<<std::endl;
+                std::cout<<initialise_buffer<<std::endl;
                 send(clientSocket, initialise_buffer.c_str(), initialise_buffer.size() + 1, 0);
             }
             else{
                 // std::cout<<"mando update\n";
-                // std::cout<<outputBuffer<<std::endl;
+                std::cout<<outputBuffer<<std::endl;
                 send(clientSocket, outputBuffer.c_str(), outputBuffer.size() + 1, 0);
             }
         }
@@ -548,18 +548,18 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
 
             if(initialised == false){
                 client_str = "Missing parameters";
-                // std::cout<<client_str<<std::endl;
+                std::cout<<client_str<<std::endl;
                 send(serverSocket, client_str.c_str(), client_str.size() + 1, 0);
             }
-            else if(storeBuffer[0]== 73)
+            else if(storeBuffer[0]== 73)        //73 is the ASCII binary for "I"
             {
                 client_str = "Received parameters";
-                // std::cout<<client_str<<std::endl;                
+                std::cout<<client_str<<std::endl;                
                 send(serverSocket, client_str.c_str(), client_str.size() + 1, 0);
             }
             else
             {
-                // std::cout<<outputBuffer<<std::endl;
+                std::cout<<outputBuffer<<std::endl;
                 send(serverSocket, outputBuffer.c_str(), outputBuffer.size() + 1, 0);
             }
             
