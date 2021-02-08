@@ -157,7 +157,6 @@ private:
     unsigned int random_seed;       //to reproduce tests
     UInt8 desired_num_of_areas;     //number of areas for the experiment (max 16)
     UInt8 hard_tasks;               //the number of red areas (the ones that require more robots)
-    float reactivation_rate;        //threshold to decide if one of the same desired_num_of_areas areas will be reactivated
     std::vector<int> otherColor;    //Color of the areas on the other ARK
     //int otherColor[10];
     bool IsNotZero (int i) {return (i!=0); } //to count how non 0 emelent there are in sendind/receiving buffer
@@ -169,7 +168,8 @@ private:
     int serverSocket;               //socket variable
     int clientSocket;               //socket variable
     UInt8 num_of_areas;             //initial number of clustering areas i.e. 16, will be reduced to desired_num_of_areas
-    int arena_update_counter;       //number of cicles between a reactivation routine and the next one
+    double kRespawnTimer;           //when completed, timer starts and when it will expire the area is reactivated
+    std::vector<double> vCompletedTime;  //vector with completition time
     bool initialised;               // true when client ACK the initial setup
 
 

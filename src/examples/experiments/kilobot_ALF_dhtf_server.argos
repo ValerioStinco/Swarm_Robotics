@@ -45,7 +45,7 @@
             random_seed="12" 
             desired_num_of_areas="8"
             hard_tasks="4"
-            reactivation_rate="0.1"
+            reactivation_timer="40.0"
             timeout_const="5">
         </extra_parameters>
 
