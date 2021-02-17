@@ -29,12 +29,12 @@ void CALFClientServer::Init(TConfigurationNode& t_node) {
 
         /*log file*/
         m_cOutput.open(m_strOutputFileName, std::ios_base::trunc | std::ios_base::out);
-        m_cOutput << "time" << '\t'
-                    << "id" << '\t'
-                    << "creation" << '\t'
-                    << "conclusion" << '\t'
-                    << "own color" << '\t'
-                    <<"other color" << '\n';
+        m_cOutput << "time" << ';'
+                    << "id" << ';'
+                    << "creation" << ';'
+                    << "conclusion" << ';'
+                    << "client_color" << ';'
+                    <<"server_color" << '\n';
         m_cOutput.close();
 
         outputBuffer="I";
@@ -323,11 +323,11 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
                             multiArea[j].ComplentionTime = m_fTimeInSeconds;
                             std::cout<<"red-red task completed"<<std::endl;
                             m_cOutput.open(m_strOutputFileName, std::ios_base::out | std::ios_base::app);
-                            m_cOutput << m_fTimeInSeconds << '\t'
-                                        << multiArea[j].Id << '\t'
-                                        << multiArea[j].CreationTime << '\t'
-                                        << multiArea[j].ComplentionTime << '\t'
-                                        << otherColor[j] << '\t'
+                            m_cOutput << m_fTimeInSeconds << ';'
+                                        << multiArea[j].Id << ';'
+                                        << multiArea[j].CreationTime << ';'
+                                        << multiArea[j].ComplentionTime << ';'
+                                        << "red;"
                                         << multiArea[j].Color << '\n';
                             m_cOutput.close();
                         }
@@ -336,11 +336,11 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
                             multiArea[j].ComplentionTime = m_fTimeInSeconds;
                             std::cout<<"blue-red task completed"<<std::endl;
                             m_cOutput.open(m_strOutputFileName, std::ios_base::out | std::ios_base::app);
-                            m_cOutput << m_fTimeInSeconds << '\t'
-                                        << multiArea[j].Id << '\t'
-                                        << multiArea[j].CreationTime << '\t'
-                                        << multiArea[j].ComplentionTime << '\t'
-                                        << otherColor[j] << '\t'
+                            m_cOutput << m_fTimeInSeconds << ';'
+                                        << multiArea[j].Id << ';'
+                                        << multiArea[j].CreationTime << ';'
+                                        << multiArea[j].ComplentionTime << ';'
+                                        << "red;"
                                         << multiArea[j].Color << '\n';
                             m_cOutput.close();
                         }                        
@@ -351,11 +351,11 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
                             multiArea[j].ComplentionTime = m_fTimeInSeconds;
                             std::cout<<"red-blue task completed"<<std::endl;
                             m_cOutput.open(m_strOutputFileName, std::ios_base::out | std::ios_base::app);
-                            m_cOutput << m_fTimeInSeconds << '\t'
-                                        << multiArea[j].Id << '\t'
-                                        << multiArea[j].CreationTime << '\t'
-                                        << multiArea[j].ComplentionTime << '\t'
-                                        << otherColor[j] << '\t'
+                            m_cOutput << m_fTimeInSeconds << ';'
+                                        << multiArea[j].Id << ';'
+                                        << multiArea[j].CreationTime << ';'
+                                        << multiArea[j].ComplentionTime << ';'
+                                        << "blue;"
                                         << multiArea[j].Color << '\n';
                             m_cOutput.close();
                         }
@@ -364,11 +364,11 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
                             multiArea[j].ComplentionTime = m_fTimeInSeconds;
                             std::cout<<"blue-blue task completed"<<std::endl;
                             m_cOutput.open(m_strOutputFileName, std::ios_base::out | std::ios_base::app);
-                            m_cOutput << m_fTimeInSeconds << '\t'
-                                        << multiArea[j].Id << '\t'
-                                        << multiArea[j].CreationTime << '\t'
-                                        << multiArea[j].ComplentionTime << '\t'
-                                        << otherColor[j] << '\t'
+                            m_cOutput << m_fTimeInSeconds << ';'
+                                        << multiArea[j].Id << ';'
+                                        << multiArea[j].CreationTime << ';'
+                                        << multiArea[j].ComplentionTime << ';'
+                                        << "blue;"
                                         << multiArea[j].Color << '\n';
                             m_cOutput.close();
                         }                        

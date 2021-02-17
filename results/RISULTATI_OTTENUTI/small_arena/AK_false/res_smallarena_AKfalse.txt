@@ -1,0 +1,4633 @@
+5 seed#1_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	415	3	0	415	blue	blue
+	651.7	15	0	651.7	blue	blue
+	681.9	15	681.7	681.9	blue	blue
+	712.1	15	711.9	712.1	blue	blue
+	742.2	15	742.1	742.2	blue	blue
+	1696.9	3	445	1696.9	blue	blue
+	1727	3	1726.9	1727	blue	blue
+	1757.2	3	1757	1757.2	blue	blue
+	1787.4	3	1787.2	1787.4	blue	blue
+	2093.9	15	772.2	2093.9	blue	blue
+	2300.2	15	2123.9	2300.2	blue	blue
+	2658	3	1817.4	2658	blue	blue
+	2688.3	3	2688	2688.3	blue	blue
+Completed 13 tasks.
+-------------------------------
+5 seed#2_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+Completed 0 tasks.
+-------------------------------
+5 seed#3_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+Completed 0 tasks.
+-------------------------------
+5 seed#4_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+Completed 0 tasks.
+-------------------------------
+5 seed#5_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	40	3	0	40	blue	blue
+	70.1	3	70	70.1	blue	blue
+	954.7	15	0	954.7	blue	blue
+	1678.1	3	100.1	1678.1	blue	blue
+	2202.6	15	984.7	2202.6	blue	blue
+	2232.8	15	2232.6	2232.8	blue	blue
+	2386.8	3	1708.1	2386.8	blue	blue
+	2584.2	15	2262.8	2584.2	blue	blue
+Completed 8 tasks.
+-------------------------------
+5 seed#6_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	1.4	10	0	1.4	blue	blue
+	662.5	15	0	662.5	blue	blue
+	1617.1	15	692.5	1617.1	blue	blue
+	1647.3	15	1647.1	1647.3	blue	blue
+	1995.4	15	1677.3	1995.4	blue	blue
+Completed 5 tasks.
+-------------------------------
+5 seed#7_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+Completed 0 tasks.
+-------------------------------
+5 seed#8_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	424.2	12	0	424.2	blue	blue
+	454.4	12	454.2	454.4	blue	blue
+	1782.7	12	484.4	1782.7	blue	blue
+	1812.9	12	1812.7	1812.9	blue	blue
+	1843.1	12	1842.9	1843.1	blue	blue
+	2561.5	1	0	2561.5	blue	blue
+	3393.6	12	1873.1	3393.6	blue	blue
+	3507.2	12	3423.6	3507.2	blue	blue
+	3582.4	1	2591.5	3582.4	blue	blue
+Completed 9 tasks.
+-------------------------------
+5 seed#9_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	478	15	0	478	blue	blue
+	508.2	15	508	508.2	blue	blue
+	540	15	538.2	540	blue	blue
+	1292.4	14	0	1292.4	blue	blue
+	1333.3	15	570	1333.3	blue	blue
+	1398.9	15	1363.3	1398.9	blue	blue
+	3453.9	15	1428.9	3453.9	blue	blue
+	3484.1	15	3483.9	3484.1	blue	blue
+Completed 8 tasks.
+-------------------------------
+5 seed#10_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	620	1	0	620	blue	blue
+	631.3	2	0	631.3	blue	blue
+	1446	2	661.3	1446	blue	blue
+	2908.7	4	0	2908.7	blue	blue
+Completed 4 tasks.
+-------------------------------
+5 seed#11_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	216.6	4	0	216.6	blue	blue
+	1758.1	4	246.6	1758.1	blue	blue
+	3114.6	4	1788.1	3114.6	blue	blue
+	3144.8	4	3144.6	3144.8	blue	blue
+	3175	4	3174.8	3175	blue	blue
+	3344.5	4	3205	3344.5	blue	blue
+Completed 6 tasks.
+-------------------------------
+5 seed#12_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	191.5	15	0	191.5	blue	blue
+	237.5	4	0	237.5	blue	blue
+	1052.1	4	267.5	1052.1	blue	blue
+	1082.3	4	1082.1	1082.3	blue	blue
+	2181.6	15	221.5	2181.6	blue	blue
+	2211.8	15	2211.6	2211.8	blue	blue
+	2405.7	4	1112.3	2405.7	blue	blue
+	2614.4	4	2435.7	2614.4	blue	blue
+	2786.7	15	2241.8	2786.7	blue	blue
+	2816.9	15	2816.7	2816.9	blue	blue
+	2885.5	4	2644.4	2885.5	blue	blue
+Completed 11 tasks.
+-------------------------------
+5 seed#13_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	1160.7	8	0	1160.7	blue	blue
+Completed 1 tasks.
+-------------------------------
+5 seed#14_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	1068	12	0	1068	blue	blue
+	1098.2	12	1098	1098.2	blue	blue
+	1356.6	12	1128.2	1356.6	blue	blue
+	1386.9	12	1386.6	1386.9	blue	blue
+	1417.1	12	1416.9	1417.1	blue	blue
+	1447.3	12	1447.1	1447.3	blue	blue
+	1481.8	12	1477.3	1481.8	blue	blue
+	2243.8	5	0	2243.8	blue	blue
+	2791.7	12	1511.8	2791.7	blue	blue
+	2968.7	12	2821.7	2968.7	blue	blue
+Completed 10 tasks.
+-------------------------------
+5 seed#15_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	1.8	6	0	1.8	blue	blue
+	2447.5	9	0	2447.5	blue	blue
+Completed 2 tasks.
+-------------------------------
+5 seed#16_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	1.2	9	0	1.2	blue	blue
+	755.3	12	0	755.3	blue	blue
+	785.4	12	785.3	785.4	blue	blue
+	1649.6	12	815.4	1649.6	blue	blue
+	1697.3	12	1679.6	1697.3	blue	blue
+Completed 5 tasks.
+-------------------------------
+5 seed#17_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	0.3	5	0	0.3	blue	blue
+	0.3	10	0	0.3	blue	blue
+	583.8	0	0	583.8	blue	blue
+	731.8	8	0	731.8	blue	blue
+	1408.2	6	0	1408.2	blue	blue
+	1784.9	11	0	1784.9	blue	blue
+	1851.9	2	0	1851.9	blue	blue
+	2684.6	11	1814.9	2684.6	blue	blue
+	3147.2	0	613.8	3147.2	blue	blue
+	3226.5	8	761.8	3226.5	blue	blue
+	3337.7	2	1881.9	3337.7	blue	blue
+	3383.9	8	3256.5	3383.9	blue	blue
+	3506.4	0	3177.2	3506.4	blue	blue
+Completed 13 tasks.
+-------------------------------
+5 seed#18_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	99.2	15	0	99.2	blue	blue
+	860.9	15	129.3	860.9	blue	blue
+	895.8	15	890.9	895.8	blue	blue
+	926	15	925.8	926	blue	blue
+	1068.9	15	956	1068.9	blue	blue
+	2683.6	15	1098.9	2683.6	blue	blue
+	3124.2	15	2713.6	3124.2	blue	blue
+Completed 7 tasks.
+-------------------------------
+5 seed#19_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	0.7	5	0	0.7	blue	blue
+	1126.3	3	0	1126.3	blue	blue
+	1202.4	3	1156.3	1202.4	blue	blue
+	1237.1	3	1232.4	1237.1	blue	blue
+	3035.3	13	0	3035.3	blue	blue
+	3140.2	3	1267.1	3140.2	blue	blue
+	3170.4	3	3170.2	3170.4	blue	blue
+	3205.6	3	3200.4	3205.6	blue	blue
+	3235.8	3	3235.6	3235.8	blue	blue
+Completed 9 tasks.
+-------------------------------
+5 seed#20_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	0.7	9	0	0.7	blue	blue
+	2752.8	3	0	2752.8	blue	blue
+Completed 2 tasks.
+-------------------------------
+5 seed#21_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+Completed 0 tasks.
+-------------------------------
+5 seed#22_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	2.6	5	0	2.6	blue	blue
+	137	0	0	137	blue	blue
+	230.9	8	0	230.9	blue	blue
+	433.9	4	0	433.9	blue	blue
+	466.2	0	167	466.2	blue	blue
+	871.2	6	0	871.2	blue	blue
+	1310.8	7	0	1310.8	blue	blue
+	1397.6	7	1340.8	1397.6	blue	blue
+	1455.5	2	0	1455.5	blue	blue
+	1695.9	0	496.2	1695.9	blue	blue
+	1852.2	8	261	1852.2	blue	blue
+	1916.8	2	1485.5	1916.8	blue	blue
+	2023.8	7	1427.6	2023.8	blue	blue
+	2471.1	0	1725.9	2471.1	blue	blue
+	2503.1	0	2501.1	2503.1	blue	blue
+	2533.3	0	2533.1	2533.3	blue	blue
+	2576.6	1	0	2576.6	blue	blue
+	2601.8	0	2563.3	2601.8	blue	blue
+	2610.7	1	2606.6	2610.7	blue	blue
+	2631.9	0	2631.8	2631.9	blue	blue
+	3463.7	0	2661.9	3463.7	blue	blue
+Completed 21 tasks.
+-------------------------------
+5 seed#23_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	1.7	6	0	1.7	blue	blue
+	876	2	0	876	blue	blue
+Completed 2 tasks.
+-------------------------------
+5 seed#24_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	1134.1	11	0	1134.1	blue	blue
+Completed 1 tasks.
+-------------------------------
+5 seed#25_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+Completed 0 tasks.
+-------------------------------
+5 seed#26_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	0.8	6	0	0.8	blue	blue
+	0.8	10	0	0.8	blue	blue
+	216.8	10	30.8	216.8	blue	blue
+	251	2	0	251	blue	blue
+	295.5	0	0	295.5	blue	blue
+	395.6	0	325.5	395.6	blue	blue
+	634.5	2	281	634.5	blue	blue
+	1264.9	0	425.6	1264.9	blue	blue
+	1281.7	4	0	1281.7	blue	blue
+	1295.1	0	1294.9	1295.1	blue	blue
+	1496.8	2	664.5	1496.8	blue	blue
+	1621.8	2	1526.8	1621.8	blue	blue
+	1656.8	2	1651.8	1656.8	blue	blue
+	2101.2	0	1325.1	2101.2	blue	blue
+	2830.8	0	2131.2	2830.8	blue	blue
+	2979.4	8	0	2979.4	blue	blue
+	3254.9	8	3009.4	3254.9	blue	blue
+	3483.5	2	1686.8	3483.5	blue	blue
+Completed 18 tasks.
+-------------------------------
+5 seed#27_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+Completed 0 tasks.
+-------------------------------
+5 seed#28_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	144.4	13	0	144.4	blue	blue
+	436	13	174.4	436	blue	blue
+	1317.5	4	0	1317.5	blue	blue
+	1351.2	4	1347.5	1351.2	blue	blue
+	1382.3	4	1381.2	1382.3	blue	blue
+	1414.8	4	1412.3	1414.8	blue	blue
+	1581.3	13	466	1581.3	blue	blue
+	1615	13	1611.3	1615	blue	blue
+	1669.3	2	0	1669.3	blue	blue
+	3395.8	4	1444.8	3395.8	blue	blue
+	3426.7	4	3425.8	3426.7	blue	blue
+	3447.8	13	1645	3447.8	blue	blue
+Completed 12 tasks.
+-------------------------------
+5 seed#29_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+Completed 0 tasks.
+-------------------------------
+5 seed#30_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	418.7	15	0	418.7	blue	blue
+	451.8	15	448.7	451.8	blue	blue
+	1828.7	15	481.8	1828.7	blue	blue
+	1858.9	15	1858.7	1858.9	blue	blue
+	1889.1	15	1888.9	1889.1	blue	blue
+	1919.4	15	1919.1	1919.4	blue	blue
+	2005.1	11	0	2005.1	blue	blue
+	2136.4	15	1949.4	2136.4	blue	blue
+	3485	15	2166.4	3485	blue	blue
+	3515.1	15	3515	3515.1	blue	blue
+Completed 10 tasks.
+-------------------------------
+5 seed#31_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	1.3	9	0	1.3	blue	blue
+	1.3	10	0	1.3	blue	blue
+	24.4	11	0	24.4	blue	blue
+	640.7	11	54.4	640.7	blue	blue
+	643.3	8	0	643.3	blue	blue
+	1799.5	11	670.7	1799.5	blue	blue
+	1951.9	14	0	1951.9	blue	blue
+	2035.2	10	31.3	2035.2	blue	blue
+	2213.5	2	0	2213.5	blue	blue
+	2520	14	1981.9	2520	blue	blue
+	2558.9	11	1829.5	2558.9	blue	blue
+	3333.7	11	2588.9	3333.7	blue	blue
+Completed 12 tasks.
+-------------------------------
+5 seed#32_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	1.4	5	0	1.4	blue	blue
+	3.9	6	0	3.9	blue	blue
+	328.2	7	0	328.2	blue	blue
+	537.7	1	0	537.7	blue	blue
+	860.9	0	0	860.9	blue	blue
+	947.9	4	0	947.9	blue	blue
+	965.5	0	890.9	965.5	blue	blue
+	1159.5	2	0	1159.5	blue	blue
+	1227.3	3	0	1227.3	blue	blue
+	1341.8	7	358.2	1341.8	blue	blue
+	1506.2	5	31.4	1506.2	blue	blue
+	1850.1	3	1257.3	1850.1	blue	blue
+	1880.3	3	1880.1	1880.3	blue	blue
+	2098.4	2	1189.5	2098.4	blue	blue
+	2170.3	4	977.9	2170.3	blue	blue
+	2194.5	0	995.5	2194.5	blue	blue
+	2224.7	0	2224.5	2224.7	blue	blue
+	2229.6	1	567.7	2229.6	blue	blue
+	2254.8	0	2254.7	2254.8	blue	blue
+	2381.1	2	2128.4	2381.1	blue	blue
+	2503.5	2	2411.1	2503.5	blue	blue
+	3170.3	0	2284.8	3170.3	blue	blue
+	3200.5	0	3200.3	3200.5	blue	blue
+	3545.9	3	1910.3	3545.9	blue	blue
+Completed 24 tasks.
+-------------------------------
+5 seed#33_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	0.8	6	0	0.8	blue	blue
+	4.8	9	0	4.8	blue	blue
+	137.7	3	0	137.7	blue	blue
+	187.8	4	0	187.8	blue	blue
+	363.3	2	0	363.3	blue	blue
+	636	3	167.7	636	blue	blue
+	909.5	9	34.9	909.5	blue	blue
+	2096.2	2	393.3	2096.2	blue	blue
+	3348.9	3	666	3348.9	blue	blue
+Completed 9 tasks.
+-------------------------------
+5 seed#34_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	0.6	9	0	0.6	blue	blue
+	535.6	15	0	535.6	blue	blue
+	610.1	15	565.6	610.1	blue	blue
+	640.3	15	640.1	640.3	blue	blue
+	670.4	15	670.3	670.4	blue	blue
+	3162.5	15	700.4	3162.5	blue	blue
+Completed 6 tasks.
+-------------------------------
+5 seed#35_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+Completed 0 tasks.
+-------------------------------
+5 seed#36_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	6.4	5	0	6.4	blue	blue
+	469.1	12	0	469.1	blue	blue
+	499.3	12	499.1	499.3	blue	blue
+	1375.7	12	529.4	1375.7	blue	blue
+	1822.6	4	0	1822.6	blue	blue
+	1872.6	12	1405.7	1872.6	blue	blue
+	1902.7	12	1902.6	1902.7	blue	blue
+	2076.6	4	1852.6	2076.6	blue	blue
+	2980.2	12	1932.7	2980.2	blue	blue
+	3105.6	12	3010.2	3105.6	blue	blue
+	3174	4	2106.6	3174	blue	blue
+Completed 11 tasks.
+-------------------------------
+5 seed#37_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	0.4	5	0	0.4	blue	blue
+	0.4	10	0	0.4	blue	blue
+	105.4	1	0	105.4	blue	blue
+	898.9	4	0	898.9	blue	blue
+	982.1	2	0	982.1	blue	blue
+	1072	1	135.4	1072	blue	blue
+	1324.5	2	1012.1	1324.5	blue	blue
+	1439.2	8	0	1439.2	blue	blue
+	1531.6	7	0	1531.6	blue	blue
+	1633	2	1354.5	1633	blue	blue
+	1776.2	4	928.9	1776.2	blue	blue
+	2311.4	4	1806.2	2311.4	blue	blue
+	2458.7	11	0	2458.7	blue	blue
+	2488.9	11	2488.7	2488.9	blue	blue
+	2916.7	11	2518.9	2916.7	blue	blue
+Completed 15 tasks.
+-------------------------------
+5 seed#38_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+Completed 0 tasks.
+-------------------------------
+5 seed#39_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	2056.4	11	0	2056.4	blue	blue
+	2710.4	11	2086.4	2710.4	blue	blue
+Completed 2 tasks.
+-------------------------------
+5 seed#40_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	513.1	3	0	513.1	blue	blue
+	835.3	15	0	835.3	blue	blue
+	1131.7	3	543.1	1131.7	blue	blue
+	1161.8	3	1161.7	1161.8	blue	blue
+	2242.8	3	1191.8	2242.8	blue	blue
+	2970.3	15	865.3	2970.3	blue	blue
+	3000.5	15	3000.3	3000.5	blue	blue
+	3030.7	15	3030.5	3030.7	blue	blue
+	3061	15	3060.7	3061	blue	blue
+	3067.9	3	2272.8	3067.9	blue	blue
+	3091.3	15	3091	3091.3	blue	blue
+	3098	3	3097.9	3098	blue	blue
+	3128.2	3	3128	3128.2	blue	blue
+	3224.5	15	3121.3	3224.5	blue	blue
+	3282.5	15	3254.5	3282.5	blue	blue
+Completed 15 tasks.
+-------------------------------
+5 seed#41_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	0.9	6	0	0.9	blue	blue
+	384.5	11	0	384.5	blue	blue
+	793.8	11	414.5	793.8	blue	blue
+	853.7	11	823.8	853.7	blue	blue
+	1080.6	11	883.7	1080.6	blue	blue
+	1226.9	11	1110.6	1226.9	blue	blue
+	1293.2	11	1256.9	1293.2	blue	blue
+	1361.1	11	1323.2	1361.1	blue	blue
+	2018.9	11	1391.1	2018.9	blue	blue
+	2629.9	13	0	2629.9	blue	blue
+	3357.4	13	2659.9	3357.4	blue	blue
+Completed 11 tasks.
+-------------------------------
+5 seed#42_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	1308	11	0	1308	blue	blue
+	2775	15	0	2775	blue	blue
+	2805.2	15	2805	2805.2	blue	blue
+	2994.7	15	2835.2	2994.7	blue	blue
+	3024.9	15	3024.7	3024.9	blue	blue
+	3052.4	11	1338	3052.4	blue	blue
+Completed 6 tasks.
+-------------------------------
+5 seed#43_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	602.5	8	0	602.5	blue	blue
+	1315.8	8	632.5	1315.8	blue	blue
+	3411.7	8	1345.8	3411.7	blue	blue
+Completed 3 tasks.
+-------------------------------
+5 seed#44_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+Completed 0 tasks.
+-------------------------------
+5 seed#45_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	4.1	9	0	4.1	blue	blue
+	1626.1	13	0	1626.1	blue	blue
+	1847.3	9	34.1	1847.3	blue	blue
+	1951.9	9	1877.3	1951.9	blue	blue
+	2357.4	13	1656.1	2357.4	blue	blue
+Completed 5 tasks.
+-------------------------------
+5 seed#46_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	334.4	13	0	334.4	blue	blue
+	368.5	13	364.4	368.5	blue	blue
+	980.1	11	0	980.1	blue	blue
+	1651.3	2	0	1651.3	blue	blue
+	1775.4	2	1681.3	1775.4	blue	blue
+	1805.4	2	1805.4	1805.4	blue	blue
+	2098.2	2	1835.4	2098.2	blue	blue
+	2131.5	2	2128.2	2131.5	blue	blue
+	2163.4	2	2161.5	2163.4	blue	blue
+	2193.5	2	2193.4	2193.5	blue	blue
+	2223.7	2	2223.5	2223.7	blue	blue
+Completed 11 tasks.
+-------------------------------
+5 seed#47_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	1330.9	7	0	1330.9	blue	blue
+	1601.9	7	1360.9	1601.9	blue	blue
+	1634.1	7	1631.9	1634.1	blue	blue
+	2642.1	7	1664.1	2642.1	blue	blue
+	3402.8	7	2672.1	3402.8	blue	blue
+Completed 5 tasks.
+-------------------------------
+5 seed#48_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	0.6	10	0	0.6	blue	blue
+Completed 1 tasks.
+-------------------------------
+5 seed#49_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	961.8	11	0	961.8	blue	blue
+	1408.2	3	0	1408.2	blue	blue
+	1868.2	3	1438.2	1868.2	blue	blue
+	2384.5	3	1898.2	2384.5	blue	blue
+	2414.8	3	2414.5	2414.8	blue	blue
+	3330.6	11	991.8	3330.6	blue	blue
+Completed 6 tasks.
+-------------------------------
+5 seed#50_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	1840	3	0	1840	blue	blue
+	2166.7	14	0	2166.7	blue	blue
+	2804.5	14	2196.7	2804.5	blue	blue
+	3467.8	3	1870	3467.8	blue	blue
+Completed 4 tasks.
+-------------------------------
+10 seed#1_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	42	15	0	42	blue	blue
+	72.2	15	72	72.2	blue	blue
+	829.7	3	0	829.7	blue	blue
+	1654.4	3	859.7	1654.4	blue	blue
+	1692.7	3	1684.4	1692.7	blue	blue
+	1839.7	15	102.2	1839.7	blue	blue
+	1876.7	15	1869.7	1876.7	blue	blue
+	1912.9	15	1906.7	1912.9	blue	blue
+	2024.4	3	1722.7	2024.4	blue	blue
+	2516.5	3	2054.4	2516.5	blue	blue
+	2539.6	15	1942.9	2539.6	blue	blue
+	2546.6	3	2546.5	2546.6	blue	blue
+	2573.8	15	2569.6	2573.8	blue	blue
+	2614.5	3	2576.6	2614.5	blue	blue
+	2651.6	15	2603.8	2651.6	blue	blue
+	2681.8	15	2681.6	2681.8	blue	blue
+	2814.2	15	2711.8	2814.2	blue	blue
+	2851.4	15	2844.2	2851.4	blue	blue
+	2953.6	3	2644.5	2953.6	blue	blue
+	2983.8	3	2983.6	2983.8	blue	blue
+	2996.7	15	2881.4	2996.7	blue	blue
+	3165.8	15	3026.7	3165.8	blue	blue
+	3184.2	3	3013.8	3184.2	blue	blue
+	3196	15	3195.8	3196	blue	blue
+	3214.4	3	3214.2	3214.4	blue	blue
+	3252.6	15	3226	3252.6	blue	blue
+	3494.8	3	3244.4	3494.8	blue	blue
+Completed 27 tasks.
+-------------------------------
+10 seed#2_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+Completed 0 tasks.
+-------------------------------
+10 seed#3_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+Completed 0 tasks.
+-------------------------------
+10 seed#4_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+Completed 0 tasks.
+-------------------------------
+10 seed#5_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	179	3	0	179	blue	blue
+	483.8	3	209	483.8	blue	blue
+	1380	3	513.9	1380	blue	blue
+	1410.2	3	1410	1410.2	blue	blue
+	1440.4	3	1440.2	1440.4	blue	blue
+	1569.4	3	1470.4	1569.4	blue	blue
+	1599.6	3	1599.4	1599.6	blue	blue
+	1600.7	15	0	1600.7	blue	blue
+	1629.7	3	1629.6	1629.7	blue	blue
+	1665.5	3	1659.7	1665.5	blue	blue
+	1695.7	3	1695.5	1695.7	blue	blue
+	1731.2	3	1725.7	1731.2	blue	blue
+	1972.2	15	1630.7	1972.2	blue	blue
+	2104.8	3	1761.2	2104.8	blue	blue
+	2135	3	2134.8	2135	blue	blue
+	2165.2	3	2165	2165.2	blue	blue
+	2233.7	15	2002.2	2233.7	blue	blue
+	2264	15	2263.7	2264	blue	blue
+	2320.9	15	2294	2320.9	blue	blue
+	3149	3	2195.2	3149	blue	blue
+	3215.6	15	2350.9	3215.6	blue	blue
+	3248.4	3	3179	3248.4	blue	blue
+	3278.5	3	3278.4	3278.5	blue	blue
+	3311.6	3	3308.5	3311.6	blue	blue
+Completed 24 tasks.
+-------------------------------
+10 seed#6_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	1.6	10	0	1.6	blue	blue
+	135.8	15	0	135.8	blue	blue
+	989.3	15	165.8	989.3	blue	blue
+	1019.5	15	1019.3	1019.5	blue	blue
+	1732.1	15	1049.5	1732.1	blue	blue
+	2509.8	15	1762.1	2509.8	blue	blue
+	2647	15	2539.8	2647	blue	blue
+	2838.5	10	31.6	2838.5	blue	blue
+	3144.7	15	2677	3144.7	blue	blue
+	3178.7	15	3174.7	3178.7	blue	blue
+	3223.7	15	3208.7	3223.7	blue	blue
+	3253.9	15	3253.7	3253.9	blue	blue
+Completed 12 tasks.
+-------------------------------
+10 seed#7_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+Completed 0 tasks.
+-------------------------------
+10 seed#8_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	803	12	0	803	blue	blue
+	833.9	12	833	833.9	blue	blue
+	864	12	863.9	864	blue	blue
+	1052.5	12	894	1052.5	blue	blue
+	1082.7	12	1082.5	1082.7	blue	blue
+	1182.8	1	0	1182.8	blue	blue
+	1284.2	12	1112.7	1284.2	blue	blue
+	1343.5	12	1314.2	1343.5	blue	blue
+	1483.7	12	1373.5	1483.7	blue	blue
+	1658.1	12	1513.7	1658.1	blue	blue
+	1688.3	12	1688.1	1688.3	blue	blue
+	1718.6	12	1718.3	1718.6	blue	blue
+	1755.4	12	1748.6	1755.4	blue	blue
+	1785.6	12	1785.4	1785.6	blue	blue
+	1815.9	12	1815.6	1815.9	blue	blue
+	1968.3	12	1845.9	1968.3	blue	blue
+	2055.3	12	1998.3	2055.3	blue	blue
+	2188.2	12	2085.3	2188.2	blue	blue
+	2610.1	12	2218.2	2610.1	blue	blue
+	3033.9	12	2640.1	3033.9	blue	blue
+	3064.1	12	3063.9	3064.1	blue	blue
+	3598.1	1	1212.8	3598.1	blue	blue
+Completed 22 tasks.
+-------------------------------
+10 seed#9_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	339	14	0	339	blue	blue
+	839.1	14	369	839.1	blue	blue
+	877.7	15	0	877.7	blue	blue
+	907.9	15	907.7	907.9	blue	blue
+	938.1	15	937.9	938.1	blue	blue
+	968.4	15	968.1	968.4	blue	blue
+	1001.4	15	998.4	1001.4	blue	blue
+	1031.5	15	1031.4	1031.5	blue	blue
+	1069.7	15	1061.5	1069.7	blue	blue
+	1389.7	14	869.1	1389.7	blue	blue
+	1465.5	15	1099.7	1465.5	blue	blue
+	1558.6	14	1419.7	1558.6	blue	blue
+	1650.7	15	1495.5	1650.7	blue	blue
+	2178.8	15	1680.7	2178.8	blue	blue
+	2349	15	2208.8	2349	blue	blue
+	2379.1	15	2379	2379.1	blue	blue
+	2419.3	15	2409.1	2419.3	blue	blue
+	2452.6	15	2449.3	2452.6	blue	blue
+	3072.4	14	1588.6	3072.4	blue	blue
+	3350.2	14	3102.4	3350.2	blue	blue
+	3504.3	15	2482.6	3504.3	blue	blue
+Completed 21 tasks.
+-------------------------------
+10 seed#10_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	198.6	2	0	198.6	blue	blue
+	670.7	2	228.6	670.7	blue	blue
+	754.4	2	700.7	754.4	blue	blue
+	784.5	2	784.4	784.5	blue	blue
+	836.4	1	0	836.4	blue	blue
+	2383.5	2	814.5	2383.5	blue	blue
+	2569.6	2	2413.5	2569.6	blue	blue
+	3259	4	0	3259	blue	blue
+	3390.7	4	3289	3390.7	blue	blue
+Completed 9 tasks.
+-------------------------------
+10 seed#11_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	989.2	4	0	989.2	blue	blue
+	3062	4	1019.2	3062	blue	blue
+	3251.5	4	3092	3251.5	blue	blue
+	3281.7	4	3281.5	3281.7	blue	blue
+	3391.4	4	3311.7	3391.4	blue	blue
+Completed 5 tasks.
+-------------------------------
+10 seed#12_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	624.9	15	0	624.9	blue	blue
+	657.7	15	654.9	657.7	blue	blue
+	672.1	7	0	672.1	blue	blue
+	710.3	7	702.1	710.3	blue	blue
+	1176.4	4	0	1176.4	blue	blue
+	1382.3	4	1206.4	1382.3	blue	blue
+	1532.6	4	1412.3	1532.6	blue	blue
+	1751.6	15	687.7	1751.6	blue	blue
+	2129.9	4	1562.6	2129.9	blue	blue
+	2294.9	7	740.3	2294.9	blue	blue
+	2608.1	7	2324.9	2608.1	blue	blue
+	2640.5	7	2638.1	2640.5	blue	blue
+	2735.4	15	1781.6	2735.4	blue	blue
+	3112.2	7	2670.5	3112.2	blue	blue
+	3148.3	15	2765.4	3148.3	blue	blue
+	3184.3	15	3178.3	3184.3	blue	blue
+	3214.5	15	3214.3	3214.5	blue	blue
+	3244.7	15	3244.5	3244.7	blue	blue
+	3274.9	15	3274.7	3274.9	blue	blue
+	3308.1	15	3304.9	3308.1	blue	blue
+	3338.3	15	3338.1	3338.3	blue	blue
+	3432.9	15	3368.3	3432.9	blue	blue
+	3434.5	4	2159.9	3434.5	blue	blue
+Completed 23 tasks.
+-------------------------------
+10 seed#13_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	366.3	8	0	366.3	blue	blue
+	3315.8	8	396.3	3315.8	blue	blue
+	3496.5	8	3345.8	3496.5	blue	blue
+Completed 3 tasks.
+-------------------------------
+10 seed#14_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	0.8	5	0	0.8	blue	blue
+	437.7	12	0	437.7	blue	blue
+	719.6	12	467.7	719.6	blue	blue
+	1394.5	12	749.6	1394.5	blue	blue
+	1424.6	12	1424.5	1424.6	blue	blue
+	1734.8	12	1454.6	1734.8	blue	blue
+	2174.6	12	1764.8	2174.6	blue	blue
+	2299	12	2204.6	2299	blue	blue
+	3436.1	12	2329	3436.1	blue	blue
+	3569.4	5	30.8	3569.4	blue	blue
+Completed 10 tasks.
+-------------------------------
+10 seed#15_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	1.1	9	0	1.1	blue	blue
+	2.3	6	0	2.3	blue	blue
+	22.8	7	0	22.8	blue	blue
+	822.6	6	32.4	822.6	blue	blue
+	1513.1	7	52.9	1513.1	blue	blue
+	2994.5	6	852.6	2994.5	blue	blue
+	3184.9	7	1543.1	3184.9	blue	blue
+Completed 7 tasks.
+-------------------------------
+10 seed#16_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	3.1	9	0	3.1	blue	blue
+	1495.7	14	0	1495.7	red	blue
+	1531.8	12	0	1531.8	blue	blue
+	2145	12	1561.8	2145	blue	blue
+	2292.5	12	2175	2292.5	blue	blue
+	2570.2	12	2322.5	2570.2	blue	blue
+Completed 6 tasks.
+-------------------------------
+10 seed#17_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+Completed 0 tasks.
+-------------------------------
+10 seed#18_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	513.8	15	0	513.8	blue	blue
+	600.6	15	543.8	600.6	blue	blue
+	630.8	15	630.6	630.8	blue	blue
+	1006.4	15	660.8	1006.4	blue	blue
+	1036.6	15	1036.4	1036.6	blue	blue
+	1066.8	15	1066.6	1066.8	blue	blue
+	1304.6	15	1096.8	1304.6	blue	blue
+	1985.1	15	1334.6	1985.1	blue	blue
+	2062.4	2	0	2062.4	red	blue
+	2714.2	15	2015.1	2714.2	blue	blue
+	2891.8	15	2744.2	2891.8	blue	blue
+	2922.1	15	2921.8	2922.1	blue	blue
+	2952.3	15	2952.1	2952.3	blue	blue
+	2990.2	15	2982.3	2990.2	blue	blue
+	3125.8	15	3020.2	3125.8	blue	blue
+	3470.4	15	3155.8	3470.4	blue	blue
+Completed 16 tasks.
+-------------------------------
+10 seed#19_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	0.5	5	0	0.5	blue	blue
+	265	13	0	265	blue	blue
+	735.8	3	0	735.8	blue	blue
+	766	3	765.8	766	blue	blue
+	959.4	13	295	959.4	blue	blue
+	1357.8	3	796	1357.8	blue	blue
+	1493.7	3	1387.8	1493.7	blue	blue
+	1691.5	3	1523.7	1691.5	blue	blue
+	1723.1	3	1721.5	1723.1	blue	blue
+	1762	3	1753.1	1762	blue	blue
+	1936.1	3	1792	1936.1	blue	blue
+	2050.7	3	1966.1	2050.7	blue	blue
+	2084.7	3	2080.7	2084.7	blue	blue
+	2114.7	3	2114.7	2114.7	blue	blue
+	2222.6	13	989.4	2222.6	blue	blue
+	2811.6	13	2252.6	2811.6	blue	blue
+	2946.6	5	30.5	2946.6	blue	blue
+	3128.9	5	2976.6	3128.9	blue	blue
+	3522.2	13	2841.6	3522.2	blue	blue
+Completed 19 tasks.
+-------------------------------
+10 seed#20_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	183.1	3	0	183.1	blue	blue
+	238.2	9	0	238.2	blue	blue
+	553.9	3	213.1	553.9	blue	blue
+	1067.7	3	583.9	1067.7	blue	blue
+	2794	3	1097.7	2794	blue	blue
+	2888	3	2824	2888	blue	blue
+	3362.3	3	2918	3362.3	blue	blue
+	3392.5	3	3392.3	3392.5	blue	blue
+	3539.8	3	3422.5	3539.8	blue	blue
+Completed 9 tasks.
+-------------------------------
+10 seed#21_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+Completed 0 tasks.
+-------------------------------
+10 seed#22_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	0.5	5	0	0.5	blue	blue
+	2.2	6	0	2.2	blue	blue
+	47.5	1	0	47.5	blue	blue
+	153.1	5	30.5	153.1	blue	blue
+	206.7	4	0	206.7	blue	blue
+	251.8	1	77.5	251.8	blue	blue
+	263	2	0	263	blue	blue
+	268	5	183.1	268	blue	blue
+	376	1	281.8	376	blue	blue
+	403.9	5	298	403.9	blue	blue
+	463.8	0	0	463.8	blue	blue
+	474.5	5	433.9	474.5	blue	blue
+	488.7	2	293	488.7	blue	blue
+	510.5	5	504.5	510.5	blue	blue
+	552.7	5	540.5	552.7	blue	blue
+	587	5	582.7	587	blue	blue
+	617.2	5	617	617.2	blue	blue
+	647	2	518.7	647	blue	blue
+	742.8	1	406	742.8	blue	blue
+	789.2	8	0	789.2	blue	blue
+	822.8	2	677	822.8	blue	blue
+	926.5	8	819.2	926.5	blue	blue
+	992.6	8	956.5	992.6	blue	blue
+	995.9	4	236.7	995.9	blue	blue
+	1073.2	0	493.8	1073.2	blue	blue
+	1178.7	4	1025.9	1178.7	blue	blue
+	1357.3	5	647.2	1357.3	blue	blue
+	1359.7	6	32.2	1359.7	blue	blue
+	1378.4	7	0	1378.4	blue	blue
+	1387.5	5	1387.3	1387.5	blue	blue
+	1458.7	7	1408.4	1458.7	blue	blue
+	1659.7	8	1022.6	1659.7	blue	blue
+	1692.7	4	1208.7	1692.7	blue	blue
+	1701.6	0	1103.2	1701.6	blue	blue
+	1731.7	0	1731.6	1731.7	blue	blue
+	1745.4	5	1417.5	1745.4	blue	blue
+	1777.8	4	1722.7	1777.8	blue	blue
+	1779.9	5	1775.4	1779.9	blue	blue
+	1810.1	5	1809.9	1810.1	blue	blue
+	1851.4	8	1689.7	1851.4	blue	blue
+	1868.3	7	1488.7	1868.3	blue	blue
+	1886	2	852.8	1886	blue	blue
+	1925.1	5	1840.1	1925.1	blue	blue
+	2195.9	7	1898.3	2195.9	blue	blue
+	2203.6	5	1955.1	2203.6	blue	blue
+	2248.1	4	1807.8	2248.1	blue	blue
+	2354.1	4	2278.1	2354.1	blue	blue
+	2384.3	4	2384.1	2384.3	blue	blue
+	2567.8	0	1761.7	2567.8	blue	blue
+	2572.2	5	2233.6	2572.2	blue	blue
+	2577.6	1	772.8	2577.6	blue	blue
+	2585.8	4	2414.3	2585.8	blue	blue
+	2591.7	2	1916	2591.7	blue	blue
+	2607.8	1	2607.6	2607.8	blue	blue
+	2680.4	1	2637.8	2680.4	blue	blue
+	2682.4	7	2225.9	2682.4	blue	blue
+	2693.1	8	1881.4	2693.1	blue	blue
+	2754.7	8	2723.1	2754.7	blue	blue
+	2757.6	0	2597.8	2757.6	blue	blue
+	2806.9	8	2784.7	2806.9	blue	blue
+	2907.8	2	2621.7	2907.8	blue	blue
+	2954	0	2787.6	2954	blue	blue
+	3054.9	0	2984	3054.9	blue	blue
+	3137.5	6	1389.7	3137.5	blue	blue
+	3231.3	5	2602.2	3231.3	blue	blue
+	3298.7	5	3261.3	3298.7	blue	blue
+	3337.5	7	2712.4	3337.5	blue	blue
+	3397	0	3084.9	3397	blue	blue
+	3453.1	8	2836.9	3453.1	blue	blue
+	3471.5	1	2710.4	3471.5	blue	blue
+	3484.1	5	3328.7	3484.1	blue	blue
+	3495.8	8	3483.1	3495.8	blue	blue
+	3497.6	0	3427	3497.6	blue	blue
+	3524.4	7	3367.5	3524.4	blue	blue
+	3537.1	5	3514.1	3537.1	blue	blue
+	3568.5	8	3525.8	3568.5	blue	blue
+Completed 76 tasks.
+-------------------------------
+10 seed#23_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	5.1	6	0	5.1	blue	blue
+	35.3	6	35.1	35.3	blue	blue
+	1164.3	2	0	1164.3	blue	blue
+	1299.9	2	1194.3	1299.9	blue	blue
+	2113.3	2	1329.9	2113.3	blue	blue
+	2536.2	2	2143.3	2536.2	blue	blue
+	2586.4	6	65.3	2586.4	blue	blue
+	3139.6	2	2566.2	3139.6	blue	blue
+Completed 8 tasks.
+-------------------------------
+10 seed#24_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	83.7	11	0	83.7	blue	blue
+	1248.4	11	113.7	1248.4	blue	blue
+	2335.6	13	0	2335.6	blue	blue
+	2429.2	13	2365.6	2429.2	blue	blue
+	2504.7	11	1278.4	2504.7	blue	blue
+	2914	11	2534.7	2914	blue	blue
+	3352	13	2459.2	3352	blue	blue
+Completed 7 tasks.
+-------------------------------
+10 seed#25_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+Completed 0 tasks.
+-------------------------------
+10 seed#26_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	1.5	10	0	1.5	blue	blue
+	5.7	6	0	5.7	blue	blue
+	7.1	9	0	7.1	blue	blue
+	103.9	8	0	103.9	blue	blue
+	203.5	2	0	203.5	blue	blue
+	292.1	4	0	292.1	blue	blue
+	440.5	8	133.9	440.5	blue	blue
+	626.3	4	322.1	626.3	blue	blue
+	702.4	6	35.7	702.4	blue	blue
+	729.3	9	37.1	729.3	blue	blue
+	735.3	8	470.5	735.3	blue	blue
+	800	11	0	800	blue	blue
+	1104.5	9	759.3	1104.5	blue	blue
+	1127.3	8	765.3	1127.3	blue	blue
+	1311.2	10	31.5	1311.2	blue	blue
+	1496	9	1134.5	1496	blue	blue
+	1771.8	0	0	1771.8	blue	blue
+	1801.7	2	233.5	1801.7	blue	blue
+	1803.5	0	1801.8	1803.5	blue	blue
+	1925.3	11	830	1925.3	blue	blue
+	1963.7	11	1955.3	1963.7	blue	blue
+	1970.3	2	1831.7	1970.3	blue	blue
+	2001.9	11	1993.7	2001.9	blue	blue
+	2004.8	4	656.3	2004.8	blue	blue
+	2035	4	2034.8	2035	blue	blue
+	2052.8	8	1157.3	2052.8	blue	blue
+	2082.8	2	2000.3	2082.8	blue	blue
+	2108.9	4	2065	2108.9	blue	blue
+	2128.6	0	1833.5	2128.6	blue	blue
+	2138.8	11	2031.9	2138.8	blue	blue
+	2158.8	0	2158.6	2158.8	blue	blue
+	2203.5	2	2112.8	2203.5	blue	blue
+	2286.4	4	2138.9	2286.4	blue	blue
+	2393.5	2	2233.5	2393.5	blue	blue
+	2404.9	11	2168.8	2404.9	blue	blue
+	2423.8	2	2423.5	2423.8	blue	blue
+	2455	2	2453.8	2455	blue	blue
+	2477.7	0	2188.8	2477.7	blue	blue
+	2487.5	8	2082.8	2487.5	blue	blue
+	2822.1	9	1526	2822.1	blue	blue
+	2845.8	0	2507.7	2845.8	blue	blue
+	2849.1	2	2485	2849.1	blue	blue
+	2889.4	2	2879.1	2889.4	blue	blue
+	2925.9	2	2919.4	2925.9	blue	blue
+	2953.9	11	2434.9	2953.9	blue	blue
+	3008.3	11	2983.9	3008.3	blue	blue
+	3098.9	11	3038.3	3098.9	blue	blue
+	3111.7	2	2955.9	3111.7	blue	blue
+	3131.2	6	732.4	3131.2	blue	blue
+	3143.1	2	3141.7	3143.1	blue	blue
+	3239.7	11	3128.9	3239.7	blue	blue
+	3269.7	0	2875.8	3269.7	blue	blue
+	3285.8	2	3173.1	3285.8	blue	blue
+	3326.6	2	3315.8	3326.6	blue	blue
+	3396.4	2	3356.6	3396.4	blue	blue
+	3450.5	6	3161.2	3450.5	blue	blue
+	3460.8	2	3426.4	3460.8	blue	blue
+	3491.8	2	3490.8	3491.8	blue	blue
+	3522.9	2	3521.8	3522.9	blue	blue
+	3553.1	2	3552.9	3553.1	blue	blue
+Completed 60 tasks.
+-------------------------------
+10 seed#27_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+Completed 0 tasks.
+-------------------------------
+10 seed#28_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	57.2	2	0	57.2	blue	blue
+	217.2	2	87.2	217.2	blue	blue
+	480.4	4	0	480.4	blue	blue
+	843.5	2	247.2	843.5	blue	blue
+	868.6	13	0	868.6	blue	blue
+	1464.6	13	898.6	1464.6	blue	blue
+	1494.8	13	1494.6	1494.8	blue	blue
+	1684.4	4	510.4	1684.4	blue	blue
+	1716.7	4	1714.4	1716.7	blue	blue
+	1802.1	13	1524.8	1802.1	blue	blue
+	2110.6	2	873.5	2110.6	blue	blue
+	2522.4	4	1746.7	2522.4	blue	blue
+	2554	4	2552.4	2554	blue	blue
+	2603.1	13	1832.1	2603.1	blue	blue
+	2705.7	4	2584	2705.7	blue	blue
+	2998.5	2	2140.6	2998.5	blue	blue
+	3031.8	4	2735.7	3031.8	blue	blue
+	3132.4	4	3061.8	3132.4	blue	blue
+	3373.7	2	3028.5	3373.7	blue	blue
+Completed 19 tasks.
+-------------------------------
+10 seed#29_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+Completed 0 tasks.
+-------------------------------
+10 seed#30_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	1072.4	11	0	1072.4	blue	blue
+	2274.9	15	0	2274.9	blue	blue
+	2367.8	11	1102.4	2367.8	blue	blue
+	2596.3	11	2397.8	2596.3	blue	blue
+	2612.2	15	2304.9	2612.2	blue	blue
+	2877.9	15	2642.2	2877.9	blue	blue
+	2908	15	2907.9	2908	blue	blue
+	2938.2	15	2938	2938.2	blue	blue
+	3366.6	11	2626.3	3366.6	blue	blue
+	3550	11	3396.6	3550	blue	blue
+Completed 10 tasks.
+-------------------------------
+10 seed#31_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	3.4	10	0	3.4	blue	blue
+	6.6	9	0	6.6	blue	blue
+	8	14	0	8	blue	blue
+	136.9	9	36.6	136.9	blue	blue
+	208	1	0	208	blue	blue
+	237.5	9	166.9	237.5	blue	blue
+	436.4	14	38	436.4	blue	blue
+	533.6	8	0	533.6	blue	blue
+	564.5	4	0	564.5	blue	blue
+	623.3	4	594.5	623.3	blue	blue
+	690.7	9	267.5	690.7	blue	blue
+	788.5	8	563.6	788.5	blue	blue
+	876.8	8	818.5	876.8	blue	blue
+	906.9	8	906.8	906.9	blue	blue
+	911.2	14	466.4	911.2	blue	blue
+	978.9	11	0	978.9	blue	blue
+	1072.9	8	936.9	1072.9	blue	blue
+	1202.1	1	238	1202.1	blue	blue
+	1237.8	1	1232.1	1237.8	blue	blue
+	1336.8	14	941.2	1336.8	blue	blue
+	1534.4	8	1102.9	1534.4	blue	blue
+	1545.8	4	653.3	1545.8	blue	blue
+	1564.5	8	1564.4	1564.5	blue	blue
+	1583.3	4	1575.8	1583.3	blue	blue
+	1634	4	1613.3	1634	blue	blue
+	1766.7	14	1366.8	1766.7	blue	blue
+	1766.8	8	1594.5	1766.8	blue	blue
+	1782.1	9	720.7	1782.1	blue	blue
+	1797.2	14	1796.7	1797.2	blue	blue
+	1812.6	11	1008.9	1812.6	blue	blue
+	1844.2	1	1267.8	1844.2	blue	blue
+	1879.4	2	0	1879.4	blue	blue
+	1998.4	14	1827.2	1998.4	blue	blue
+	2097.1	8	1796.8	2097.1	blue	blue
+	2121.8	14	2028.4	2121.8	blue	blue
+	2123.8	11	1842.6	2123.8	blue	blue
+	2280.9	14	2151.8	2280.9	blue	blue
+	2337	4	1664	2337	blue	blue
+	2359.2	1	1874.2	2359.2	blue	blue
+	2373	2	1909.4	2373	blue	blue
+	2395.6	1	2389.2	2395.6	blue	blue
+	2424.3	8	2127.1	2424.3	blue	blue
+	2439	4	2367	2439	blue	blue
+	2507	2	2403	2507	blue	blue
+	2547.4	8	2454.3	2547.4	blue	blue
+	2580.3	11	2153.8	2580.3	blue	blue
+	2740	1	2425.6	2740	blue	blue
+	2807.8	11	2610.3	2807.8	blue	blue
+	2856.8	10	33.4	2856.8	blue	blue
+	2867.1	14	2310.9	2867.1	blue	blue
+	2971	11	2837.8	2971	blue	blue
+	3004.7	14	2897.1	3004.7	blue	blue
+	3048.4	2	2537	3048.4	blue	blue
+	3184.4	11	3001	3184.4	blue	blue
+	3319.2	4	2469	3319.2	blue	blue
+	3333.6	11	3214.4	3333.6	blue	blue
+Completed 56 tasks.
+-------------------------------
+10 seed#32_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	3.9	5	0	3.9	blue	blue
+	18.4	2	0	18.4	blue	blue
+	28.1	1	0	28.1	blue	blue
+	35.2	4	0	35.2	blue	blue
+	157	7	0	157	blue	blue
+	181.4	2	48.4	181.4	blue	blue
+	248.5	0	0	248.5	blue	blue
+	621	4	65.2	621	blue	blue
+	714.2	0	278.5	714.2	blue	blue
+	1035.3	1	58.1	1035.3	blue	blue
+	1092.8	1	1065.3	1092.8	blue	blue
+	1107.6	2	211.4	1107.6	blue	blue
+	1123.9	7	187	1123.9	blue	blue
+	1137.7	2	1137.6	1137.7	blue	blue
+	1171.9	2	1167.7	1171.9	blue	blue
+	1179.9	1	1122.8	1179.9	blue	blue
+	1204.8	2	1201.9	1204.8	blue	blue
+	1336.2	4	651	1336.2	blue	blue
+	1481.3	3	0	1481.3	blue	blue
+	1511.5	3	1511.3	1511.5	blue	blue
+	1578.3	2	1234.8	1578.3	blue	blue
+	1608.1	4	1366.2	1608.1	blue	blue
+	1643	4	1638.1	1643	blue	blue
+	1668.7	3	1541.5	1668.7	blue	blue
+	1699.2	2	1608.3	1699.2	blue	blue
+	1712.2	3	1698.7	1712.2	blue	blue
+	1742.4	3	1742.2	1742.4	blue	blue
+	1772.6	3	1772.4	1772.6	blue	blue
+	1811	3	1802.6	1811	blue	blue
+	1832.4	1	1209.9	1832.4	blue	blue
+	1910.4	7	1153.9	1910.4	blue	blue
+	1929.6	2	1729.2	1929.6	blue	blue
+	1999.7	7	1940.4	1999.7	blue	blue
+	2060.6	1	1862.4	2060.6	blue	blue
+	2069.6	4	1673	2069.6	blue	blue
+	2076.8	2	1959.6	2076.8	blue	blue
+	2148	0	744.2	2148	blue	blue
+	2183.9	0	2178	2183.9	blue	blue
+	2275.6	7	2029.7	2275.6	blue	blue
+	2302.2	3	1841	2302.2	blue	blue
+	2316.2	7	2305.6	2316.2	blue	blue
+	2332.4	3	2332.2	2332.4	blue	blue
+	2346.4	7	2346.2	2346.4	blue	blue
+	2489.9	7	2376.4	2489.9	blue	blue
+	2635.1	2	2106.8	2635.1	blue	blue
+	2692.5	0	2213.9	2692.5	blue	blue
+	2781.8	0	2722.5	2781.8	blue	blue
+	2902.6	4	2099.6	2902.6	blue	blue
+	2915.2	0	2811.8	2915.2	blue	blue
+	3001.7	4	2932.6	3001.7	blue	blue
+	3173.6	0	2945.2	3173.6	blue	blue
+	3258.4	6	0	3258.4	blue	blue
+Completed 52 tasks.
+-------------------------------
+10 seed#33_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	0.8	9	0	0.8	blue	blue
+	0.8	10	0	0.8	blue	blue
+	18.6	8	0	18.6	blue	blue
+	66	8	48.6	66	blue	blue
+	86.8	4	0	86.8	blue	blue
+	104	6	0	104	blue	blue
+	177.1	8	96	177.1	blue	blue
+	200.4	4	116.8	200.4	blue	blue
+	208.2	8	207.1	208.2	blue	blue
+	359.8	2	0	359.8	blue	blue
+	397.4	1	0	397.4	blue	blue
+	627.3	2	389.8	627.3	blue	blue
+	708.3	3	0	708.3	blue	blue
+	738.5	3	738.3	738.5	blue	blue
+	768.7	3	768.5	768.7	blue	blue
+	772.7	2	657.3	772.7	blue	blue
+	798.9	3	798.7	798.9	blue	blue
+	835.1	2	802.7	835.1	blue	blue
+	985.2	3	828.9	985.2	blue	blue
+	1117.9	2	865.1	1117.9	blue	blue
+	1184.4	8	238.2	1184.4	blue	blue
+	1187.5	2	1147.9	1187.5	blue	blue
+	1196	1	427.4	1196	blue	blue
+	1268	3	1015.2	1268	blue	blue
+	1282.1	1	1226	1282.1	blue	blue
+	1299.2	3	1298	1299.2	blue	blue
+	1437.1	9	30.8	1437.1	blue	blue
+	1538.6	3	1329.2	1538.6	blue	blue
+	1560.3	4	230.4	1560.3	blue	blue
+	1576.9	3	1568.6	1576.9	blue	blue
+	1593.4	4	1590.3	1593.4	blue	blue
+	1728.8	8	1214.4	1728.8	blue	blue
+	1755.1	2	1217.5	1755.1	blue	blue
+	1824.4	1	1312.1	1824.4	blue	blue
+	1940.2	8	1758.8	1940.2	blue	blue
+	1968.4	3	1606.9	1968.4	blue	blue
+	2003.8	1	1854.4	2003.8	blue	blue
+	2186.8	3	1998.4	2186.8	blue	blue
+	2218.2	3	2216.8	2218.2	blue	blue
+	2248.5	3	2248.2	2248.5	blue	blue
+	2255	2	1785.1	2255	blue	blue
+	2278.7	3	2278.5	2278.7	blue	blue
+	2295.4	2	2285	2295.4	blue	blue
+	2333.2	1	2033.8	2333.2	blue	blue
+	2360.1	2	2325.4	2360.1	blue	blue
+	2393.1	10	30.8	2393.1	blue	blue
+	2441.6	3	2308.7	2441.6	blue	blue
+	2508.7	8	1970.2	2508.7	blue	blue
+	2566.7	8	2538.7	2566.7	blue	blue
+	2690.8	4	1623.4	2690.8	blue	blue
+	2906.6	1	2363.2	2906.6	blue	blue
+	2941	4	2720.8	2941	blue	blue
+	2944.9	8	2596.7	2944.9	blue	blue
+	2983.2	8	2974.9	2983.2	blue	blue
+	3068.2	3	2471.6	3068.2	blue	blue
+Completed 55 tasks.
+-------------------------------
+10 seed#34_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	0.3	9	0	0.3	blue	blue
+	22.9	6	0	22.9	blue	red
+	1355	15	0	1355	blue	blue
+	1552	15	1385	1552	blue	blue
+	2364.9	15	1582	2364.9	blue	blue
+	2726.4	15	2394.9	2726.4	blue	blue
+	2970.7	15	2756.4	2970.7	blue	blue
+Completed 7 tasks.
+-------------------------------
+10 seed#35_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+Completed 0 tasks.
+-------------------------------
+10 seed#36_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	1.1	5	0	1.1	blue	blue
+	713.4	12	0	713.4	blue	blue
+	743.5	12	743.4	743.5	blue	blue
+	842.4	4	0	842.4	blue	blue
+	1593.2	5	31.1	1593.2	blue	blue
+	1797.2	5	1623.2	1797.2	blue	blue
+	2152.1	12	773.5	2152.1	blue	blue
+	2202.8	4	872.4	2202.8	blue	blue
+	2762.5	12	2182.1	2762.5	blue	blue
+	2801.3	4	2232.8	2801.3	blue	blue
+	2838.7	4	2831.3	2838.7	blue	blue
+	3164.7	5	1827.2	3164.7	blue	blue
+	3253.6	5	3194.7	3253.6	blue	blue
+Completed 13 tasks.
+-------------------------------
+10 seed#37_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	1.3	10	0	1.3	blue	blue
+	4.1	4	0	4.1	blue	blue
+	56.8	10	31.3	56.8	blue	blue
+	112.1	1	0	112.1	blue	blue
+	329	11	0	329	blue	blue
+	349.9	4	34.1	349.9	blue	blue
+	364.5	11	359	364.5	blue	blue
+	412.3	5	0	412.3	blue	blue
+	437.6	2	0	437.6	blue	blue
+	483.6	1	142.1	483.6	blue	blue
+	600.9	2	467.6	600.9	blue	blue
+	631	2	630.9	631	blue	blue
+	644.7	7	0	644.7	blue	blue
+	803.3	1	513.6	803.3	blue	blue
+	806.1	11	394.5	806.1	blue	blue
+	958.4	7	674.7	958.4	blue	blue
+	984.6	2	661	984.6	blue	blue
+	1025.7	10	86.8	1025.7	blue	blue
+	1030.4	4	379.9	1030.4	blue	blue
+	1096.8	8	0	1096.8	blue	blue
+	1360	8	1126.8	1360	blue	blue
+	1423.9	8	1390	1423.9	blue	blue
+	1709.6	8	1453.9	1709.6	blue	blue
+	1797.3	7	988.4	1797.3	blue	blue
+	1866.8	7	1827.3	1866.8	blue	blue
+	1964.6	1	833.3	1964.6	blue	blue
+	2013.3	11	836.1	2013.3	blue	blue
+	2149.8	2	1014.6	2149.8	blue	blue
+	2227.5	7	1896.8	2227.5	blue	blue
+	2240.1	4	1060.4	2240.1	blue	blue
+	2288.6	8	1739.6	2288.6	blue	blue
+	2444.2	1	1994.6	2444.2	blue	blue
+	2455.8	5	442.3	2455.8	blue	blue
+	2475.3	7	2257.5	2475.3	blue	blue
+	2600.1	10	1055.7	2600.1	blue	blue
+	2694.7	7	2505.3	2694.7	blue	blue
+	2863.3	8	2318.6	2863.3	blue	blue
+	2925.4	8	2893.3	2925.4	blue	blue
+	2936.9	4	2270.1	2936.9	blue	blue
+	2955.5	8	2955.4	2955.5	blue	blue
+	3054.9	8	2985.5	3054.9	blue	blue
+	3186	8	3084.9	3186	blue	blue
+	3288.3	8	3216	3288.3	blue	blue
+	3312.8	5	2485.8	3312.8	blue	blue
+	3329	4	2966.9	3329	blue	blue
+	3452.9	8	3318.3	3452.9	blue	blue
+	3472.4	4	3359	3472.4	blue	blue
+	3485.6	8	3482.9	3485.6	blue	blue
+	3522.1	8	3515.6	3522.1	blue	blue
+	3539.4	4	3502.4	3539.4	blue	blue
+	3548.7	1	2474.2	3548.7	blue	blue
+Completed 51 tasks.
+-------------------------------
+10 seed#38_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+Completed 0 tasks.
+-------------------------------
+10 seed#39_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	1.5	5	0	1.5	blue	blue
+	1171.7	11	0	1171.7	blue	blue
+	1393.3	11	1201.7	1393.3	blue	blue
+	1497.2	11	1423.3	1497.2	blue	blue
+	1534.9	11	1527.2	1534.9	blue	blue
+	2350	11	1564.9	2350	blue	blue
+	3097.2	11	2380	3097.2	blue	blue
+	3322.5	11	3127.2	3322.5	blue	blue
+Completed 8 tasks.
+-------------------------------
+10 seed#40_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	545.9	15	0	545.9	blue	blue
+	1026.9	15	575.9	1026.9	blue	blue
+	1345.4	15	1056.9	1345.4	blue	blue
+	1375.6	15	1375.4	1375.6	blue	blue
+	1416.4	15	1405.6	1416.4	blue	blue
+	1446.6	15	1446.4	1446.6	blue	blue
+	1476.8	15	1476.6	1476.8	blue	blue
+	1766	3	0	1766	blue	blue
+	1898.6	3	1796	1898.6	blue	blue
+	2170.1	3	1928.6	2170.1	blue	blue
+	2249.5	3	2200.1	2249.5	blue	blue
+	2321.7	15	1506.8	2321.7	blue	blue
+	2356.8	15	2351.7	2356.8	blue	blue
+	2359.8	3	2279.5	2359.8	blue	blue
+	2398.3	3	2389.8	2398.3	blue	blue
+	2789.9	3	2428.3	2789.9	blue	blue
+	2823.7	3	2819.9	2823.7	blue	blue
+	3012.8	3	2853.7	3012.8	blue	blue
+	3277.8	3	3042.8	3277.8	blue	blue
+Completed 19 tasks.
+-------------------------------
+10 seed#41_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	1.5	6	0	1.5	blue	blue
+	343.6	11	0	343.6	blue	blue
+	1188.2	11	373.6	1188.2	blue	blue
+	1342.4	6	31.5	1342.4	blue	blue
+	1351.9	13	0	1351.9	blue	blue
+	1566.3	13	1381.9	1566.3	blue	blue
+	1766.8	13	1596.3	1766.8	blue	blue
+	2288.6	13	1796.8	2288.6	blue	blue
+	2431.5	13	2318.6	2431.5	blue	blue
+	2455.3	6	1372.4	2455.3	blue	blue
+	2987.3	11	1218.2	2987.3	blue	blue
+	3207.4	13	2461.5	3207.4	blue	blue
+	3362.4	11	3017.3	3362.4	blue	blue
+	3487.3	13	3237.4	3487.3	blue	blue
+Completed 14 tasks.
+-------------------------------
+10 seed#42_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	597.4	15	0	597.4	blue	blue
+	627.6	15	627.4	627.6	blue	blue
+	727	15	657.6	727	blue	blue
+	1334.4	11	0	1334.4	blue	blue
+	1809.9	11	1364.4	1809.9	blue	blue
+	1833	15	757	1833	blue	blue
+	1865.3	15	1863	1865.3	blue	blue
+	2559.4	11	1839.9	2559.4	blue	blue
+	2948.6	15	1895.3	2948.6	blue	blue
+	2981.7	15	2978.6	2981.7	blue	blue
+	3427.5	11	2589.4	3427.5	blue	blue
+Completed 11 tasks.
+-------------------------------
+10 seed#43_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	14	4	0	14	blue	blue
+	167.2	8	0	167.2	blue	blue
+	349.4	8	197.2	349.4	blue	blue
+	814.2	4	44	814.2	blue	blue
+	1254.2	12	0	1254.2	blue	red
+Completed 5 tasks.
+-------------------------------
+10 seed#44_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+Completed 0 tasks.
+-------------------------------
+10 seed#45_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	221.2	9	0	221.2	blue	blue
+	403.7	13	0	403.7	blue	blue
+	433.9	13	433.7	433.9	blue	blue
+	457.3	9	251.2	457.3	blue	blue
+	473.4	13	463.9	473.4	blue	blue
+	506.4	13	503.4	506.4	blue	blue
+	633.5	9	487.3	633.5	blue	blue
+	1209.5	9	663.5	1209.5	blue	blue
+	1295.6	13	536.4	1295.6	blue	blue
+	3352.5	13	1325.6	3352.5	blue	blue
+	3467.8	13	3382.5	3467.8	blue	blue
+Completed 11 tasks.
+-------------------------------
+10 seed#46_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	37.9	2	0	37.9	blue	blue
+	83.6	11	0	83.6	blue	blue
+	379	13	0	379	blue	blue
+	1424.5	2	67.9	1424.5	blue	blue
+	1464.2	2	1454.5	1464.2	blue	blue
+	1644.9	2	1494.2	1644.9	blue	blue
+	1996.4	13	409	1996.4	blue	blue
+	2072.7	13	2026.4	2072.7	blue	blue
+	2710.6	11	113.6	2710.6	blue	blue
+	2903.6	11	2740.6	2903.6	blue	blue
+	2969.8	13	2102.7	2969.8	blue	blue
+	3162.6	11	2933.6	3162.6	blue	blue
+	3227.5	13	2999.8	3227.5	blue	blue
+	3414.2	13	3257.5	3414.2	blue	blue
+	3506.9	13	3444.2	3506.9	blue	blue
+Completed 15 tasks.
+-------------------------------
+10 seed#47_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	720.3	7	0	720.3	blue	blue
+	1132.3	7	750.3	1132.3	blue	blue
+	1451.4	7	1162.3	1451.4	blue	blue
+	1481.6	7	1481.4	1481.6	blue	blue
+	1833	7	1511.6	1833	blue	blue
+	1919.2	7	1863	1919.2	blue	blue
+	2124.4	7	1949.2	2124.4	blue	blue
+	2725.5	7	2154.4	2725.5	blue	blue
+Completed 8 tasks.
+-------------------------------
+10 seed#48_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	0.4	10	0	0.4	blue	blue
+Completed 1 tasks.
+-------------------------------
+10 seed#49_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	365.1	3	0	365.1	blue	blue
+	401.6	3	395.1	401.6	blue	blue
+	752.4	11	0	752.4	blue	blue
+	1358.5	11	782.4	1358.5	blue	blue
+	1492.9	11	1388.5	1492.9	blue	blue
+	1577.4	3	431.6	1577.4	blue	blue
+	1591.2	11	1522.9	1591.2	blue	blue
+	1692.7	3	1607.4	1692.7	blue	blue
+	1733.2	3	1722.7	1733.2	blue	blue
+	1904.5	11	1621.2	1904.5	blue	blue
+	2018	3	1763.2	2018	blue	blue
+	2448.8	3	2048	2448.8	blue	blue
+	2459.2	11	1934.5	2459.2	blue	blue
+	2569.9	11	2489.2	2569.9	blue	blue
+	2676.6	11	2599.9	2676.6	blue	blue
+	2739.3	11	2706.6	2739.3	blue	blue
+	2802.3	3	2478.8	2802.3	blue	blue
+	3145.1	11	2769.3	3145.1	blue	blue
+	3191.8	3	2832.3	3191.8	blue	blue
+	3222	3	3221.8	3222	blue	blue
+	3276.2	11	3175.1	3276.2	blue	blue
+	3330.4	11	3306.2	3330.4	blue	blue
+	3471.3	3	3252	3471.3	blue	blue
+	3501.5	3	3501.3	3501.5	blue	blue
+Completed 24 tasks.
+-------------------------------
+10 seed#50_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	20.2	5	0	20.2	red	red
+	43.3	3	0	43.3	blue	blue
+	73.4	3	73.3	73.4	blue	blue
+	106.1	3	103.4	106.1	blue	blue
+	127.4	0	0	127.4	blue	blue
+	406.5	3	136.1	406.5	blue	blue
+	437.6	3	436.5	437.6	blue	blue
+	467.8	3	467.6	467.8	blue	blue
+	512.4	14	0	512.4	blue	blue
+	548.8	14	542.4	548.8	blue	blue
+	875.5	3	497.8	875.5	blue	blue
+	915.2	14	578.8	915.2	blue	blue
+	987.1	14	945.2	987.1	blue	blue
+	1067.9	0	157.4	1067.9	blue	blue
+	1163.2	14	1017.1	1163.2	blue	blue
+	1741.8	3	905.5	1741.8	blue	blue
+	1772	3	1771.8	1772	blue	blue
+	2083.6	0	1097.9	2083.6	blue	blue
+	2126	3	1802	2126	blue	blue
+	2253.1	3	2156	2253.1	blue	blue
+	2683.7	3	2283.1	2683.7	blue	blue
+	2710.9	0	2113.6	2710.9	blue	blue
+	2799.7	0	2740.9	2799.7	blue	blue
+	2862	0	2829.7	2862	blue	blue
+	2896.6	0	2892	2896.6	blue	blue
+	3069.4	0	2926.6	3069.4	blue	blue
+	3087.4	3	2713.7	3087.4	blue	blue
+	3141.8	0	3099.4	3141.8	blue	blue
+	3172.7	0	3171.8	3172.7	blue	blue
+	3524.9	0	3202.7	3524.9	blue	blue
+	3544.4	14	1193.2	3544.4	blue	blue
+	3559.7	0	3554.9	3559.7	blue	blue
+	3597.5	0	3589.7	3597.5	blue	blue
+Completed 33 tasks.
+-------------------------------
+15 seed#1_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	465.4	3	0	465.4	blue	blue
+	541.6	15	0	541.6	blue	blue
+	632.7	3	495.4	632.7	blue	blue
+	663.7	3	662.7	663.7	blue	blue
+	912.5	3	693.7	912.5	blue	blue
+	1043.6	3	942.5	1043.6	blue	blue
+	1131.4	3	1073.6	1131.4	blue	blue
+	1249.7	3	1161.4	1249.7	blue	blue
+	1279.8	3	1279.7	1279.8	blue	blue
+	1384	3	1309.8	1384	blue	blue
+	1427.8	15	571.6	1427.8	blue	blue
+	1543.3	15	1457.8	1543.3	blue	blue
+	1626.6	15	1573.3	1626.6	blue	blue
+	1919.6	3	1414	1919.6	blue	blue
+	1952.5	3	1949.6	1952.5	blue	blue
+	2033.3	15	1656.6	2033.3	blue	blue
+	2096.1	3	1982.5	2096.1	blue	blue
+	2276.7	3	2126.1	2276.7	blue	blue
+	2291.4	15	2063.3	2291.4	blue	blue
+	2316.8	3	2306.7	2316.8	blue	blue
+	2321.6	15	2321.4	2321.6	blue	blue
+	2347	3	2346.8	2347	blue	blue
+	2354.8	15	2351.6	2354.8	blue	blue
+	2388.5	15	2384.8	2388.5	blue	blue
+	2469	15	2418.5	2469	blue	blue
+	2514.1	15	2499	2514.1	blue	blue
+	2799.9	15	2544.1	2799.9	blue	blue
+	3021.1	15	2829.9	3021.1	blue	blue
+	3051.3	15	3051.1	3051.3	blue	blue
+	3081.4	15	3081.3	3081.4	blue	blue
+	3111.6	15	3111.4	3111.6	blue	blue
+Completed 31 tasks.
+-------------------------------
+15 seed#2_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+Completed 0 tasks.
+-------------------------------
+15 seed#3_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+Completed 0 tasks.
+-------------------------------
+15 seed#4_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+Completed 0 tasks.
+-------------------------------
+15 seed#5_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	56.2	3	0	56.2	blue	blue
+	86.3	3	86.2	86.3	blue	blue
+	116.5	3	116.3	116.5	blue	blue
+	146.7	3	146.5	146.7	blue	blue
+	199.5	15	0	199.5	blue	blue
+	220.9	3	176.7	220.9	blue	blue
+	338.8	15	229.5	338.8	blue	blue
+	401.3	15	368.8	401.3	blue	blue
+	446.5	15	431.3	446.5	blue	blue
+	481.9	15	476.5	481.9	blue	blue
+	527.3	15	511.9	527.3	blue	blue
+	567.8	15	557.3	567.8	blue	blue
+	994.3	3	250.9	994.3	blue	blue
+	1024.4	3	1024.3	1024.4	blue	blue
+	1208.9	15	597.8	1208.9	blue	blue
+	1239.1	15	1238.9	1239.1	blue	blue
+	1305.6	15	1269.1	1305.6	blue	blue
+	1335.8	15	1335.6	1335.8	blue	blue
+	1651	3	1054.4	1651	blue	blue
+	1698	15	1365.8	1698	blue	blue
+	1728.2	15	1728	1728.2	blue	blue
+	1758.4	15	1758.2	1758.4	blue	blue
+	1777.8	3	1681	1777.8	blue	blue
+	1969	3	1807.8	1969	blue	blue
+	2163	3	1999	2163	blue	blue
+	2198.7	3	2193	2198.7	blue	blue
+	2391.1	3	2228.7	2391.1	blue	blue
+	2421.3	3	2421.1	2421.3	blue	blue
+	2675.8	3	2451.3	2675.8	blue	blue
+	2705.9	3	2705.8	2705.9	blue	blue
+	2989.5	3	2735.9	2989.5	blue	blue
+	3066.8	15	1788.4	3066.8	blue	blue
+	3072.3	3	3019.5	3072.3	blue	blue
+	3097	15	3096.8	3097	blue	blue
+	3102.4	3	3102.3	3102.4	blue	blue
+	3127.2	15	3127	3127.2	blue	blue
+	3135	3	3132.4	3135	blue	blue
+	3157.3	15	3157.2	3157.3	blue	blue
+	3168.3	3	3165	3168.3	blue	blue
+	3198.5	3	3198.3	3198.5	blue	blue
+	3212.1	15	3187.3	3212.1	blue	blue
+	3247.6	15	3242.1	3247.6	blue	blue
+	3453.2	3	3228.5	3453.2	blue	blue
+	3498.6	3	3483.2	3498.6	blue	blue
+	3528.8	3	3528.6	3528.8	blue	blue
+	3559	3	3558.8	3559	blue	blue
+Completed 46 tasks.
+-------------------------------
+15 seed#6_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	10.2	10	0	10.2	blue	blue
+	741.6	15	0	741.6	blue	blue
+	990	15	771.6	990	blue	blue
+	1029.5	15	1020	1029.5	blue	blue
+	1258.1	15	1059.5	1258.1	blue	blue
+	1429.3	15	1288.1	1429.3	blue	blue
+	1459.5	15	1459.3	1459.5	blue	blue
+	1490.3	15	1489.5	1490.3	blue	blue
+	1520.5	15	1520.3	1520.5	blue	blue
+	2562.2	15	1550.5	2562.2	blue	blue
+	2963.6	15	2592.2	2963.6	blue	blue
+	3001	15	2993.6	3001	blue	blue
+	3031.2	15	3031	3031.2	blue	blue
+	3104.2	10	40.2	3104.2	blue	blue
+Completed 14 tasks.
+-------------------------------
+15 seed#7_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+Completed 0 tasks.
+-------------------------------
+15 seed#8_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	378.3	12	0	378.3	blue	blue
+	435.3	12	408.3	435.3	blue	blue
+	685.8	1	0	685.8	blue	blue
+	721.2	1	715.8	721.2	blue	blue
+	849.2	1	751.2	849.2	blue	blue
+	879.4	1	879.2	879.4	blue	blue
+	1603.5	12	465.3	1603.5	blue	blue
+	1617.6	1	909.4	1617.6	blue	blue
+	2114.8	12	1633.5	2114.8	blue	blue
+	2156.9	12	2144.8	2156.9	blue	blue
+	2421.9	12	2186.9	2421.9	blue	blue
+	2434.1	1	1647.6	2434.1	blue	blue
+	2460.6	12	2451.9	2460.6	blue	blue
+	2490.8	12	2490.6	2490.8	blue	blue
+	2625.2	12	2520.8	2625.2	blue	blue
+	2668.2	12	2655.2	2668.2	blue	blue
+	2698.3	12	2698.2	2698.3	blue	blue
+	2974	12	2728.3	2974	blue	blue
+	3453.9	12	3004	3453.9	blue	blue
+Completed 19 tasks.
+-------------------------------
+15 seed#9_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	501.8	15	0	501.8	blue	blue
+	743.3	15	531.9	743.3	blue	blue
+	983.9	15	773.3	983.9	blue	blue
+	1015	15	1013.9	1015	blue	blue
+	1045.1	15	1045	1045.1	blue	blue
+	1072.1	14	0	1072.1	blue	blue
+	1376.7	15	1075.1	1376.7	blue	blue
+	2046.3	15	1406.7	2046.3	blue	blue
+	2179.8	14	1102.1	2179.8	blue	blue
+	2258.3	15	2076.3	2258.3	blue	blue
+	2321.9	15	2288.3	2321.9	blue	blue
+	2352.8	15	2351.9	2352.8	blue	blue
+	2439.2	14	2209.8	2439.2	blue	blue
+	2480.8	14	2469.2	2480.8	blue	blue
+	2587.8	15	2382.8	2587.8	blue	blue
+	2610.2	14	2510.8	2610.2	blue	blue
+	2853.7	15	2617.8	2853.7	blue	blue
+Completed 17 tasks.
+-------------------------------
+15 seed#10_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	245.5	1	0	245.5	blue	blue
+	362.8	1	275.5	362.8	blue	blue
+	546.2	2	0	546.2	blue	blue
+	592.4	4	0	592.4	blue	blue
+	630.6	2	576.2	630.6	blue	blue
+	654.1	1	392.8	654.1	blue	blue
+	758.8	1	684.1	758.8	blue	blue
+	792.4	2	660.6	792.4	blue	blue
+	829.1	2	822.4	829.1	blue	blue
+	834.4	1	788.8	834.4	blue	blue
+	899.4	1	864.4	899.4	blue	blue
+	996.2	1	929.4	996.2	blue	blue
+	1026	2	859.1	1026	blue	blue
+	1178.7	2	1056	1178.7	blue	blue
+	1369.6	2	1208.7	1369.6	blue	blue
+	1422.1	1	1026.2	1422.1	blue	blue
+	1491.6	2	1399.6	1491.6	blue	blue
+	1740.8	2	1521.6	1740.8	blue	blue
+	1826.1	2	1770.8	1826.1	blue	blue
+	2388.4	2	1856.1	2388.4	blue	blue
+	2552.6	2	2418.4	2552.6	blue	blue
+	2996.9	4	622.4	2996.9	blue	blue
+	3040.9	4	3026.9	3040.9	blue	blue
+	3201.8	2	2582.6	3201.8	blue	blue
+	3251.5	2	3231.8	3251.5	blue	blue
+	3281.8	2	3281.5	3281.8	blue	blue
+	3352.8	2	3311.8	3352.8	blue	blue
+	3354.2	4	3070.9	3354.2	blue	blue
+Completed 28 tasks.
+-------------------------------
+15 seed#11_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	702.8	4	0	702.8	blue	blue
+	939.2	4	732.8	939.2	blue	blue
+	1305.7	4	969.2	1305.7	blue	blue
+	1403.6	4	1335.7	1403.6	blue	blue
+	1448.7	4	1433.6	1448.7	blue	blue
+	2200.1	4	1478.7	2200.1	blue	blue
+	2299	4	2230.1	2299	blue	blue
+	2414.9	4	2329	2414.9	blue	blue
+	3025.3	4	2444.9	3025.3	blue	blue
+	3189.8	4	3055.3	3189.8	blue	blue
+	3409.7	4	3219.8	3409.7	blue	blue
+	3440	4	3439.7	3440	blue	blue
+Completed 12 tasks.
+-------------------------------
+15 seed#12_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	161.5	15	0	161.5	blue	blue
+	191.7	15	191.5	191.7	blue	blue
+	193.1	4	0	193.1	blue	blue
+	638.5	4	223.1	638.5	blue	blue
+	735.1	4	668.5	735.1	blue	blue
+	828.2	4	765.1	828.2	blue	blue
+	858.3	4	858.2	858.3	blue	blue
+	1392.8	4	888.3	1392.8	blue	blue
+	1657.1	7	0	1657.1	blue	blue
+	1708.9	15	221.7	1708.9	blue	blue
+	1760.5	7	1687.1	1760.5	blue	blue
+	2077.2	4	1422.8	2077.2	blue	blue
+	2110	4	2107.2	2110	blue	blue
+	2269.1	7	1790.5	2269.1	blue	blue
+	2737	7	2299.1	2737	blue	blue
+	2825.5	4	2140	2825.5	blue	blue
+	2830.4	15	1738.9	2830.4	blue	blue
+	2868.2	15	2860.4	2868.2	blue	blue
+	2921.2	4	2855.5	2921.2	blue	blue
+	2951.5	4	2951.2	2951.5	blue	blue
+	3167.7	7	2767	3167.7	blue	blue
+	3563.7	7	3197.7	3563.7	blue	blue
+Completed 22 tasks.
+-------------------------------
+15 seed#13_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	43.8	8	0	43.8	blue	blue
+	430.5	8	73.8	430.5	blue	blue
+	556.5	8	460.5	556.5	blue	blue
+	672.2	8	586.5	672.2	blue	blue
+	956.2	8	702.2	956.2	blue	blue
+	1191.3	8	986.2	1191.3	blue	blue
+	1236	8	1221.3	1236	blue	blue
+	1945.1	8	1266	1945.1	blue	blue
+	1975.4	8	1975.1	1975.4	blue	blue
+	2041.5	8	2005.4	2041.5	blue	blue
+	2078.8	8	2071.5	2078.8	blue	blue
+	2631.7	8	2108.8	2631.7	blue	blue
+	2806.3	8	2661.7	2806.3	blue	blue
+	2969.1	8	2836.3	2969.1	blue	blue
+	3042.5	8	2999.1	3042.5	blue	blue
+	3212.1	8	3072.5	3212.1	blue	blue
+Completed 16 tasks.
+-------------------------------
+15 seed#14_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	180.1	12	0	180.1	blue	blue
+	222	12	210.1	222	blue	blue
+	252.2	12	252	252.2	blue	blue
+	425.8	12	282.2	425.8	blue	blue
+	456	12	455.8	456	blue	blue
+	531.9	12	486	531.9	blue	blue
+	562.1	12	561.9	562.1	blue	blue
+	592.2	12	592.1	592.2	blue	blue
+	622.4	12	622.2	622.4	blue	blue
+	755.7	5	0	755.7	blue	blue
+	977.4	12	652.4	977.4	blue	blue
+	1287.2	12	1007.4	1287.2	blue	blue
+	1331.9	12	1317.2	1331.9	blue	blue
+	1372.3	12	1361.9	1372.3	blue	blue
+	1902	12	1402.3	1902	blue	blue
+	2854.2	12	1932	2854.2	blue	blue
+	3348.1	12	2884.2	3348.1	blue	blue
+Completed 17 tasks.
+-------------------------------
+15 seed#15_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	2.3	6	0	2.3	blue	blue
+	3.1	9	0	3.1	blue	blue
+	266.5	7	0	266.5	blue	blue
+	428.6	9	33.1	428.6	blue	blue
+	1673.5	7	296.5	1673.5	blue	blue
+	2069.9	7	1703.5	2069.9	blue	blue
+	2109.2	7	2099.9	2109.2	blue	blue
+	2591.4	6	32.4	2591.4	blue	blue
+	2736.4	7	2139.2	2736.4	blue	blue
+	3136.4	9	458.6	3136.4	blue	blue
+Completed 10 tasks.
+-------------------------------
+15 seed#16_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	7	9	0	7	blue	blue
+	250	12	0	250	blue	blue
+	440.2	9	37	440.2	blue	blue
+	722.1	12	280	722.1	blue	blue
+	874.7	12	752.1	874.7	blue	blue
+	1243.1	12	904.7	1243.1	blue	blue
+	1310.9	9	470.2	1310.9	blue	blue
+	1724.4	9	1340.9	1724.4	blue	blue
+	1745	12	1273.1	1745	blue	blue
+	1888.7	12	1775	1888.7	blue	blue
+	1924.6	12	1918.7	1924.6	blue	blue
+	2953.6	9	1754.4	2953.6	blue	blue
+	2985.5	12	1954.6	2985.5	blue	blue
+	3187.4	9	2983.6	3187.4	blue	blue
+	3314.6	12	3015.5	3314.6	blue	blue
+Completed 15 tasks.
+-------------------------------
+15 seed#17_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+Completed 0 tasks.
+-------------------------------
+15 seed#18_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	253.2	15	0	253.2	blue	blue
+	285.6	15	283.2	285.6	blue	blue
+	396.9	15	315.6	396.9	blue	blue
+	764.5	15	426.9	764.5	blue	blue
+	877.9	15	794.5	877.9	blue	blue
+	1009.8	15	907.9	1009.8	blue	blue
+	1191.2	15	1039.8	1191.2	blue	blue
+	1838	15	1221.2	1838	blue	blue
+	1872	15	1868	1872	blue	blue
+	1978.5	15	1902	1978.5	blue	blue
+	2331.2	15	2008.5	2331.2	blue	blue
+	3058.2	15	2361.2	3058.2	blue	blue
+	3129.2	15	3088.2	3129.2	blue	blue
+Completed 13 tasks.
+-------------------------------
+15 seed#19_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	1.9	5	0	1.9	blue	blue
+	38.2	3	0	38.2	blue	blue
+	68.4	3	68.2	68.4	blue	blue
+	201.4	13	0	201.4	blue	blue
+	243.7	13	231.4	243.7	blue	blue
+	533.3	3	98.4	533.3	blue	blue
+	904.5	3	563.3	904.5	blue	blue
+	937	3	934.5	937	blue	blue
+	1099.8	3	967	1099.8	blue	blue
+	1156	3	1129.8	1156	blue	blue
+	1190.4	3	1186	1190.4	blue	blue
+	1775.9	13	273.7	1775.9	blue	blue
+	1987.7	5	31.9	1987.7	blue	blue
+	2515.6	13	1805.9	2515.6	blue	blue
+	2732.5	3	1220.4	2732.5	blue	blue
+	2772	3	2762.5	2772	blue	blue
+	2802.1	3	2802	2802.1	blue	blue
+	2909.5	13	2545.6	2909.5	blue	blue
+	3424.6	3	2832.1	3424.6	blue	blue
+	3454.8	3	3454.6	3454.8	blue	blue
+	3484.9	3	3484.8	3484.9	blue	blue
+Completed 21 tasks.
+-------------------------------
+15 seed#20_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	0.9	9	0	0.9	blue	blue
+	203.4	9	30.9	203.4	blue	blue
+	440.5	3	0	440.5	blue	blue
+	568.8	3	470.5	568.8	blue	blue
+	652.5	3	598.8	652.5	blue	blue
+	682.6	3	682.5	682.6	blue	blue
+	731	9	233.4	731	blue	blue
+	829.9	3	712.6	829.9	blue	blue
+	932.7	9	761	932.7	blue	blue
+	1282.6	3	859.9	1282.6	blue	blue
+	1687	3	1312.6	1687	blue	blue
+	1751.5	3	1717	1751.5	blue	blue
+	1832.7	3	1781.5	1832.7	blue	blue
+	1936	3	1862.7	1936	blue	blue
+	2752	3	1966	2752	blue	blue
+	2801.3	3	2782	2801.3	blue	blue
+	3266.8	3	2831.3	3266.8	blue	blue
+	3296.9	3	3296.8	3296.9	blue	blue
+	3327.1	3	3326.9	3327.1	blue	blue
+	3357.3	3	3357.1	3357.3	blue	blue
+Completed 20 tasks.
+-------------------------------
+15 seed#21_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+Completed 0 tasks.
+-------------------------------
+15 seed#22_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	4.8	5	0	4.8	blue	blue
+	5.2	6	0	5.2	blue	blue
+	31.3	4	0	31.3	blue	blue
+	61.3	0	0	61.3	blue	blue
+	108.7	8	0	108.7	blue	blue
+	164.5	0	91.3	164.5	blue	blue
+	281.1	5	34.9	281.1	blue	blue
+	296.2	2	0	296.2	blue	blue
+	325.4	7	0	325.4	blue	blue
+	331.5	2	326.2	331.5	blue	blue
+	408.6	1	0	408.6	blue	blue
+	556.8	8	138.8	556.8	blue	blue
+	569.8	2	361.5	569.8	blue	blue
+	629.7	1	438.6	629.7	blue	blue
+	685.2	0	194.5	685.2	blue	blue
+	745.9	2	599.8	745.9	blue	blue
+	757.6	4	61.4	757.6	blue	blue
+	843.5	1	659.7	843.5	blue	blue
+	867.8	7	355.4	867.8	blue	blue
+	868.2	8	586.8	868.2	blue	blue
+	1005.7	8	898.2	1005.7	blue	blue
+	1025.2	4	787.6	1025.2	blue	blue
+	1059.8	8	1035.7	1059.8	blue	blue
+	1081.8	7	897.8	1081.8	blue	blue
+	1137.6	7	1111.8	1137.6	blue	blue
+	1180.4	7	1167.6	1180.4	blue	blue
+	1320.3	5	311.1	1320.3	blue	blue
+	1463.5	1	873.5	1463.5	blue	blue
+	1513.6	8	1089.8	1513.6	blue	blue
+	1528.3	2	775.9	1528.3	blue	blue
+	1537	1	1493.5	1537	blue	blue
+	1550.7	8	1543.6	1550.7	blue	blue
+	1557.4	4	1055.2	1557.4	blue	blue
+	1577.8	1	1567	1577.8	blue	blue
+	1593.7	4	1587.4	1593.7	blue	blue
+	1607.1	8	1580.7	1607.1	blue	blue
+	1634.4	4	1623.7	1634.4	blue	blue
+	1647.4	2	1558.3	1647.4	blue	blue
+	1660.6	5	1350.3	1660.6	blue	blue
+	1677.9	4	1664.4	1677.9	blue	blue
+	1776.3	1	1607.8	1776.3	blue	blue
+	1790.9	8	1637.1	1790.9	blue	blue
+	1807.9	4	1707.9	1807.9	blue	blue
+	1960.1	7	1210.4	1960.1	blue	blue
+	1996.8	2	1677.4	1996.8	blue	blue
+	2020	0	715.2	2020	blue	blue
+	2060.2	2	2026.8	2060.2	blue	blue
+	2072.1	6	35.2	2072.1	blue	blue
+	2121.3	8	1820.9	2121.3	blue	blue
+	2131	2	2090.2	2131	blue	blue
+	2199.8	0	2050	2199.8	blue	blue
+	2293	2	2161	2293	blue	blue
+	2349.4	7	1990.1	2349.4	blue	blue
+	2419.9	7	2379.4	2419.9	blue	blue
+	2451.1	4	1837.9	2451.1	blue	blue
+	2537.1	0	2229.8	2537.1	blue	blue
+	2574.3	4	2481.1	2574.3	blue	blue
+	2582.3	0	2567.1	2582.3	blue	blue
+	2623.6	8	2151.3	2623.6	blue	blue
+	2706.7	1	1806.3	2706.7	blue	blue
+	2750.4	0	2612.3	2750.4	blue	blue
+	2762.4	1	2736.7	2762.4	blue	blue
+	2772.6	4	2604.3	2772.6	blue	blue
+	2779.2	5	1690.6	2779.2	blue	blue
+	2786.2	2	2323	2786.2	blue	blue
+	2883	0	2780.4	2883	blue	blue
+	2884.1	2	2816.2	2884.1	blue	blue
+	2895.4	1	2792.4	2895.4	blue	blue
+	2940.5	1	2925.4	2940.5	blue	blue
+	2952.2	0	2913	2952.2	blue	blue
+	2987.8	8	2653.6	2987.8	blue	blue
+	3040.3	8	3017.8	3040.3	blue	blue
+	3043.8	0	2982.2	3043.8	blue	blue
+	3105.3	4	2802.6	3105.3	blue	blue
+	3124.9	1	2970.5	3124.9	blue	blue
+	3135.6	0	3073.8	3135.6	blue	blue
+	3170	1	3154.9	3170	blue	blue
+	3186.7	2	2914.1	3186.7	blue	blue
+	3203.6	0	3165.6	3203.6	blue	blue
+	3237.7	5	2809.2	3237.7	blue	blue
+	3249.6	7	2449.9	3249.6	blue	blue
+	3266.8	6	2102.1	3266.8	blue	blue
+	3331.4	4	3135.3	3331.4	blue	blue
+	3353.4	5	3267.7	3353.4	blue	blue
+	3394.8	0	3233.6	3394.8	blue	blue
+	3462.4	4	3361.4	3462.4	blue	blue
+	3502.7	0	3424.8	3502.7	blue	blue
+	3517.3	2	3216.7	3517.3	blue	blue
+	3522.2	1	3200	3522.2	blue	blue
+	3527.5	8	3070.3	3527.5	blue	blue
+	3541.2	0	3532.7	3541.2	blue	blue
+	3553.8	4	3492.4	3553.8	blue	blue
+	3572.1	8	3557.5	3572.1	blue	blue
+Completed 93 tasks.
+-------------------------------
+15 seed#23_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	0.4	6	0	0.4	blue	blue
+	11.9	2	0	11.9	blue	blue
+	260.6	6	30.4	260.6	blue	blue
+	1752.5	2	41.9	1752.5	blue	blue
+	2108.9	2	1782.5	2108.9	blue	blue
+	2900.7	2	2138.9	2900.7	blue	blue
+	3409.9	2	2930.7	3409.9	blue	blue
+	3441.3	6	290.6	3441.3	blue	blue
+Completed 8 tasks.
+-------------------------------
+15 seed#24_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	593.3	11	0	593.3	blue	blue
+	959.1	11	623.3	959.1	blue	blue
+	1512.7	11	989.1	1512.7	blue	blue
+	1560.8	13	0	1560.8	blue	blue
+	1981	11	1542.7	1981	blue	blue
+	2129.6	11	2011	2129.6	blue	blue
+	2160.3	11	2159.6	2160.3	blue	blue
+	2445.2	11	2190.3	2445.2	blue	blue
+	2487.1	13	1590.8	2487.1	blue	blue
+	2734.7	11	2475.2	2734.7	blue	blue
+	3318.7	13	2517.1	3318.7	blue	blue
+	3363.1	13	3348.7	3363.1	blue	blue
+	3386.6	11	2764.7	3386.6	blue	blue
+	3423.6	13	3393.1	3423.6	blue	blue
+	3466.1	13	3453.6	3466.1	blue	blue
+	3506	11	3416.6	3506	blue	blue
+Completed 16 tasks.
+-------------------------------
+15 seed#25_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+Completed 0 tasks.
+-------------------------------
+15 seed#26_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	0.2	10	0	0.2	blue	blue
+	2.1	6	0	2.1	blue	blue
+	5.1	9	0	5.1	blue	blue
+	16.2	11	0	16.2	blue	blue
+	17.2	0	0	17.2	blue	blue
+	49.3	0	47.2	49.3	blue	blue
+	110.1	11	46.2	110.1	blue	blue
+	145.4	2	0	145.4	blue	blue
+	158.6	10	30.2	158.6	blue	blue
+	236.3	2	175.4	236.3	blue	blue
+	287.9	0	79.3	287.9	blue	blue
+	318.1	0	317.9	318.1	blue	blue
+	358	0	348.1	358	blue	blue
+	388.2	0	388	388.2	blue	blue
+	423.3	9	35.1	423.3	blue	blue
+	423.6	0	418.2	423.6	blue	blue
+	466.3	0	453.6	466.3	blue	blue
+	473.9	9	453.3	473.9	blue	blue
+	496.4	0	496.3	496.4	blue	blue
+	535.2	2	266.3	535.2	blue	blue
+	583	11	140.1	583	blue	blue
+	625.8	4	0	625.8	blue	blue
+	659	2	565.2	659	blue	blue
+	690.3	2	689	690.3	blue	blue
+	746.9	11	613	746.9	blue	blue
+	771	4	655.8	771	blue	blue
+	880.7	0	526.4	880.7	blue	blue
+	882.3	8	0	882.3	blue	blue
+	895	11	776.9	895	blue	blue
+	910.8	0	910.7	910.8	blue	blue
+	930.6	11	925	930.6	blue	blue
+	972.5	11	960.6	972.5	blue	blue
+	1005.6	2	720.3	1005.6	blue	blue
+	1042.8	11	1002.5	1042.8	blue	blue
+	1182.3	2	1035.7	1182.3	blue	blue
+	1195.8	6	32.1	1195.8	blue	blue
+	1229.8	4	801	1229.8	blue	blue
+	1230.6	11	1072.8	1230.6	blue	blue
+	1238.7	8	912.3	1238.7	blue	blue
+	1240	6	1225.8	1240	blue	blue
+	1247.2	9	503.9	1247.2	blue	blue
+	1343.3	0	940.8	1343.3	blue	blue
+	1393.1	8	1268.7	1393.1	blue	blue
+	1434.3	6	1270	1434.3	blue	blue
+	1460.8	2	1212.3	1460.8	blue	blue
+	1493.4	6	1464.3	1493.4	blue	blue
+	1503	2	1490.8	1503	blue	blue
+	1508.2	0	1373.3	1508.2	blue	blue
+	1526	10	188.6	1526	blue	blue
+	1549.2	4	1259.8	1549.2	blue	blue
+	1551.1	0	1538.2	1551.1	blue	blue
+	1552.8	6	1523.4	1552.8	blue	blue
+	1593.1	4	1579.2	1593.1	blue	blue
+	1640.4	2	1533	1640.4	blue	blue
+	1672.4	0	1581.1	1672.4	blue	blue
+	1686.3	2	1670.4	1686.3	blue	blue
+	1757.8	11	1260.6	1757.8	blue	blue
+	1761.7	9	1277.2	1761.7	blue	blue
+	1865.6	2	1716.3	1865.6	blue	blue
+	1866.1	11	1787.8	1866.1	blue	blue
+	1910.3	8	1423.1	1910.3	blue	blue
+	1951.4	2	1895.6	1951.4	blue	blue
+	1962.9	11	1896.1	1962.9	blue	blue
+	2006.4	11	1992.9	2006.4	blue	blue
+	2049.3	11	2036.4	2049.3	blue	blue
+	2059	2	1981.4	2059	blue	blue
+	2149.8	6	1582.8	2149.8	blue	blue
+	2185.1	2	2089	2185.1	blue	blue
+	2194.3	6	2179.8	2194.3	blue	blue
+	2200.1	11	2079.3	2200.1	blue	blue
+	2227.3	4	1623.1	2227.3	blue	blue
+	2236.9	11	2230.1	2236.9	blue	blue
+	2306.5	2	2215.1	2306.5	blue	blue
+	2316.7	4	2257.3	2316.7	blue	blue
+	2328.3	0	1702.4	2328.3	blue	blue
+	2358.5	0	2358.3	2358.5	blue	blue
+	2383.1	2	2336.5	2383.1	blue	blue
+	2506.1	11	2266.9	2506.1	blue	blue
+	2765.9	9	1791.7	2765.9	blue	blue
+	2792.8	2	2413.1	2792.8	blue	blue
+	2828.1	8	1940.3	2828.1	blue	blue
+	2841.1	11	2536.1	2841.1	blue	blue
+	2842.5	6	2224.3	2842.5	blue	blue
+	2899.6	4	2346.7	2899.6	blue	blue
+	3040.6	0	2388.5	3040.6	blue	blue
+	3070.9	0	3070.6	3070.9	blue	blue
+	3101.9	0	3100.9	3101.9	blue	blue
+	3144.8	0	3131.9	3144.8	blue	blue
+	3237.5	10	1556	3237.5	blue	blue
+	3249.9	9	2795.9	3249.9	blue	blue
+	3319	0	3174.8	3319	blue	blue
+	3349.2	0	3349	3349.2	blue	blue
+	3349.2	4	2929.6	3349.2	blue	blue
+	3371.8	2	2822.8	3371.8	blue	blue
+	3379.4	4	3379.2	3379.4	blue	blue
+	3417.9	2	3401.8	3417.9	blue	blue
+	3455.5	2	3447.9	3455.5	blue	blue
+	3498.6	2	3485.5	3498.6	blue	blue
+	3531.2	11	2871.1	3531.2	blue	blue
+Completed 99 tasks.
+-------------------------------
+15 seed#27_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+Completed 0 tasks.
+-------------------------------
+15 seed#28_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	55.2	10	0	55.2	red	blue
+	495.9	4	0	495.9	blue	blue
+	591.9	2	0	591.9	blue	blue
+	612.2	4	525.9	612.2	blue	blue
+	1178.2	13	0	1178.2	blue	blue
+	1360	4	642.2	1360	blue	blue
+	1442.7	2	621.9	1442.7	blue	blue
+	2149.7	13	1208.2	2149.7	blue	blue
+	2274	2	1472.7	2274	blue	blue
+	2640.7	13	2179.7	2640.7	blue	blue
+	2836	4	1390	2836	blue	blue
+	3048.4	2	2304	3048.4	blue	blue
+	3078.5	2	3078.4	3078.5	blue	blue
+Completed 13 tasks.
+-------------------------------
+15 seed#29_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+Completed 0 tasks.
+-------------------------------
+15 seed#30_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	567.7	11	0	567.7	blue	blue
+	733.5	11	597.7	733.5	blue	blue
+	750.4	15	0	750.4	blue	blue
+	780.5	15	780.4	780.5	blue	blue
+	990.1	11	763.5	990.1	blue	blue
+	1085.7	15	810.5	1085.7	blue	blue
+	2042.6	11	1020.1	2042.6	blue	blue
+	2056.3	15	1115.7	2056.3	blue	blue
+	2199.3	11	2072.6	2199.3	blue	blue
+	2204.1	15	2086.3	2204.1	blue	blue
+	2574.9	11	2229.3	2574.9	blue	blue
+	2635.6	11	2604.9	2635.6	blue	blue
+	2798.3	11	2665.6	2798.3	blue	blue
+	2834.8	15	2234.1	2834.8	blue	blue
+	2865.1	15	2864.8	2865.1	blue	blue
+	2909.1	15	2895.1	2909.1	blue	blue
+	2914.8	11	2828.3	2914.8	blue	blue
+	2939.2	15	2939.1	2939.2	blue	blue
+	3210.5	15	2969.2	3210.5	blue	blue
+	3251.7	15	3240.5	3251.7	blue	blue
+Completed 20 tasks.
+-------------------------------
+15 seed#31_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	1.7	9	0	1.7	blue	blue
+	9.9	10	0	9.9	blue	blue
+	28.9	14	0	28.9	blue	blue
+	33.2	1	0	33.2	blue	blue
+	114	4	0	114	blue	blue
+	194.6	2	0	194.6	blue	blue
+	234.9	11	0	234.9	blue	blue
+	256.8	4	144	256.8	blue	blue
+	265.4	2	224.6	265.4	blue	blue
+	304.4	2	295.4	304.4	blue	blue
+	365.4	1	63.2	365.4	blue	blue
+	476.3	1	395.4	476.3	blue	blue
+	500.8	8	0	500.8	blue	blue
+	559.1	1	506.3	559.1	blue	blue
+	703.3	14	58.9	703.3	blue	blue
+	707.8	1	589.1	707.8	blue	blue
+	874.5	11	265	874.5	blue	blue
+	879	8	530.9	879	blue	blue
+	908.4	14	733.3	908.4	blue	blue
+	931.4	2	334.4	931.4	blue	blue
+	1029.8	9	31.7	1029.8	blue	blue
+	1152.6	1	737.8	1152.6	blue	blue
+	1172.9	11	904.5	1172.9	blue	blue
+	1185.8	1	1182.6	1185.8	blue	blue
+	1234.5	4	286.8	1234.5	blue	blue
+	1277.3	4	1264.5	1277.3	blue	blue
+	1293.6	8	909	1293.6	blue	blue
+	1338.8	2	961.4	1338.8	blue	blue
+	1379.9	14	938.4	1379.9	blue	blue
+	1533.3	8	1323.6	1533.3	blue	blue
+	1558.5	4	1307.3	1558.5	blue	blue
+	1586.5	9	1059.8	1586.5	blue	blue
+	1630.3	14	1409.9	1630.3	blue	blue
+	1660.6	9	1616.5	1660.6	blue	blue
+	1668.1	14	1660.3	1668.1	blue	blue
+	1780.6	1	1215.8	1780.6	blue	blue
+	1882.4	10	39.9	1882.4	blue	blue
+	1896.7	2	1368.8	1896.7	blue	blue
+	1926.2	8	1563.3	1926.2	blue	blue
+	1945	11	1202.9	1945	blue	blue
+	1947.2	4	1588.5	1947.2	blue	blue
+	1992.4	4	1977.2	1992.4	blue	blue
+	2109.7	14	1698.1	2109.7	blue	blue
+	2190.5	2	1926.7	2190.5	blue	blue
+	2284.8	8	1956.2	2284.8	blue	blue
+	2304.6	9	1690.6	2304.6	blue	blue
+	2313.7	1	1810.6	2313.7	blue	blue
+	2379.7	1	2343.7	2379.7	blue	blue
+	2394.4	14	2139.7	2394.4	blue	blue
+	2397.1	8	2314.8	2397.1	blue	blue
+	2410.4	9	2334.6	2410.4	blue	blue
+	2442.1	1	2409.7	2442.1	blue	blue
+	2443.8	14	2424.4	2443.8	blue	blue
+	2476	9	2440.4	2476	blue	blue
+	2597.2	14	2473.8	2597.2	blue	blue
+	2668.3	2	2220.5	2668.3	blue	blue
+	2674.1	11	1975	2674.1	blue	blue
+	2686.3	1	2472.1	2686.3	blue	blue
+	2711.2	2	2698.3	2711.2	blue	blue
+	2821.9	4	2022.4	2821.9	blue	blue
+	2836.4	11	2704.1	2836.4	blue	blue
+	2842.4	2	2741.2	2842.4	blue	blue
+	2875.5	11	2866.4	2875.5	blue	blue
+	2955.9	2	2872.4	2955.9	blue	blue
+	2987.1	1	2716.3	2987.1	blue	blue
+	3043.3	1	3017.1	3043.3	blue	blue
+	3063.1	2	2985.9	3063.1	blue	blue
+	3103.1	8	2427.1	3103.1	blue	blue
+	3156.4	14	2627.2	3156.4	blue	blue
+	3197.9	1	3073.3	3197.9	blue	blue
+	3202	14	3186.4	3202	blue	blue
+	3213	4	2851.9	3213	blue	blue
+	3217.3	2	3093.1	3217.3	blue	blue
+	3229.3	1	3227.9	3229.3	blue	blue
+	3339.5	8	3133.1	3339.5	blue	blue
+	3411.1	9	2506	3411.1	blue	blue
+	3434.6	8	3369.5	3434.6	blue	blue
+	3451	2	3247.3	3451	blue	blue
+	3591.1	8	3464.6	3591.1	blue	blue
+Completed 79 tasks.
+-------------------------------
+15 seed#32_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	0.8	6	0	0.8	blue	blue
+	14.4	5	0	14.4	blue	blue
+	31.5	4	0	31.5	blue	blue
+	49.6	0	0	49.6	blue	blue
+	79.8	0	79.7	79.8	blue	blue
+	106.2	4	61.5	106.2	blue	blue
+	194.1	1	0	194.1	blue	blue
+	207.8	5	44.4	207.8	blue	blue
+	273.8	2	0	273.8	blue	blue
+	315.6	0	109.8	315.6	blue	blue
+	345.7	0	345.6	345.7	blue	blue
+	364.5	3	0	364.5	blue	blue
+	377.3	5	237.8	377.3	blue	blue
+	381.7	0	375.7	381.7	blue	blue
+	411.2	1	224.1	411.2	blue	blue
+	418.8	5	407.3	418.8	blue	blue
+	426	0	411.7	426	blue	blue
+	443.5	4	136.3	443.5	blue	blue
+	486.3	4	473.5	486.3	blue	blue
+	495.6	0	456	495.6	blue	blue
+	530.2	6	30.8	530.2	blue	blue
+	536.9	3	394.5	536.9	blue	blue
+	567	3	566.9	567	blue	blue
+	599.4	3	597	599.4	blue	blue
+	623.6	1	441.2	623.6	blue	blue
+	694.5	7	0	694.5	blue	blue
+	706.2	2	303.8	706.2	blue	blue
+	725.8	3	629.4	725.8	blue	blue
+	751	2	736.2	751	blue	blue
+	751.3	4	516.4	751.3	blue	blue
+	752.1	7	724.5	752.1	blue	blue
+	761.7	3	755.8	761.7	blue	blue
+	777.8	6	560.2	777.8	blue	blue
+	791.9	2	781	791.9	blue	blue
+	835.6	2	821.9	835.6	blue	blue
+	862.4	0	525.6	862.4	blue	blue
+	934.4	4	781.3	934.4	blue	blue
+	952.8	0	892.4	952.8	blue	blue
+	976.2	4	964.4	976.2	blue	blue
+	982.1	6	807.8	982.1	blue	blue
+	983.2	0	982.8	983.2	blue	blue
+	1013.3	0	1013.2	1013.3	blue	blue
+	1028.1	4	1006.2	1028.1	blue	blue
+	1043.5	0	1043.3	1043.5	blue	blue
+	1057.8	1	653.6	1057.8	blue	blue
+	1078.4	2	865.6	1078.4	blue	blue
+	1100.1	3	791.7	1100.1	blue	blue
+	1119	4	1058.1	1119	blue	blue
+	1178.4	3	1130.1	1178.4	blue	blue
+	1208.5	2	1108.4	1208.5	blue	blue
+	1208.5	3	1208.4	1208.5	blue	blue
+	1238.7	2	1238.5	1238.7	blue	blue
+	1255.6	7	782.1	1255.6	blue	blue
+	1324.1	0	1073.5	1324.1	blue	blue
+	1343.2	4	1149	1343.2	blue	blue
+	1407.5	4	1373.2	1407.5	blue	blue
+	1420.4	0	1354.1	1420.4	blue	blue
+	1461.9	0	1450.4	1461.9	blue	blue
+	1475.5	4	1437.5	1475.5	blue	blue
+	1492.1	0	1491.9	1492.1	blue	blue
+	1515.2	4	1505.5	1515.2	blue	blue
+	1524.9	0	1522.1	1524.9	blue	blue
+	1543	3	1238.5	1543	blue	blue
+	1555.1	0	1554.9	1555.1	blue	blue
+	1585.3	0	1585.1	1585.3	blue	blue
+	1620	1	1087.8	1620	blue	blue
+	1676.6	7	1285.6	1676.6	blue	blue
+	1923.9	1	1650	1923.9	blue	blue
+	1994.1	0	1615.3	1994.1	blue	blue
+	1994.1	5	448.8	1994.1	blue	blue
+	2097.4	4	1545.2	2097.4	blue	blue
+	2123	0	2024.1	2123	blue	blue
+	2144.4	2	1268.7	2144.4	blue	blue
+	2185.8	2	2174.4	2185.8	blue	blue
+	2211.8	1	1953.9	2211.8	blue	blue
+	2308.8	4	2127.4	2308.8	blue	blue
+	2485.6	0	2153	2485.6	blue	blue
+	2534.3	7	1706.6	2534.3	blue	blue
+	2553.4	0	2515.6	2553.4	blue	blue
+	2591.1	0	2583.4	2591.1	blue	blue
+	2599.6	3	1573	2599.6	blue	blue
+	2625.7	1	2241.8	2625.7	blue	blue
+	2629.7	3	2629.6	2629.7	blue	blue
+	2668.8	3	2659.7	2668.8	blue	blue
+	2699	3	2698.8	2699	blue	blue
+	2726.9	7	2564.3	2726.9	blue	blue
+	2729.3	3	2729	2729.3	blue	blue
+	2750.1	4	2338.8	2750.1	blue	blue
+	2752.7	2	2215.8	2752.7	blue	blue
+	2767.7	3	2759.3	2767.7	blue	blue
+	2789.2	2	2782.7	2789.2	blue	blue
+	2806.7	3	2797.7	2806.7	blue	blue
+	2822.3	1	2655.7	2822.3	blue	blue
+	2824.8	2	2819.2	2824.8	blue	blue
+	2836.1	6	1012.1	2836.1	blue	blue
+	2852.4	1	2852.3	2852.4	blue	blue
+	2853.3	0	2621.1	2853.3	blue	blue
+	2883.6	0	2883.3	2883.6	blue	blue
+	2940.5	7	2756.9	2940.5	blue	blue
+	2959.5	3	2836.7	2959.5	blue	blue
+	3018.6	3	2989.5	3018.6	blue	blue
+	3069.7	0	2913.6	3069.7	blue	blue
+	3125.9	1	2882.4	3125.9	blue	blue
+	3143.3	0	3099.7	3143.3	blue	blue
+	3173.5	0	3173.3	3173.5	blue	blue
+	3204.1	5	2024.1	3204.1	blue	blue
+	3204.1	7	2970.5	3204.1	blue	blue
+	3235	3	3048.6	3235	blue	blue
+	3366.2	4	2780.1	3366.2	blue	blue
+	3396.5	4	3396.2	3396.5	blue	blue
+	3454.6	2	2854.8	3454.6	blue	blue
+	3492.3	3	3265	3492.3	blue	blue
+	3500.6	2	3484.6	3500.6	blue	blue
+	3516.1	1	3155.9	3516.1	blue	blue
+	3522.5	3	3522.3	3522.5	blue	blue
+	3531.5	0	3203.5	3531.5	blue	blue
+	3594.6	0	3561.5	3594.6	blue	blue
+	3595.1	2	3530.6	3595.1	blue	blue
+Completed 118 tasks.
+-------------------------------
+15 seed#33_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	1.6	6	0	1.6	blue	blue
+	2.8	9	0	2.8	blue	blue
+	3.1	10	0	3.1	blue	blue
+	54.8	8	0	54.8	blue	blue
+	160.5	6	31.6	160.5	blue	blue
+	176.3	8	84.8	176.3	blue	blue
+	180.1	1	0	180.1	blue	blue
+	246.1	8	206.3	246.1	blue	blue
+	286.6	4	0	286.6	blue	blue
+	298.4	8	276.1	298.4	blue	blue
+	363	3	0	363	blue	blue
+	380.6	2	0	380.6	blue	blue
+	408.9	1	210.1	408.9	blue	blue
+	470.5	3	393	470.5	blue	blue
+	498	4	316.6	498	blue	blue
+	538.5	2	410.6	538.5	blue	blue
+	560.2	1	438.9	560.2	blue	blue
+	563.9	3	500.5	563.9	blue	blue
+	597.5	3	593.9	597.5	blue	blue
+	600	1	590.2	600	blue	blue
+	627.8	3	627.5	627.8	blue	blue
+	667.9	4	528	667.9	blue	blue
+	670.1	8	328.4	670.1	blue	blue
+	707.1	8	700.1	707.1	blue	blue
+	753.7	6	190.5	753.7	blue	blue
+	841.5	8	737.1	841.5	blue	blue
+	900	4	697.9	900	blue	blue
+	948.8	2	568.5	948.8	blue	blue
+	951.9	4	930	951.9	blue	blue
+	959.9	8	871.5	959.9	blue	blue
+	1053.2	1	630	1053.2	blue	blue
+	1076.8	9	32.9	1076.8	blue	blue
+	1078.8	6	783.7	1078.8	blue	blue
+	1097.1	4	981.9	1097.1	blue	blue
+	1124.2	8	989.9	1124.2	blue	blue
+	1181.8	2	978.8	1181.8	blue	blue
+	1258.5	8	1154.2	1258.5	blue	blue
+	1291.8	4	1127.1	1291.8	blue	blue
+	1310.2	1	1083.2	1310.2	blue	blue
+	1331.3	2	1211.8	1331.3	blue	blue
+	1335.2	10	33.1	1335.2	blue	blue
+	1415.6	9	1106.8	1415.6	blue	blue
+	1423.5	8	1288.5	1423.5	blue	blue
+	1441.8	4	1321.8	1441.8	blue	blue
+	1461	6	1108.8	1461	blue	blue
+	1479.7	1	1340.2	1479.7	blue	blue
+	1698.4	2	1361.3	1698.4	blue	blue
+	1771.6	1	1509.7	1771.6	blue	blue
+	1819.3	4	1471.8	1819.3	blue	blue
+	1850.3	8	1453.5	1850.3	blue	blue
+	1942.7	9	1445.6	1942.7	blue	blue
+	2098.3	9	1972.7	2098.3	blue	blue
+	2125.8	2	1728.4	2125.8	blue	blue
+	2177.8	4	1849.3	2177.8	blue	blue
+	2202.4	8	1880.3	2202.4	blue	blue
+	2229.7	10	1365.2	2229.7	blue	blue
+	2238.1	8	2232.4	2238.1	blue	blue
+	2421	3	657.8	2421	blue	blue
+	2464.2	3	2451	2464.2	blue	blue
+	2494.4	2	2155.8	2494.4	blue	blue
+	2538.4	2	2524.4	2538.4	blue	blue
+	2553.3	1	1801.6	2553.3	blue	blue
+	2573.8	6	1491	2573.8	blue	blue
+	2581.1	2	2568.4	2581.1	blue	blue
+	2642.1	3	2494.2	2642.1	blue	blue
+	2643.3	1	2583.3	2643.3	blue	blue
+	2653.3	4	2207.8	2653.3	blue	blue
+	2677.1	1	2673.3	2677.1	blue	blue
+	2836.4	8	2268.1	2836.4	blue	blue
+	2847.6	2	2611.1	2847.6	blue	blue
+	2864.1	6	2603.8	2864.1	blue	blue
+	2878.2	10	2259.7	2878.2	blue	blue
+	2892.5	2	2877.6	2892.5	blue	blue
+	2893	9	2128.3	2893	blue	blue
+	2906.1	3	2672.1	2906.1	blue	blue
+	2909.2	8	2866.4	2909.2	blue	blue
+	2910.1	1	2707.1	2910.1	blue	blue
+	2939.3	6	2894.1	2939.3	blue	blue
+	2949.8	3	2936.1	2949.8	blue	blue
+	2957.6	1	2940.1	2957.6	blue	blue
+	2980.4	2	2922.5	2980.4	blue	blue
+	3016.8	4	2683.3	3016.8	blue	blue
+	3033.9	9	2923	3033.9	blue	blue
+	3049.3	10	2908.2	3049.3	blue	blue
+	3090.4	3	2979.8	3090.4	blue	blue
+	3138.3	8	2939.2	3138.3	blue	blue
+	3179.7	8	3168.3	3179.7	blue	blue
+	3240.3	10	3079.3	3240.3	blue	blue
+	3249.2	4	3046.8	3249.2	blue	blue
+	3269.4	8	3209.7	3269.4	blue	blue
+	3303.1	3	3120.4	3303.1	blue	blue
+	3340.7	3	3333.1	3340.7	blue	blue
+	3382.2	3	3370.7	3382.2	blue	blue
+	3415.8	1	2987.6	3415.8	blue	blue
+	3444.9	10	3270.3	3444.9	blue	blue
+	3497.2	1	3445.8	3497.2	blue	blue
+	3535.1	8	3299.4	3535.1	blue	blue
+	3535.8	4	3279.2	3535.8	blue	blue
+Completed 98 tasks.
+-------------------------------
+15 seed#34_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	1.3	9	0	1.3	blue	blue
+	79	15	0	79	blue	blue
+	197.9	15	109	197.9	blue	blue
+	236.9	15	227.9	236.9	blue	blue
+	662.7	15	267	662.7	blue	blue
+	885.4	15	692.7	885.4	blue	blue
+	1287.6	4	0	1287.6	red	blue
+	1726.1	15	915.4	1726.1	blue	blue
+	1852.8	15	1756.1	1852.8	blue	blue
+	1883	15	1882.8	1883	blue	blue
+	1913.2	15	1913	1913.2	blue	blue
+	1986.1	15	1943.2	1986.1	blue	blue
+	2123.4	15	2016.1	2123.4	blue	blue
+	2153.5	15	2153.4	2153.5	blue	blue
+	2192.1	15	2183.5	2192.1	blue	blue
+	2352.3	15	2222.1	2352.3	blue	blue
+	2386.7	15	2382.3	2386.7	blue	blue
+	2511.3	9	31.3	2511.3	blue	blue
+	3052	15	2416.7	3052	blue	blue
+	3084.6	15	3082	3084.6	blue	blue
+	3175.4	9	2541.3	3175.4	blue	blue
+	3532.4	15	3114.6	3532.4	blue	blue
+Completed 22 tasks.
+-------------------------------
+15 seed#35_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+Completed 0 tasks.
+-------------------------------
+15 seed#36_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	3.4	5	0	3.4	blue	blue
+	12.4	4	0	12.4	blue	blue
+	77.8	4	42.4	77.8	blue	blue
+	183	12	0	183	blue	blue
+	228	12	213	228	blue	blue
+	258.2	12	258	258.2	blue	blue
+	288.4	12	288.2	288.4	blue	blue
+	323.3	12	318.4	323.3	blue	blue
+	658.2	5	33.4	658.2	blue	blue
+	878.3	12	353.3	878.3	blue	blue
+	1727.3	12	908.3	1727.3	blue	blue
+	1757.5	12	1757.3	1757.5	blue	blue
+	1933.1	12	1787.5	1933.1	blue	blue
+	2054.2	4	107.8	2054.2	blue	blue
+	2741.8	4	2084.2	2741.8	blue	blue
+	2834.1	13	0	2834.1	red	blue
+	3110.3	4	2771.8	3110.3	blue	blue
+	3330.2	12	1963.1	3330.2	blue	blue
+Completed 18 tasks.
+-------------------------------
+15 seed#37_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	2.3	10	0	2.3	blue	blue
+	29.6	2	0	29.6	blue	blue
+	30.2	5	0	30.2	blue	blue
+	52.2	8	0	52.2	blue	blue
+	69.3	2	59.6	69.3	blue	blue
+	87	11	0	87	blue	blue
+	87.7	1	0	87.7	blue	blue
+	111.5	8	82.2	111.5	blue	blue
+	177.1	8	141.5	177.1	blue	blue
+	221.5	4	0	221.5	blue	blue
+	238.9	2	99.3	238.9	blue	blue
+	270.7	4	251.5	270.7	blue	blue
+	340.6	8	207.1	340.6	blue	blue
+	509.1	8	370.6	509.1	blue	blue
+	575.2	7	0	575.2	blue	blue
+	606.4	11	117	606.4	blue	blue
+	619.5	2	269	619.5	blue	blue
+	643.2	7	605.2	643.2	blue	blue
+	649.8	11	636.4	649.8	blue	blue
+	671.3	10	32.4	671.3	blue	blue
+	723.8	2	649.5	723.8	blue	blue
+	736.8	1	117.7	736.8	blue	blue
+	742.4	4	300.7	742.4	blue	blue
+	757.9	2	753.8	757.9	blue	blue
+	852.1	11	679.8	852.1	blue	blue
+	857.6	10	701.3	857.6	blue	blue
+	882.2	11	882.1	882.2	blue	blue
+	942.5	7	673.2	942.5	blue	blue
+	946.1	10	887.6	946.1	blue	blue
+	948.3	2	787.9	948.3	blue	blue
+	1090.7	4	772.4	1090.7	blue	blue
+	1124.9	7	972.5	1124.9	blue	blue
+	1294.7	8	539.1	1294.7	blue	blue
+	1314.7	5	60.2	1314.7	blue	blue
+	1416.4	5	1344.7	1416.4	blue	blue
+	1452.7	2	978.3	1452.7	blue	blue
+	1477	4	1120.7	1477	blue	blue
+	1540	2	1482.7	1540	blue	blue
+	1551.3	11	912.2	1551.3	blue	blue
+	1572	2	1570	1572	blue	blue
+	1577.3	7	1154.9	1577.3	blue	blue
+	1621.5	11	1581.3	1621.5	blue	blue
+	1634.5	7	1607.3	1634.5	blue	blue
+	1739.2	4	1507	1739.2	blue	blue
+	1756.7	5	1446.4	1756.7	blue	blue
+	1829.2	11	1651.5	1829.2	blue	blue
+	1898.1	4	1769.2	1898.1	blue	blue
+	1906	10	976.1	1906	blue	blue
+	1935.9	7	1664.5	1935.9	blue	blue
+	1949.6	1	766.8	1949.6	blue	blue
+	1991	8	1324.7	1991	blue	blue
+	2003.7	1	1979.6	2003.7	blue	blue
+	2010.5	4	1928.1	2010.5	blue	blue
+	2054.3	4	2040.5	2054.3	blue	blue
+	2060.2	11	1859.2	2060.2	blue	blue
+	2130	2	1602	2130	blue	blue
+	2150.1	10	1936	2150.1	blue	blue
+	2196.9	8	2021	2196.9	blue	blue
+	2230.5	5	1786.7	2230.5	blue	blue
+	2307.5	4	2084.3	2307.5	blue	blue
+	2341.4	2	2160	2341.4	blue	blue
+	2361.9	1	2033.7	2361.9	blue	blue
+	2433.2	5	2260.5	2433.2	blue	blue
+	2470.5	8	2226.9	2470.5	blue	blue
+	2545.2	5	2463.2	2545.2	blue	blue
+	2582.4	8	2500.5	2582.4	blue	blue
+	2593.4	2	2371.4	2593.4	blue	blue
+	2628.7	5	2575.2	2628.7	blue	blue
+	2662.2	8	2612.4	2662.2	blue	blue
+	2689.4	5	2658.7	2689.4	blue	blue
+	2717.1	8	2692.2	2717.1	blue	blue
+	2719.6	7	1965.9	2719.6	blue	blue
+	2937	10	2180.1	2937	blue	blue
+	3002.2	2	2623.4	3002.2	blue	blue
+	3050.3	11	2090.2	3050.3	blue	blue
+	3064.5	7	2749.6	3064.5	blue	blue
+	3080.5	11	3080.3	3080.5	blue	blue
+	3130.1	8	2747.1	3130.1	blue	blue
+	3173.2	11	3110.5	3173.2	blue	blue
+	3175	2	3032.2	3175	blue	blue
+	3192.4	7	3094.5	3192.4	blue	blue
+	3232.8	1	2391.9	3232.8	blue	blue
+	3288.3	10	2967	3288.3	blue	blue
+	3303.7	11	3203.2	3303.7	blue	blue
+	3329.1	2	3205	3329.1	blue	blue
+	3338.6	11	3333.7	3338.6	blue	blue
+	3432	5	2719.4	3432	blue	blue
+	3449.6	7	3222.4	3449.6	blue	blue
+	3462.2	5	3462	3462.2	blue	blue
+	3516.9	7	3479.6	3516.9	blue	blue
+Completed 90 tasks.
+-------------------------------
+15 seed#38_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+Completed 0 tasks.
+-------------------------------
+15 seed#39_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	0.5	5	0	0.5	blue	blue
+	190.2	11	0	190.2	blue	blue
+	894.1	11	220.2	894.1	blue	blue
+	1429.4	5	30.5	1429.4	blue	blue
+	1665.1	11	924.1	1665.1	blue	blue
+	2275.9	11	1695.1	2275.9	blue	blue
+	3092.9	5	1459.4	3092.9	blue	blue
+	3534.3	11	2305.9	3534.3	blue	blue
+Completed 8 tasks.
+-------------------------------
+15 seed#40_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	77.5	3	0	77.5	blue	blue
+	110.6	3	107.5	110.6	blue	blue
+	140.8	3	140.6	140.8	blue	blue
+	293	15	0	293	blue	blue
+	487.4	3	170.8	487.4	blue	blue
+	549.2	3	517.4	549.2	blue	blue
+	613.1	3	579.2	613.1	blue	blue
+	730.2	15	323	730.2	blue	blue
+	1002.3	15	760.2	1002.3	blue	blue
+	1146.1	3	643.1	1146.1	blue	blue
+	1171.4	15	1032.3	1171.4	blue	blue
+	1202	15	1201.4	1202	blue	blue
+	1232.1	15	1232	1232.1	blue	blue
+	1261.5	3	1176.1	1261.5	blue	blue
+	1266.8	15	1262.1	1266.8	blue	blue
+	1310.8	3	1291.5	1310.8	blue	blue
+	1389.1	3	1340.8	1389.1	blue	blue
+	1426.5	3	1419.1	1426.5	blue	blue
+	1527.4	3	1456.5	1527.4	blue	blue
+	1557.6	3	1557.4	1557.6	blue	blue
+	1681.9	3	1587.6	1681.9	blue	blue
+	1773.4	15	1296.8	1773.4	blue	blue
+	2016.3	15	1803.4	2016.3	blue	blue
+	2055.3	15	2046.3	2055.3	blue	blue
+	2224.5	3	1711.9	2224.5	blue	blue
+	2661.2	15	2085.3	2661.2	blue	blue
+	2767.6	3	2254.5	2767.6	blue	blue
+	2841.6	15	2691.2	2841.6	blue	blue
+	2871.8	15	2871.6	2871.8	blue	blue
+	2880	3	2797.6	2880	blue	blue
+	2910.1	3	2910	2910.1	blue	blue
+	2989.6	3	2940.1	2989.6	blue	blue
+	3233.1	3	3019.6	3233.1	blue	blue
+	3446	15	2901.8	3446	blue	blue
+Completed 34 tasks.
+-------------------------------
+15 seed#41_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	0.6	6	0	0.6	blue	blue
+	407.3	11	0	407.3	blue	blue
+	689.8	13	0	689.8	blue	blue
+	706.1	11	437.3	706.1	blue	blue
+	849.4	11	736.1	849.4	blue	blue
+	949.8	11	879.4	949.8	blue	blue
+	1671.6	13	719.8	1671.6	blue	blue
+	1711	13	1701.6	1711	blue	blue
+	1800.5	13	1741	1800.5	blue	blue
+	1889.9	11	979.8	1889.9	blue	blue
+	1918.7	13	1830.5	1918.7	blue	blue
+	1948.9	13	1948.7	1948.9	blue	blue
+	2085.9	13	1978.9	2085.9	blue	blue
+	2138.8	13	2115.9	2138.8	blue	blue
+	2229.6	13	2168.8	2229.6	blue	blue
+	2231.2	6	30.6	2231.2	blue	blue
+	2423.6	13	2259.6	2423.6	blue	blue
+	2607.1	11	1919.9	2607.1	blue	blue
+	2645	13	2453.6	2645	blue	blue
+	2821.6	13	2675	2821.6	blue	blue
+	2860	13	2851.6	2860	blue	blue
+	2908	13	2890	2908	blue	blue
+	2971.8	13	2938	2971.8	blue	blue
+	3063.6	13	3001.8	3063.6	blue	blue
+	3109.6	13	3093.6	3109.6	blue	blue
+	3191.5	13	3139.6	3191.5	blue	blue
+	3268.6	13	3221.5	3268.6	blue	blue
+	3356.5	6	2261.2	3356.5	blue	blue
+	3410	6	3386.5	3410	blue	blue
+	3467.4	13	3298.6	3467.4	blue	blue
+Completed 30 tasks.
+-------------------------------
+15 seed#42_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	11.6	11	0	11.6	blue	blue
+	169.1	15	0	169.1	blue	blue
+	1227.2	15	199.1	1227.2	blue	blue
+	1447.4	15	1257.2	1447.4	blue	blue
+	1519.7	15	1477.4	1519.7	blue	blue
+	1680.6	15	1549.7	1680.6	blue	blue
+	1710.8	15	1710.6	1710.8	blue	blue
+	1814.1	11	41.6	1814.1	blue	blue
+	1839.7	15	1740.8	1839.7	blue	blue
+	2204.3	15	1869.7	2204.3	blue	blue
+	2240.3	15	2234.3	2240.3	blue	blue
+	2270.5	15	2270.3	2270.5	blue	blue
+	2300.6	15	2300.5	2300.6	blue	blue
+	2368.5	11	1844.1	2368.5	blue	blue
+	2370.8	15	2330.6	2370.8	blue	blue
+	2401.9	15	2400.8	2401.9	blue	blue
+	2405.3	11	2398.5	2405.3	blue	blue
+	2432	15	2431.9	2432	blue	blue
+	2462.2	15	2462	2462.2	blue	blue
+	2626.5	15	2492.2	2626.5	blue	blue
+	2656.6	15	2656.5	2656.6	blue	blue
+	3023.6	15	2686.6	3023.6	blue	blue
+	3195.8	15	3053.6	3195.8	blue	blue
+	3225.9	15	3225.8	3225.9	blue	blue
+	3348.5	15	3255.9	3348.5	blue	blue
+Completed 25 tasks.
+-------------------------------
+15 seed#43_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	16.7	4	0	16.7	blue	blue
+	529.3	8	0	529.3	blue	blue
+	655.7	4	46.7	655.7	blue	blue
+	670.5	8	559.3	670.5	blue	blue
+	685.9	4	685.7	685.9	blue	blue
+	831.7	8	700.5	831.7	blue	blue
+	995	8	861.7	995	blue	blue
+	1106.9	4	715.9	1106.9	blue	blue
+	1821.3	4	1136.9	1821.3	blue	blue
+	1821.4	8	1025	1821.4	blue	blue
+	2203.5	4	1851.3	2203.5	blue	blue
+	2330	8	1851.4	2330	blue	blue
+	2587.3	8	2360	2587.3	blue	blue
+	2761.3	4	2233.5	2761.3	blue	blue
+	2848.1	4	2791.3	2848.1	blue	blue
+	2944.3	8	2617.3	2944.3	blue	blue
+	3195.5	4	2878.1	3195.5	blue	blue
+Completed 17 tasks.
+-------------------------------
+15 seed#44_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+Completed 0 tasks.
+-------------------------------
+15 seed#45_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	4.4	9	0	4.4	blue	blue
+	180.9	13	0	180.9	blue	blue
+	421.6	13	210.9	421.6	blue	blue
+	498.3	9	34.4	498.3	blue	blue
+	546.8	13	451.6	546.8	blue	blue
+	577	13	576.8	577	blue	blue
+	906.9	13	607	906.9	blue	blue
+	1394.7	9	528.4	1394.7	blue	blue
+	1676.5	9	1424.7	1676.5	blue	blue
+	2016.3	13	936.9	2016.3	blue	blue
+	2153.4	9	1706.5	2153.4	blue	blue
+	2236	13	2046.3	2236	blue	blue
+	2270.7	13	2266	2270.7	blue	blue
+	2505.8	13	2300.7	2505.8	blue	blue
+	2841	13	2535.8	2841	blue	blue
+	3009.5	13	2871	3009.5	blue	blue
+	3123.4	13	3039.5	3123.4	blue	blue
+	3179.2	13	3153.4	3179.2	blue	blue
+	3211.7	13	3209.2	3211.7	blue	blue
+Completed 19 tasks.
+-------------------------------
+15 seed#46_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	32.9	13	0	32.9	blue	blue
+	434.2	2	0	434.2	blue	blue
+	752.5	11	0	752.5	blue	blue
+	971.3	13	62.9	971.3	blue	blue
+	1109.7	13	1001.3	1109.7	blue	blue
+	1179	2	464.2	1179	blue	blue
+	1205.9	0	0	1205.9	red	blue
+	1303.1	2	1209	1303.1	blue	blue
+	1401.4	11	782.5	1401.4	blue	blue
+	2008.1	11	1431.4	2008.1	blue	blue
+	2216.2	11	2038.1	2216.2	blue	blue
+	2416.7	13	1139.7	2416.7	blue	blue
+	2468.6	11	2246.2	2468.6	blue	blue
+	2535.6	13	2446.7	2535.6	blue	blue
+	2543.8	11	2498.6	2543.8	blue	blue
+	2839.9	2	1333.1	2839.9	blue	blue
+	2881.5	11	2573.8	2881.5	blue	blue
+	3023.9	11	2911.5	3023.9	blue	blue
+	3054.1	11	3053.9	3054.1	blue	blue
+	3124.6	13	2565.6	3124.6	blue	blue
+	3503.8	2	2869.9	3503.8	blue	blue
+Completed 21 tasks.
+-------------------------------
+15 seed#47_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	1192.2	7	0	1192.2	blue	blue
+	1598	7	1222.2	1598	blue	blue
+	1746.3	7	1628	1746.3	blue	blue
+	2160.2	7	1776.3	2160.2	blue	blue
+Completed 4 tasks.
+-------------------------------
+15 seed#48_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	13.1	10	0	13.1	blue	blue
+	513.6	10	43.1	513.6	blue	blue
+	815.8	10	543.6	815.8	blue	blue
+	892.4	10	845.8	892.4	blue	blue
+	3241.4	10	922.4	3241.4	blue	blue
+	3313.8	10	3271.4	3313.8	blue	blue
+Completed 6 tasks.
+-------------------------------
+15 seed#49_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	146.2	3	0	146.2	blue	blue
+	487.6	3	176.2	487.6	blue	blue
+	610.8	3	517.6	610.8	blue	blue
+	691.4	7	0	691.4	blue	red
+	723.2	3	640.8	723.2	blue	blue
+	753.4	3	753.2	753.4	blue	blue
+	873.3	3	783.4	873.3	blue	blue
+	903.5	3	903.3	903.5	blue	blue
+	987.3	3	933.5	987.3	blue	blue
+	1008.8	11	0	1008.8	blue	blue
+	1101.8	3	1017.3	1101.8	blue	blue
+	1202.6	3	1131.8	1202.6	blue	blue
+	1706	3	1232.6	1706	blue	blue
+	1826.3	3	1736	1826.3	blue	blue
+	2075.9	11	1038.8	2075.9	blue	blue
+	2107.6	11	2105.9	2107.6	blue	blue
+	2571.6	3	1856.3	2571.6	blue	blue
+	2606.1	3	2601.6	2606.1	blue	blue
+	2680	3	2636.1	2680	blue	blue
+	2717	3	2710	2717	blue	blue
+	2960.5	11	2137.6	2960.5	blue	blue
+	3073.6	11	2990.5	3073.6	blue	blue
+	3288.8	11	3103.6	3288.8	blue	blue
+Completed 23 tasks.
+-------------------------------
+15 seed#50_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	138.5	3	0	138.5	blue	blue
+	158.5	14	0	158.5	blue	blue
+	182	3	168.5	182	blue	blue
+	206.2	0	0	206.2	blue	blue
+	236.3	0	236.2	236.3	blue	blue
+	259.4	3	212	259.4	blue	blue
+	414	3	289.4	414	blue	blue
+	446.9	14	188.5	446.9	blue	blue
+	450	3	444	450	blue	blue
+	574.9	14	476.9	574.9	blue	blue
+	750.1	3	480	750.1	blue	blue
+	751.2	0	266.3	751.2	blue	blue
+	804.2	14	604.9	804.2	blue	blue
+	1147	0	781.2	1147	blue	blue
+	1184.6	14	834.2	1184.6	blue	blue
+	1215.3	0	1177	1215.3	blue	blue
+	1314.8	3	780.1	1314.8	blue	blue
+	1345	3	1344.8	1345	blue	blue
+	1432.1	0	1245.3	1432.1	blue	blue
+	1596.3	14	1214.6	1596.3	blue	blue
+	1626.7	14	1626.3	1626.7	blue	blue
+	1718.4	14	1656.7	1718.4	blue	blue
+	1767.1	0	1462.1	1767.1	blue	blue
+	1966.2	3	1375	1966.2	blue	blue
+	1998	3	1996.2	1998	blue	blue
+	2035.5	3	2028	2035.5	blue	blue
+	2222.2	14	1748.4	2222.2	blue	blue
+	2283.9	3	2065.5	2283.9	blue	blue
+	2315.8	3	2313.9	2315.8	blue	blue
+	2350.6	14	2252.2	2350.6	blue	blue
+	2357.9	3	2345.8	2357.9	blue	blue
+	2400	3	2387.9	2400	blue	blue
+	2412.4	14	2380.6	2412.4	blue	blue
+	2460.1	14	2442.4	2460.1	blue	blue
+	2663.2	3	2430	2663.2	blue	blue
+	2821.1	0	1797.1	2821.1	blue	blue
+	3223.2	0	2851.1	3223.2	blue	blue
+	3298.6	0	3253.2	3298.6	blue	blue
+	3428.7	14	2490.1	3428.7	blue	blue
+	3489.3	0	3328.6	3489.3	blue	blue
+	3554.1	0	3519.3	3554.1	blue	blue
+Completed 41 tasks.
+-------------------------------
+20 seed#1_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	166.5	3	0	166.5	blue	blue
+	196.6	3	196.5	196.6	blue	blue
+	228.2	3	226.6	228.2	blue	blue
+	335.4	15	0	335.4	blue	blue
+	394.8	15	365.4	394.8	blue	blue
+	431.1	15	424.8	431.1	blue	blue
+	437.8	3	258.2	437.8	blue	blue
+	467.9	3	467.8	467.9	blue	blue
+	480.9	15	461.1	480.9	blue	blue
+	498.6	3	497.9	498.6	blue	blue
+	552.8	15	510.9	552.8	blue	blue
+	582.9	15	582.8	582.9	blue	blue
+	613.1	15	612.9	613.1	blue	blue
+	659.7	15	643.1	659.7	blue	blue
+	693.4	15	689.7	693.4	blue	blue
+	966.4	3	528.6	966.4	blue	blue
+	1007.3	3	996.4	1007.3	blue	blue
+	1044.8	15	723.4	1044.8	blue	blue
+	1126.7	15	1074.8	1126.7	blue	blue
+	1266.8	3	1037.3	1266.8	blue	blue
+	1297	3	1296.8	1297	blue	blue
+	1338.1	3	1327	1338.1	blue	blue
+	1643.5	3	1368.1	1643.5	blue	blue
+	1825.6	3	1673.5	1825.6	blue	blue
+	1856	3	1855.6	1856	blue	blue
+	1869.3	15	1156.7	1869.3	blue	blue
+	2049.7	3	1886	2049.7	blue	blue
+	2187	15	1899.3	2187	blue	blue
+	2456.9	3	2079.7	2456.9	blue	blue
+	2559	15	2217	2559	blue	blue
+	2586.5	3	2486.9	2586.5	blue	blue
+	2601.8	15	2589	2601.8	blue	blue
+	2739.5	15	2631.8	2739.5	blue	blue
+	2771	15	2769.5	2771	blue	blue
+	3039.2	3	2616.5	3039.2	blue	blue
+	3129.1	15	2801	3129.1	blue	blue
+	3349.5	3	3069.2	3349.5	blue	blue
+	3392.3	3	3379.5	3392.3	blue	blue
+	3511.8	3	3422.3	3511.8	blue	blue
+	3556.3	3	3541.8	3556.3	blue	blue
+Completed 40 tasks.
+-------------------------------
+20 seed#2_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+Completed 0 tasks.
+-------------------------------
+20 seed#3_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+Completed 0 tasks.
+-------------------------------
+20 seed#4_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+Completed 0 tasks.
+-------------------------------
+20 seed#5_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	91.4	3	0	91.4	blue	blue
+	515.5	3	121.4	515.5	blue	blue
+	580.4	6	0	580.4	blue	red
+	645.4	15	0	645.4	blue	blue
+	675.5	15	675.4	675.5	blue	blue
+	722.2	15	705.5	722.2	blue	blue
+	738.9	3	545.5	738.9	blue	blue
+	752.6	15	752.2	752.6	blue	blue
+	782.8	15	782.6	782.8	blue	blue
+	837.2	3	768.9	837.2	blue	blue
+	1027.9	3	867.2	1027.9	blue	blue
+	1175.4	3	1057.9	1175.4	blue	blue
+	1260.7	3	1205.4	1260.7	blue	blue
+	1685.9	3	1290.7	1685.9	blue	blue
+	1747.4	3	1715.9	1747.4	blue	blue
+	1789.4	3	1777.4	1789.4	blue	blue
+	1888.2	3	1819.4	1888.2	blue	blue
+	1925.7	3	1918.2	1925.7	blue	blue
+	2346	3	1955.7	2346	blue	blue
+	2376.2	3	2376	2376.2	blue	blue
+	2453	15	812.8	2453	blue	blue
+	2467.5	3	2406.2	2467.5	blue	blue
+	2504.1	3	2497.5	2504.1	blue	blue
+	2568.3	15	2483	2568.3	blue	blue
+	2700.4	3	2534.1	2700.4	blue	blue
+	2841.6	15	2598.3	2841.6	blue	blue
+	2871.9	15	2871.6	2871.9	blue	blue
+	2902.1	15	2901.9	2902.1	blue	blue
+	2957.9	15	2932.1	2957.9	blue	blue
+	2998.3	15	2987.9	2998.3	blue	blue
+	3007.4	3	2730.4	3007.4	blue	blue
+	3039	15	3028.3	3039	blue	blue
+	3146	15	3069	3146	blue	blue
+	3463.1	15	3176	3463.1	blue	blue
+	3467.6	3	3037.4	3467.6	blue	blue
+	3518	3	3497.6	3518	blue	blue
+Completed 36 tasks.
+-------------------------------
+20 seed#6_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	9.2	10	0	9.2	blue	blue
+	1913.1	15	0	1913.1	blue	blue
+	2398.5	10	39.2	2398.5	blue	blue
+	2564.1	7	0	2564.1	red	blue
+	2797.9	15	1943.1	2797.9	blue	blue
+	2842.6	15	2827.9	2842.6	blue	blue
+	2872.8	15	2872.6	2872.8	blue	blue
+	2903	15	2902.8	2903	blue	blue
+	3479.2	15	2933	3479.2	blue	blue
+	3509.9	15	3509.2	3509.9	blue	blue
+Completed 10 tasks.
+-------------------------------
+20 seed#7_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+Completed 0 tasks.
+-------------------------------
+20 seed#8_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	63	12	0	63	blue	blue
+	160.6	1	0	160.6	blue	blue
+	574.4	12	93	574.4	blue	blue
+	882.7	1	190.6	882.7	blue	blue
+	930	12	604.4	930	blue	blue
+	978.4	1	912.7	978.4	blue	blue
+	1052.6	1	1008.4	1052.6	blue	blue
+	1131.6	12	960	1131.6	blue	blue
+	1193.1	12	1161.6	1193.1	blue	blue
+	1231.5	12	1223.1	1231.5	blue	blue
+	1279.6	12	1261.5	1279.6	blue	blue
+	1333.9	1	1082.6	1333.9	blue	blue
+	1353.2	12	1309.6	1353.2	blue	blue
+	1403.9	12	1383.2	1403.9	blue	blue
+	1406.3	1	1363.9	1406.3	blue	blue
+	1434.1	12	1433.9	1434.1	blue	blue
+	1501.8	1	1436.3	1501.8	blue	blue
+	1625.1	12	1464.1	1625.1	blue	blue
+	1688.2	12	1655.1	1688.2	blue	blue
+	1869.4	12	1718.2	1869.4	blue	blue
+	1915.9	12	1899.4	1915.9	blue	blue
+	1994.7	12	1945.9	1994.7	blue	blue
+	2043	12	2024.7	2043	blue	blue
+	2333.8	1	1531.8	2333.8	blue	blue
+	2591.5	12	2073	2591.5	blue	blue
+	2820.9	12	2621.5	2820.9	blue	blue
+	2862.6	12	2850.9	2862.6	blue	blue
+	2938.6	12	2892.6	2938.6	blue	blue
+	3408.2	1	2363.8	3408.2	blue	blue
+Completed 29 tasks.
+-------------------------------
+20 seed#9_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	16.5	14	0	16.5	blue	blue
+	180	14	46.5	180	blue	blue
+	486.2	15	0	486.2	blue	blue
+	573.1	14	210	573.1	blue	blue
+	1079.5	14	603.1	1079.5	blue	blue
+	1117	15	516.2	1117	blue	blue
+	1413.1	14	1109.5	1413.1	blue	blue
+	1434.4	15	1147	1434.4	blue	blue
+	1584.3	15	1464.4	1584.3	blue	blue
+	1614.5	15	1614.3	1614.5	blue	blue
+	1820.5	15	1644.5	1820.5	blue	blue
+	1850.7	15	1850.5	1850.7	blue	blue
+	1987.8	14	1443.1	1987.8	blue	blue
+	2117.2	15	1880.7	2117.2	blue	blue
+	2156.7	15	2147.2	2156.7	blue	blue
+	2201.9	15	2186.7	2201.9	blue	blue
+	2248.9	15	2231.9	2248.9	blue	blue
+	2286.6	14	2017.8	2286.6	blue	blue
+	2331.5	15	2278.9	2331.5	blue	blue
+	2464	14	2316.6	2464	blue	blue
+	2611.7	15	2361.5	2611.7	blue	blue
+	2654.6	15	2641.7	2654.6	blue	blue
+	2873.7	14	2494	2873.7	blue	blue
+	2920.7	14	2903.7	2920.7	blue	blue
+	2950.8	14	2950.7	2950.8	blue	blue
+	2969	15	2684.6	2969	blue	blue
+	2999.2	15	2999	2999.2	blue	blue
+	3262.1	15	3029.2	3262.1	blue	blue
+	3293.9	15	3292.1	3293.9	blue	blue
+	3429.1	14	2980.8	3429.1	blue	blue
+Completed 30 tasks.
+-------------------------------
+20 seed#10_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	23.5	2	0	23.5	blue	blue
+	175.9	2	53.5	175.9	blue	blue
+	225.6	2	205.9	225.6	blue	blue
+	464.3	4	0	464.3	blue	blue
+	585.6	4	494.3	585.6	blue	blue
+	615.8	4	615.6	615.8	blue	blue
+	1219.8	1	0	1219.8	blue	blue
+	1282.2	1	1249.8	1282.2	blue	blue
+	1285.4	4	645.8	1285.4	blue	blue
+	1383.8	1	1312.2	1383.8	blue	blue
+	1747.7	2	255.6	1747.7	blue	blue
+	1867.2	4	1315.4	1867.2	blue	blue
+	1995.7	2	1777.7	1995.7	blue	blue
+	2031.1	2	2025.7	2031.1	blue	blue
+	2127.7	4	1897.2	2127.7	blue	blue
+	2177.7	4	2157.7	2177.7	blue	blue
+	2281.2	4	2207.7	2281.2	blue	blue
+	2514.5	4	2311.2	2514.5	blue	blue
+	2819.3	2	2061.1	2819.3	blue	blue
+	2862.2	2	2849.3	2862.2	blue	blue
+	3143.7	2	2892.2	3143.7	blue	blue
+	3166.1	1	1413.8	3166.1	blue	blue
+	3524.9	2	3173.7	3524.9	blue	blue
+Completed 23 tasks.
+-------------------------------
+20 seed#11_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	130.3	4	0	130.3	blue	blue
+	334.2	4	160.3	334.2	blue	blue
+	747.9	4	364.2	747.9	blue	blue
+	883.1	4	777.9	883.1	blue	blue
+	945	4	913.1	945	blue	blue
+	1302.3	4	975	1302.3	blue	blue
+	1350.2	4	1332.3	1350.2	blue	blue
+	1897.1	4	1380.2	1897.1	blue	blue
+	2274.7	4	1927.1	2274.7	blue	blue
+	2816.5	4	2304.7	2816.5	blue	blue
+	3585.2	4	2846.5	3585.2	blue	blue
+Completed 11 tasks.
+-------------------------------
+20 seed#12_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	39.4	9	0	39.4	red	blue
+	120.1	7	0	120.1	blue	blue
+	216.9	4	0	216.9	blue	blue
+	266.9	4	246.9	266.9	blue	blue
+	408.6	4	296.9	408.6	blue	blue
+	478.9	4	438.6	478.9	blue	blue
+	619.9	7	150.1	619.9	blue	blue
+	677.5	7	649.9	677.5	blue	blue
+	708.1	7	707.5	708.1	blue	blue
+	820.5	15	0	820.5	blue	blue
+	852.5	15	850.5	852.5	blue	blue
+	882.7	15	882.5	882.7	blue	blue
+	968.1	7	738.1	968.1	blue	blue
+	1030	7	998.1	1030	blue	blue
+	1064.1	4	508.9	1064.1	blue	blue
+	1719.4	4	1094.1	1719.4	blue	blue
+	1945.9	15	912.7	1945.9	blue	blue
+	2048.6	4	1749.4	2048.6	blue	blue
+	2245.4	7	1060	2245.4	blue	blue
+	2339.9	7	2275.4	2339.9	blue	blue
+	2425.1	15	1975.9	2425.1	blue	blue
+	2473.7	7	2369.9	2473.7	blue	blue
+	2480.8	4	2078.6	2480.8	blue	blue
+	2792.3	15	2455.1	2792.3	blue	blue
+	2823.5	15	2822.3	2823.5	blue	blue
+	2863.3	15	2853.5	2863.3	blue	blue
+	3016.3	7	2503.7	3016.3	blue	blue
+	3150.2	4	2510.8	3150.2	blue	blue
+	3290.1	15	2893.3	3290.1	blue	blue
+	3320.3	15	3320.1	3320.3	blue	blue
+	3478.9	7	3046.3	3478.9	blue	blue
+Completed 31 tasks.
+-------------------------------
+20 seed#13_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	90.1	8	0	90.1	blue	blue
+	907	8	120.1	907	blue	blue
+	991.1	8	937	991.1	blue	blue
+	1597.9	8	1021.1	1597.9	blue	blue
+	2539.7	8	1627.9	2539.7	blue	blue
+	2569.9	8	2569.7	2569.9	blue	blue
+	2648.3	8	2599.9	2648.3	blue	blue
+	2818.1	8	2678.3	2818.1	blue	blue
+	2903.8	8	2848.1	2903.8	blue	blue
+	3118.5	8	2933.8	3118.5	blue	blue
+Completed 10 tasks.
+-------------------------------
+20 seed#14_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	5.6	5	0	5.6	blue	blue
+	166.7	12	0	166.7	blue	blue
+	196.9	12	196.7	196.9	blue	blue
+	227	12	226.9	227	blue	blue
+	257.3	12	257	257.3	blue	blue
+	301.2	12	287.3	301.2	blue	blue
+	331.3	12	331.2	331.3	blue	blue
+	677.6	5	35.6	677.6	blue	blue
+	1008.5	12	361.3	1008.5	blue	blue
+	1056.8	12	1038.5	1056.8	blue	blue
+	1252.5	12	1086.8	1252.5	blue	blue
+	1300.4	12	1282.5	1300.4	blue	blue
+	1603.7	12	1330.4	1603.7	blue	blue
+	1715.5	12	1633.7	1715.5	blue	blue
+	1918.1	12	1745.5	1918.1	blue	blue
+	1923	5	707.6	1923	blue	blue
+	2081.1	12	1948.1	2081.1	blue	blue
+	2121.2	12	2111.1	2121.2	blue	blue
+	2170.5	12	2151.2	2170.5	blue	blue
+	2399	12	2200.5	2399	blue	blue
+	2778.6	2	0	2778.6	red	blue
+	3202.3	12	2429	3202.3	blue	blue
+	3280.5	12	3232.3	3280.5	blue	blue
+	3330	12	3310.5	3330	blue	blue
+Completed 24 tasks.
+-------------------------------
+20 seed#15_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	6.5	9	0	6.5	blue	blue
+	10.4	6	0	10.4	blue	blue
+	97.7	6	40.4	97.7	blue	blue
+	183.9	7	0	183.9	blue	blue
+	541.3	9	36.5	541.3	blue	blue
+	891.4	6	127.7	891.4	blue	blue
+	918.7	7	213.9	918.7	blue	blue
+	1156.4	9	571.3	1156.4	blue	blue
+	1209	6	921.4	1209	blue	blue
+	1446.9	6	1239	1446.9	blue	blue
+	1554.1	7	948.7	1554.1	blue	blue
+	1627.4	9	1186.4	1627.4	blue	blue
+	1859.5	6	1476.9	1859.5	blue	blue
+	2320.9	7	1584.1	2320.9	blue	blue
+	2361	6	1889.5	2361	blue	blue
+	2408.8	7	2350.9	2408.8	blue	blue
+	2816.3	6	2391	2816.3	blue	blue
+	2926.1	7	2438.8	2926.1	blue	blue
+	3224.3	6	2846.3	3224.3	blue	blue
+	3297.1	9	1657.4	3297.1	blue	blue
+Completed 20 tasks.
+-------------------------------
+20 seed#16_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	19.2	9	0	19.2	blue	blue
+	358.5	9	49.2	358.5	blue	blue
+	401.9	12	0	401.9	blue	blue
+	441.4	12	431.9	441.4	blue	blue
+	517.1	12	471.4	517.1	blue	blue
+	677.8	12	547.1	677.8	blue	blue
+	761.6	12	707.8	761.6	blue	blue
+	825.8	12	791.6	825.8	blue	blue
+	856.8	9	388.5	856.8	blue	blue
+	860.5	12	855.8	860.5	blue	blue
+	890.7	12	890.5	890.7	blue	blue
+	921.3	9	886.8	921.3	blue	blue
+	923.8	12	920.7	923.8	blue	blue
+	1696.4	9	951.3	1696.4	blue	blue
+	1970.7	9	1726.4	1970.7	blue	blue
+	2060	9	2000.7	2060	blue	blue
+	2256.6	12	953.8	2256.6	blue	blue
+	2298.7	12	2286.6	2298.7	blue	blue
+	2367.8	12	2328.7	2367.8	blue	blue
+	2671.4	12	2397.8	2671.4	blue	blue
+	2773.9	9	2090	2773.9	blue	blue
+	2857.9	12	2701.4	2857.9	blue	blue
+	3259.8	9	2803.9	3259.8	blue	blue
+Completed 23 tasks.
+-------------------------------
+20 seed#17_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+Completed 0 tasks.
+-------------------------------
+20 seed#18_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	54.7	10	0	54.7	blue	red
+	950.8	15	0	950.8	blue	blue
+	1048.4	1	0	1048.4	red	blue
+	1396.6	15	980.8	1396.6	blue	blue
+	1841.1	15	1426.6	1841.1	blue	blue
+	1876.4	15	1871.1	1876.4	blue	blue
+	2075.7	15	1906.4	2075.7	blue	blue
+	2180.4	15	2105.7	2180.4	blue	blue
+	2227.1	15	2210.4	2227.1	blue	blue
+	2658.6	15	2257.1	2658.6	blue	blue
+	2949.2	15	2688.6	2949.2	blue	blue
+	2979.4	15	2979.2	2979.4	blue	blue
+Completed 12 tasks.
+-------------------------------
+20 seed#19_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	3.2	5	0	3.2	blue	blue
+	88.2	5	33.2	88.2	blue	blue
+	128.4	3	0	128.4	blue	blue
+	364.9	3	158.4	364.9	blue	blue
+	414.2	3	394.9	414.2	blue	blue
+	605	13	0	605	blue	blue
+	714.8	3	444.2	714.8	blue	blue
+	753.7	3	744.8	753.7	blue	blue
+	933.8	13	635	933.8	blue	blue
+	1128.8	13	963.8	1128.8	blue	blue
+	1175.8	13	1158.8	1175.8	blue	blue
+	1275	13	1205.8	1275	blue	blue
+	1460.3	13	1305	1460.3	blue	blue
+	1585.6	5	118.2	1585.6	blue	blue
+	1878.7	5	1615.6	1878.7	blue	blue
+	2399	5	1908.7	2399	blue	blue
+	2471.2	3	783.7	2471.2	blue	blue
+	2627.2	3	2501.2	2627.2	blue	blue
+	2657.4	3	2657.2	2657.4	blue	blue
+	2687.6	3	2687.4	2687.6	blue	blue
+	2767.4	3	2717.6	2767.4	blue	blue
+	2815.7	3	2797.4	2815.7	blue	blue
+	3012.4	5	2429	3012.4	blue	blue
+Completed 23 tasks.
+-------------------------------
+20 seed#20_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	8.5	9	0	8.5	blue	blue
+	21.3	5	0	21.3	blue	red
+	153.4	3	0	153.4	blue	blue
+	195.2	3	183.4	195.2	blue	blue
+	722.8	3	225.2	722.8	blue	blue
+	798.4	3	752.8	798.4	blue	blue
+	893.6	3	828.4	893.6	blue	blue
+	1074.2	3	923.6	1074.2	blue	blue
+	1105.8	3	1104.2	1105.8	blue	blue
+	1135.9	3	1135.8	1135.9	blue	blue
+	1410.6	9	38.5	1410.6	blue	blue
+	1425.5	3	1165.9	1425.5	blue	blue
+	1494.6	9	1440.6	1494.6	blue	blue
+	1622.9	9	1524.6	1622.9	blue	blue
+	1913.3	3	1455.5	1913.3	blue	blue
+	1975.1	3	1943.3	1975.1	blue	blue
+	2378.6	3	2005.1	2378.6	blue	blue
+	2596	3	2408.6	2596	blue	blue
+	2642.7	3	2626	2642.7	blue	blue
+	3052.8	9	1652.9	3052.8	blue	blue
+	3305.6	3	2672.7	3305.6	blue	blue
+	3335.6	3	3335.6	3335.6	blue	blue
+Completed 22 tasks.
+-------------------------------
+20 seed#21_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+Completed 0 tasks.
+-------------------------------
+20 seed#22_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	2	5	0	2	blue	blue
+	9.7	6	0	9.7	blue	blue
+	28.3	7	0	28.3	blue	blue
+	45	8	0	45	blue	blue
+	75.2	8	75	75.2	blue	blue
+	78.3	6	39.7	78.3	blue	blue
+	108.6	2	0	108.6	blue	blue
+	118.8	8	105.2	118.8	blue	blue
+	122.6	1	0	122.6	blue	blue
+	203.8	1	152.6	203.8	blue	blue
+	244.7	5	32	244.7	blue	blue
+	486.6	7	58.4	486.6	blue	blue
+	547	5	274.7	547	blue	blue
+	638.8	2	138.6	638.8	blue	blue
+	670.5	1	233.8	670.5	blue	blue
+	753.1	5	577	753.1	blue	blue
+	766.6	7	516.6	766.6	blue	blue
+	835.7	1	700.5	835.7	blue	blue
+	913.7	1	865.7	913.7	blue	blue
+	935.6	0	0	935.6	blue	blue
+	975.8	0	965.6	975.8	blue	blue
+	1010.6	0	1005.8	1010.6	blue	blue
+	1037.8	5	783.1	1037.8	blue	blue
+	1051.3	6	108.3	1051.3	blue	blue
+	1069.5	2	668.8	1069.5	blue	blue
+	1084.4	8	148.8	1084.4	blue	blue
+	1146.9	4	0	1146.9	blue	blue
+	1165	0	1040.7	1165	blue	blue
+	1185.4	8	1114.4	1185.4	blue	blue
+	1189.6	4	1176.9	1189.6	blue	blue
+	1209.2	1	943.7	1209.2	blue	blue
+	1223.2	2	1099.5	1223.2	blue	blue
+	1247	6	1081.3	1247	blue	blue
+	1256.7	1	1239.2	1256.7	blue	blue
+	1384.2	4	1219.6	1384.2	blue	blue
+	1412.6	2	1253.2	1412.6	blue	blue
+	1414.3	4	1414.2	1414.3	blue	blue
+	1417	8	1215.4	1417	blue	blue
+	1460.1	7	796.6	1460.1	blue	blue
+	1468.7	6	1277	1468.7	blue	blue
+	1503.5	7	1490.1	1503.5	blue	blue
+	1554.6	7	1533.5	1554.6	blue	blue
+	1570.7	6	1498.7	1570.7	blue	blue
+	1584.8	7	1584.6	1584.8	blue	blue
+	1596.5	5	1067.8	1596.5	blue	blue
+	1613.2	4	1444.3	1613.2	blue	blue
+	1627.4	8	1447	1627.4	blue	blue
+	1665.7	8	1657.4	1665.7	blue	blue
+	1672.2	4	1643.2	1672.2	blue	blue
+	1730.7	8	1695.7	1730.7	blue	blue
+	1807.6	7	1614.8	1807.6	blue	blue
+	1998.5	6	1600.7	1998.5	blue	blue
+	2104.4	1	1286.7	2104.4	blue	blue
+	2116.3	7	1837.6	2116.3	blue	blue
+	2129.9	0	1195	2129.9	blue	blue
+	2136.6	4	1702.2	2136.6	blue	blue
+	2156.6	1	2134.4	2156.6	blue	blue
+	2171.7	0	2159.9	2171.7	blue	blue
+	2252.7	4	2166.6	2252.7	blue	blue
+	2288.5	8	1760.7	2288.5	blue	blue
+	2323.8	8	2318.5	2323.8	blue	blue
+	2332.1	4	2282.7	2332.1	blue	blue
+	2359	7	2146.3	2359	blue	blue
+	2368.9	4	2362.1	2368.9	blue	blue
+	2370.1	0	2201.7	2370.1	blue	blue
+	2400.3	0	2400.1	2400.3	blue	blue
+	2401.8	8	2353.8	2401.8	blue	blue
+	2405.3	1	2186.6	2405.3	blue	blue
+	2431.1	2	1442.6	2431.1	blue	blue
+	2468.2	8	2431.8	2468.2	blue	blue
+	2512	8	2498.2	2512	blue	blue
+	2520	1	2435.3	2520	blue	blue
+	2524.7	7	2389	2524.7	blue	blue
+	2541.1	5	1626.5	2541.1	blue	blue
+	2570.3	6	2028.5	2570.3	blue	blue
+	2570.8	1	2550	2570.8	blue	blue
+	2574.7	7	2554.7	2574.7	blue	blue
+	2589.9	5	2571.1	2589.9	blue	blue
+	2599.5	8	2542	2599.5	blue	blue
+	2618.6	1	2600.8	2618.6	blue	blue
+	2627.5	0	2430.3	2627.5	blue	blue
+	2636	2	2461.1	2636	blue	blue
+	2645.2	8	2629.5	2645.2	blue	blue
+	2667.4	7	2604.7	2667.4	blue	blue
+	2673.7	1	2648.6	2673.7	blue	blue
+	2716.7	2	2666	2716.7	blue	blue
+	2720.1	4	2398.9	2720.1	blue	blue
+	2764.4	2	2746.7	2764.4	blue	blue
+	2774.4	7	2697.4	2774.4	blue	blue
+	2875.4	6	2600.3	2875.4	blue	blue
+	2947.6	0	2657.5	2947.6	blue	blue
+	2985.8	2	2794.4	2985.8	blue	blue
+	2987.3	0	2977.6	2987.3	blue	blue
+	3018.5	1	2703.7	3018.5	blue	blue
+	3055.7	2	3015.8	3055.7	blue	blue
+	3059.6	5	2619.9	3059.6	blue	blue
+	3100.1	6	2905.4	3100.1	blue	blue
+	3116.3	7	2804.4	3116.3	blue	blue
+	3139.9	6	3130.1	3139.9	blue	blue
+	3146.4	7	3146.3	3146.4	blue	blue
+	3192	4	2750.1	3192	blue	blue
+	3217.3	7	3176.4	3217.3	blue	blue
+	3290	7	3247.3	3290	blue	blue
+	3339.9	7	3320	3339.9	blue	blue
+	3343.1	2	3085.7	3343.1	blue	blue
+	3343.5	8	2675.2	3343.5	blue	blue
+	3391.6	8	3373.5	3391.6	blue	blue
+	3403.1	4	3222	3403.1	blue	blue
+	3415.7	0	3017.3	3415.7	blue	blue
+	3444.3	1	3048.5	3444.3	blue	blue
+	3470.4	8	3421.6	3470.4	blue	blue
+Completed 111 tasks.
+-------------------------------
+20 seed#23_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	5.3	6	0	5.3	blue	blue
+	21.7	2	0	21.7	blue	blue
+	791.1	2	51.7	791.1	blue	blue
+	1502.2	2	821.1	1502.2	blue	blue
+	1853.9	2	1532.2	1853.9	blue	blue
+	2140.7	2	1883.9	2140.7	blue	blue
+	2749.1	2	2170.7	2749.1	blue	blue
+	3009.3	2	2779.1	3009.3	blue	blue
+	3177	2	3039.3	3177	blue	blue
+	3347.7	2	3207	3347.7	blue	blue
+	3500	6	35.4	3500	blue	blue
+Completed 11 tasks.
+-------------------------------
+20 seed#24_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	89.2	13	0	89.2	blue	blue
+	192.3	11	0	192.3	blue	blue
+	487.8	13	119.2	487.8	blue	blue
+	598.3	11	222.3	598.3	blue	blue
+	643.9	1	0	643.9	blue	red
+	1437	11	628.3	1437	blue	blue
+	1926.5	8	0	1926.5	red	blue
+	2275.8	13	517.9	2275.8	blue	blue
+	3155.3	13	2305.8	3155.3	blue	blue
+Completed 9 tasks.
+-------------------------------
+20 seed#25_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+Completed 0 tasks.
+-------------------------------
+20 seed#26_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	0.7	6	0	0.7	blue	blue
+	0.7	9	0	0.7	blue	blue
+	1.9	10	0	1.9	blue	blue
+	14.9	8	0	14.9	blue	blue
+	59.2	0	0	59.2	blue	blue
+	88.8	11	0	88.8	blue	blue
+	103.7	0	89.2	103.7	blue	blue
+	153.7	0	133.8	153.7	blue	blue
+	185.2	0	183.7	185.2	blue	blue
+	215.6	9	30.7	215.6	blue	blue
+	256.7	11	118.8	256.7	blue	blue
+	261.5	2	0	261.5	blue	blue
+	308.5	9	245.6	308.5	blue	blue
+	309.2	2	291.5	309.2	blue	blue
+	310.1	11	286.7	310.1	blue	blue
+	325.1	4	0	325.1	blue	blue
+	362	2	339.2	362	blue	blue
+	369.4	4	355.1	369.4	blue	blue
+	406.4	11	340.1	406.4	blue	blue
+	408.9	0	215.2	408.9	blue	blue
+	439.9	0	438.9	439.9	blue	blue
+	470.1	0	469.9	470.1	blue	blue
+	492.8	4	399.4	492.8	blue	blue
+	508.7	8	44.9	508.7	blue	blue
+	520.5	2	392	520.5	blue	blue
+	553.5	11	436.4	553.5	blue	blue
+	578.2	9	338.5	578.2	blue	blue
+	593.9	10	31.9	593.9	blue	blue
+	642.5	11	583.5	642.5	blue	blue
+	643.9	10	623.9	643.9	blue	blue
+	646.6	0	500.1	646.6	blue	blue
+	675.3	6	30.7	675.3	blue	blue
+	714.9	6	705.3	714.9	blue	blue
+	726	11	672.5	726	blue	blue
+	734.9	2	550.5	734.9	blue	blue
+	742.4	10	673.9	742.4	blue	blue
+	768.3	11	756	768.3	blue	blue
+	788.6	10	772.4	788.6	blue	blue
+	868.5	8	538.7	868.5	blue	blue
+	877.9	2	764.9	877.9	blue	blue
+	948	2	907.9	948	blue	blue
+	998.5	0	676.6	998.5	blue	blue
+	1052.3	11	798.3	1052.3	blue	blue
+	1068.3	6	744.9	1068.3	blue	blue
+	1101.3	11	1082.3	1101.3	blue	blue
+	1168.3	6	1098.3	1168.3	blue	blue
+	1196.6	10	818.6	1196.6	blue	blue
+	1218.2	11	1131.3	1218.2	blue	blue
+	1258.3	2	978	1258.3	blue	blue
+	1260.3	0	1028.5	1260.3	blue	blue
+	1309.9	0	1290.3	1309.9	blue	blue
+	1340.1	0	1339.9	1340.1	blue	blue
+	1345.9	11	1248.2	1345.9	blue	blue
+	1371.3	2	1288.3	1371.3	blue	blue
+	1384.6	8	898.5	1384.6	blue	blue
+	1407.1	0	1370.1	1407.1	blue	blue
+	1527.7	2	1401.3	1527.7	blue	blue
+	1578.4	2	1557.7	1578.4	blue	blue
+	1636.5	10	1226.6	1636.5	blue	blue
+	1639.9	11	1375.9	1639.9	blue	blue
+	1684.9	8	1414.6	1684.9	blue	blue
+	1704	6	1198.3	1704	blue	blue
+	1728	11	1669.9	1728	blue	blue
+	1853.5	4	522.9	1853.5	blue	blue
+	1897.8	2	1608.4	1897.8	blue	blue
+	1939.4	11	1758	1939.4	blue	blue
+	1974	9	608.2	1974	blue	blue
+	2031.1	8	1714.9	2031.1	blue	blue
+	2078.4	9	2004	2078.4	blue	blue
+	2085.9	8	2061.1	2085.9	blue	blue
+	2117.3	11	1969.4	2117.3	blue	blue
+	2166.4	0	1437.1	2166.4	blue	blue
+	2167.3	11	2147.3	2167.3	blue	blue
+	2185.8	2	1927.8	2185.8	blue	blue
+	2237.2	2	2215.8	2237.2	blue	blue
+	2238.4	0	2196.4	2238.4	blue	blue
+	2240.4	11	2197.3	2240.4	blue	blue
+	2279.9	11	2270.4	2279.9	blue	blue
+	2324.6	11	2309.9	2324.6	blue	blue
+	2375.6	11	2354.6	2375.6	blue	blue
+	2391	9	2108.4	2391	blue	blue
+	2415.5	2	2267.2	2415.5	blue	blue
+	2421.7	11	2405.6	2421.7	blue	blue
+	2490.7	4	1883.5	2490.7	blue	blue
+	2494.3	2	2445.5	2494.3	blue	blue
+	2511.1	0	2268.4	2511.1	blue	blue
+	2524.9	4	2520.7	2524.9	blue	blue
+	2538.8	8	2115.9	2538.8	blue	blue
+	2552.9	2	2524.3	2552.9	blue	blue
+	2585.4	0	2541.1	2585.4	blue	blue
+	2600.1	2	2582.9	2600.1	blue	blue
+	2615.6	0	2615.4	2615.6	blue	blue
+	2647.9	11	2451.7	2647.9	blue	blue
+	2654.7	0	2645.6	2654.7	blue	blue
+	2701.6	0	2684.7	2701.6	blue	blue
+	2731.2	11	2677.9	2731.2	blue	blue
+	2739.8	0	2731.6	2739.8	blue	blue
+	2752.1	2	2630.1	2752.1	blue	blue
+	2835.2	8	2568.8	2835.2	blue	blue
+	2856.5	4	2554.9	2856.5	blue	blue
+	2860.3	11	2761.2	2860.3	blue	blue
+	2872.5	0	2769.8	2872.5	blue	blue
+	2884.9	8	2865.2	2884.9	blue	blue
+	2896	11	2890.3	2896	blue	blue
+	2903.9	0	2902.5	2903.9	blue	blue
+	2939.9	0	2933.9	2939.9	blue	blue
+	2942.6	11	2926	2942.6	blue	blue
+	2971.5	0	2969.9	2971.5	blue	blue
+	3103.7	0	3001.5	3103.7	blue	blue
+	3133.9	0	3133.7	3133.9	blue	blue
+	3155	11	2972.6	3155	blue	blue
+	3161.7	10	1666.5	3161.7	blue	blue
+	3188.7	6	1734	3188.7	blue	blue
+	3200.2	2	2782.1	3200.2	blue	blue
+	3235.2	8	2914.9	3235.2	blue	blue
+	3289.7	2	3230.2	3289.7	blue	blue
+	3341.1	0	3163.9	3341.1	blue	blue
+	3492	10	3191.7	3492	blue	blue
+	3510.3	8	3265.2	3510.3	blue	blue
+	3550.1	8	3540.3	3550.1	blue	blue
+Completed 120 tasks.
+-------------------------------
+20 seed#27_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+Completed 0 tasks.
+-------------------------------
+20 seed#28_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	130.9	2	0	130.9	blue	blue
+	229.4	4	0	229.4	blue	blue
+	397.2	4	259.5	397.2	blue	blue
+	486.4	4	427.2	486.4	blue	blue
+	871.3	4	516.4	871.3	blue	blue
+	918.2	4	901.3	918.2	blue	blue
+	1141.1	13	0	1141.1	blue	blue
+	1187.3	2	160.9	1187.3	blue	blue
+	1275.7	2	1217.3	1275.7	blue	blue
+	1392.4	2	1305.7	1392.4	blue	blue
+	1434.9	2	1422.4	1434.9	blue	blue
+	2030.2	4	948.2	2030.2	blue	blue
+	2168.9	2	1464.9	2168.9	blue	blue
+	2256.7	13	1171.1	2256.7	blue	blue
+	2556.6	13	2286.7	2556.6	blue	blue
+	2727.5	13	2586.6	2727.5	blue	blue
+	2734.6	2	2198.9	2734.6	blue	blue
+	2867.4	13	2757.5	2867.4	blue	blue
+	3095.7	2	2764.6	3095.7	blue	blue
+	3107.1	13	2897.4	3107.1	blue	blue
+	3284	2	3125.7	3284	blue	blue
+	3413	13	3137.1	3413	blue	blue
+Completed 22 tasks.
+-------------------------------
+20 seed#29_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+Completed 0 tasks.
+-------------------------------
+20 seed#30_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	12.9	5	0	12.9	red	blue
+	745.6	15	0	745.6	blue	blue
+	775.7	15	775.6	775.7	blue	blue
+	805.9	15	805.7	805.9	blue	blue
+	1146.3	11	0	1146.3	blue	blue
+	1406.8	15	835.9	1406.8	blue	blue
+	1504.9	15	1436.8	1504.9	blue	blue
+	2830.9	11	1176.3	2830.9	blue	blue
+	2981.5	15	1534.9	2981.5	blue	blue
+Completed 9 tasks.
+-------------------------------
+20 seed#31_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	1.2	10	0	1.2	blue	blue
+	6.8	9	0	6.8	blue	blue
+	15.4	11	0	15.4	blue	blue
+	22.2	4	0	22.2	blue	blue
+	26.8	8	0	26.8	blue	blue
+	87.8	10	31.2	87.8	blue	blue
+	279.2	4	52.2	279.2	blue	blue
+	362.6	11	45.4	362.6	blue	blue
+	363.1	14	0	363.1	blue	blue
+	408.5	2	0	408.5	blue	blue
+	435.6	1	0	435.6	blue	blue
+	455.2	8	56.9	455.2	blue	blue
+	525.3	14	393.1	525.3	blue	blue
+	549.3	11	392.6	549.3	blue	blue
+	554.3	10	117.8	554.3	blue	blue
+	554.4	9	36.9	554.4	blue	blue
+	562.5	2	438.5	562.5	blue	blue
+	569.9	14	555.3	569.9	blue	blue
+	637	11	579.3	637	blue	blue
+	638.5	4	309.2	638.5	blue	blue
+	664.9	14	599.9	664.9	blue	blue
+	696.2	4	668.5	696.2	blue	blue
+	705.1	1	465.6	705.1	blue	blue
+	744.3	4	726.2	744.3	blue	blue
+	773	14	694.9	773	blue	blue
+	799.2	1	735.1	799.2	blue	blue
+	803.8	4	774.3	803.8	blue	blue
+	829.3	1	829.2	829.3	blue	blue
+	879.7	11	667	879.7	blue	blue
+	989.2	14	803	989.2	blue	blue
+	1079.7	8	485.2	1079.7	blue	blue
+	1085	9	584.4	1085	blue	blue
+	1100.4	4	833.8	1100.4	blue	blue
+	1163.3	11	909.7	1163.3	blue	blue
+	1164.9	2	592.5	1164.9	blue	blue
+	1266.2	1	859.3	1266.2	blue	blue
+	1395.9	10	584.3	1395.9	blue	blue
+	1418.7	14	1019.2	1418.7	blue	blue
+	1436.4	4	1130.4	1436.4	blue	blue
+	1479.2	4	1466.4	1479.2	blue	blue
+	1485.8	8	1109.7	1485.8	blue	blue
+	1503.6	1	1296.2	1503.6	blue	blue
+	1529	8	1515.8	1529	blue	blue
+	1695	4	1509.2	1695	blue	blue
+	1719.7	11	1193.3	1719.7	blue	blue
+	1750	1	1533.6	1750	blue	blue
+	1750.6	14	1448.7	1750.6	blue	blue
+	1769.5	2	1194.9	1769.5	blue	blue
+	1940.2	8	1559	1940.2	blue	blue
+	1946.9	2	1799.5	1946.9	blue	blue
+	2000.9	11	1749.7	2000.9	blue	blue
+	2010.1	8	1970.2	2010.1	blue	blue
+	2057.2	11	2030.9	2057.2	blue	blue
+	2143.7	2	1976.9	2143.7	blue	blue
+	2184.8	11	2087.2	2184.8	blue	blue
+	2242.2	2	2173.7	2242.2	blue	blue
+	2254.3	11	2214.8	2254.3	blue	blue
+	2284.7	14	1780.6	2284.7	blue	blue
+	2323.6	14	2314.7	2323.6	blue	blue
+	2438	11	2284.3	2438	blue	blue
+	2467.3	10	1425.9	2467.3	blue	blue
+	2486.9	11	2468	2486.9	blue	blue
+	2540.9	2	2272.2	2540.9	blue	blue
+	2543.1	10	2497.3	2543.1	blue	blue
+	2566.6	1	1780	2566.6	blue	blue
+	2580.3	2	2570.9	2580.3	blue	blue
+	2584.6	9	1115	2584.6	blue	blue
+	2620.6	14	2353.6	2620.6	blue	blue
+	2725.6	2	2610.3	2725.6	blue	blue
+	2792.1	10	2573.1	2792.1	blue	blue
+	2818	4	1725	2818	blue	blue
+	2854.2	10	2822.1	2854.2	blue	blue
+	2870.5	8	2040.1	2870.5	blue	blue
+	2883.1	4	2848	2883.1	blue	blue
+	2917.2	4	2913.1	2917.2	blue	blue
+	2947.6	4	2947.2	2947.6	blue	blue
+	2975.4	9	2614.6	2975.4	blue	blue
+	3002	2	2755.6	3002	blue	blue
+	3016.3	11	2516.9	3016.3	blue	blue
+	3111.9	1	2596.6	3111.9	blue	blue
+	3132.7	4	2977.6	3132.7	blue	blue
+	3134.5	2	3032	3134.5	blue	blue
+	3152.3	1	3141.9	3152.3	blue	blue
+	3186.2	2	3164.5	3186.2	blue	blue
+	3190.6	1	3182.3	3190.6	blue	blue
+	3216.3	4	3162.7	3216.3	blue	blue
+	3230.6	2	3216.2	3230.6	blue	blue
+	3240.6	8	2900.5	3240.6	blue	blue
+	3263.7	1	3220.6	3263.7	blue	blue
+	3270.6	4	3246.3	3270.6	blue	blue
+	3281.2	2	3260.6	3281.2	blue	blue
+	3293.4	10	2884.2	3293.4	blue	blue
+	3320.5	4	3300.6	3320.5	blue	blue
+	3325.7	2	3311.2	3325.7	blue	blue
+	3373.9	2	3355.7	3373.9	blue	blue
+	3424.2	4	3350.5	3424.2	blue	blue
+	3429	11	3046.3	3429	blue	blue
+	3454.4	4	3454.2	3454.4	blue	blue
+Completed 98 tasks.
+-------------------------------
+20 seed#32_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	0.9	5	0	0.9	blue	blue
+	0.9	6	0	0.9	blue	blue
+	27.5	1	0	27.5	blue	blue
+	54.6	5	30.9	54.6	blue	blue
+	156.8	4	0	156.8	blue	blue
+	199.5	6	30.9	199.5	blue	blue
+	264.5	4	186.8	264.5	blue	blue
+	307.8	4	294.5	307.8	blue	blue
+	335.4	7	0	335.4	blue	blue
+	342.7	0	0	342.7	blue	blue
+	378.5	1	57.5	378.5	blue	blue
+	385.8	0	372.7	385.8	blue	blue
+	415.9	0	415.8	415.9	blue	blue
+	420.8	1	408.5	420.8	blue	blue
+	440	7	365.4	440	blue	blue
+	446	0	445.9	446	blue	blue
+	498.9	2	0	498.9	blue	blue
+	533.8	2	528.9	533.8	blue	blue
+	537.1	7	470	537.1	blue	blue
+	552.2	3	0	552.2	blue	blue
+	611.6	7	567.1	611.6	blue	blue
+	656.4	0	476	656.4	blue	blue
+	686.6	4	337.8	686.6	blue	blue
+	698	0	686.4	698	blue	blue
+	720.7	7	641.6	720.7	blue	blue
+	728.9	1	450.8	728.9	blue	blue
+	737.9	0	728	737.9	blue	blue
+	764.6	5	84.7	764.6	blue	blue
+	869.9	0	767.9	869.9	blue	blue
+	870.5	4	716.6	870.5	blue	blue
+	896.7	3	582.2	896.7	blue	blue
+	934	2	563.8	934	blue	blue
+	962	0	899.9	962	blue	blue
+	997.7	4	900.5	997.7	blue	blue
+	1001.8	0	992	1001.8	blue	blue
+	1031.9	0	1031.8	1031.9	blue	blue
+	1062.1	0	1061.9	1062.1	blue	blue
+	1092.2	0	1092.1	1092.2	blue	blue
+	1094.5	4	1027.7	1094.5	blue	blue
+	1151.5	3	926.7	1151.5	blue	blue
+	1162.1	2	964	1162.1	blue	blue
+	1165.7	5	794.6	1165.7	blue	blue
+	1178.3	4	1124.5	1178.3	blue	blue
+	1187.8	1	758.9	1187.8	blue	blue
+	1210.3	0	1122.2	1210.3	blue	blue
+	1231.5	7	750.7	1231.5	blue	blue
+	1240.5	0	1240.3	1240.5	blue	blue
+	1270.8	0	1270.5	1270.8	blue	blue
+	1317	0	1300.8	1317	blue	blue
+	1348.9	0	1347	1348.9	blue	blue
+	1382.1	4	1208.3	1382.1	blue	blue
+	1414.3	0	1378.9	1414.3	blue	blue
+	1499.9	3	1181.5	1499.9	blue	blue
+	1531.3	0	1444.3	1531.3	blue	blue
+	1549.5	3	1529.9	1549.5	blue	blue
+	1561.1	4	1412.1	1561.1	blue	blue
+	1575.3	0	1561.3	1575.3	blue	blue
+	1588.2	3	1579.5	1588.2	blue	blue
+	1609.7	1	1217.8	1609.7	blue	blue
+	1626.8	3	1618.2	1626.8	blue	blue
+	1674.7	5	1195.7	1674.7	blue	blue
+	1685.8	0	1605.3	1685.8	blue	blue
+	1720.6	4	1591.1	1720.6	blue	blue
+	1738.6	5	1704.7	1738.6	blue	blue
+	1748.8	1	1639.7	1748.8	blue	blue
+	1762.8	2	1192.1	1762.8	blue	blue
+	1768.4	4	1750.6	1768.4	blue	blue
+	1781.6	0	1715.8	1781.6	blue	blue
+	1823.9	3	1656.8	1823.9	blue	blue
+	1854.1	3	1853.9	1854.1	blue	blue
+	1886.8	3	1884.1	1886.8	blue	blue
+	1917	3	1916.8	1917	blue	blue
+	1941.7	1	1778.8	1941.7	blue	blue
+	1986.1	1	1971.7	1986.1	blue	blue
+	2043.9	3	1947	2043.9	blue	blue
+	2085.4	7	1261.5	2085.4	blue	blue
+	2139.9	3	2073.9	2139.9	blue	blue
+	2170	3	2169.9	2170	blue	blue
+	2183.2	2	1792.8	2183.2	blue	blue
+	2232.1	7	2115.4	2232.1	blue	blue
+	2244.1	3	2200	2244.1	blue	blue
+	2276.3	5	1768.6	2276.3	blue	blue
+	2281.7	3	2274.1	2281.7	blue	blue
+	2331.7	5	2306.3	2331.7	blue	blue
+	2332.4	3	2311.7	2332.4	blue	blue
+	2371.9	2	2213.2	2371.9	blue	blue
+	2439.1	1	2016.1	2439.1	blue	blue
+	2495.3	7	2262.1	2495.3	blue	blue
+	2543	7	2525.3	2543	blue	blue
+	2606	3	2362.4	2606	blue	blue
+	2646.8	6	229.5	2646.8	blue	blue
+	2694	0	1811.6	2694	blue	blue
+	2724.2	0	2724	2724.2	blue	blue
+	2729.3	4	1798.4	2729.3	blue	blue
+	2758.7	0	2754.2	2758.7	blue	blue
+	2771.9	4	2759.3	2771.9	blue	blue
+	2789.7	0	2788.7	2789.7	blue	blue
+	2819.9	0	2819.7	2819.9	blue	blue
+	2833.8	7	2573	2833.8	blue	blue
+	2848.6	1	2469.1	2848.6	blue	blue
+	2874	2	2401.9	2874	blue	blue
+	2902.8	3	2636	2902.8	blue	blue
+	2941.8	3	2932.8	2941.8	blue	blue
+	2965.9	0	2849.9	2965.9	blue	blue
+	2987.9	3	2971.8	2987.9	blue	blue
+	3018.1	3	3017.9	3018.1	blue	blue
+	3048.3	3	3048.1	3048.3	blue	blue
+	3048.5	5	2361.7	3048.5	blue	blue
+	3059.6	2	2904	3059.6	blue	blue
+	3077.7	6	2676.8	3077.7	blue	blue
+	3078.5	3	3078.3	3078.5	blue	blue
+	3091.2	7	2863.8	3091.2	blue	blue
+	3116.8	3	3108.5	3116.8	blue	blue
+	3123.8	1	2878.6	3123.8	blue	blue
+	3147	3	3146.8	3147	blue	blue
+	3283.1	7	3121.2	3283.1	blue	blue
+	3318.4	2	3089.6	3318.4	blue	blue
+	3423	4	2801.9	3423	blue	blue
+	3437.4	6	3107.7	3437.4	blue	blue
+	3440.4	5	3078.5	3440.4	blue	blue
+	3440.7	1	3153.8	3440.7	blue	blue
+	3469	4	3453	3469	blue	blue
+	3505.2	3	3177	3505.2	blue	blue
+	3508.3	7	3313.1	3508.3	blue	blue
+	3530	2	3348.4	3530	blue	blue
+Completed 125 tasks.
+-------------------------------
+20 seed#33_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	3.6	10	0	3.6	blue	blue
+	5.7	6	0	5.7	blue	blue
+	7.7	9	0	7.7	blue	blue
+	91.3	3	0	91.3	blue	blue
+	110.7	10	33.6	110.7	blue	blue
+	138.3	3	121.3	138.3	blue	blue
+	150.7	2	0	150.7	blue	blue
+	159.4	6	35.7	159.4	blue	blue
+	160.2	8	0	160.2	blue	blue
+	243.9	4	0	243.9	blue	blue
+	245.7	9	37.7	245.7	blue	blue
+	282.4	8	190.2	282.4	blue	blue
+	416.4	3	168.3	416.4	blue	blue
+	449.1	3	446.4	449.1	blue	blue
+	454.1	9	275.7	454.1	blue	blue
+	547.9	4	274	547.9	blue	blue
+	575.8	3	479.1	575.8	blue	blue
+	595.7	2	180.7	595.7	blue	blue
+	606.2	3	605.8	606.2	blue	blue
+	649.9	3	636.2	649.9	blue	blue
+	680.9	3	679.9	680.9	blue	blue
+	711.1	3	710.9	711.1	blue	blue
+	741.9	3	741.1	741.9	blue	blue
+	749.5	8	312.4	749.5	blue	blue
+	775.7	4	577.9	775.7	blue	blue
+	809.8	4	805.7	809.8	blue	blue
+	825.4	8	779.5	825.4	blue	blue
+	858.7	4	839.8	858.7	blue	blue
+	884.5	8	855.4	884.5	blue	blue
+	895.2	4	888.7	895.2	blue	blue
+	902.4	10	140.8	902.4	blue	blue
+	940	9	484.1	940	blue	blue
+	955.8	6	189.4	955.8	blue	blue
+	964.9	2	625.7	964.9	blue	blue
+	986	3	771.9	986	blue	blue
+	1057.9	8	914.5	1057.9	blue	blue
+	1099.5	8	1087.9	1099.5	blue	blue
+	1136.3	8	1129.5	1136.3	blue	blue
+	1199	8	1166.3	1199	blue	blue
+	1229.3	4	925.2	1229.3	blue	blue
+	1243.5	1	0	1243.5	blue	blue
+	1251.9	9	970	1251.9	blue	blue
+	1268	6	985.8	1268	blue	blue
+	1326.9	3	1016	1326.9	blue	blue
+	1356.9	1	1273.5	1356.9	blue	blue
+	1406.9	8	1229	1406.9	blue	blue
+	1425.8	3	1356.9	1425.8	blue	blue
+	1490.9	4	1259.3	1490.9	blue	blue
+	1553.1	2	994.9	1553.1	blue	blue
+	1606.9	10	932.4	1606.9	blue	blue
+	1676.5	2	1583.1	1676.5	blue	blue
+	1677.4	8	1436.9	1677.4	blue	blue
+	1690.5	4	1520.9	1690.5	blue	blue
+	1736.1	4	1720.5	1736.1	blue	blue
+	1758.8	10	1636.9	1758.8	blue	blue
+	1773.2	2	1706.5	1773.2	blue	blue
+	1799.8	4	1766.1	1799.8	blue	blue
+	1830	4	1829.8	1830	blue	blue
+	1946.5	10	1788.8	1946.5	blue	blue
+	1973.2	9	1281.9	1973.2	blue	blue
+	1997.6	4	1860	1997.6	blue	blue
+	2003.4	1	1386.9	2003.4	blue	blue
+	2084.9	4	2027.6	2084.9	blue	blue
+	2127.7	9	2003.2	2127.7	blue	blue
+	2195.9	3	1455.8	2195.9	blue	blue
+	2203.6	8	1707.4	2203.6	blue	blue
+	2227.5	9	2157.7	2227.5	blue	blue
+	2237.5	2	1803.2	2237.5	blue	blue
+	2237.9	3	2225.9	2237.9	blue	blue
+	2264.4	8	2233.6	2264.4	blue	blue
+	2268.1	3	2267.9	2268.1	blue	blue
+	2271.1	2	2267.5	2271.1	blue	blue
+	2355.1	9	2257.5	2355.1	blue	blue
+	2359.8	10	1976.5	2359.8	blue	blue
+	2427.3	3	2298.1	2427.3	blue	blue
+	2435.2	2	2301.1	2435.2	blue	blue
+	2449.9	8	2294.4	2449.9	blue	blue
+	2457.5	3	2457.3	2457.5	blue	blue
+	2478.2	2	2465.2	2478.2	blue	blue
+	2485.5	4	2114.9	2485.5	blue	blue
+	2494.9	1	2033.4	2494.9	blue	blue
+	2500.1	8	2479.9	2500.1	blue	blue
+	2537.7	10	2389.8	2537.7	blue	blue
+	2570.1	8	2530.1	2570.1	blue	blue
+	2575.9	2	2508.2	2575.9	blue	blue
+	2593.1	4	2515.5	2593.1	blue	blue
+	2594.1	1	2524.9	2594.1	blue	blue
+	2631.9	4	2623.1	2631.9	blue	blue
+	2660.9	8	2600.1	2660.9	blue	blue
+	2679	4	2661.9	2679	blue	blue
+	2691	8	2690.9	2691	blue	blue
+	2710.8	1	2624.1	2710.8	blue	blue
+	2728.4	8	2721	2728.4	blue	blue
+	2737	2	2605.9	2737	blue	blue
+	2757	1	2740.8	2757	blue	blue
+	2767.2	2	2767	2767.2	blue	blue
+	2787.2	1	2787	2787.2	blue	blue
+	2812.9	2	2797.2	2812.9	blue	blue
+	2817.9	1	2817.2	2817.9	blue	blue
+	2909.7	4	2709	2909.7	blue	blue
+	2912.6	3	2487.5	2912.6	blue	blue
+	2942.8	3	2942.6	2942.8	blue	blue
+	3078.1	2	2842.9	3078.1	blue	blue
+	3180	3	2972.8	3180	blue	blue
+	3206.2	1	2847.9	3206.2	blue	blue
+	3210.2	3	3210	3210.2	blue	blue
+	3239	2	3108.1	3239	blue	blue
+	3240.3	3	3240.2	3240.3	blue	blue
+	3270.5	3	3270.3	3270.5	blue	blue
+	3281.4	1	3236.2	3281.4	blue	blue
+	3284.7	2	3269	3284.7	blue	blue
+	3312.7	3	3300.5	3312.7	blue	blue
+	3324	1	3311.4	3324	blue	blue
+	3342.4	2	3314.7	3342.4	blue	blue
+	3354.1	3	3342.7	3354.1	blue	blue
+	3358.9	4	2939.7	3358.9	blue	blue
+	3374.9	8	2758.4	3374.9	blue	blue
+	3384.3	3	3384.1	3384.3	blue	blue
+	3387	2	3372.4	3387	blue	blue
+	3414.5	3	3414.3	3414.5	blue	blue
+Completed 120 tasks.
+-------------------------------
+20 seed#34_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	7.5	9	0	7.5	blue	blue
+	800.4	15	0	800.4	blue	blue
+	1270.9	15	830.4	1270.9	blue	blue
+	1766.3	15	1300.9	1766.3	blue	blue
+	2255.5	15	1796.3	2255.5	blue	blue
+	2285.7	15	2285.5	2285.7	blue	blue
+	2385.6	15	2315.7	2385.6	blue	blue
+	2522.9	15	2415.6	2522.9	blue	blue
+	2563.9	15	2552.9	2563.9	blue	blue
+	3439.6	15	2593.9	3439.6	blue	blue
+Completed 10 tasks.
+-------------------------------
+20 seed#35_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+Completed 0 tasks.
+-------------------------------
+20 seed#36_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	34.3	4	0	34.3	blue	blue
+	98.1	4	64.3	98.1	blue	blue
+	276.3	4	128.1	276.3	blue	blue
+	351	12	0	351	blue	blue
+	381.3	12	381	381.3	blue	blue
+	587.6	4	306.3	587.6	blue	blue
+	617.7	4	617.6	617.7	blue	blue
+	693.7	12	411.3	693.7	blue	blue
+	981.6	5	0	981.6	blue	blue
+	1529.1	4	647.7	1529.1	blue	blue
+	1635.5	12	723.7	1635.5	blue	blue
+	1976.6	12	1665.5	1976.6	blue	blue
+	2015.5	12	2006.6	2015.5	blue	blue
+	2164	12	2045.5	2164	blue	blue
+	2229.9	12	2194	2229.9	blue	blue
+	2260	12	2259.9	2260	blue	blue
+	2382.9	12	2290	2382.9	blue	blue
+	2413.1	12	2412.9	2413.1	blue	blue
+	2417.5	5	1011.6	2417.5	blue	blue
+	2448.5	12	2443.1	2448.5	blue	blue
+	2477.6	4	1559.1	2477.6	blue	blue
+	2826.6	12	2478.5	2826.6	blue	blue
+	3213.7	4	2507.6	3213.7	blue	blue
+	3267.9	12	2856.6	3267.9	blue	blue
+	3298.4	4	3243.7	3298.4	blue	blue
+	3314.6	5	2447.5	3314.6	blue	blue
+	3332.1	12	3297.9	3332.1	blue	blue
+Completed 27 tasks.
+-------------------------------
+20 seed#37_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	0.6	5	0	0.6	blue	blue
+	4	10	0	4	blue	blue
+	42.6	4	0	42.6	blue	blue
+	45.8	5	30.6	45.8	blue	blue
+	59.1	1	0	59.1	blue	blue
+	126.9	10	34	126.9	blue	blue
+	132.6	7	0	132.6	blue	blue
+	176.4	11	0	176.4	blue	blue
+	213	8	0	213	blue	blue
+	249.1	11	206.4	249.1	blue	blue
+	275.9	7	162.6	275.9	blue	blue
+	284.3	11	279.1	284.3	blue	blue
+	328.6	2	0	328.6	blue	blue
+	329.6	1	89.2	329.6	blue	blue
+	403.5	4	72.7	403.5	blue	blue
+	411.9	2	358.6	411.9	blue	blue
+	425.7	8	243	425.7	blue	blue
+	446.8	7	305.9	446.8	blue	blue
+	459.3	5	75.8	459.3	blue	blue
+	465	11	314.3	465	blue	blue
+	496.3	7	476.8	496.3	blue	blue
+	506.8	1	359.6	506.8	blue	blue
+	528.7	2	441.9	528.7	blue	blue
+	566.7	5	489.3	566.7	blue	blue
+	602.1	5	596.7	602.1	blue	blue
+	647.5	5	632.1	647.5	blue	blue
+	712.2	1	536.9	712.2	blue	blue
+	742.4	1	742.2	742.4	blue	blue
+	757.4	4	433.5	757.4	blue	blue
+	779.9	1	772.4	779.9	blue	blue
+	810.1	1	809.9	810.1	blue	blue
+	813.1	11	495	813.1	blue	blue
+	829.3	10	156.9	829.3	blue	blue
+	852.5	1	840.1	852.5	blue	blue
+	885.2	2	558.7	885.2	blue	blue
+	940.3	1	882.5	940.3	blue	blue
+	956.5	8	455.7	956.5	blue	blue
+	969.4	4	787.4	969.4	blue	blue
+	1018.6	4	999.4	1018.6	blue	blue
+	1048.9	4	1048.7	1048.9	blue	blue
+	1101.4	7	526.4	1101.4	blue	blue
+	1118.9	1	970.3	1118.9	blue	blue
+	1160.7	11	843.1	1160.7	blue	blue
+	1245.7	5	677.5	1245.7	blue	blue
+	1256.6	8	986.5	1256.6	blue	blue
+	1269.6	10	859.3	1269.6	blue	blue
+	1284.6	11	1190.7	1284.6	blue	blue
+	1300	7	1131.4	1300	blue	blue
+	1364.3	1	1148.9	1364.3	blue	blue
+	1378.8	11	1314.6	1378.8	blue	blue
+	1384.9	4	1078.9	1384.9	blue	blue
+	1403.5	8	1286.6	1403.5	blue	blue
+	1406.3	1	1394.3	1406.3	blue	blue
+	1417.5	7	1330	1417.5	blue	blue
+	1427.7	11	1408.8	1427.7	blue	blue
+	1435.6	4	1414.9	1435.6	blue	blue
+	1458.5	10	1299.6	1458.5	blue	blue
+	1572	11	1457.7	1572	blue	blue
+	1574.9	1	1436.3	1574.9	blue	blue
+	1575.8	7	1447.5	1575.8	blue	blue
+	1632.9	2	915.2	1632.9	blue	blue
+	1649	10	1488.5	1649	blue	blue
+	1650.9	5	1275.7	1650.9	blue	blue
+	1655.3	11	1602	1655.3	blue	blue
+	1665.4	1	1604.9	1665.4	blue	blue
+	1676.7	2	1662.9	1676.7	blue	blue
+	1716.4	11	1685.3	1716.4	blue	blue
+	1720.3	10	1679	1720.3	blue	blue
+	1736.1	7	1605.8	1736.1	blue	blue
+	1759	11	1746.4	1759	blue	blue
+	1800.4	1	1695.4	1800.4	blue	blue
+	1831.1	11	1789	1831.1	blue	blue
+	1846.7	7	1766.1	1846.7	blue	blue
+	1852.1	4	1465.6	1852.1	blue	blue
+	1878.7	8	1433.5	1878.7	blue	blue
+	1916.8	8	1908.7	1916.8	blue	blue
+	1973.6	11	1861.1	1973.6	blue	blue
+	1984.3	8	1946.8	1984.3	blue	blue
+	2076.9	7	1876.7	2076.9	blue	blue
+	2098.7	10	1750.3	2098.7	blue	blue
+	2116.3	11	2003.6	2116.3	blue	blue
+	2133.8	1	1830.4	2133.8	blue	blue
+	2152.8	11	2146.3	2152.8	blue	blue
+	2175.4	2	1706.7	2175.4	blue	blue
+	2183.5	1	2163.8	2183.5	blue	blue
+	2183.9	11	2182.8	2183.9	blue	blue
+	2209.3	7	2106.9	2209.3	blue	blue
+	2221.3	11	2213.9	2221.3	blue	blue
+	2314.1	11	2251.3	2314.1	blue	blue
+	2343.6	7	2239.3	2343.6	blue	blue
+	2350.4	1	2213.5	2350.4	blue	blue
+	2383.3	7	2373.6	2383.3	blue	blue
+	2442.1	1	2380.4	2442.1	blue	blue
+	2457.2	5	1680.9	2457.2	blue	blue
+	2489.1	10	2128.7	2489.1	blue	blue
+	2502.5	1	2472.1	2502.5	blue	blue
+	2527.4	7	2413.3	2527.4	blue	blue
+	2563.7	1	2532.5	2563.7	blue	blue
+	2587.6	4	1882.1	2587.6	blue	blue
+	2663.9	8	2014.3	2663.9	blue	blue
+	2702.2	1	2593.7	2702.2	blue	blue
+	2705.3	10	2519.1	2705.3	blue	blue
+	2728.6	7	2557.4	2728.6	blue	blue
+	2731.6	5	2487.2	2731.6	blue	blue
+	2754.4	2	2205.4	2754.4	blue	blue
+	2787.7	7	2758.6	2787.7	blue	blue
+	2801	11	2344.1	2801	blue	blue
+	2838.8	5	2761.6	2838.8	blue	blue
+	2857.6	4	2617.6	2857.6	blue	blue
+	2888.9	8	2693.9	2888.9	blue	blue
+	2925.3	4	2887.6	2925.3	blue	blue
+	2954.2	11	2831	2954.2	blue	blue
+	2965.8	10	2735.3	2965.8	blue	blue
+	3025.6	7	2817.7	3025.6	blue	blue
+	3032.8	8	2918.9	3032.8	blue	blue
+	3070.4	8	3062.8	3070.4	blue	blue
+	3085.3	7	3055.6	3085.3	blue	blue
+	3175.9	1	2732.2	3175.9	blue	blue
+	3205	5	2868.8	3205	blue	blue
+	3240.2	2	2784.4	3240.2	blue	blue
+	3329.8	7	3115.3	3329.8	blue	blue
+	3346.5	10	2995.8	3346.5	blue	blue
+	3366.5	11	2984.2	3366.5	blue	blue
+	3399.9	1	3205.9	3399.9	blue	blue
+	3464.4	7	3359.8	3464.4	blue	blue
+Completed 125 tasks.
+-------------------------------
+20 seed#38_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+Completed 0 tasks.
+-------------------------------
+20 seed#39_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	0.6	5	0	0.6	blue	blue
+	1098.2	11	0	1098.2	blue	blue
+	1800.4	11	1128.2	1800.4	blue	blue
+	1976	11	1830.4	1976	blue	blue
+	2061.7	11	2006	2061.7	blue	blue
+	2210.4	11	2091.7	2210.4	blue	blue
+	2737.5	11	2240.4	2737.5	blue	blue
+	2822.1	11	2767.5	2822.1	blue	blue
+	2964	11	2852.1	2964	blue	blue
+	3073.4	11	2994	3073.4	blue	blue
+	3174.7	5	30.6	3174.7	blue	blue
+Completed 11 tasks.
+-------------------------------
+20 seed#40_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	88.1	15	0	88.1	blue	blue
+	156.4	15	118.1	156.4	blue	blue
+	186.6	15	186.4	186.6	blue	blue
+	247.2	3	0	247.2	blue	blue
+	278.8	3	277.2	278.8	blue	blue
+	372.4	3	308.8	372.4	blue	blue
+	465.5	3	402.4	465.5	blue	blue
+	495.7	3	495.5	495.7	blue	blue
+	659.4	15	216.6	659.4	blue	blue
+	689.7	15	689.4	689.7	blue	blue
+	703.4	3	525.7	703.4	blue	blue
+	720	15	719.7	720	blue	blue
+	951.2	3	733.4	951.2	blue	blue
+	1212.5	3	981.2	1212.5	blue	blue
+	1242.8	3	1242.5	1242.8	blue	blue
+	1283.4	3	1272.8	1283.4	blue	blue
+	1313.6	3	1313.4	1313.6	blue	blue
+	1384.6	3	1343.6	1384.6	blue	blue
+	1655.7	3	1414.6	1655.7	blue	blue
+	2106.1	15	750	2106.1	blue	blue
+	2199	15	2136.1	2199	blue	blue
+	2282.3	3	1685.7	2282.3	blue	blue
+	2314.1	3	2312.3	2314.1	blue	blue
+	2347.5	3	2344.1	2347.5	blue	blue
+	2377.7	3	2377.5	2377.7	blue	blue
+	2407.9	3	2407.7	2407.9	blue	blue
+	2437.4	15	2229	2437.4	blue	blue
+	2593.8	15	2467.4	2593.8	blue	blue
+	2852.7	15	2623.8	2852.7	blue	blue
+	2936.8	3	2437.9	2936.8	blue	blue
+	2977.9	3	2966.8	2977.9	blue	blue
+	3008.1	3	3007.9	3008.1	blue	blue
+	3046.1	3	3038.1	3046.1	blue	blue
+	3076.3	3	3076.1	3076.3	blue	blue
+	3106.7	3	3106.3	3106.7	blue	blue
+	3246.8	15	2882.7	3246.8	blue	blue
+Completed 36 tasks.
+-------------------------------
+20 seed#41_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	0.7	6	0	0.7	blue	blue
+	376	11	0	376	blue	blue
+	457.4	6	30.7	457.4	blue	blue
+	581.9	13	0	581.9	blue	blue
+	819.7	13	611.9	819.7	blue	blue
+	998.8	11	406	998.8	blue	blue
+	1515.9	13	849.7	1515.9	blue	blue
+	1548.3	11	1028.8	1548.3	blue	blue
+	2347.9	15	0	2347.9	blue	red
+	2377.3	13	1545.9	2377.3	blue	blue
+	2377.8	11	1578.3	2377.8	blue	blue
+	3260.4	13	2407.3	3260.4	blue	blue
+Completed 12 tasks.
+-------------------------------
+20 seed#42_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	54.3	15	0	54.3	blue	blue
+	87.2	11	0	87.2	blue	blue
+	163.1	11	117.2	163.1	blue	blue
+	228.5	15	84.3	228.5	blue	blue
+	321.4	11	193.1	321.4	blue	blue
+	415.7	15	258.5	415.7	blue	blue
+	445.8	15	445.7	445.8	blue	blue
+	529.7	15	475.8	529.7	blue	blue
+	846.5	15	559.7	846.5	blue	blue
+	866.3	11	351.4	866.3	blue	blue
+	1123.3	15	876.5	1123.3	blue	blue
+	1213	15	1153.3	1213	blue	blue
+	1357.2	11	896.3	1357.2	blue	blue
+	1429.8	15	1243	1429.8	blue	blue
+	1465.9	15	1459.8	1465.9	blue	blue
+	1636.7	11	1387.2	1636.7	blue	blue
+	2112.8	11	1666.7	2112.8	blue	blue
+	2719.2	4	0	2719.2	blue	red
+	3098	11	2142.8	3098	blue	blue
+	3293.6	15	1495.9	3293.6	blue	blue
+	3371.8	15	3323.6	3371.8	blue	blue
+	3506	11	3128	3506	blue	blue
+Completed 22 tasks.
+-------------------------------
+20 seed#43_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	220.1	8	0	220.1	blue	blue
+	442.1	4	0	442.1	blue	blue
+	578.9	4	472.1	578.9	blue	blue
+	991.7	4	608.9	991.7	blue	blue
+	1011.1	8	250.1	1011.1	blue	blue
+	1246.8	8	1041.2	1246.8	blue	blue
+	1666.1	8	1276.8	1666.1	blue	blue
+	1843.6	12	0	1843.6	blue	red
+	2996.7	8	1696.1	2996.7	blue	blue
+	3023.3	4	1021.7	3023.3	blue	blue
+	3094.5	4	3053.3	3094.5	blue	blue
+	3335.2	8	3026.7	3335.2	blue	blue
+	3546.2	8	3365.2	3546.2	blue	blue
+Completed 13 tasks.
+-------------------------------
+20 seed#44_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+Completed 0 tasks.
+-------------------------------
+20 seed#45_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	1.7	9	0	1.7	blue	blue
+	76.4	9	31.7	76.4	blue	blue
+	446.2	13	0	446.2	blue	blue
+	635.9	9	106.4	635.9	blue	blue
+	894.8	9	665.9	894.8	blue	blue
+	1036.6	13	476.2	1036.6	blue	blue
+	1113.3	13	1066.6	1113.3	blue	blue
+	1290.5	9	924.8	1290.5	blue	blue
+	1297.5	13	1143.3	1297.5	blue	blue
+	1443.7	13	1327.5	1443.7	blue	blue
+	2407	2	0	2407	red	blue
+	2781.6	9	1320.5	2781.6	blue	blue
+	3235.1	13	1473.7	3235.1	blue	blue
+Completed 13 tasks.
+-------------------------------
+20 seed#46_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	92.7	11	0	92.7	blue	blue
+	295.6	13	0	295.6	blue	blue
+	472.5	2	0	472.5	blue	blue
+	519.6	2	502.5	519.6	blue	blue
+	755.1	2	549.6	755.1	blue	blue
+	835.9	13	325.6	835.9	blue	blue
+	854.8	2	785.1	854.8	blue	blue
+	918.1	2	884.8	918.1	blue	blue
+	1007.2	11	122.7	1007.2	blue	blue
+	1443.4	13	865.9	1443.4	blue	blue
+	1518.9	13	1473.4	1518.9	blue	blue
+	1560.5	13	1548.9	1560.5	blue	blue
+	1851.1	11	1037.2	1851.1	blue	blue
+	2047	11	1881.1	2047	blue	blue
+	2208.2	2	948.1	2208.2	blue	blue
+	2281.5	11	2077	2281.5	blue	blue
+	2324.9	11	2311.5	2324.9	blue	blue
+	2469.2	13	1590.5	2469.2	blue	blue
+	2521.5	11	2354.9	2521.5	blue	blue
+	2542.4	13	2499.2	2542.4	blue	blue
+	2636	13	2572.4	2636	blue	blue
+	2725.7	11	2551.5	2725.7	blue	blue
+	2803.7	11	2755.7	2803.7	blue	blue
+	2877.1	11	2833.7	2877.1	blue	blue
+	2972.9	2	2238.2	2972.9	blue	blue
+	2975.7	13	2666	2975.7	blue	blue
+	2979.2	11	2907.1	2979.2	blue	blue
+	3008.1	2	3002.9	3008.1	blue	blue
+	3244.6	11	3009.2	3244.6	blue	blue
+	3596.3	2	3038.1	3596.3	blue	blue
+Completed 30 tasks.
+-------------------------------
+20 seed#47_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	1103.8	0	0	1103.8	blue	red
+	1989.7	7	0	1989.7	blue	blue
+	2093.4	7	2019.7	2093.4	blue	blue
+	2815	7	2123.4	2815	blue	blue
+	2909	7	2845	2909	blue	blue
+Completed 5 tasks.
+-------------------------------
+20 seed#48_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	2.2	10	0	2.2	blue	blue
+	1468.6	10	32.2	1468.6	blue	blue
+	2017.4	10	1498.6	2017.4	blue	blue
+Completed 3 tasks.
+-------------------------------
+20 seed#49_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	117.2	11	0	117.2	blue	blue
+	147.6	3	0	147.6	blue	blue
+	498.2	11	147.3	498.2	blue	blue
+	530.2	3	177.6	530.2	blue	blue
+	576.1	11	528.2	576.1	blue	blue
+	757.2	11	606.1	757.2	blue	blue
+	839.4	3	560.2	839.4	blue	blue
+	1148.7	3	869.4	1148.7	blue	blue
+	1366.1	3	1178.7	1366.1	blue	blue
+	1412.9	3	1396.1	1412.9	blue	blue
+	1731.1	3	1442.9	1731.1	blue	blue
+	1828.3	3	1761.1	1828.3	blue	blue
+	1915.3	3	1858.3	1915.3	blue	blue
+	2222.2	3	1945.3	2222.2	blue	blue
+	3359.9	3	2252.2	3359.9	blue	blue
+Completed 15 tasks.
+-------------------------------
+20 seed#50_results.csv
+Column names are:
+	time, id, creation, conclusion, client_color, server_color
+	144.2	3	0	144.2	blue	blue
+	174.4	3	174.2	174.4	blue	blue
+	247.1	3	204.4	247.1	blue	blue
+	472.1	0	0	472.1	blue	blue
+	592.4	0	502.1	592.4	blue	blue
+	662	14	0	662	blue	blue
+	759.9	0	622.4	759.9	blue	blue
+	848.3	0	789.9	848.3	blue	blue
+	887.2	3	277.1	887.2	blue	blue
+	917.4	3	917.2	917.4	blue	blue
+	944.7	0	878.3	944.7	blue	blue
+	979.8	0	974.7	979.8	blue	blue
+	1066.7	3	947.4	1066.7	blue	blue
+	1116.8	3	1096.7	1116.8	blue	blue
+	1206.7	14	692	1206.7	blue	blue
+	1238.5	0	1009.8	1238.5	blue	blue
+	1383.1	14	1236.7	1383.1	blue	blue
+	1388.2	3	1146.8	1388.2	blue	blue
+	1510.2	3	1418.2	1510.2	blue	blue
+	1549.4	3	1540.2	1549.4	blue	blue
+	1573.7	0	1268.5	1573.7	blue	blue
+	1775	0	1603.7	1775	blue	blue
+	1805.2	0	1805	1805.2	blue	blue
+	1836.1	3	1579.4	1836.1	blue	blue
+	1882.2	3	1866.1	1882.2	blue	blue
+	2240.2	3	1912.2	2240.2	blue	blue
+	2414.6	14	1413.1	2414.6	blue	blue
+	2560.4	0	1835.2	2560.4	blue	blue
+	2590.6	0	2590.4	2590.6	blue	blue
+	2633	3	2270.2	2633	blue	blue
+	2663.8	3	2663	2663.8	blue	blue
+	2896.4	14	2444.6	2896.4	blue	blue
+	2937.2	3	2693.8	2937.2	blue	blue
+	2967.3	3	2967.2	2967.3	blue	blue
+	3043.1	0	2620.6	3043.1	blue	blue
+	3085.1	0	3073.1	3085.1	blue	blue
+	3163	3	2997.3	3163	blue	blue
+	3193.1	3	3193	3193.1	blue	blue
+	3256.6	0	3115.1	3256.6	blue	blue
+	3423	3	3223.1	3423	blue	blue
+Completed 40 tasks.
+-------------------------------
