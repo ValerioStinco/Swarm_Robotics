@@ -779,7 +779,7 @@ void CALFClientServer::UpdateVirtualSensor(CKilobotEntity &c_kilobot_entity){
 
         proximity_sensor_dec = std::accumulate(proximity_vec.begin(), proximity_vec.end(), 0, [](int x,int y) {return (x << 1) + y;} );
         // To turn off the wall avoidance decomment this
-        proximity_sensor_dec = 0;
+        //proximity_sensor_dec = 0;
         
         /** Print proximity values */
         // std::cerr<<"kID:"<< unKilobotID <<" sensor ";
