@@ -17,7 +17,6 @@ const CVector2 left_direction (1.0, 0.0);
 const CVector2 right_direction (-1.0, 0.0);
 const int proximity_bits = 8;
 
-const bool SPEAKING_WITH_ARK = true;
 }
 
 CALFClientServer::CALFClientServer() :
@@ -779,6 +778,9 @@ void CALFClientServer::UpdateVirtualSensor(CKilobotEntity &c_kilobot_entity){
         }
 
         proximity_sensor_dec = std::accumulate(proximity_vec.begin(), proximity_vec.end(), 0, [](int x,int y) {return (x << 1) + y;} );
+        // To turn off the wall avoidance decomment this
+        proximity_sensor_dec = 0;
+        
         /** Print proximity values */
         // std::cerr<<"kID:"<< unKilobotID <<" sensor ";
         // for(int item : proximity_vec)
