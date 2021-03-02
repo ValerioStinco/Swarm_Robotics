@@ -54,29 +54,29 @@
 
         
         <variables
-            datafilename="provaprova"
+            datafilename="logClient-vuotoDaNonConsiderare-"
             dataacquisitionfrequency="100"  
             environmentplotupdatefrequency="10"
             timeforonemessage="0.05">
         </variables>
 
         <environments>
-			<Area0 position="0.1875,0.1875" radius="0.05"></Area0>
-			<Area1 position="0.0625,0.1875" radius="0.05"></Area1>
-			<Area2 position="-0.0625,0.1875" radius="0.05"></Area2>
-			<Area3 position="-0.1875,0.1875" radius="0.05"></Area3>
-			<Area4 position="0.1875,0.0625" radius="0.05"></Area4>
-			<Area5 position="0.0625,0.0625" radius="0.05"></Area5>
-			<Area6 position="-0.0625,0.0625" radius="0.05"></Area6>
-			<Area7 position="-0.1875,0.0625" radius="0.05"></Area7>
-			<Area8 position="0.1875,-0.0625" radius="0.05"></Area8>
-			<Area9 position="0.0625,-0.0625" radius="0.05"></Area9>
-			<Area10 position="-0.0625,-0.0625" radius="0.05"></Area10>
-			<Area11 position="-0.1875,-0.0625" radius="0.05"></Area11>
-			<Area12 position="0.1875,-0.1875" radius="0.05"></Area12>
-			<Area13 position="0.0625,-0.1875" radius="0.05"></Area13>
-			<Area14 position="-0.0625,-0.1875" radius="0.05"></Area14>
-			<Area15 position="-0.1875,-0.1875" radius="0.05"></Area15>
+			<Area0 position="0.1875,0.1875" radius="0.06"></Area0>
+			<Area1 position="0.0625,0.1875" radius="0.06"></Area1>
+			<Area2 position="-0.0625,0.1875" radius="0.06"></Area2>
+			<Area3 position="-0.1875,0.1875" radius="0.06"></Area3>
+			<Area4 position="0.1875,0.0625" radius="0.06"></Area4>
+			<Area5 position="0.0625,0.0625" radius="0.06"></Area5>
+			<Area6 position="-0.0625,0.0625" radius="0.06"></Area6>
+			<Area7 position="-0.1875,0.0625" radius="0.06"></Area7>
+			<Area8 position="0.1875,-0.0625" radius="0.06"></Area8>
+			<Area9 position="0.0625,-0.0625" radius="0.06"></Area9>
+			<Area10 position="-0.0625,-0.0625" radius="0.06"></Area10>
+			<Area11 position="-0.1875,-0.0625" radius="0.06"></Area11>
+			<Area12 position="0.1875,-0.1875" radius="0.06"></Area12>
+			<Area13 position="0.0625,-0.1875" radius="0.06"></Area13>
+			<Area14 position="-0.0625,-0.1875" radius="0.06"></Area14>
+			<Area15 position="-0.1875,-0.1875" radius="0.06"></Area15>
         </environments>
 
     
@@ -137,7 +137,7 @@
     <!-- <visualization>
         <qt-opengl>
             <camera>
-                <placement idx="0" position="0.0,-0.00001,0.25" look_at="0,0,0" lens_focal_length="12"/>
+                <placement idx="0" position="0.0,-0.00001,0.5" look_at="0,0,0" lens_focal_length="12"/>
                 <placement idx="1" position="0,0,1" look_at="0,0,0" lens_focal_length="12" />
                 <placement idx="2" position="0.45,-0.45,1" look_at="0.45,-0.45,0" lens_focal_length="20" />
                 <placement idx="3" position="0.45,0.45,1" look_at="0.45,0.45,0" lens_focal_length="20" />

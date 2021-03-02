@@ -28,7 +28,7 @@ if [ ! -e $base_configCLIENT ]; then
 fi
 
 
-res_dir=$wdir/"results/batch_for_dhtf"
+res_dir=$wdir/"results/batch_for_dhtf_new"
 if [[ ! -e $res_dir ]]; then
     mkdir $res_dir
     echo "CARTELLA RES PRONTA"
@@ -47,15 +47,15 @@ echo "$CONFIGURATION_FILE" | egrep "^$SHARED_DIR" &> /dev/null || exit 1
 
 
 augmented_knowlege="true false"
-timeout_const="5 10 15 20"
-entity_quantity="20" # 30 40"
+timeout_const="20" #"5 10 15 20"
+entity_quantity="20"
 
 #################################
 # experiment_length is in seconds
 #################################
-experiment_length="3600"
+experiment_length="3600" #1 hour
 date_time=`date "+%Y-%m-%d"`
-RUNS=50
+RUNS=70
 
 for _K_ in $entity_quantity; do
     for _T_ in $timeout_const; do

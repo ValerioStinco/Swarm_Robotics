@@ -28,7 +28,7 @@ void CALFClientServer::Init(TConfigurationNode& t_node) {
         GetNodeAttribute(tModeNode,"vision_range",vision_range);
     }
     /* Randomly select the desired number of tasks between the available ones, set color and communicate them to the server */
-    if (MODE=="CLIENT"){
+    /*if (MODE=="CLIENT"){
         srand (random_seed);
         while(num_of_areas>desired_num_of_areas){
             for (int b=0;b<lenMultiArea;b++){
@@ -42,8 +42,34 @@ void CALFClientServer::Init(TConfigurationNode& t_node) {
                 }
             }
         }
-    }
+    }*/
+/////////////////////////////////////////////////////////
+    srand (random_seed);
+        
+    /* GENERATE RANDOM IDs AND RANDOM HARD TASK for server and client*/
+    std::default_random_engine re;
+    re.seed(random_seed);
+    std::vector<int> activated_areas;
+    const int max_area_id = 100; 
 
+    num_of_areas = desired_num_of_areas;
+    /* Active IDs */
+    while (activated_areas.size() < desired_num_of_areas)
+    {
+        if(desired_num_of_areas-1 > max_area_id)
+        {
+            std::cerr<<"Requested more areas then the available ones, WARNING!";
+        }
+    
+        std::uniform_int_distribution<int> distr(0, max_area_id);
+        int random_number;
+        do{
+            random_number = distr(re);
+        }while (std::find(activated_areas.begin(), activated_areas.end(), random_number) != activated_areas.end());
+        activated_areas.push_back(random_number);
+    }
+    std::sort(activated_areas.begin(), activated_areas.end());
+//////////////////////////////////////////////////////////////
     /* Initializations */
     bytesReceived = -1;
     memset(storeBuffer, 0, 2000);

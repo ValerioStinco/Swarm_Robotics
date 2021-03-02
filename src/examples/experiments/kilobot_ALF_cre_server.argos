@@ -42,7 +42,7 @@
         <extra_parameters
             mode="SERVER"
             ip_addr="0.0.0.0"
-            desired_num_of_areas="80"
+            desired_num_of_areas="10"
             random_seed="12" 
             communication_range="30"
             vision_range="0.25"

@@ -20,9 +20,6 @@ if(ARGOS_BUILD_FOR_SIMULATOR)
   add_executable(kilobot_ALF_dhtf kilobot_ALF_dhtf.c)  
   target_link_libraries(kilobot_ALF_dhtf argos3plugin_simulator_kilolib)
 ###########
-  add_executable(kilobot_ALF_wallavoid_dhtf kilobot_ALF_wallavoid_dhtf.c)  
-  target_link_libraries(kilobot_ALF_wallavoid_dhtf argos3plugin_simulator_kilolib)
-###########
   add_executable(kilobot_ALF_cres kilobot_ALF_cres.c)  
   target_link_libraries(kilobot_ALF_cres argos3plugin_simulator_kilolib)
 

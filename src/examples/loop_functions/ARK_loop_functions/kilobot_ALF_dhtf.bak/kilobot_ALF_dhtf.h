@@ -21,9 +21,6 @@ class CSimulator;
 #include <unistd.h>
 #include <numeric>
 #include <array>
-#include <random>
-#include <algorithm>
-#include <vector>
 
 
 #include <argos3/core/simulator/loop_functions.h>
@@ -100,12 +97,6 @@ public:
     /** Used to plot the Virtual environment on the floor */
     virtual CColor GetFloorColor(const CVector2& vec_position_on_plane);
 
-    /** 2D vector rotation */
-    CVector2 VectorRotation2D (Real angle, CVector2 vec);
-
-    /** Simulate proximity sensor*/
-    std::vector<int> Proximity_sensor(CVector2 obstacle_direction, Real kOrientation, int num_sectors);
-
 private:
     /************************************/
     /*  Virtual Environment variables   */
@@ -119,7 +110,7 @@ private:
         bool Completed;             //set to "true" after the task is completed
         UInt8 Id;
         Real CreationTime;
-        //Real ComplentionTime;
+        Real ComplentionTime;
     };
     std::vector<SVirtualArea> multiArea;
 
@@ -129,20 +120,6 @@ private:
         INSIDE_AREA=1,
         LEAVING=2,  
     } SRobotState;
-
-    typedef enum
-    {
-        kBLUE = 0,
-        kRED = 1,
-    } colour;
-
-    typedef enum
-    {
-        kBB = 1,
-        kBR = 2,
-        kRB = 3,
-        kRR = 5,
-    } waiting_times;
 
     struct FloorColorData           //contains components of area color
     {
@@ -159,20 +136,18 @@ private:
     unsigned int random_seed;       //to reproduce tests
     UInt8 desired_num_of_areas;     //number of areas for the experiment (max 16)
     UInt8 hard_tasks;               //the number of red areas (the ones that require more robots)
-    std::vector<int> otherColor;    //Color of the areas on the other ARK
-    //int otherColor[10];
-    bool IsNotZero (int i) {return (i!=0); } //to count how non 0 emelent there are in sendind/receiving buffer
+    float reactivation_timer;        //threshold to decide if one of the same desired_num_of_areas areas will be reactivated
+    int otherColor[10];             //Color of the areas on the other ARK
     char inputBuffer[30];           //array containing the message received from the socket e.g. 
-    std::string initialise_buffer;  // buffer containing setup values (active areas and task type)
     std::string outputBuffer;         //array  containing the message to send
     char storeBuffer[30];           //array where to store input message to keep it available
     int bytesReceived;              //length of received string
     int serverSocket;               //socket variable
     int clientSocket;               //socket variable
     UInt8 num_of_areas;             //initial number of clustering areas i.e. 16, will be reduced to desired_num_of_areas
-    double kRespawnTimer;           //when completed, timer starts and when it will expire the area is reactivated
-    std::vector<double> vCompletedTime;  //vector with completition time
-    bool initialised;               // true when client ACK the initial setup
+    int arena_update_counter;       //number of cicles between a reactivation routine and the next one
+    bool initializing;              //false when client ACK the initial setup
+
 
 
     /*vectors as long as the number of kilobots*/
@@ -183,6 +158,7 @@ private:
     std::vector<UInt8> contained;     //how many KBs the area "i" contains
     
     std::vector<SRobotState> m_vecKilobotStates_ALF;        //state of KB from ARK point of view
+    std::vector<SRobotState> m_vecKilobotStates_transmit;   //state communicated to KB (only IN or OUT)
     std::vector<Real> m_vecLastTimeMessaged;
     Real m_fMinTimeBetweenTwoMsg;
 

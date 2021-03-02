@@ -21,6 +21,8 @@ class CSimulator;
 #include <unistd.h>
 #include <numeric>
 #include <array>
+#include <random>
+
 
 
 #include <argos3/core/simulator/loop_functions.h>

@@ -42,7 +42,7 @@
         <extra_parameters
             mode="CLIENT"
             ip_addr="127.0.0.1"
-            desired_num_of_areas="80"
+            desired_num_of_areas="10"
             random_seed="120" 
             communication_range="5"
             reactivation_rate="0.1">
