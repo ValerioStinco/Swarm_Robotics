@@ -147,7 +147,8 @@ private:
     std::string IP_ADDR;            //ip address where to connect
     unsigned int random_seed;
     float vision_range;
-    int desired_num_of_areas;
+    int desired_red_areas;
+    int desired_blue_areas;
     float reactivation_rate;
     float communication_range;
     char inputBuffer[2000];           //array containing the message received from the socket
@@ -168,6 +169,10 @@ private:
     std::vector<int> command;              // contains informations about actual semiplan direction where the robot tends to go
     std::vector<int> visible_blue;
     std::vector<int> visible_red;
+    std::vector<int> activated_red_areas;
+    std::vector<int> activated_blue_areas;
+    const int max_red_area_id = 49; 
+    const int max_blue_area_id = 99;
 
     /*vectors as long as the number of areas*/
     std::vector<int> contained;     //how many KBs the area "i" contains

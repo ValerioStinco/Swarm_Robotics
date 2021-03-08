@@ -85,6 +85,7 @@ void rx_message(message_t *msg, distance_measurement_t *d) {
         resources_pops[1] = msg->data[2];
       }
         new_sa_msg = true;
+
     }
     else if (id2 == kilo_uid) {
       if(msg->data[4]!=0){
@@ -103,6 +104,12 @@ void rx_message(message_t *msg, distance_measurement_t *d) {
         resources_pops[1] = msg->data[8];
       }
         new_sa_msg = true;
+    }
+
+    if(new_sa_msg == true){
+      printf("POPS %d\n", current_decision_state);
+      printf("pop0: %d\n", resources_pops[0]);
+      printf("pop1: %d\n", resources_pops[1]);
     }
 
     /*adjust values*/

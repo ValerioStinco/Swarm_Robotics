@@ -42,7 +42,8 @@
         <extra_parameters
             mode="CLIENT"
             ip_addr="127.0.0.1"
-            desired_num_of_areas="10"
+            desired_red_areas="8"
+            desired_blue_areas="40"
             random_seed="120" 
             communication_range="5"
             reactivation_rate="0.1">
@@ -190,7 +191,7 @@
         <distribute>
             <position method="uniform" min="-0.15,-0.15,0" max="0.15,0.15,0" />
             <orientation method="uniform" min="0,0,0" max="360,0,0" />
-            <entity quantity="5" max_trials="100">
+            <entity quantity="30" max_trials="100">
                 <kilobot id="kb">
                     <controller config="listener"/> <dynamics2d friction="0.7" />
                 </kilobot>
@@ -224,7 +225,8 @@
     <visualization>
         <qt-opengl>
             <camera>
-                <placement idx="0" position="0,0,1" look_at="0,0,0" lens_focal_length="12" />
+                <placement idx="0" position="0.0,-0.00001,1" look_at="0,0,0" lens_focal_length="12" />
+                <!-- <placement idx="0" position="0,0,1" look_at="0,0,0" lens_focal_length="12" /> -->
                 <placement idx="1" position="0,0,0.5" look_at="0,0,0" lens_focal_length="12"/>
                 <placement idx="2" position="0.45,-0.45,1" look_at="0.45,-0.45,0" lens_focal_length="20" />
                 <placement idx="3" position="0.45,0.45,1" look_at="0.45,0.45,0" lens_focal_length="20" />

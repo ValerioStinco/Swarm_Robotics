@@ -18,7 +18,9 @@ void CALFClientServer::Init(TConfigurationNode& t_node) {
     GetNodeAttribute(tModeNode,"mode",MODE);
     GetNodeAttribute(tModeNode,"ip_addr",IP_ADDR);
     GetNodeAttribute(tModeNode,"random_seed",random_seed);
-    GetNodeAttribute(tModeNode,"desired_num_of_areas",desired_num_of_areas);
+    GetNodeAttribute(tModeNode,"random_seed",random_seed);
+    GetNodeAttribute(tModeNode,"desired_red_areas",desired_red_areas);
+    GetNodeAttribute(tModeNode,"desired_blue_areas",desired_blue_areas);
     GetNodeAttribute(tModeNode,"communication_range",communication_range);
     GetNodeAttribute(tModeNode,"reactivation_rate",reactivation_rate);
 
@@ -28,48 +30,49 @@ void CALFClientServer::Init(TConfigurationNode& t_node) {
         GetNodeAttribute(tModeNode,"vision_range",vision_range);
     }
     /* Randomly select the desired number of tasks between the available ones, set color and communicate them to the server */
-    /*if (MODE=="CLIENT"){
+    if (MODE=="CLIENT"){
         srand (random_seed);
-        while(num_of_areas>desired_num_of_areas){
-            for (int b=0;b<lenMultiArea;b++){
-                if(multiArea[b].Completed==false){
-                    double r = ((double) rand() / (RAND_MAX));
-                    if (r<0.5){
-                        multiArea[b].Completed=true;
-                        num_of_areas--;
-                        break;
-                    }
-                }
-            }
-        }
-    }*/
-/////////////////////////////////////////////////////////
-    srand (random_seed);
-        
-    /* GENERATE RANDOM IDs AND RANDOM HARD TASK for server and client*/
-    std::default_random_engine re;
-    re.seed(random_seed);
-    std::vector<int> activated_areas;
-    const int max_area_id = 100; 
+            
+        /* GENERATE RANDOM TASK for server and client*/
+        std::default_random_engine re;
+        re.seed(random_seed);
 
-    num_of_areas = desired_num_of_areas;
-    /* Active IDs */
-    while (activated_areas.size() < desired_num_of_areas)
-    {
-        if(desired_num_of_areas-1 > max_area_id)
+        /* Active IDs */
+        while (activated_red_areas.size() < desired_red_areas)
         {
-            std::cerr<<"Requested more areas then the available ones, WARNING!";
+            if(desired_red_areas-1 > max_red_area_id)
+            {
+                std::cerr<<"Requested more areas then the available ones, WARNING!";
+            }
+            std::uniform_int_distribution<int> distr(0, max_red_area_id);
+            int random_number;
+            do{
+                random_number = distr(re);
+                //std::cout<<"actRed"<<activated_red_areas.size()<<" added:"<<random_number<<std::endl;
+            }while (std::find(activated_red_areas.begin(), activated_red_areas.end(), random_number) != activated_red_areas.end());
+            activated_red_areas.push_back(random_number);
+            multiArea[random_number].Completed = false;
         }
-    
-        std::uniform_int_distribution<int> distr(0, max_area_id);
-        int random_number;
-        do{
-            random_number = distr(re);
-        }while (std::find(activated_areas.begin(), activated_areas.end(), random_number) != activated_areas.end());
-        activated_areas.push_back(random_number);
+        std::sort(activated_red_areas.begin(), activated_red_areas.end());
+
+        while (activated_blue_areas.size() < desired_blue_areas)
+        {
+            if(desired_blue_areas-1 > max_blue_area_id)
+            {
+                std::cerr<<"Requested more areas then the available ones, WARNING!";
+            }
+            std::uniform_int_distribution<int> distr(max_red_area_id+1, max_blue_area_id);
+            int random_number;
+            do{
+                random_number = distr(re);
+                std::cout<<"actRed"<<activated_blue_areas.size()<<" added:"<<random_number<<std::endl;
+            }while (std::find(activated_blue_areas.begin(), activated_blue_areas.end(), random_number) != activated_blue_areas.end());
+            activated_blue_areas.push_back(random_number);
+            multiArea[random_number].Completed = false;
+        }
+        std::sort(activated_blue_areas.begin(), activated_blue_areas.end());
     }
-    std::sort(activated_areas.begin(), activated_areas.end());
-//////////////////////////////////////////////////////////////
+
     /* Initializations */
     bytesReceived = -1;
     memset(storeBuffer, 0, 2000);
@@ -183,8 +186,8 @@ void CALFClientServer::SetupVirtualEnvironments(TConfigurationNode& t_tree){
     }
     /* Blue set as default color, then some of the areas turn red */
     for (int ai=0; ai<num_of_areas; ai++){
-        multiArea[ai].Completed = false;
-        if (multiArea[ai].Center.GetX()<0){
+        multiArea[ai].Completed = true;
+        if (multiArea[ai].Center.GetY()<0){
             multiArea[ai].Color = argos::CColor::BLUE;
         }
         else{
@@ -270,7 +273,7 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
                 float displacement=sqrt((xdisp*xdisp)+(ydisp*ydisp));
                 if (displacement<communication_range){
                     //check if the flying robot is in the semiplane opposit to its commitment
-                    if(multiTransmittingKilobot[i].xCoord<=25){
+                    if(multiTransmittingKilobot[i].yCoord<=25){
                         if(multiTransmittingKilobot[i].commit==1){
                             command[unKilobotID]=1;     //robot at south, committed for north
                         }
@@ -343,14 +346,29 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
             if((fDistance < (multiArea[i].Radius*1)) && (multiArea[i].Completed == false)){
                 multiArea[i].Completed=true;
                 /* Reactivate tasks to keep their number constant */
-                for (int a=0; a<lenMultiArea; a++){
-                    if (multiArea[a].Completed == true){
-                        double r = ((double) rand() / (RAND_MAX));
-                        if (r<reactivation_rate){
-                            multiArea[a].Completed = false;
-                            break;
-                        }
-                    }
+                std::default_random_engine re;
+                re.seed(random_seed);
+                if (multiArea[i].Color == argos::CColor::RED){
+                    std::uniform_int_distribution<int> distr(0, max_red_area_id);
+                    int random_number;
+                    do{
+                        random_number = distr(re);
+                    }while (std::find(activated_red_areas.begin(), activated_red_areas.end(), random_number) != activated_red_areas.end());
+                    activated_red_areas.push_back(random_number);
+                    multiArea[random_number].Completed = false;
+                    activated_red_areas.erase(std::find(activated_red_areas.begin(), activated_red_areas.end(), i));
+                    std::sort(activated_red_areas.begin(), activated_red_areas.end());
+                }
+                else if (multiArea[i].Color == argos::CColor::BLUE){
+                    std::uniform_int_distribution<int> distr(max_red_area_id+1, max_blue_area_id);
+                    int random_number;
+                    do{
+                        random_number = distr(re);
+                    }while (std::find(activated_blue_areas.begin(), activated_blue_areas.end(), random_number) != activated_blue_areas.end());
+                    activated_blue_areas.push_back(random_number);
+                    multiArea[random_number].Completed = false;
+                    activated_blue_areas.erase(std::find(activated_blue_areas.begin(), activated_blue_areas.end(), i));
+                    std::sort(activated_blue_areas.begin(), activated_blue_areas.end());
                 }
             }
         }
@@ -382,16 +400,11 @@ void CALFClientServer::UpdateVirtualSensor(CKilobotEntity &c_kilobot_entity){
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
     if (MODE=="SERVER"){
-        //CI SONO DA DEFINIRE I NUOVI CAMPI DEL MESSAGGIO
-
-
-
-
         if (m_fTimeInSeconds - m_vecLastTimeMessaged[unKilobotID] < m_fMinTimeBetweenTwoMsg){
             return;
         }
         else{
-            float r_on=0, r_off=0, b_on=0, b_off=0;
+            float r_on=0.0, r_off=0.0, b_on=0.0, b_off=0.0;
             for (int i=0;i<lenMultiArea;i++){ 
                 Real fDistance = Distance(cKilobotPosition, multiArea[i].Center);
                 if(fDistance <= vision_range){
@@ -434,7 +447,7 @@ void CALFClientServer::UpdateVirtualSensor(CKilobotEntity &c_kilobot_entity){
             actual_orientation[unKilobotID]=(-1*actual_orientation[unKilobotID])+100;
         }
         //std::cout<<"act orientation: "<<actual_orientation[unKilobotID]<<std::endl;
-        std::cout<<"command: "<<command[unKilobotID]<<std::endl;
+        //std::cout<<"command: "<<command[unKilobotID]<<std::endl;
 
         if (m_fTimeInSeconds - m_vecLastTimeMessaged[unKilobotID] < m_fMinTimeBetweenTwoMsg){
             return;
@@ -486,6 +499,7 @@ void CALFClientServer::UpdateVirtualSensor(CKilobotEntity &c_kilobot_entity){
                 m_tMessages[unKilobotID].data[i*3] = DecisionMsg.ID;
                 m_tMessages[unKilobotID].data[1+i*3] = DecisionMsg.resource_red;
                 m_tMessages[unKilobotID].data[2+i*3] = DecisionMsg.resource_blue;
+                std::cout<<"red:"<< m_tMessages[unKilobotID].data[1+i*3]<<" - blue:"<< m_tMessages[unKilobotID].data[2+i*3]<<std::endl;
             }
         }
         GetSimulator().GetMedium<CKilobotCommunicationMedium>("kilocomm").SendOHCMessageTo(c_kilobot_entity,&m_tMessages[unKilobotID]);
