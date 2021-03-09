@@ -32,7 +32,7 @@ decision_t current_decision_state = UNCOMMITTED;        // Current state
 /*Random walk*/
 const float std_motion_steps = 20*16; // variance of the gaussian used to compute forward motion
 const float levy_exponent = 2; // 2 is brownian like motion (alpha)
-const float  crw_exponent = 0.0; // higher more straight (rho)
+const float  crw_exponent = 0.4; // higher more straight (rho)
 uint32_t turning_ticks = 0; // keep count of ticks of turning
 const uint8_t max_turning_ticks = 120; /* constant to allow a maximum rotation of 180 degrees with \omega=\pi/5 */
 uint32_t straight_ticks = 0; // keep count of ticks of going straight
@@ -106,11 +106,11 @@ void rx_message(message_t *msg, distance_measurement_t *d) {
         new_sa_msg = true;
     }
 
-    if(new_sa_msg == true){
+    /*if(new_sa_msg == true){
       printf("POPS %d\n", current_decision_state);
       printf("pop0: %d\n", resources_pops[0]);
       printf("pop1: %d\n", resources_pops[1]);
-    }
+    }*/
 
     /*adjust values*/
     uint8_t ut = ceil(resources_pops[0]*8.2258);

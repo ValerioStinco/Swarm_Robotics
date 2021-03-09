@@ -258,7 +258,7 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
         command[unKilobotID]=0;
         for (int i=0;i<20;i++){          
             //acquire data of flying robots
-            multiTransmittingKilobot[i].xCoord=(10*(storeBuffer[j]-48))+storeBuffer[j+1]-48;
+            multiTransmittingKilobot[i].xCoord=(10*(storeBuffer[j]-48))+storeBuffer[j+1]-48; //-48 per trasformare il carattere nell'intero corrispondente
             multiTransmittingKilobot[i].yCoord=(10*(storeBuffer[j+2]-48))+storeBuffer[j+3]-48;
             multiTransmittingKilobot[i].commit=storeBuffer[j+4]-48;
             //check command from flying robots
@@ -269,7 +269,7 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
             else{
                 //check if a ground robot is under the cone of transmission of a flying robot ((MAX 20 FLYING AT THE MOMENT)
                 float xdisp=multiTransmittingKilobot[i].xCoord-(25*(cKilobotPosition.GetX()+1));    //25* perchè moltiplico per 100 per considerare solo 2 decimali, poi divido per 4 per allineare le arene (una quadrupla dell'altra)
-                float ydisp=multiTransmittingKilobot[i].yCoord-(25*(cKilobotPosition.GetY()+1));
+                float ydisp=multiTransmittingKilobot[i].yCoord-(25*(cKilobotPosition.GetY()+1));    //+1 perchè coordinate traslate nell'origne prima di essere trasmesse, devo traslare anche queste 
                 float displacement=sqrt((xdisp*xdisp)+(ydisp*ydisp));
                 if (displacement<communication_range){
                     //check if the flying robot is in the semiplane opposit to its commitment

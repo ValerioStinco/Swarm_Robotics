@@ -46,7 +46,7 @@ action_t current_state = RANDOM_WALKING;        // Current state
 /* LUIGI---------------------------------------------- */
 const float std_motion_steps = 20*16; // variance of the gaussian used to compute forward motion
 const float levy_exponent = 2; // 2 is brownian like motion (alpha)
-const float  crw_exponent = 0.0; // higher more straight (rho)
+const float  crw_exponent = 0.4; // higher more straight (rho)
 uint32_t turning_ticks = 0; // keep count of ticks of turning
 const uint8_t max_turning_ticks = 120; /* constant to allow a maximum rotation of 180 degrees with \omega=\pi/5 */
 unsigned int straight_ticks = 0; // keep count of ticks of going straight
@@ -229,10 +229,10 @@ void finite_state_machine(){
                     set_color(RGB(3,0,0));
                     current_state=TURNING_NORTH;
                     if(current_kb_angle>15&&current_kb_angle<32){
-                    turn_timer=(1.33*(current_kb_angle%100)-15); //exclude hundred
+                    turn_timer=(1.33*(current_kb_angle%100)); //exclude hundred
                     }
                     else {
-                        turn_timer=(40-(1.33*(current_kb_angle%100))+15);
+                        turn_timer=(40 -(1.33*(current_kb_angle%100)));
                     }
 
                     printf("\nangle=%d ---> tmr set to %d",current_kb_angle, turn_timer);
