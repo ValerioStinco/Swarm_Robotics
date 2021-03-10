@@ -42,8 +42,8 @@
         <extra_parameters
             mode="CLIENT"
             ip_addr="127.0.0.1"
-            desired_red_areas="8"
-            desired_blue_areas="40"
+            desired_red_areas="40"
+            desired_blue_areas="8"
             random_seed="120" 
             communication_range="5"
             reactivation_rate="0.1">

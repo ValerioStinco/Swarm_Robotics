@@ -228,20 +228,35 @@ void finite_state_machine(){
                 if(imposed_direction==1){
                     set_color(RGB(3,0,0));
                     current_state=TURNING_NORTH;
-                    if(current_kb_angle>15&&current_kb_angle<32){
-                    turn_timer=(1.33*(current_kb_angle%100)-90); //exclude hundred
+                    if(current_kb_angle<=15){
+                        turn_timer=(1.33*(15-current_kb_angle%100));
                     }
-                    else {
-                        turn_timer=(40 -(1.33*(current_kb_angle%100)));
+                    else if(current_kb_angle>15&&current_kb_angle<32){
+                    turn_timer=(1.33*(current_kb_angle%100-15)); //exclude hundred
                     }
-
+                    else if(current_kb_angle>100&&current_kb_angle<=115){
+                        turn_timer=(1.33*(15+current_kb_angle%100));
+                    }
+                    else if(current_kb_angle>115&&current_kb_angle<132){
+                        turn_timer=(1.33*(45-current_kb_angle%100));
+                    }
                     printf("\nangle=%d ---> tmr set to %d",current_kb_angle, turn_timer);
                 }
                 else if (imposed_direction==2){
-                    set_color(RGB(0,3,0));
+                    set_color(RGB(0,0,3));
                     current_state=TURNING_SOUTH;
-                    turn_timer=(40-(1.33*(current_kb_angle%100)-90));
-                    //printf("angle=%d ---> tmr set to %d",current_kb_angle, turn_timer);
+                    if(current_kb_angle<=15){
+                        turn_timer=(1.33*(current_kb_angle%100+15));
+                    }
+                    else if(current_kb_angle>15&&current_kb_angle<32){
+                    turn_timer=(1.33*(45-current_kb_angle%100)); //exclude hundred////////////////////////
+                    }
+                    else if(current_kb_angle>100&&current_kb_angle<=115){
+                        turn_timer=(1.33*(15-current_kb_angle%100));
+                    }
+                    else if(current_kb_angle>115&&current_kb_angle<132){
+                        turn_timer=(1.33*(current_kb_angle%100-15));
+                    }
                 }
             }
             break;
@@ -255,7 +270,7 @@ void finite_state_machine(){
                 set_color(RGB(3,3,3));
             }
             else{
-                if (current_kb_angle>=100){
+                if (current_kb_angle<=15 || (current_kb_angle>100 && current_kb_angle<=115)){
                     set_motion(TURN_LEFT);
                 }
                 else{
@@ -272,11 +287,11 @@ void finite_state_machine(){
                 set_color(RGB(3,3,3));
             }
             else{
-                if (current_kb_angle<=100){
-                    set_motion(TURN_LEFT);
+                if (current_kb_angle<=15 || (current_kb_angle>100 && current_kb_angle<=115)){
+                    set_motion(TURN_RIGHT);
                 }
                 else{
-                    set_motion(TURN_RIGHT);
+                    set_motion(TURN_LEFT);
                 }
                 turn_timer--;
             }
