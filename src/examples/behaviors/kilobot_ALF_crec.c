@@ -229,7 +229,7 @@ void finite_state_machine(){
                     set_color(RGB(3,0,0));
                     current_state=TURNING_NORTH;
                     if(current_kb_angle>15&&current_kb_angle<32){
-                    turn_timer=(1.33*(current_kb_angle%100)); //exclude hundred
+                    turn_timer=(1.33*(current_kb_angle%100)-90); //exclude hundred
                     }
                     else {
                         turn_timer=(40 -(1.33*(current_kb_angle%100)));
@@ -240,7 +240,7 @@ void finite_state_machine(){
                 else if (imposed_direction==2){
                     set_color(RGB(0,3,0));
                     current_state=TURNING_SOUTH;
-                    turn_timer=(40-(1.33*(current_kb_angle%100)));
+                    turn_timer=(40-(1.33*(current_kb_angle%100)-90));
                     //printf("angle=%d ---> tmr set to %d",current_kb_angle, turn_timer);
                 }
             }
@@ -268,7 +268,7 @@ void finite_state_machine(){
         case TURNING_SOUTH : {
             if(turn_timer<=0){
                 current_state=MOVING_TO_TARGET;
-                straight_timer=300;
+                straight_timer=100;
                 set_color(RGB(3,3,3));
             }
             else{

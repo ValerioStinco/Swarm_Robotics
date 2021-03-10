@@ -45,7 +45,7 @@ uint32_t sa_payload_blue = 0;
 uint32_t sa_payload_red = 0;
 bool new_sa_msg = false;
 uint8_t sent_message = 1;
-uint8_t to_send_message = false;
+bool to_send_message = false;
 message_t interactive_message;
 message_t messageN;
 message_t messageS;
@@ -79,29 +79,29 @@ void rx_message(message_t *msg, distance_measurement_t *d) {
     int id3 = msg->data[6];
     if (id1 == kilo_uid) {
       if(msg->data[1]!=0){
-        resources_pops[0] = msg->data[1];
+        exponential_average(0, msg->data[1]);
       }
       if(msg->data[2]!=0){
-        resources_pops[1] = msg->data[2];
+        exponential_average(1, msg->data[2]);
       }
         new_sa_msg = true;
 
     }
     else if (id2 == kilo_uid) {
       if(msg->data[4]!=0){
-        resources_pops[0] = msg->data[4];
+        exponential_average(0, msg->data[4]);
       }
       if(msg->data[5]!=0){
-        resources_pops[1] = msg->data[5];
+        exponential_average(1, msg->data[5]);
       }
         new_sa_msg = true;
     }
     else if (id3 == kilo_uid) {
       if(msg->data[7]!=0){
-        resources_pops[0] = msg->data[7];
+        exponential_average(0, msg->data[7]);
       }
       if(msg->data[8]!=0){
-        resources_pops[1] = msg->data[8];
+        exponential_average(1, msg->data[8]);
       }
         new_sa_msg = true;
     }
@@ -112,23 +112,19 @@ void rx_message(message_t *msg, distance_measurement_t *d) {
       printf("pop1: %d\n", resources_pops[1]);
     }*/
 
-    /*adjust values*/
-    uint8_t ut = ceil(resources_pops[0]*8.2258);
-    exponential_average(0, ut);
-    ut = ceil(resources_pops[1]*8.2258);
-    exponential_average(1, ut);
-    /*resources_pops[0]=resources_pops[0]/100;
-    resources_pops[1]=resources_pops[1]/100;*/
   }
 
   /*type 1 is for messages coming from other kilobots*/
   else if(msg->type==1) {
+    printf("Receiving message\t");
+    printf("msg->data[0]= %d\n", msg->data[0]);
     /* get id (always firt byte when coming from another kb) */
     uint8_t id = msg->data[0];
     // check that is a valid crc and another kb
     if(id!=kilo_uid){
       // store the message for later parsing to avoid the rx to interfer with the loop
       recruiter_state = msg->data[1];
+      printf("recruiter_state: %d\n", recruiter_state);
     }
   }
 }
@@ -137,7 +133,7 @@ void rx_message(message_t *msg, distance_measurement_t *d) {
 /* Message transmission                                              */
 /*-------------------------------------------------------------------*/
 message_t *message_tx() {
-  if(to_send_message) {
+  if(to_send_message == true) {
     /* this one is filled in the loop */
     to_send_message = false;
 
@@ -170,6 +166,7 @@ void send_own_state() {
     // fill up the crc
     interactive_message.crc = message_crc(&interactive_message);*/
     if(current_decision_state!=UNCOMMITTED){
+      // printf("current_decision_state: %d\n", current_decision_state);
       // tell that we have a msg to send
       to_send_message = true;
       // avoid rebroadcast to overwrite prev message
@@ -275,9 +272,9 @@ void take_decision() {
         break;
       }
     }
-    printf("deciding... %d\n", current_decision_state);
-    printf("red res: %d\n", resources_pops[0]);
-    printf("blu res: %d\n", resources_pops[1]);
+    // printf("deciding... %d\n", current_decision_state);
+    // printf("red res: %d\n", resources_pops[0]);
+    // printf("blu res: %d\n", resources_pops[1]);
   }
 }
 

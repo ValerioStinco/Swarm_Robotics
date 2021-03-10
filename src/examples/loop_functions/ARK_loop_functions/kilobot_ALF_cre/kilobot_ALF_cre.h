@@ -139,8 +139,8 @@ private:
     struct decisionMessage           //structure for decision-making robot message
     {
         UInt8 ID;
-        float resource_red;
-        float resource_blue;
+        UInt8 resource_red;
+        UInt8 resource_blue;
     };
 
     std::string MODE;

@@ -429,8 +429,8 @@ void CALFClientServer::UpdateVirtualSensor(CKilobotEntity &c_kilobot_entity){
             std::cout<<"lenMultiArea: "<<lenMultiArea<<std::endl;
             std::cout<<r_on<<" - "<<r_off<<" ------ "<<b_on<<" - "<<b_off<<std::endl;
             KilobotDecisionMsg.ID = unKilobotID;
-            KilobotDecisionMsg.resource_red = 100*(r_on/(r_on+r_off));
-            KilobotDecisionMsg.resource_blue = 100*(b_on/(b_on+b_off));
+            KilobotDecisionMsg.resource_red = (UInt8) std::floor( 255 * (r_on/(r_on+r_off)));
+            KilobotDecisionMsg.resource_blue = (UInt8) std::floor( 255 * (b_on/(b_on+b_off)));
             std::cout<<KilobotDecisionMsg.resource_red<<" - "<<KilobotDecisionMsg.resource_blue<<std::endl;
             m_vecLastTimeMessaged[unKilobotID] = m_fTimeInSeconds;
             bMessageToSend = true;

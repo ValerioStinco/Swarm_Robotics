@@ -23,9 +23,10 @@
                 bias_stddev="0"
                 />
                 <kilobot_led implementation="default" />
+                <kilobot_communication implementation="default" />
             </actuators>
             <sensors>
-                <kilobot_communication implementation="default" medium="kilocomm" show_rays="false" />
+                <kilobot_communication implementation="default" medium="kilocomm" show_rays="true" />
             </sensors>
             <params behavior="build/examples/behaviors/kilobot_ALF_cres" />
         </kilobot_controller>
