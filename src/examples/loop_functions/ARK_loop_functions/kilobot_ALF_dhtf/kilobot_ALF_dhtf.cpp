@@ -66,6 +66,7 @@ void CALFClientServer::Init(TConfigurationNode& t_node) {
         std::default_random_engine re;
         re.seed(random_seed);
         std::vector<int> activated_areas;
+        std::vector<int> forbidden = { 0, 3, 12, 15 };
         std::vector<int> hard_tasks_vec;
         std::vector<int> hard_tasks_client_vec;
         otherColor.resize(desired_num_of_areas);
@@ -87,7 +88,8 @@ void CALFClientServer::Init(TConfigurationNode& t_node) {
             int random_number;
             do{
                 random_number = distr(re);
-            }while (std::find(activated_areas.begin(), activated_areas.end(), random_number) != activated_areas.end());
+            }while ( std::find(activated_areas.begin(), activated_areas.end(), random_number) != activated_areas.end() ||
+                     std::find(forbidden.begin(), forbidden.end(), random_number) != forbidden.end());
             activated_areas.push_back(random_number);
         }
         std::sort(activated_areas.begin(), activated_areas.end());

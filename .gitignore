@@ -1,3 +1,6 @@
 build
 client_images
 server_images
+server_ARK_ARGOS
+makeVideo.sh
+*.csv

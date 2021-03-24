@@ -264,7 +264,7 @@ void take_decision() {
         break;
       }
       case (COMMITTED_S):{
-        set_color(RGB(0,0,3));
+        set_color(RGB(0,3,0));
         break;
       }
       case (UNCOMMITTED):{

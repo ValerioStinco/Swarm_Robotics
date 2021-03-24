@@ -243,7 +243,7 @@ void finite_state_machine(){
                     printf("\nangle=%d ---> tmr set to %d",current_kb_angle, turn_timer);
                 }
                 else if (imposed_direction==2){
-                    set_color(RGB(0,0,3));
+                    set_color(RGB(0,3,0));
                     current_state=TURNING_SOUTH;
                     if(current_kb_angle<=15){
                         turn_timer=(1.33*(current_kb_angle%100+15));

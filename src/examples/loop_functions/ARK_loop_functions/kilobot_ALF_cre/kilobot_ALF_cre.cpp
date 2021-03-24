@@ -188,7 +188,7 @@ void CALFClientServer::SetupVirtualEnvironments(TConfigurationNode& t_tree){
     for (int ai=0; ai<num_of_areas; ai++){
         multiArea[ai].Completed = true;
         if (multiArea[ai].Center.GetY()<0){
-            multiArea[ai].Color = argos::CColor::BLUE;
+            multiArea[ai].Color = argos::CColor::GREEN;
         }
         else{
             multiArea[ai].Color = argos::CColor::RED;
@@ -332,7 +332,7 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
         if (GetKilobotLedColor(c_kilobot_entity) == argos::CColor::RED){
             outputBuffer.append(std::to_string(1)); //kilobot committed for north
         }
-        if (GetKilobotLedColor(c_kilobot_entity) == argos::CColor::BLUE){
+        if (GetKilobotLedColor(c_kilobot_entity) == argos::CColor::GREEN){
             outputBuffer.append(std::to_string(2)); //kilobot committed for south
         }
     }
@@ -359,7 +359,7 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
                     activated_red_areas.erase(std::find(activated_red_areas.begin(), activated_red_areas.end(), i));
                     std::sort(activated_red_areas.begin(), activated_red_areas.end());
                 }
-                else if (multiArea[i].Color == argos::CColor::BLUE){
+                else if (multiArea[i].Color == argos::CColor::GREEN){
                     std::uniform_int_distribution<int> distr(max_red_area_id+1, max_blue_area_id);
                     int random_number;
                     do{
@@ -382,7 +382,7 @@ void CALFClientServer::UpdateKilobotState(CKilobotEntity &c_kilobot_entity){
                 if (multiArea[i].Color == argos::CColor::RED){
                     visible_red[unKilobotID]++;
                 }
-                else if (multiArea[i].Color == argos::CColor::BLUE){
+                else if (multiArea[i].Color == argos::CColor::GREEN){
                     visible_blue[unKilobotID]++;
                 }
             }          
@@ -416,7 +416,7 @@ void CALFClientServer::UpdateVirtualSensor(CKilobotEntity &c_kilobot_entity){
                             r_on++;
                         }
                     }
-                    else if (multiArea[i].Color==argos::CColor::BLUE){
+                    else if (multiArea[i].Color==argos::CColor::GREEN){
                         if(multiArea[i].Completed==true){
                             b_off++;
                         }

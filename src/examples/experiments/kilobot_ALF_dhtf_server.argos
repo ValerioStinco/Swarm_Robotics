@@ -6,7 +6,7 @@
     <!-- ************************* -->
     <framework>
         <system threads="0" />
-        <experiment length="1800" 
+        <experiment length="505" 
         ticks_per_second="10"/>
     </framework>
     
@@ -42,7 +42,7 @@
             mode="SERVER"
             ip_addr="0.0.0.0"
             augmented_knowledge="true"
-            random_seed="1" 
+            random_seed="2" 
             desired_num_of_areas="8"
             hard_tasks="4"
             reactivation_timer="30"
@@ -120,9 +120,9 @@
 
 
         <distribute>
-            <position method="uniform" min="-0.15,-0.15,0" max="0.15,0.15,0" />
+            <position method="uniform" min="-0.4,-0.4,0" max="0.4,0.4,0" />
             <orientation method="uniform" min="0,0,0" max="360,0,0" />
-            <entity quantity="20" max_trials="100">
+            <entity quantity="100" max_trials="100">
                 <kilobot id="kb">
                     <controller config="listener"/> <dynamics2d friction="0.7" />
                 </kilobot>
@@ -155,6 +155,7 @@
     <!-- ****************** -->
     <visualization>
         <qt-opengl>
+            <frame_grabbing directory="./server_ARK_ARGOS" base_name="server_" format="png" quality="100" headless_grabbing="false" headless_frame_size="1600x1200" headless_frame_rate="1" />
             <camera>
                 <placement idx="0" position="0.0,-0.00001,0.5" look_at="0,0,0" lens_focal_length="12"/>
                 <placement idx="1" position="0,0,1" look_at="0,0,0" lens_focal_length="12" />
